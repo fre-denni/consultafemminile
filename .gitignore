@@ -8,6 +8,7 @@ Icon
 # Kirby (version managed through CLI)
 # ---------------
 /kirby
+/vendor
 
 # Temporary files
 # ---------------
@@ -31,6 +32,11 @@ Icon
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
 # -------------SECURITY-------------
+
+
+# Staging access
+# ---------------
+.htpasswd
 
 # Cache Files
 # ---------------

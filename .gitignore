@@ -1,0 +1,59 @@
+# System files
+# ------------
+
+Icon
+.DS_Store
+.env
+
+# Kirby (version managed through CLI)
+# ---------------
+/kirby
+
+# Temporary files
+# ---------------
+
+/media/*
+!/media/index.html
+!/media/.gitkeep
+
+# Lock files
+# ---------------
+
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.vscode
+/.idea
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Cache Files
+# ---------------
+
+/site/cache/*
+!/site/cache/index.html
+!/site/cache/.gitkeep
+
+# Accounts
+# ---------------
+
+/site/accounts/*
+!/site/accounts/index.html
+!/site/accounts/.gitkeep
+
+# Sessions
+# ---------------
+
+/site/sessions/*
+!/site/sessions/index.html
+!/site/sessions/.gitkeep
+
+# License
+# ---------------
+
+/site/config/.license

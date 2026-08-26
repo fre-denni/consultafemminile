@@ -1,6 +1,11 @@
 # Kirby .htaccess
 # revision 2023-07-22
 
+AuthType Basic
+AuthName "Area riservata staging"
+AuthUserFile /web/htdocs/www.consultafemminile.org/home/staging/.htpasswd
+Require valid-user
+
 # rewrite rules
 <IfModule mod_rewrite.c>
 

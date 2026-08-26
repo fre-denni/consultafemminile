@@ -22,7 +22,7 @@ jobs:
           set ftp:ssl-force true;
           set ftp:ssl-protect-data true;
           set ssl:verify-certificate no;
-          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftps://$FTP_SERVER;
+          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
           mirror --reverse --verbose \
             --exclude-glob .git* \
             --exclude-glob content/ \

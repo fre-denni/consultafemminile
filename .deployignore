@@ -1,0 +1,11 @@
+.git/
+.github/
+.gitignore
+.editorconfig
+README.md
+content/
+site/accounts/
+site/cache/
+site/sessions/
+media/
+.htpasswd

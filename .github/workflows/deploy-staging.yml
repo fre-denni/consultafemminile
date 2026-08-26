@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to Aruba staging
+      - name: DEBUG - verifica connessione FTP
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -23,12 +23,6 @@ jobs:
           set ftp:ssl-protect-data true;
           set ssl:verify-certificate no;
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
-          mirror --reverse --verbose \
-            --exclude-glob .git* \
-            --exclude-glob content/ \
-            --exclude-glob site/accounts/ \
-            --exclude-glob site/cache/ \
-            --exclude-glob site/sessions/ \
-            --exclude-glob media/ \
-            . staging/
+          pwd;
+          ls -la;
           "

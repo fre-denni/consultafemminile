@@ -21,8 +21,8 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
-            /content/**
-            /site/accounts/**
-            /site/cache/**
-            /site/sessions/**
-            /media/**
+            content/**
+            site/accounts/**
+            site/cache/**
+            site/sessions/**
+            media/**

@@ -29,5 +29,5 @@ jobs:
             --exclude-glob site/cache/ \
             --exclude-glob site/sessions/ \
             --exclude-glob media/ \
-            . .
+            . www.consultafemminile.org/
           "

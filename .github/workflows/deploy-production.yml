@@ -1,0 +1,28 @@
+name: Deploy to Production
+
+on:
+  workflow_dispatch:      # va lanciato manualmente da GitHub, tab "Actions"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Aruba production
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: /
+          exclude: |
+            **/.git*
+            **/.git*/**
+            /content/**
+            /site/accounts/**
+            /site/cache/**
+            /site/sessions/**
+            /media/**

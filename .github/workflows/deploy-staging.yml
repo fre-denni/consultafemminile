@@ -18,17 +18,15 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
           sudo apt-get update && sudo apt-get install -y lftp
+          EXCLUDES=""
+          while IFS= read -r pattern; do
+            [ -z "$pattern" ] && continue
+            EXCLUDES="$EXCLUDES --exclude-glob $pattern"
+          done < .deployignore
           lftp -c "
           set ftp:ssl-force true;
           set ftp:ssl-protect-data true;
           set ssl:verify-certificate no;
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
-          mirror --reverse --verbose \
-            --exclude-glob .git* \
-            --exclude-glob content/ \
-            --exclude-glob site/accounts/ \
-            --exclude-glob site/cache/ \
-            --exclude-glob site/sessions/ \
-            --exclude-glob media/ \
-            . www.consultafemminile.org/staging/
+          mirror --reverse --verbose $EXCLUDES . www.consultafemminile.org/staging/
           "

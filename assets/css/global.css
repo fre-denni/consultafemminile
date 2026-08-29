@@ -1,0 +1,131 @@
+/* 
+
+   Here for root variables,
+   text variables,
+   utopian rulesets
+
+*/
+
+/* ——————————————————————————————————————— FONTS */
+
+/* ———————— VARIABLE */
+@font-face {
+  font-display: swap;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400 600 700;
+  src: local("Figtree") url("assets/font/figtree-vf-normal.woff2")
+    format("woff2") tech(variations);
+}
+
+/* ———————— FALLBACKS */
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Figtree Regular") url("assets/font/figtree-400-normal.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree Semibold";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Figtree Semibold") url("assets/font/figtree-600-normal.woff2")
+    format("woff2");
+}
+
+/* ——————————————————————————————————————— VARIABLES */
+
+:root {
+  /* ————————————————————————————— COLORS */
+
+  /* General */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.148 0.004 228.8);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.148 0.004 228.8);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.148 0.004 228.8);
+
+  --primary: oklch(0.852 0.199 91.936);
+  --primary-foreground: oklch(0.421 0.095 57.708);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.963 0.002 197.1);
+  --muted-foreground: oklch(0.56 0.021 213.5);
+  --accent: oklch(0.963 0.002 197.1);
+  --accent-foreground: oklch(0.218 0.008 223.9);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.925 0.005 214.3);
+  --input: oklch(0.925 0.005 214.3);
+  --ring: oklch(0.723 0.014 214.4);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: oklch(0.987 0.002 197.1);
+  --sidebar-foreground: oklch(0.148 0.004 228.8);
+  --sidebar-primary: oklch(0.681 0.162 75.834);
+  --sidebar-primary-foreground: oklch(0.987 0.026 102.212);
+  --sidebar-accent: oklch(0.963 0.002 197.1);
+  --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
+  --sidebar-border: oklch(0.925 0.005 214.3);
+  --sidebar-ring: oklch(0.723 0.014 214.4);
+
+  /* ————————————————————————————— SPACES */
+  /* Space 4xs-3xs: 2px → 4px */
+  --space-4xs-3xs: clamp(0.125rem, 0.0739rem + 0.2273vw, 0.25rem);
+  /* Space 3xs-2xs: 4px → 8px */
+  --space-3xs-2xs: clamp(0.25rem, 0.1923rem + 0.2564vw, 0.5rem);
+  /* Space 2xs-xs: 8px → 12px */
+  --space-2xs-xs: clamp(0.5rem, 0.4423rem + 0.2564vw, 0.75rem);
+  /* Space xs-s: 12px → 16px */
+  --space-xs-s: clamp(0.75rem, 0.6923rem + 0.2564vw, 1rem);
+  /* Space s-m: 16px → 24px */
+  --space-s-m: clamp(1rem, 0.8846rem + 0.5128vw, 1.5rem);
+  /* Space m-l: 24px → 32px */
+  --space-m-l: clamp(1.5rem, 1.3846rem + 0.5128vw, 2rem);
+  /* Space l-xl: 32px → 48px */
+  --space-l-xl: clamp(2rem, 1.7692rem + 1.0256vw, 3rem);
+  /* Space xl-2xl: 48px → 64px */
+  --space-xl-2xl: clamp(3rem, 2.7692rem + 1.0256vw, 4rem);
+  /* Space 2xl-3xl: 64px → 96px */
+  --space-2xl-3xl: clamp(4rem, 3.5385rem + 2.0513vw, 6rem);
+
+  /* ————————————————————————————— FONT */
+  --sans-regular: "Figtree Regular", Arial, Helvetica, system-ui, sans-serif;
+  --sans-semibold: "Figtree Semibold", Arial, Helvetica, system-ui, sans-serif;
+
+  @supports (font-variation-settings: normal) {
+    --sans: "Figtree", Arial, Helvetica, system-ui, sans-serif;
+    --sans-semibold: "Figtree", Arial, Helvetica, system-ui, sans-serif;
+  }
+
+  font: 400 16px var(--sans-regular);
+  font-synthesis: none;
+  font-variant-numeric: tabular-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: var(--background);
+}

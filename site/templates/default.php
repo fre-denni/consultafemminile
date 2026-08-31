@@ -1,4 +1,1 @@
-<?php snippet('header') ?>
-  <main>
-  </main>
-<?php snippet('footer') ?>
+<?php snippet('layout') ?>

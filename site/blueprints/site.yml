@@ -1,5 +1,22 @@
 title: Site
 
-sections:
+fields:
   pages:
     type: pages
+  social:
+    label: Social
+    type: structure
+    columns:
+      platform:
+        width: 1/3
+      url:
+        width: 2/3
+    fields:
+      platform:
+        label: Piattaforma
+        type: text
+        required: true
+      url:
+        label: URL
+        type: url
+        required: true

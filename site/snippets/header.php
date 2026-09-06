@@ -9,6 +9,12 @@
   <?= css('assets/css/global.css') ?>
   <?= css('@auto') ?>   
   <?= js('@auto') ?>
+  <link rel="stylesheet" href="<?= bundledAsset('main', [
+    'snippets/atoms/*.css',
+    'snippets/bits/*.css',
+    'snippets/blocks/*.css',
+    'snippets/*.css',
+  ]) ?>">
   <style>
     <?php if ($stylesheet = $slots->stylesheet()): ?>
       <?= $stylesheet ?>

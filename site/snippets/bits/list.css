@@ -1,0 +1,27 @@
+/* list element */
+
+@layer bits {
+  .list {
+    border-top: 1px solid rgba(34, 34, 34, 0.13);
+    padding-top: var(--space-xs);
+  }
+
+  .list menu {
+    list-style: none;
+  }
+
+  .list li {
+  }
+
+  .list a {
+    text-decoration: none;
+    color: var(--black-primary);
+    font-size: var(--text-sm);
+    line-height: var(--line-body);
+    text-transform: capitalize;
+  }
+
+  .list a:hover {
+    text-decoration: underline;
+  }
+}

@@ -6,6 +6,9 @@
 
 */
 
+/** Rendering order **/
+@layer base,atoms, bits, blocks, snippets;
+
 /* ——————————————————————————————————————— FONTS */
 
 /* ———————— VARIABLE */
@@ -117,7 +120,7 @@
   --radius-pill: 43px;
   --radius-full: 9999px;
 
-  /* —————————————————————————————————————————————————————————— TYPOGRAPHY */
+  /* —————————————————————————————————————————————————————————— FONT MANAGEMENT */
 
   /* DIMENSIONS */
 
@@ -171,17 +174,37 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+@layer base {
+  html,
+  body {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  background-color: var(--background);
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--white-background);
+    color: var(--black-primary);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* —————————————————————————————————————————————————————————— TYPOGRAPHY */
+
+h1 {
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
 }

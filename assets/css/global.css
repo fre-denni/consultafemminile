@@ -166,7 +166,7 @@
     --sans-semibold: "Figtree", Arial, Helvetica, system-ui, sans-serif;
   }
 
-  font: 400 16px var(--sans-regular);
+  font: 400 var(--text-body) var(--sans-regular);
   font-synthesis: none;
   font-variant-numeric: tabular-nums;
   text-rendering: optimizeLegibility;
@@ -198,13 +198,21 @@
 /* —————————————————————————————————————————————————————————— TYPOGRAPHY */
 
 h1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-display);
 }
 
 h2 {
+  font-size: var(--text-h2);
+  line-height: var(--leading-display);
 }
 
 h3 {
+  font-size: var(--text-h3);
+  line-height: var(--leading-display);
 }
 
 h4 {
+  font-size: var(--text-h4);
+  line-height: var(--leading-display);
 }

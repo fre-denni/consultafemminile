@@ -1,0 +1,14 @@
+/** FOOTER STYLES **/
+
+@layer snippets {
+  /*** da aggiungere
+    * griglia e responsiviness di base
+    * colori e stili di testo con spaziatura
+  ***/
+  .footer {
+    background-color: var(--yellow-accent);
+    color: var(--black-primary);
+    padding-block: var(--space-xl) var(--space-2xl); /* 60 → 80 top/bottom */
+    padding-inline: var(--space-xl);
+  }
+}

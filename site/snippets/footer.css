@@ -1,14 +1,118 @@
 /** FOOTER STYLES **/
-
 @layer snippets {
-  /*** da aggiungere
-    * griglia e responsiviness di base
-    * colori e stili di testo con spaziatura
-  ***/
   .footer {
-    background-color: var(--yellow-accent);
+    /* colori */
+    background: var(--yellow-primary, #fdc700);
     color: var(--black-primary);
-    padding-block: var(--space-xl) var(--space-2xl); /* 60 → 80 top/bottom */
-    padding-inline: var(--space-xl);
+    font-family: "Figtree", system-ui, sans-serif;
+
+    padding-inline: var(--space-l);
+    padding-block: var(--space-l) var(--space-xl);
+
+    /* layout desktop: colonna brand (sx) + 3 liste (dx) */
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "logo   nav1 nav2 nav3"
+      "button nav1 nav2 nav3"
+      "copy   nav1 nav2 nav3";
+    column-gap: var(--space-l);
+    row-gap: var(--space-l);
+    align-items: start;
+    min-height: 372px;
+  }
+
+  /* posizionamento dei figli diretti */
+  .footer > .logo {
+    grid-area: logo;
+  }
+  .footer > .button {
+    grid-area: button;
+  }
+  .footer > nav.list:nth-of-type(1) {
+    grid-area: nav1;
+  }
+  .footer > nav.list:nth-of-type(2) {
+    grid-area: nav2;
+  }
+  .footer > nav.list:nth-of-type(3) {
+    grid-area: nav3;
+  }
+  .footer > p {
+    grid-area: copy;
+    align-self: end;
+  }
+
+  /* ── Logo (WIP: styling minimo) ── */
+  .footer > .logo {
+    font-weight: 700;
+    font-size: var(--text-lead);
+    line-height: var(--leading-display);
+    color: var(--black-primary);
+    text-decoration: none;
+    max-width: 16rem;
+  }
+
+  /* ── Pulsante email (pill) ── */
+  .footer > .button {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start; /* non si stira a tutta larghezza */
+    gap: var(--space-3xs);
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--white-transparent, rgba(255, 255, 255, 0.5));
+    border-radius: var(--radius-full);
+    color: var(--black-primary);
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+  .footer > .button:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* ── Lista social (3ª .list): icone in riga ── */
+  .footer nav.list:last-of-type menu {
+    flex-direction: row;
+    gap: var(--space-s);
+  }
+  .footer nav.list:last-of-type a {
+    text-decoration: none;
+  }
+  .footer nav.list:last-of-type svg {
+    display: block;
+    fill: var(--black-primary);
+  }
+
+  /* ── Copyright ── */
+  .footer > p {
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+  }
+  .footer > p a {
+    color: var(--black-primary);
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .footer {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(5, auto);
+      grid-template-areas:
+        "logo   logo"
+        "button button"
+        "nav1   nav2"
+        "nav3   nav3"
+        "copy   copy";
+      min-height: 0;
+    }
+    .footer > p {
+      align-self: start;
+    }
   }
 }

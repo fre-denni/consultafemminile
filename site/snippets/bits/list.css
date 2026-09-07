@@ -9,6 +9,9 @@
 
   .list menu {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
   }
 
   .list li {
@@ -18,7 +21,7 @@
   .list a {
     text-decoration: none;
     color: var(--black-primary);
-    font-size: var(--text-sm);
+    font-size: var(--text-caption);
     line-height: var(--leading-body);
     text-transform: capitalize;
   }

@@ -2,6 +2,7 @@
 
 @layer bits {
   .list {
+    flex: 1 0 0;
     border-top: 1px solid rgba(34, 34, 34, 0.13);
     padding-top: var(--space-xs);
   }
@@ -11,13 +12,14 @@
   }
 
   .list li {
+    display: block;
   }
 
   .list a {
     text-decoration: none;
     color: var(--black-primary);
     font-size: var(--text-sm);
-    line-height: var(--line-body);
+    line-height: var(--leading-body);
     text-transform: capitalize;
   }
 

@@ -123,27 +123,16 @@
   /* —————————————————————————————————————————————————————————— FONT MANAGEMENT */
 
   /* DIMENSIONS */
-
-  /* Step -2: 11.1111px → 12.8px */
-  --text-caption: clamp(0.6944rem, 0.6701rem + 0.1083vw, 0.8rem);
-  /* Step -1: 13.3333px → 16px */
-  --text-sm: clamp(0.8333rem, 0.7949rem + 0.1709vw, 1rem);
-  /* Step 0: 16px → 20px */
-  --text-body: clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem);
-  /* Step 1: 19.2px → 25px */
-  --text-lead: clamp(1.2rem, 1.1163rem + 0.3718vw, 1.5625rem);
-  /* Step 2: 23.04px → 31.25px */
-  --text-h4: clamp(1.44rem, 1.3216rem + 0.5263vw, 1.9531rem);
-  /* Step 3: 27.648px → 39.0625px */
-  --text-h3: clamp(1.728rem, 1.5634rem + 0.7317vw, 2.4414rem);
-  /* Step 4: 33.1776px → 48.8281px */
-  --text-h2: clamp(2.0736rem, 1.8479rem + 1.0032vw, 3.0518rem);
-  /* Step 5: 39.8131px → 61.0352px */
-  --text-h1: clamp(2.4883rem, 2.1822rem + 1.3604vw, 3.8147rem);
-  /* Step 6: 57.3309px → 95.3674px */
-  --text-display: clamp(3.5832rem, 3.0346rem + 2.4382vw, 5.9605rem);
-  /* Step 8: 68.7971px → 119.2093px */
-  --text-hero: clamp(4.2998rem, 3.5727rem + 3.2316vw, 7.4506rem);
+  --text-caption: clamp(0.694rem, 0.666rem + 0.122vw, 0.813rem);
+  --text-sm: clamp(0.8rem, 0.761rem + 0.173vw, 0.969rem);
+  --text-body: clamp(0.919rem, 0.865rem + 0.237vw, 1.15rem);
+  --text-lead: clamp(1.056rem, 0.984rem + 0.321vw, 1.369rem);
+  --text-h4: clamp(1.213rem, 1.116rem + 0.429vw, 1.631rem);
+  --text-h3: clamp(1.4rem, 1.276rem + 0.551vw, 1.938rem);
+  --text-h2: clamp(1.606rem, 1.445rem + 0.718vw, 2.306rem);
+  --text-h1: clamp(1.85rem, 1.644rem + 0.917vw, 2.744rem);
+  --text-display: clamp(2.125rem, 1.861rem + 1.173vw, 3.269rem);
+  --text-hero: clamp(2.444rem, 2.111rem + 1.481vw, 3.888rem);
 
   /* LEADING */
   /* line-height */

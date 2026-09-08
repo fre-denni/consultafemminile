@@ -1,0 +1,118 @@
+/** NAV — voci di menu e pannelli espandibili **/
+@layer bits {
+  .navbar__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    list-style: none;
+  }
+
+  .navbar__item {
+    position: relative;
+  }
+
+  .navbar__link {
+    text-decoration: none;
+    color: var(--black-primary);
+  }
+
+  .navbar__toggle {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* bottone invisibile sopra il link, per intercettare hover/focus/click
+       senza duplicare il testo — da rivedere quando si scende di livello */
+    opacity: 0;
+  }
+
+  /* ── Pannello espandibile ── */
+  .navbar-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    padding: var(--space-m);
+    background: var(--white-background);
+    box-shadow: var(--shadow-md);
+    min-width: 20rem;
+  }
+
+  .navbar__item--expandable:hover .navbar-panel,
+  .navbar__item--expandable:focus-within .navbar-panel,
+  .navbar-panel[data-open="true"] {
+    display: block;
+  }
+
+  .navbar-panel__gallery {
+    display: flex;
+    gap: var(--space-s);
+    list-style: none;
+    margin-block-start: var(--space-s);
+  }
+
+  .navbar-panel__card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    text-decoration: none;
+    color: var(--black-primary);
+  }
+
+  .navbar-panel__card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .navbar {
+      display: none;
+      position: fixed;
+      inset: 0;
+    }
+
+    .navbar[data-open="true"] {
+      display: block;
+    }
+
+    .navbar__list {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* niente hover su mobile: il pannello si apre solo via data-open */
+    .navbar__item--expandable:hover .navbar-panel,
+    .navbar__item--expandable:focus-within .navbar-panel {
+      display: none;
+    }
+
+    .navbar-panel {
+      display: none;
+      position: static;
+      box-shadow: none;
+      min-width: 0;
+    }
+
+    .navbar-panel[data-open="true"] {
+      display: block;
+    }
+
+    /* mobile: solo link, niente immagini né descrizione */
+    .navbar-panel__description,
+    .navbar-panel__card img {
+      display: none;
+    }
+
+    .navbar-panel__gallery {
+      flex-direction: column;
+    }
+  }
+}

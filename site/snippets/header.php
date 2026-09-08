@@ -7,7 +7,8 @@
   <meta name="keywords" content="<?= $site->keywords() ?>">
   <title><?= $page->title() ?> | <?= $site->title() ?></title>
   <?= css('assets/css/global.css') ?>
-  <?= css('@auto') ?>   
+  <?= js('assets/js/header.js', ['defer' => true]) ?>
+  <?= css('@auto') ?>
   <?= js('@auto') ?>
   <link rel="stylesheet" href="<?= bundledAsset('main', [
     'snippets/atoms/*.css',
@@ -27,14 +28,52 @@
   </script>
 </head>
 <body>
-  <header class="header">
-    <a href="<?= $site->url() ?>" class="logo"><?= $site->title() ?></a>
-    <nav class="navbar">
-      <?php foreach($site->children()->listed() as $item): ?>
-        <li><a href="<?= $item->url() ?>"><?= $item->title() ?></a></li>
-      <?php endforeach ?>
-      <!-- Add search -->
-    </nav>
-  </header>
 
-<!-- andrebbe un if/else con versione mobile/desktop se non riesco a farlo da me -->
+  <?php
+  // ————————————————————————————————————————————————————— DATI NAV
+
+  // Voci di primo livello (menu principale)
+  $navItems = $site->children()->listed();
+
+  //secondo livello
+  $tematiche = $site->find('tematiche');
+  $chiSiamo = $site->find(
+    'chi-siamo/persone',
+    'chi-siamo/associazioni',
+    'chi-siamo/timeline',
+    // aggiungi contatti
+    'statuto',
+  );
+
+  // Config dei pannelli, indicizzata per slug della pagina di primo livello.
+  // Una voce senza pannello resta un semplice link.
+  $navPanels = [
+    'tematiche' => [
+      'description' => $tematiche?->description(),
+      'items'       => $tematiche?->children()->limit(4),
+      'cta'         => $tematiche,
+    ],
+    'chi-siamo' => [
+      'items' => $chiSiamo,
+    ],
+  ];
+  ?>
+
+  <header class="header">
+    <a href="<?= $site->url() ?>" class="header__logo"><?= $site->title() ?></a>
+
+    <button
+      type="button"
+      class="header__menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <span class="header__menu-icon" aria-hidden="true"></span>
+      <span class="sr-only">Apri il menu</span>
+    </button>
+
+    <?php snippet('bits/nav', [
+      'items'  => $navItems,
+      'panels' => $navPanels,
+    ]) ?>
+  </header>

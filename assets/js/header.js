@@ -57,45 +57,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ——————————————————————————————————————————————————
-  // Logica "Intent Hover" per Desktop
+  // Logica "Intent Hover" Avanzata per Desktop
   // ——————————————————————————————————————————————————
-  const expandableItems = header.querySelectorAll(".navbar__item--expandable");
+
+  // Selezioniamo TUTTI i link della navbar, non solo quelli espandibili
+  const allNavItems = header.querySelectorAll(".navbar__item");
+  const navList = header.querySelector(".navbar__list");
   let desktopHoverTimeout;
 
-  expandableItems.forEach((item) => {
-    const link = item.querySelector(".navbar__link");
-    const panel = document.getElementById(link.getAttribute("aria-controls"));
-
-    if (!link || !panel) return;
-
-    // Quando il mouse entra nel container (link + pannello)
+  allNavItems.forEach((item) => {
+    // Quando entri in un link qualsiasi (es. sia "Chi siamo" che "La nostra storia")
     item.addEventListener("mouseenter", () => {
       if (isMobile()) return;
 
-      // 1. Cancella la chiusura in corso (se stavi uscendo ma ci hai ripensato)
+      // 1. Ferma subito la chiusura ritardata
       clearTimeout(desktopHoverTimeout);
 
-      // 2. Chiudi immediatamente tutti gli altri sottomenu
+      // 2. Chiudi tutti i pannelli (fondamentale quando passi su "La nostra storia")
       closeAllPanels();
 
-      // 3. Apri questo sottomenu
-      panel.dataset.open = "true";
-      link.setAttribute("aria-expanded", "true");
-    });
-
-    // Quando il mouse esce dal container
-    item.addEventListener("mouseleave", () => {
-      if (isMobile()) return;
-
-      // Ritardiamo la chiusura di 150ms.
-      // Se vai su un altro link, il mouseenter dell'altro link annullerà questo timer.
-      // Se stai solo muovendo il mouse verso il basso, ti perdona le sbavature.
-      desktopHoverTimeout = setTimeout(() => {
-        panel.dataset.open = "false";
-        link.setAttribute("aria-expanded", "false");
-      }, 150);
+      // 3. Se questo specifico item ha un sottomenu, aprilo
+      const link = item.querySelector(".navbar__link");
+      if (link && link.hasAttribute("aria-controls")) {
+        const panel = document.getElementById(
+          link.getAttribute("aria-controls"),
+        );
+        if (panel) {
+          panel.dataset.open = "true";
+          link.setAttribute("aria-expanded", "true");
+        }
+      }
     });
   });
+
+  // Il mouseleave non lo facciamo più sul singolo link, ma sull'INTERO menu (ul).
+  // Finché il mouse viaggia tra un link e l'altro, o scende nel pannello,
+  // non fai mai mouseleave dalla navbar__list.
+  if (navList) {
+    navList.addEventListener("mouseleave", () => {
+      if (isMobile()) return;
+
+      // Parte il timer solo se esci completamente dall'ecosistema della navbar
+      desktopHoverTimeout = setTimeout(() => {
+        closeAllPanels();
+      }, 150);
+    });
+  }
 
   // Esc chiude tutto
   document.addEventListener("keydown", (event) => {

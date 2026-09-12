@@ -3,14 +3,24 @@
   .navbar__list {
     display: flex;
     align-items: center;
-    gap: var(--space-m);
+    /* gap rimosso per eliminare le "zone morte" tra i link e unire le aree interattive */
     list-style: none;
+  }
+
+  .navbar__item {
+    display: block;
+    border-bottom: 1px solid var(--border);
   }
 
   .navbar__link {
     display: inline-flex;
     align-items: center;
     gap: var(--space-3xs);
+
+    /* Padding sostituito al gap per unire le hit-area invisibili e rendere fluido il passaggio del mouse */
+    padding-inline: calc(var(--space-m) / 2);
+    padding-block: var(--space-xs);
+
     font-size: var(--text-sm);
     text-decoration: none;
     color: var(--black-primary);
@@ -151,7 +161,6 @@
     .navbar__list {
       flex-direction: column;
       align-items: stretch;
-      gap: 0;
     }
 
     .navbar__item {
@@ -161,7 +170,11 @@
     .navbar__link {
       justify-content: space-between;
       width: 100%;
+
+      /* Resettiamo il padding orizzontale inserito su desktop, su mobile ci pensa il container */
+      padding-inline: 0;
       padding-block: var(--space-s);
+
       font-size: var(--text-lead);
     }
 

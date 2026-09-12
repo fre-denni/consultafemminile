@@ -6,17 +6,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: var(--space-l);
-    padding-block: var(--space-s);
-    background: var(--white-foreground);
-    border-bottom: 1px solid var(--border);
+
+    /* Figma: px 60 / py 12 */
+    padding-inline: var(--space-xl);
+    padding-block: var(--space-xs);
+
+    /* Figma: barra "vetro" invece del fondo pieno */
+    background: var(--overlay-light-background);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
   }
 
   .header__logo {
     font-family: var(--sans-semibold);
     font-weight: 700;
-    font-size: var(--text-body);
-    line-height: var(--leading-snug);
+
+    /* Figma: logo 27.6→31 (text-h3), interlinea compatta */
+    font-size: var(--text-h3);
+    line-height: var(--leading-display);
+
     text-decoration: none;
     color: var(--black-primary);
   }
@@ -26,8 +34,12 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2rem;
-    height: 2rem;
+
+    /* Figma: target 44px con angoli --radius-md */
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+
     padding: 0;
     background: none;
     border: none;
@@ -47,7 +59,8 @@
   .header__menu-icon {
     display: block;
     position: relative;
-    width: 100%;
+    /* icona ~24px centrata nel target da 44px */
+    width: 1.5rem;
     height: 2px;
   }
 
@@ -63,7 +76,6 @@
   .header__menu-icon::before {
     top: -6px;
   }
-
   .header__menu-icon::after {
     top: 6px;
   }
@@ -72,12 +84,10 @@
   .header:has(.navbar[data-open="true"]) .header__menu-icon {
     background: transparent;
   }
-
   .header:has(.navbar[data-open="true"]) .header__menu-icon::before {
     top: 0;
     transform: rotate(45deg);
   }
-
   .header:has(.navbar[data-open="true"]) .header__menu-icon::after {
     top: 0;
     transform: rotate(-45deg);

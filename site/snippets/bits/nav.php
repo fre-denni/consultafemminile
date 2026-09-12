@@ -9,31 +9,24 @@
 
     <?php foreach ($items as $item): ?>
       <?php $panel = $panels[$item->slug()] ?? null ?>
+      <?php $panelId = 'navbar-panel-' . $item->slug() ?>
 
       <li class="navbar__item<?= $panel ? ' navbar__item--expandable' : '' ?>">
 
         <a
           href="<?= $item->url() ?>"
           class="navbar__link"
+          <?= $panel ? 'aria-expanded="false" aria-controls="' . $panelId . '"' : '' ?>
           <?= $item->isOpen() ? 'aria-current="page"' : '' ?>
-        ><?= html($item->title()) ?></a>
+        >
+          <?= html($item->title()) ?>
+          <?php if ($panel): ?>
+            <span class="navbar__chevron" aria-hidden="true"></span>
+          <?php endif ?>
+        </a>
 
         <?php if ($panel): ?>
-
-          <button
-            type="button"
-            class="navbar__toggle"
-            aria-expanded="false"
-            aria-controls="navbar-panel-<?= $item->slug() ?>"
-          >
-            <span class="sr-only">Mostra <?= html($item->title()) ?></span>
-          </button>
-
-          <div
-            id="navbar-panel-<?= $item->slug() ?>"
-            class="navbar-panel"
-            data-open="false"
-          >
+          <div id="<?= $panelId ?>" class="navbar-panel" data-open="false">
             <?php if (($panel['description'] ?? null)?->isNotEmpty()): ?>
               <p class="navbar-panel__description"><?= $panel['description'] ?></p>
             <?php endif ?>
@@ -43,7 +36,7 @@
                 <?php foreach ($panel['items'] as $sub): ?>
                   <li>
                     <a href="<?= $sub->url() ?>" class="navbar-panel__card">
-                      <?php if ($image = $sub->file('heroshot.png')): ?>
+                      <?php if ($image = $sub->file('cover.png')): ?>
                         <img src="<?= $image->url() ?>" alt="" loading="lazy">
                       <?php endif ?>
                       <span><?= html($sub->title()) ?></span>
@@ -54,28 +47,15 @@
             <?php endif ?>
 
             <?php if ($panel['cta'] ?? null): ?>
-              <a href="<?= $panel['cta']->url() ?>" class="navbar-panel__cta button">
+              <a href="<?= $panel['cta']->url() ?>" class="navbar-panel__cta">
                 Scopri di più ›
               </a>
             <?php endif ?>
           </div>
-
         <?php endif ?>
 
       </li>
     <?php endforeach ?>
-
-    <li class="navbar__item navbar__item--search">
-      <button type="button" class="navbar__search-toggle">
-        <span class="sr-only">Cerca</span>
-      </button>
-      <!-- TODO: form di ricerca, fuori scope per questo passaggio -->
-    </li>
-
-    <li class="navbar__item navbar__item--lang">
-      <a href="#" class="navbar__lang">IT</a>
-      <!-- TODO: switcher lingua, da collegare quando il multilang sarà attivo -->
-    </li>
 
   </ul>
 </nav>

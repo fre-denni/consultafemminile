@@ -7,60 +7,107 @@
     list-style: none;
   }
 
-  .navbar__item {
-    position: relative;
-  }
-
   .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    font-size: var(--text-sm);
     text-decoration: none;
     color: var(--black-primary);
   }
 
-  .navbar__toggle {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    /* bottone invisibile sopra il link, per intercettare hover/focus/click
-       senza duplicare il testo — da rivedere quando si scende di livello */
-    opacity: 0;
+  /* Chevron: visibile solo su mobile (vedi media query sotto) */
+  .navbar__chevron {
+    display: none;
   }
 
-  /* ── Pannello espandibile ── */
+  /* ── Sottolineatura per TUTTI i link (con e senza sottomenu) ── */
+  /* Si attiva se fai hover, oppure se il suo sottomenu è aperto via JS */
+  .navbar__item:hover .navbar__link,
+  .navbar__link[aria-expanded="true"] {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* ── Pannello espandibile (mega-menu) - Configurazione Desktop ── */
   .navbar-panel {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; /* Impedisce i click quando è invisibile */
+    transform: translateY(
+      -5px
+    ); /* Spostamento ridotto per renderlo più "scattante" */
+
     position: absolute;
     top: 100%;
     left: 0;
+    width: 100%;
     z-index: 10;
-    padding: var(--space-m);
-    background: var(--white-background);
+    padding: var(--space-l);
+    background: var(--white-foreground);
+    border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
-    min-width: 20rem;
+
+    /* CHIUSURA: L'animazione in uscita è rapidissima (0.1s) per evitare sovrapposizioni visive */
+    transition:
+      opacity 0.1s ease,
+      transform 0.1s ease,
+      visibility 0.1s;
   }
 
-  .navbar__item--expandable:hover .navbar-panel,
-  .navbar__item--expandable:focus-within .navbar-panel,
+  /* Il "ponte" invisibile essenziale per mantenere l'hover attivo tra link e pannello */
+  .navbar-panel::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background: transparent;
+  }
+
   .navbar-panel[data-open="true"] {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+
+    /* APERTURA: L'animazione in entrata è più morbida (0.3s) */
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0.3s;
+  }
+
+  /* ── Stili interni del Pannello ── */
+  .navbar-panel__description {
+    max-width: 46rem;
+    margin-inline: auto;
+    margin-block-end: var(--space-m);
+    text-align: center;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
   }
 
   .navbar-panel__gallery {
     display: flex;
-    gap: var(--space-s);
+    justify-content: center;
+    gap: var(--space-m);
     list-style: none;
-    margin-block-start: var(--space-s);
+  }
+
+  .navbar-panel__gallery > li {
+    flex: 1 1 0;
+    max-width: 16rem;
   }
 
   .navbar-panel__card {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3xs);
+    gap: var(--space-2xs);
     text-decoration: none;
     color: var(--black-primary);
+    text-align: center;
   }
 
   .navbar-panel__card img {
@@ -68,15 +115,33 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
+  }
+
+  .navbar-panel__cta {
+    display: table; /* si restringe al contenuto pur restando block-level */
+    margin: var(--space-m) auto 0;
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--blue-primary);
+    color: var(--white-background);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
   }
 
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .navbar {
       display: none;
-      position: fixed;
-      inset: 0;
+      position: absolute; /* Invece di fixed */
+      top: 100%; /* Si aggancia al fondo dell'header */
+      left: 0;
+      right: 0;
+      /* Mantiene l'altezza corretta usando la tua variabile JS: */
+      height: calc(100vh - var(--header-height, 4.5rem));
+      overflow-y: auto;
+      background: var(--white-background);
+      padding: var(--space-l);
     }
 
     .navbar[data-open="true"] {
@@ -86,23 +151,67 @@
     .navbar__list {
       flex-direction: column;
       align-items: stretch;
+      gap: 0;
     }
 
-    /* niente hover su mobile: il pannello si apre solo via data-open */
-    .navbar__item--expandable:hover .navbar-panel,
-    .navbar__item--expandable:focus-within .navbar-panel {
-      display: none;
+    .navbar__item {
+      border-bottom: 1px solid var(--border);
     }
 
+    .navbar__link {
+      justify-content: space-between;
+      width: 100%;
+      padding-block: var(--space-s);
+      font-size: var(--text-lead);
+    }
+
+    .navbar__chevron {
+      display: block;
+      flex-shrink: 0;
+      width: 0.6em;
+      height: 0.6em;
+      border-right: 2px solid var(--black-primary);
+      border-bottom: 2px solid var(--black-primary);
+      transform: rotate(45deg);
+      transition: transform 150ms ease;
+    }
+
+    .navbar__item--expandable:has(.navbar__link[aria-expanded="true"])
+      .navbar__chevron {
+      transform: rotate(-135deg);
+    }
+
+    /* ── Mobile: Sovrascrittura Pannello per l'effetto Fisarmonica ── */
     .navbar-panel {
-      display: none;
       position: static;
+      width: auto;
+      background: none;
+      border-bottom: none;
       box-shadow: none;
-      min-width: 0;
+
+      /* Disattiviamo il transform del desktop */
+      transform: none;
+
+      /* Setup per l'animazione a tendina */
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden; /* Nasconde il contenuto che sborda */
+      padding: 0; /* Animiamo anche il padding per non avere "scatti" */
+      visibility: hidden;
+
+      /* Transizione morbida di mezzo secondo (0.5s) */
+      transition:
+        max-height 0.5s ease-in-out,
+        opacity 0.4s ease-in-out,
+        padding 0.4s ease-in-out,
+        visibility 0.5s;
     }
 
     .navbar-panel[data-open="true"] {
-      display: block;
+      max-height: 800px; /* Un valore limite abbastanza grande da contenere i link */
+      opacity: 1;
+      padding: 0 0 var(--space-s);
+      visibility: visible;
     }
 
     /* mobile: solo link, niente immagini né descrizione */
@@ -113,6 +222,29 @@
 
     .navbar-panel__gallery {
       flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .navbar-panel__gallery > li {
+      max-width: none;
+    }
+
+    .navbar-panel__card {
+      flex-direction: row;
+      text-align: left;
+      padding-block: var(--space-2xs);
+    }
+
+    .navbar-panel__cta {
+      display: block;
+      margin: var(--space-2xs) 0 0;
+      padding: var(--space-2xs) 0;
+      background: none;
+      color: var(--black-primary);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      border-radius: 0;
     }
   }
 }

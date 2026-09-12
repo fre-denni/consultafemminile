@@ -1,14 +1,22 @@
 /** HEADER — layout del contenitore, logo, bottone hamburger **/
 @layer snippets {
   .header {
+    position: relative;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-inline: var(--space-l);
     padding-block: var(--space-s);
+    background: var(--white-foreground);
+    border-bottom: 1px solid var(--border);
   }
 
   .header__logo {
+    font-family: var(--sans-semibold);
+    font-weight: 700;
+    font-size: var(--text-body);
+    line-height: var(--leading-snug);
     text-decoration: none;
     color: var(--black-primary);
   }
@@ -26,12 +34,21 @@
     cursor: pointer;
   }
 
+  .header__menu-icon,
+  .header__menu-icon::before,
+  .header__menu-icon::after {
+    background: var(--black-primary);
+    transition:
+      transform 150ms ease,
+      opacity 150ms ease,
+      top 150ms ease;
+  }
+
   .header__menu-icon {
     display: block;
     position: relative;
     width: 100%;
     height: 2px;
-    background: var(--black-primary);
   }
 
   .header__menu-icon::before,
@@ -41,7 +58,6 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--black-primary);
   }
 
   .header__menu-icon::before {
@@ -50,6 +66,21 @@
 
   .header__menu-icon::after {
     top: 6px;
+  }
+
+  /* hamburger -> X quando il menu mobile è aperto */
+  .header:has(.navbar[data-open="true"]) .header__menu-icon {
+    background: transparent;
+  }
+
+  .header:has(.navbar[data-open="true"]) .header__menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .header:has(.navbar[data-open="true"]) .header__menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
 
   /* Utility condivisa anche da nav.php (bottoni di toggle, ecc.) */

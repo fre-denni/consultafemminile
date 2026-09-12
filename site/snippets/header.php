@@ -35,14 +35,22 @@
   // Voci di primo livello (menu principale)
   $navItems = $site->children()->listed();
 
+  // 1. Peschiamo la timeline (che fisicamente è una sottopagina) 
+  // e l'aggiungiamo alla collection del menu principale
+  $timeline = $site->find('chi-siamo/timeline');
+  if ($timeline) {
+      $navItems = $navItems->add($timeline);
+  }
+
   //secondo livello
   $tematiche = $site->find('tematiche');
+  $chiSiamoPage = $site->find('chi-siamo');
+
   $chiSiamo = $site->find(
     'chi-siamo/persone',
     'chi-siamo/associazioni',
-    'chi-siamo/timeline',
-    // aggiungi contatti
     'statuto',
+    'chi-siamo/contatti'
   );
 
   // Config dei pannelli, indicizzata per slug della pagina di primo livello.
@@ -55,6 +63,7 @@
     ],
     'chi-siamo' => [
       'items' => $chiSiamo,
+      'cta'   => $chiSiamoPage,
     ],
   ];
   ?>

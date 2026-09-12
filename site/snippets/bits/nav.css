@@ -8,8 +8,7 @@
   }
 
   .navbar__item {
-    display: block;
-    border-bottom: 1px solid var(--border);
+    display: flex; /* Assicura che l'item riempia lo spazio per la cattura dell'hover */
   }
 
   .navbar__link {
@@ -164,6 +163,7 @@
     }
 
     .navbar__item {
+      display: block;
       border-bottom: 1px solid var(--border);
     }
 

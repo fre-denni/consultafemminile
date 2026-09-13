@@ -108,7 +108,7 @@
   }
 
   /* Mobile: di default solo icona, testo compare quando il menu è aperto */
-  @media (max-width: 1054px) {
+  @media (max-width: 768px) {
     .header__menu-toggle {
       display: inline-flex;
     }

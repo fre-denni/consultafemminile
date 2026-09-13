@@ -36,8 +36,6 @@
   .header__logo {
     font-family: var(--sans-semibold);
     font-weight: 700;
-
-    /* Figma: logo 27.6→31 (text-h3), interlinea compatta */
     font-size: var(--text-lead);
     line-height: var(--leading-display);
 

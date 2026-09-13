@@ -147,8 +147,8 @@
 
       /* Stesso "vetro" di header e pannello desktop, per coerenza scrollando */
       background: var(--overlay-light-glass);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
 
       /* Figma: righe con padding orizzontale ≈ 30 (--space-m) */
       padding: var(--space-s) var(--space-m);

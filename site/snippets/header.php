@@ -35,7 +35,7 @@
   // Voci di primo livello (menu principale)
   $navItems = $site->children()->listed();
 
-  // 1. Peschiamo la timeline (che fisicamente è una sottopagina) 
+  // 1. Peschiamo la timeline (che fisicamente è una sottopagina)
   // e l'aggiungiamo alla collection del menu principale
   $timeline = $site->find('chi-siamo/timeline');
   if ($timeline) {
@@ -69,7 +69,7 @@
   ?>
 
   <header class="header">
-    <a href="<?= $site->url() ?>" class="header__logo"><?= $site->title() ?></a>
+    <?php snippet('atoms/logo', ['type' => 'esteso']) ?>
 
     <button
       type="button"

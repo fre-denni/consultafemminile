@@ -1,0 +1,49 @@
+/** LOGO (atom) — icona + wordmark, tre varianti **/
+@layer atoms {
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    text-decoration: none;
+    color: var(--black-primary);
+    font-size: var(--text-lead);
+    line-height: var(--leading-display);
+  }
+
+  .logo__icon {
+    display: block;
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: auto;
+  }
+
+  .logo__icon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* I due span del wordmark: pesi/font diversi come da convenzione,
+     ma restano testo inline — vanno a capo naturalmente quando lo spazio
+     disponibile si restringe (es. nel footer), senza bisogno di forzare
+     un layout a colonna qui. */
+  .logo__text-primary {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+  }
+
+  .logo__text-secondary {
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  /* ── Variante "logo": solo icona ── */
+  .logo--logo .logo__text {
+    display: none;
+  }
+
+  /* ── Variante "tipografia": solo testo, niente icona ── */
+  .logo--tipografia .logo__icon {
+    display: none;
+  }
+}

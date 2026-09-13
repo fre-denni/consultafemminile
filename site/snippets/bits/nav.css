@@ -17,7 +17,7 @@
 
     padding-inline: calc(var(--space-m) / 2);
     padding-block: var(--space-xs);
-    font-size: var(--text-caption);
+    font-size: var(--text-body);
     text-decoration: none;
     color: var(--black-primary);
   }
@@ -30,6 +30,12 @@
   .navbar__link[aria-expanded="true"] {
     text-decoration: underline;
     text-underline-offset: 0.2em;
+  }
+
+  /* Figma: la voce con pannello aperto passa a semibold, oltre a sottolineata */
+  .navbar__link[aria-expanded="true"] {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
   }
 
   .navbar-panel {
@@ -46,9 +52,9 @@
     padding: var(--space-l);
 
     /* Stesso "vetro" dell'header: sfondo semitrasparente + blur */
-    background: var(--overlay-light-glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--overlay-light-background);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
 
@@ -87,7 +93,7 @@
     margin-inline: auto;
     margin-block-end: var(--space-m);
     text-align: center;
-    font-size: var(--text-body);
+    font-size: var(--text-h4);
     line-height: var(--leading-body);
   }
 
@@ -110,7 +116,7 @@
     text-decoration: none;
     color: var(--black-primary);
     text-align: center;
-    font-size: var(--text-body);
+    font-size: var(--text-h4);
   }
 
   .navbar-panel__card img {
@@ -135,7 +141,7 @@
   }
 
   /* ── Mobile ── */
-  @media (max-width: 1054px) {
+  @media (max-width: 768px) {
     .navbar {
       display: none;
       position: absolute;
@@ -146,9 +152,9 @@
       overflow-y: auto;
 
       /* Stesso "vetro" di header e pannello desktop, per coerenza scrollando */
-      background: var(--overlay-light-glass);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: var(--overlay-light-background);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
 
       /* Figma: righe con padding orizzontale ≈ 30 (--space-m) */
       padding: var(--space-s) var(--space-m);

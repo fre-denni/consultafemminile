@@ -3,12 +3,11 @@
   .navbar__list {
     display: flex;
     align-items: center;
-    /* gap rimosso per eliminare le "zone morte" tra i link e unire le aree interattive */
     list-style: none;
   }
 
   .navbar__item {
-    display: flex; /* Assicura che l'item riempia lo spazio per la cattura dell'hover */
+    display: flex;
   }
 
   .navbar__link {
@@ -16,29 +15,23 @@
     align-items: center;
     gap: var(--space-3xs);
 
-    /* Padding sostituito al gap per unire le hit-area invisibili (≈ --space-m tra i link) */
     padding-inline: calc(var(--space-m) / 2);
     padding-block: var(--space-xs);
-
-    /* Figma: link nav 14.7 → --text-body */
-    font-size: var(--text-body);
+    font-size: var(--text-caption);
     text-decoration: none;
     color: var(--black-primary);
   }
 
-  /* Chevron: visibile solo su mobile (vedi media query sotto) */
   .navbar__chevron {
     display: none;
   }
 
-  /* ── Sottolineatura per TUTTI i link (con e senza sottomenu) ── */
   .navbar__item:hover .navbar__link,
   .navbar__link[aria-expanded="true"] {
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
 
-  /* ── Pannello espandibile (mega-menu) - Desktop ── */
   .navbar-panel {
     visibility: hidden;
     opacity: 0;
@@ -52,10 +45,10 @@
     z-index: 10;
     padding: var(--space-l);
 
-    /* Figma: pannello a "vetro" coerente con la barra */
-    background: var(--overlay-light-background);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    /* Stesso "vetro" dell'header: sfondo semitrasparente + blur */
+    background: var(--overlay-light-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
 
@@ -142,7 +135,7 @@
   }
 
   /* ── Mobile ── */
-  @media (max-width: 768px) {
+  @media (max-width: 1054px) {
     .navbar {
       display: none;
       position: absolute;
@@ -152,8 +145,8 @@
       height: calc(100vh - var(--header-height, 4.5rem));
       overflow-y: auto;
 
-      /* Figma: overlay "vetro" a tutto schermo */
-      background: var(--overlay-light-background);
+      /* Stesso "vetro" di header e pannello desktop, per coerenza scrollando */
+      background: var(--overlay-light-glass);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
 

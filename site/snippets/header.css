@@ -1,20 +1,36 @@
 /** HEADER — layout del contenitore, logo, bottone hamburger **/
 @layer snippets {
   .header {
-    position: relative;
+    position: fixed;
+    width: 100%;
+    top: 0;
     z-index: 999;
+    /* contiene lo stacking context del ::before qui sotto, così lo
+       z-index negativo resta confinato dentro l'header */
+    isolation: isolate;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    /* Figma: px 60 / py 12 */
     padding-inline: var(--space-xl);
     padding-block: var(--space-xs);
+  }
 
-    /* Figma: barra "vetro" invece del fondo pieno */
-    background: var(--overlay-light-background);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+  /* Lo sfondo "vetro" vive su uno pseudo-elemento invece che sull'header
+     stesso: su elementi position:sticky, backdrop-filter smette spesso di
+     funzionare per come i browser li compositano durante lo scroll. Un
+     ::before assolutamente posizionato (non sticky) non ha questo
+     problema, ed è visivamente identico. Stesso stile "vetro" usato anche
+     dal pannello nav e dall'overlay mobile, per coerenza scrollando. */
+  .header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--overlay-light-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .header__logo {
@@ -22,7 +38,7 @@
     font-weight: 700;
 
     /* Figma: logo 27.6→31 (text-h3), interlinea compatta */
-    font-size: var(--text-h3);
+    font-size: var(--text-lead);
     line-height: var(--leading-display);
 
     text-decoration: none;
@@ -104,7 +120,7 @@
   }
 
   /* ── Mobile ── */
-  @media (max-width: 768px) {
+  @media (max-width: 1054px) {
     .header__menu-toggle {
       display: inline-flex;
     }

@@ -90,12 +90,17 @@
   .footer > p {
     margin: 0;
     font-size: var(--text-caption);
+    font-family: var(--sans-semibold);
     line-height: var(--leading-body);
   }
   .footer > p a {
     color: var(--black-primary);
     text-decoration: underline;
     text-underline-position: from-font;
+  }
+
+  .footer > p a:hover {
+    font-weight: 700;
   }
 
   /* ── Mobile ── */

@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
   setHeaderHeightVar();
   window.addEventListener("resize", setHeaderHeightVar);
 
+  // Logo desktop: da "esteso" a "solo icona" una volta scrollato (vedi
+  // header.css, che sovrascrive .logo__text in base a [data-scrolled]).
+  const setScrolledState = () => {
+    header.dataset.scrolled = String(window.scrollY > 0);
+  };
+  setScrolledState();
+  window.addEventListener("scroll", setScrolledState, { passive: true });
+
   const closeAllPanels = () => {
     expandableLinks.forEach((link) => {
       const panel = document.getElementById(link.getAttribute("aria-controls"));

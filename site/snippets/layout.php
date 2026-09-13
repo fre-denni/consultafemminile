@@ -1,7 +1,16 @@
-<?php snippet('header') ?>
-  <?php snippet('main', slots: true) ?>
-    <?php slot() ?>
-    <h1><?= $site->Payoff() ?></h1>
-    <?php endslot() ?>
-  <?php endsnippet() ?>
+<?php snippet('header', slots: true) ?>
+  <?php slot('stylesheet')?>
+    <?= $slots->stylesheet() ?>
+  <?php endslot() ?>
+  <?php slot('scripts')?>
+    <?= $slots->scripts() ?>
+  <?php endslot() ?>
+<?php endsnippet() ?>
+
+<?php snippet('main', slots: true) ?>
+  <?php slot() ?>
+    <?= $slot ?>
+  <?php endslot() ?>
+<?php endsnippet() ?>
+
 <?php snippet('footer') ?>

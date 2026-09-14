@@ -35,12 +35,7 @@
               <ul class="navbar-panel__gallery">
                 <?php foreach ($panel['items'] as $sub): ?>
                   <li>
-                    <a href="<?= $sub->url() ?>" class="navbar-panel__card">
-                      <?php if ($image = $sub->file('cover.png')): ?>
-                        <img src="<?= $image->url() ?>" alt="" loading="lazy">
-                      <?php endif ?>
-                      <span><?= html($sub->title()) ?></span>
-                    </a>
+                    <?php snippet('bits/header-thumbnail', ['page' => $sub]) ?>
                   </li>
                 <?php endforeach ?>
               </ul>

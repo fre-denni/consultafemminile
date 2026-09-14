@@ -109,25 +109,6 @@
     max-width: 16rem;
   }
 
-  .navbar-panel__card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xs);
-    text-decoration: none;
-    color: var(--black-primary);
-    text-align: center;
-    font-size: var(--text-sm);
-  }
-
-  .navbar-panel__card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    /* Figma: card rounded 12 */
-    border-radius: var(--radius-xl);
-  }
-
   .navbar-panel__cta {
     display: table;
     margin: var(--space-m) auto 0;
@@ -234,9 +215,8 @@
       visibility: visible;
     }
 
-    /* mobile: solo link, niente immagini né descrizione */
-    .navbar-panel__description,
-    .navbar-panel__card img {
+    /* mobile: solo link, niente descrizione (l'immagine la nasconde header-thumbnail.css) */
+    .navbar-panel__description {
       display: none;
     }
 
@@ -248,13 +228,6 @@
 
     .navbar-panel__gallery > li {
       max-width: none;
-    }
-
-    .navbar-panel__card {
-      flex-direction: row;
-      justify-content: flex-end;
-      text-align: right;
-      padding-block: var(--space-2xs);
     }
 
     .navbar-panel__cta {

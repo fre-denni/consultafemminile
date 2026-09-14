@@ -1,5 +1,10 @@
 <?php
+
 return [
   'debug' => true,
-  'license' => 'da-attivare'
+  'license' => 'da-attivare',
+  'thumbs' => [
+    'driver'  => 'gd',
+    'quality' => 80,
+  ],
 ];

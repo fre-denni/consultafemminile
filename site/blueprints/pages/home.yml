@@ -1,0 +1,34 @@
+title: Home
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          text:
+            label: Contenuto
+            type: blocks
+            fieldsets:
+              - titlepage
+              - paragraph
+              - divider
+              - heading
+              - text
+              - list
+              - quote
+              - line
+  sidebar:
+    width: 1/3
+    sections:
+      video:
+        label: Video di presentazione
+        type: files
+        template: video
+        max: 1
+      pages:
+        type: pages
+        template: default
+      files:
+        type: files

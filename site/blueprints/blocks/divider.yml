@@ -1,0 +1,18 @@
+name: Divisore di sezione
+icon: line
+fields:
+  style:
+    label: Stile
+    type: toggles
+    default: chapter
+    options:
+      - value: chapter
+        text: Capitolo
+      - value: section
+        text: Sezione
+      - value: banner
+        text: Banner
+  heading:
+    label: Testo
+    type: text
+    required: true

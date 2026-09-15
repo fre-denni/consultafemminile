@@ -186,22 +186,66 @@
 
 /* —————————————————————————————————————————————————————————— TYPOGRAPHY */
 
-h1 {
-  font-size: var(--text-h1);
-  line-height: var(--leading-display);
-}
+/* Nel layer base così i componenti (atoms/bits/blocks/snippets) possono
+   sempre sovrascriverle — una regola fuori da @layer avrebbe la priorità
+   più alta in assoluto e vincerebbe su qualunque selettore più specifico
+   dentro i layer successivi, a prescindere dalla specificità. */
+@layer base {
+  h1 {
+    font-size: var(--text-h1);
+    line-height: var(--leading-display);
+  }
 
-h2 {
-  font-size: var(--text-h2);
-  line-height: var(--leading-display);
-}
+  h2 {
+    font-size: var(--text-h2);
+    line-height: var(--leading-display);
+  }
 
-h3 {
-  font-size: var(--text-h3);
-  line-height: var(--leading-display);
-}
+  h3 {
+    font-size: var(--text-h3);
+    line-height: var(--leading-display);
+  }
 
-h4 {
-  font-size: var(--text-h4);
-  line-height: var(--leading-display);
+  h4 {
+    font-size: var(--text-h4);
+    line-height: var(--leading-display);
+  }
+
+  h5,
+  h6 {
+    font-size: var(--text-lead);
+    line-height: var(--leading-heading);
+  }
+
+  /* Testo prodotto dai blocchi Kirby di default (text, quote, list) */
+  p,
+  ul,
+  ol {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 1.25em;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  blockquote {
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
+    font-style: italic;
+    border-inline-start: 3px solid var(--blue-primary);
+    padding-inline-start: var(--space-m);
+  }
+
+  blockquote footer {
+    margin-block-start: var(--space-2xs);
+    font-size: var(--text-sm);
+    font-style: normal;
+    color: var(--black-secondary);
+  }
 }

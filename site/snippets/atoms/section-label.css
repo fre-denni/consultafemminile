@@ -1,0 +1,11 @@
+/** SECTION-LABEL (atom) — etichetta piccola maiuscola con tracking, es. "Chi siamo" **/
+@layer atoms {
+  .section-label {
+    display: inline-block;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--black-primary);
+  }
+}

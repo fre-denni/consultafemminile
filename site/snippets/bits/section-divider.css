@@ -1,0 +1,43 @@
+/** SECTION-DIVIDER — separa capitoli/sezioni di un articolo, in 3 stili **/
+@layer bits {
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-l);
+    text-align: center;
+  }
+
+  /* Capitolo: titolo centrato importante, bordo sopra e sotto */
+  .section-divider--chapter {
+    padding-block: var(--space-l);
+    border-block: 1px solid var(--black-primary);
+  }
+
+  .section-divider--chapter .section-divider__heading {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h1);
+    line-height: var(--leading-display);
+  }
+
+  /* Sezione: etichetta discreta, solo bordo sopra */
+  .section-divider--section {
+    padding-block: var(--space-s);
+    border-block-start: 1px solid var(--black-primary);
+  }
+
+  /* Banner: titolo grande su sfondo blu a piena larghezza */
+  .section-divider--banner {
+    padding-block: var(--space-m);
+    background: var(--blue-primary);
+    border-block: 1px solid var(--black-primary);
+  }
+
+  .section-divider--banner .section-divider__heading {
+    font-family: var(--sans-semibold);
+    font-weight: 700;
+    font-size: var(--text-display);
+    color: var(--white-background);
+  }
+}

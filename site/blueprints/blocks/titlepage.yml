@@ -1,0 +1,12 @@
+name: Titolo di pagina
+icon: title
+fields:
+  heading:
+    label: Titolo
+    type: writer
+    inline: true
+    placeholder: Titolo della pagina
+  text:
+    label: Testo esplicativo
+    type: writer
+    placeholder: Testo opzionale sotto il titolo

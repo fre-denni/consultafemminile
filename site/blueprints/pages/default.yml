@@ -8,8 +8,17 @@ columns:
         type: fields
         fields:
           text:
-            type: textarea
-            size: huge
+            label: Contenuto
+            type: blocks
+            fieldsets:
+              - titlepage
+              - paragraph
+              - divider
+              - heading
+              - text
+              - list
+              - quote
+              - line
   sidebar:
     width: 1/3
     sections:

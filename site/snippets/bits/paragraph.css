@@ -1,0 +1,44 @@
+/** PARAGRAPH — presentazione "importante": etichetta + titolo + testo su due colonne **/
+@layer bits {
+  .paragraph {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-l);
+    padding-block: var(--space-xl);
+  }
+
+  .paragraph__label {
+    padding-block-start: var(--space-3xs);
+  }
+
+  .paragraph__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    max-width: 42rem;
+  }
+
+  .paragraph__heading {
+    font-family: var(--sans-semibold);
+    font-weight: 700;
+    font-size: var(--text-h4);
+    line-height: var(--leading-heading);
+    color: var(--black-primary);
+  }
+
+  .paragraph__text {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+  }
+
+  .paragraph__text > * + * {
+    margin-block-start: var(--space-s);
+  }
+
+  @media (max-width: 768px) {
+    .paragraph {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xs);
+    }
+  }
+}

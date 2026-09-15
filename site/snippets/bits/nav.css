@@ -32,12 +32,6 @@
     text-underline-offset: 0.2em;
   }
 
-  /* Figma: la voce con pannello aperto passa a semibold, oltre a sottolineata */
-  .navbar__link[aria-expanded="true"] {
-    font-family: var(--sans-semibold);
-    font-weight: 600;
-  }
-
   .navbar-panel {
     visibility: hidden;
     opacity: 0;

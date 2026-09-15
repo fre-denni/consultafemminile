@@ -1,0 +1,33 @@
+/** BLOCK-CONTAINER — ritmo verticale tra i blocchi di un campo "blocks" **/
+@layer bits {
+  .block-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* i blocchi di testo restano centrati e leggibili */
+    align-self: stretch; /* riempie <main>, che altrimenti centra sul contenuto */
+    width: 100%;
+  }
+
+  .block-container > * {
+    width: 100%;
+    max-width: 46rem;
+  }
+
+  .block-container > * + * {
+    margin-block-start: var(--space-l);
+  }
+
+  /* I blocchi "header"/divisore rompono la colonna di lettura a piena
+     larghezza e gestiscono già il proprio spazio verticale interno. */
+  .block-container > .title-page,
+  .block-container > .section-divider {
+    max-width: none;
+    margin-block-start: 0;
+  }
+
+  /* Il paragrafo in evidenza (due colonne) ha bisogno di più spazio della
+     colonna di lettura standard. */
+  .block-container > .paragraph {
+    max-width: 64rem;
+  }
+}

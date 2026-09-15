@@ -1,0 +1,14 @@
+name: Testo in evidenza
+icon: text
+fields:
+  label:
+    label: Etichetta
+    type: text
+    placeholder: "es. Chi siamo"
+  heading:
+    label: Titolo
+    type: writer
+    inline: true
+  text:
+    label: Testo
+    type: writer

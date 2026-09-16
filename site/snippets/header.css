@@ -31,6 +31,21 @@
     background: var(--overlay-light-background);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
+    transition:
+      background 150ms ease,
+      backdrop-filter 150ms ease;
+  }
+
+  /* Quando il nav è aperto (pannello desktop o drawer mobile) l'header
+     passa a bianco pieno insieme al nav, niente più vetro/blur — torna
+     al backdrop-filter di default alla chiusura. L'effetto backdrop
+     resta così un fatto solo dell'header: il nav (vedi nav.css) è
+     sempre a sfondo bianco pieno, mai sfocato per conto suo. */
+  .header:has(.navbar-panel[data-open="true"])::before,
+  .header:has(.navbar[data-open="true"])::before {
+    background: var(--white-background);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .header__menu-toggle {
@@ -107,25 +122,52 @@
     white-space: nowrap;
   }
 
-  /* Mobile: di default solo icona, testo compare quando il menu è aperto */
+  /* Wordmark del logo: resta nel flusso (mai display:none) così può
+     animarsi in entrata da sinistra con un wipe (clip-path) invece di
+     apparire/sparire di scatto. align-items:center su .logo tiene
+     icona e testo centrati tra loro per tutta la transizione. */
+  .header .logo__text {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      clip-path 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 300ms ease,
+      transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mobile: di default solo icona, testo compare (animato) quando il
+     menu è aperto */
   @media (max-width: 768px) {
+    /* Stesso gutter fisso del video (bits/hero-video.css), per allineare
+       tutti gli elementi del sito allo stesso margine. */
+    .header {
+      padding-inline: 1rem;
+    }
+
     .header__menu-toggle {
       display: inline-flex;
     }
 
     .header .logo__text {
-      display: none;
+      clip-path: inset(0 100% 0 0);
+      opacity: 0;
+      transform: translateX(-12px);
     }
 
     .header:has(.navbar[data-open="true"]) .logo__text {
-      display: inline;
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
-  /* Desktop: di default esteso, solo icona una volta scrollato */
+  /* Desktop: di default esteso, solo icona (animata) una volta scrollato */
   @media (min-width: 768px) {
     .header[data-scrolled="true"] .logo__text {
-      display: none;
+      clip-path: inset(0 100% 0 0);
+      opacity: 0;
+      transform: translateX(-12px);
     }
   }
 }

@@ -106,6 +106,9 @@
   /* ── Mobile ── */
   @media (max-width: 768px) {
     .footer {
+      /* Stesso gutter fisso del video (bits/hero-video.css), per
+         allineare tutti gli elementi del sito allo stesso margine. */
+      padding-inline: 1rem;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(5, auto);
       grid-template-areas:

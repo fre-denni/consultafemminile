@@ -1,13 +1,21 @@
 <?php
 /**
- * @var string                      $label   Etichetta breve sopra il titolo (opzionale)
- * @var \Kirby\Content\Field|string $heading Titolo (HTML inline, es. da un campo writer)
- * @var \Kirby\Content\Field|string $text    Corpo del testo (HTML, es. da un campo writer)
+ * @var string                      $label      Etichetta breve sopra il titolo (opzionale)
+ * @var \Kirby\Content\Field|string $heading    Titolo (HTML inline, es. da un campo writer)
+ * @var iterable<string>            $paragraphs Elenco di paragrafi di testo semplice, uno per <p>
+ *
+ * A piena larghezza (così un eventuale sfondo colorato applicato da
+ * atoms/block-container.php arriva ai bordi) con dentro una griglia a
+ * larghezza di lettura, centrata — vedi .paragraph__grid in paragraph.css.
  *
  * Slot "heading" e "text": permettono di sostituire titolo/corpo con markup
- * personalizzato quando il componente è usato fuori dal block editor.
+ * personalizzato quando il componente è usato fuori dal block editor, es.:
+ *   <?php snippet('bits/paragraph', ['label' => '...'], slots: true) ?>
+ *     <?php slot('text') ?><p>Testo su misura</p><?php endslot() ?>
+ *   <?php endsnippet() ?>
  */
-$label ??= null;
+$label      ??= null;
+$paragraphs ??= [];
 
 // Un Field Kirby è sempre "truthy" come oggetto anche se vuoto: va
 // controllato con isNotEmpty(), non con un semplice if/??.
@@ -18,21 +26,33 @@ $isEmpty = fn ($value) => $value instanceof \Kirby\Content\Field
 $headingSlot = $slots->heading ?? null;
 $hasHeading  = $headingSlot !== null || !$isEmpty($heading);
 
-$textSlot = $slots->text ?? null;
-$hasText  = $textSlot !== null || !$isEmpty($text);
+$textSlot      = $slots->text ?? null;
+$hasParagraphs = $textSlot !== null || count($paragraphs) > 0;
 ?>
 <div class="paragraph">
-  <?php if ($label): ?>
-    <div class="paragraph__label">
-      <?php snippet('atoms/section-label', ['text' => $label]) ?>
+  <div class="paragraph__grid">
+    <?php if ($label): ?>
+      <div class="paragraph__label">
+        <?php snippet('atoms/section-label', ['text' => $label]) ?>
+      </div>
+    <?php endif ?>
+    <div class="paragraph__body">
+      <?php if ($hasHeading): ?>
+        <h3 class="paragraph__heading"><?= $headingSlot ?? $heading ?></h3>
+      <?php endif ?>
+      <?php if ($hasParagraphs): ?>
+        <div class="paragraph__text">
+          <?php if ($textSlot !== null): ?>
+            <?= $textSlot ?>
+          <?php else: ?>
+            <?php foreach ($paragraphs as $paragraph): ?>
+              <?php if (trim((string) $paragraph) !== ''): ?>
+                <p><?= html($paragraph) ?></p>
+              <?php endif ?>
+            <?php endforeach ?>
+          <?php endif ?>
+        </div>
+      <?php endif ?>
     </div>
-  <?php endif ?>
-  <div class="paragraph__body">
-    <?php if ($hasHeading): ?>
-      <h3 class="paragraph__heading"><?= $headingSlot ?? $heading ?></h3>
-    <?php endif ?>
-    <?php if ($hasText): ?>
-      <div class="paragraph__text"><?= $textSlot ?? $text ?></div>
-    <?php endif ?>
   </div>
 </div>

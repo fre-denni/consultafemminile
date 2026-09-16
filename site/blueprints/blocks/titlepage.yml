@@ -1,6 +1,8 @@
 name: Titolo di pagina
 icon: title
 fields:
+  background:
+    extends: fields/background
   heading:
     label: Titolo
     type: writer

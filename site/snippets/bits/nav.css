@@ -45,10 +45,9 @@
     z-index: 10;
     padding: var(--space-l);
 
-    /* Stesso "vetro" dell'header: sfondo semitrasparente + blur */
-    background: var(--overlay-light-background);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    /* Niente vetro/blur qui: l'effetto backdrop è solo dell'header
+       (vedi header.css) — il pannello è sempre a bianco pieno. */
+    background: var(--white-background);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
 
@@ -126,10 +125,9 @@
       height: calc(100vh - var(--header-height, 4.5rem));
       overflow-y: auto;
 
-      /* Stesso "vetro" di header e pannello desktop, per coerenza scrollando */
-      background: var(--overlay-light-background);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      /* Niente vetro/blur qui: l'effetto backdrop è solo dell'header
+         (vedi header.css) — il drawer è sempre a bianco pieno. */
+      background: var(--white-background);
 
       /* Figma: righe con padding orizzontale ≈ 30 (--space-m) */
       padding: var(--space-s) var(--space-m);

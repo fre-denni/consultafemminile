@@ -1,10 +1,18 @@
 /** PARAGRAPH — presentazione "importante": etichetta + titolo + testo su due colonne **/
 @layer bits {
   .paragraph {
+    padding-block: var(--space-xl);
+  }
+
+  .paragraph__grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: var(--space-l);
-    padding-block: var(--space-xl);
+    /* Figma: colonna etichetta e colonna testo ben respirate, non
+       accostate come un gap "di sistema" qualunque. */
+    gap: var(--space-3xl);
+    max-width: 64rem;
+    margin-inline: auto;
+    padding-inline: var(--space-l);
   }
 
   .paragraph__label {
@@ -36,9 +44,12 @@
   }
 
   @media (max-width: 768px) {
-    .paragraph {
+    .paragraph__grid {
       grid-template-columns: 1fr;
-      gap: var(--space-2xs);
+      /* Più spazio tra la label e il corpo del paragrafo (la label in sé
+         non cambia, vedi atoms/section-label.css). */
+      gap: var(--space-m);
+      padding-inline: 1rem;
     }
   }
 }

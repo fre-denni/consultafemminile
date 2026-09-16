@@ -1,0 +1,8 @@
+label: Sfondo
+type: toggles
+default: default
+options:
+  - value: default
+    text: Bianco
+  - value: tinted
+    text: Panna

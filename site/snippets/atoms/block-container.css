@@ -1,5 +1,5 @@
 /** BLOCK-CONTAINER — ritmo verticale tra i blocchi di un campo "blocks" **/
-@layer bits {
+@layer atoms {
   .block-container {
     display: flex;
     flex-direction: column;
@@ -17,17 +17,66 @@
     margin-block-start: var(--space-l);
   }
 
-  /* I blocchi "header"/divisore rompono la colonna di lettura a piena
-     larghezza e gestiscono già il proprio spazio verticale interno. */
+  /* Blocchi che gestiscono già la propria larghezza piena, o sezioni con
+     sfondo (avvolgono qualunque blocco esponga un campo "background" —
+     vedi block-container.php): niente cap di larghezza qui, se ne
+     occupano loro. */
   .block-container > .title-page,
-  .block-container > .section-divider {
+  .block-container > .section-divider,
+  .block-container > .paragraph,
+  .block-container > .block-container__section {
     max-width: none;
+  }
+
+  .block-container > .title-page,
+  .block-container > .section-divider,
+  .block-container > .paragraph,
+  .block-container > .block-container__section {
     margin-block-start: 0;
   }
 
-  /* Il paragrafo in evidenza (due colonne) ha bisogno di più spazio della
-     colonna di lettura standard. */
-  .block-container > .paragraph {
-    max-width: 64rem;
+  /* ── Sezione a piena larghezza con sfondo opzionale ── */
+  .block-container__section {
+    width: 100%;
+  }
+
+  .block-container__section--tinted {
+    background: var(--white-foreground);
+  }
+
+  /* Contenuto "semplice" che non gestisce da sé la propria larghezza (i
+     blocchi Kirby di default: heading, text, quote, list) resta comunque
+     nella colonna di lettura, con un margine orizzontale dato che qui
+     non c'è più il padding di .block-container a proteggerlo dai bordi.
+     I blocchi che già gestiscono la propria larghezza (title-page,
+     section-divider, paragraph) restano intonsi. */
+  .block-container__section > :not(.title-page):not(.section-divider):not(.paragraph) {
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: var(--space-l);
+  }
+
+  @media (max-width: 768px) {
+    /* Stesso gutter fisso del video (bits/hero-video.css), per allineare
+       tutti gli elementi del sito allo stesso margine. */
+    .block-container {
+      padding-inline: 1rem;
+    }
+
+    /* I blocchi a piena larghezza tornano a rompere il gutter del
+       contenitore, restando edge-to-edge come il video. width:100% da
+       solo si misura sul content-box already-paddato del contenitore:
+       va allargato della stessa quantità tolta dal margine negativo. */
+    .block-container > .title-page,
+    .block-container > .section-divider,
+    .block-container > .paragraph,
+    .block-container > .block-container__section {
+      width: calc(100% + 2rem);
+      margin-inline: -1rem;
+    }
+
+    .block-container__section > :not(.title-page):not(.section-divider):not(.paragraph) {
+      padding-inline: 1rem;
+    }
   }
 }

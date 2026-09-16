@@ -1,6 +1,8 @@
 name: Testo in evidenza
 icon: text
 fields:
+  background:
+    extends: fields/background
   label:
     label: Etichetta
     type: text
@@ -9,6 +11,14 @@ fields:
     label: Titolo
     type: writer
     inline: true
-  text:
+  paragraphs:
     label: Testo
-    type: writer
+    type: structure
+    fields:
+      text:
+        label: Paragrafo
+        type: textarea
+        size: small
+    columns:
+      text:
+        type: text

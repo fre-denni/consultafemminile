@@ -1,6 +1,8 @@
 name: Divisore di sezione
 icon: line
 fields:
+  background:
+    extends: fields/background
   style:
     label: Stile
     type: toggles

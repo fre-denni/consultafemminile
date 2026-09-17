@@ -8,7 +8,7 @@
  */
 $style ??= 'chapter';
 ?>
-<div class="section-divider section-divider--<?= $style ?>">
+<div class="section-divider section-divider--<?= $style ?> block-full">
   <?php if ($style === 'section'): ?>
     <?php snippet('atoms/section-label', ['text' => $slots->heading ?? $heading]) ?>
   <?php else: ?>

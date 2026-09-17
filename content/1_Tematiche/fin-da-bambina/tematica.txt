@@ -1,1 +1,13 @@
 Title: Fin da Bambina
+
+----
+
+Subtitle: L’impegno della Consulta a contrastare gli stereotipi di genere in famiglia e nell’educazione scolastica.
+
+----
+
+Description: Gli stereotipi di genere agiscono sin dalla primissima infanzia e possono ancora condizionare la libertà di scelta delle donne e delle ragazze in merito ai loro percorsi formativi e professionali. La Consulta è impegnata da molti anni a sviluppare progetti che estendano la consapevolezza degli effetti degli stereotipi di genere nei contesti educativi e lavorativi, promuovendo la parità di genere.
+
+----
+
+Uuid: pandc7syoo5pt3pg

@@ -1,1 +1,13 @@
 Title: Women go digital
+
+----
+
+Subtitle: Le tecnologie digitali sono un’opportunità e pongono sfide che le donne non vogliono perdere
+
+----
+
+Description: Le tecnologie digitali sono al centro di molteplici riflessioni che riguardano le donne. Da un lato, l’evoluzione tecnologica offre ottime opportunità per lo studio e il lavoro. Dall’altro, pone cogenti questioni quali le nuove forme di violenza digitale, i bias dei sistemi di intelligenza artificiale, l’importanza della presenza femminile negli organismi di controllo, e l’educazione digitale delle donne di ogni età.
+
+----
+
+Uuid: evofpzqn0sw4lvuk

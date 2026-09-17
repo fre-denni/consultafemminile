@@ -1,1 +1,13 @@
 Title: Generazione Beta
+
+----
+
+Subtitle: A supporto della libera scelta di genitorialità
+
+----
+
+Description: La Consulta collabora con esperti e associazioni per indagare le cause della crisi demografica italiana e internazionale. Il progetto si concentra sulle diverse cause che oggi limitano la libera scelta di molti giovani, dalle pressioni del mondo del lavoro che inducono a rimandare il momento di fare figli, alla carenza di servizi a supporto delle famiglie. L’obiettivo è di individuare azioni concrete per supportare i giovani verso la genitorialità consapevole.
+
+----
+
+Uuid: dvit1jccyajyo5is

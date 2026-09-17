@@ -1,0 +1,12 @@
+name: Carosello temi
+icon: images
+fields:
+  pages:
+    label: Temi da mostrare
+    help: >
+      Lascia vuoto per mostrare automaticamente tutte le tematiche
+      pubblicate (fino a 8, nell'ordine del menu). Seleziona manualmente
+      per scegliere quali mostrare e in che ordine.
+    type: pages
+    query: site.find("tematiche").children
+    max: 8

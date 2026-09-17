@@ -29,7 +29,7 @@ $hasHeading  = $headingSlot !== null || !$isEmpty($heading);
 $textSlot      = $slots->text ?? null;
 $hasParagraphs = $textSlot !== null || count($paragraphs) > 0;
 ?>
-<div class="paragraph">
+<div class="paragraph block-full">
   <div class="paragraph__grid">
     <?php if ($label): ?>
       <div class="paragraph__label">

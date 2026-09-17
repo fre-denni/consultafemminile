@@ -20,7 +20,7 @@ $textSlot = $slots->text ?? null;
 $hasText  = $textSlot !== null
   || ($text instanceof \Kirby\Content\Field ? $text->isNotEmpty() : !empty($text));
 ?>
-<header class="title-page">
+<header class="title-page block-full">
   <p class="title-page__heading"><?= $heading ?></p>
   <?php if ($hasText): ?>
     <div class="title-page__text"><?= $textSlot ?? $text ?></div>

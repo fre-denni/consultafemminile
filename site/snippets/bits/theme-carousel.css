@@ -1,0 +1,132 @@
+/** THEME-CAROUSEL — desktop: accordion ad hover (una card aperta, le
+    altre strette); mobile: riga scorrevole con scroll-snap **/
+@layer bits {
+  .theme-carousel {
+    position: relative;
+    /* Niente width qui: la larghezza (incluso il breakout edge-to-edge
+       su mobile) la gestisce già .block-full in block-container.css —
+       dichiararla di nuovo qui vincerebbe sempre, dato che il layer
+       "bits" ha priorità su "atoms" indipendentemente dalla specificità. */
+    padding-block: 1rem;
+    /* Gutter orizzontale: alla larghezza di progetto (1440px) è quello
+       esatto della griglia Figma (125.25px per lato) — il massimo che
+       deve raggiungere, non deve crescere oltre. Si restringe in
+       proporzione fino al breakpoint mobile (768px), dove coincide con
+       lo stesso gutter fisso del video (1rem) e da lì in giù resta
+       fermo lì (il clamp non scende sotto il minimo). */
+    padding-inline: clamp(1rem, -6.8036rem + 16.2574vw, 7.8281rem);
+  }
+
+  .theme-carousel__track {
+    display: flex;
+    align-items: stretch;
+    /* Spaziature interne fisse come in Figma (non fluide): restano
+       identiche a ogni larghezza finché non scatta il breakpoint
+       mobile, che ha le sue regole dedicate qui sotto. */
+    gap: 15px;
+    list-style: none;
+    /* Il tag <ul> eredita padding-inline-start dal layer base (pensato
+       per le liste del testo): qui è solo un contenitore di layout. */
+    padding-inline: 0;
+    padding-block: 9px;
+    /* Altezza desktop ridotta per lasciare l'intera pagina visibile
+       senza scroll eccessivo (il mobile ha la sua altezza dedicata qui
+       sotto, invariata). */
+    height: clamp(21rem, 18rem + 21vw, 45rem);
+  }
+
+  /* Ogni slide parte "pari" (flex-grow:1): quella attiva si allarga
+     assorbendo lo spazio, le altre restano allo stretto minimo. Si anima
+     flex-grow (non width/flex-basis) perché è l'unica proprietà che
+     transiziona in modo fluido senza scatti su tutti i browser. */
+  .theme-carousel__slide {
+    flex: 1 1 0%;
+    min-width: 1rem;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    transition: flex-grow 450ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-carousel__slide--active {
+    flex-grow: 16;
+  }
+
+  /* Su desktop la navigazione è via hover: niente header/frecce (tornano
+     solo su mobile, dove la riga scorre invece di aprirsi/chiudersi). */
+  .theme-carousel__header {
+    display: none;
+  }
+
+  /* ── Mobile: torna a una riga scorrevole con scroll-snap, una card a
+     piena larghezza per volta — niente hover-accordion (non ha senso
+     senza puntatore), niente transizione di flex-grow. ── */
+  @media (max-width: 768px) {
+    .theme-carousel__track {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      /* Il gutter lo dà già .theme-carousel: qui non serve raddoppiarlo,
+         basta per l'allineamento dello snap. */
+      gap: var(--space-s);
+      padding-block: 0;
+      height: auto;
+      /* Nasconde la scrollbar mantenendo lo scroll fruibile via touch/trackpad */
+      scrollbar-width: none;
+    }
+
+    .theme-carousel__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .theme-carousel__slide {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      width: 90vw;
+      height: clamp(20rem, 90vw, 30rem);
+      min-width: 0;
+      transition: none;
+    }
+
+    .theme-carousel__slide--active {
+      flex-grow: 0;
+    }
+
+    /* Header in stile "sezione" (vedi section-divider--section): bordo
+       sopra, frecce sottili a destra — tenute nella sezione invece che
+       sotto il carosello. */
+    .theme-carousel__header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-block-start: 1px solid var(--black-primary);
+      padding-block: var(--space-s);
+      margin-block-end: var(--space-s);
+    }
+
+    .theme-carousel__controls {
+      display: flex;
+      gap: var(--space-xs);
+    }
+
+    .theme-carousel__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      padding: 0;
+      border: none;
+      background: none;
+      color: var(--black-primary);
+      font-size: var(--text-h4);
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    /* Disabilitato quando non si può più scorrere in quella direzione
+       (vedi assets/js/theme-carousel.js) */
+    .theme-carousel__button:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+}

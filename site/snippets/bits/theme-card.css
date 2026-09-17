@@ -1,0 +1,173 @@
+/** THEME-CARD — card immagine con titolo/testo/CTA sovrapposti, usata nei caroselli temi **/
+@layer bits {
+  .theme-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: 100%;
+    /* Fallback per un uso fuori dal carosello (lì larghezza/altezza
+       arrivano già dal layout della slide, quindi il ratio è ignorato) */
+    aspect-ratio: 5 / 4;
+    background: var(
+      --black-primary
+    ); /* dietro all'immagine finché non è pronta */
+  }
+
+  .theme-card__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .theme-card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Sfumatura scura per garantire contrasto leggibile al testo, più
+     marcata verso il basso dove sta il contenuto — stessa direzione
+     (mai un vignette ai lati) sia da aperta che da chiusa, solo più
+     leggera da chiusa (vedi sotto). */
+  .theme-card__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(34, 34, 34, 0.85) 0%,
+      rgba(34, 34, 34, 0.55) 38%,
+      rgba(34, 34, 34, 0) 75%
+    );
+  }
+
+  .theme-card__content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-s);
+    padding: var(--space-l) var(--space-xl) var(--space-xl);
+    text-align: center;
+    color: var(--white-background);
+
+    /* Stato "attivo" (vedi sotto per il chiuso): a comparsa, non un
+       semplice fade — sale leggermente mentre appare. Il ritardo lascia
+       il tempo alla card di allargarsi (transition di flex-grow, vedi
+       theme-carousel.css) prima che il testo inizi a comparire. */
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 450ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 150ms;
+  }
+
+  .theme-card__title {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h2);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-s);
+  }
+
+  .theme-card__subtitle,
+  .theme-card__description {
+    font-size: var(--text-sm);
+    line-height: var(--leading-body);
+  }
+
+  .theme-card__subtitle {
+    display: none;
+    font-style: italic;
+    max-width: 30rem;
+  }
+
+  .theme-card__description {
+    max-width: 42rem;
+  }
+
+  /* Stessa dimensione del pulsante blu dell'header (vedi
+     bits/nav.css .navbar-panel__cta, il riferimento corretto): stesso
+     padding e stesso font-size, non solo lo stesso stile. È l'unico
+     elemento cliccabile della card (vedi theme-card.php). */
+  .theme-card__cta {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--blue-primary);
+    color: var(--white-background);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-caption);
+    white-space: nowrap;
+  }
+
+  /* ── Stato "non attivo" (usato dentro bits/theme-carousel per le slide
+     fuori fuoco): il testo scompare, e lo scrim si affievolisce (mai un
+     bordo/vignette ai lati) dato che la card è già stretta di suo. ── */
+  .theme-card:not(.theme-card--active) .theme-card__content {
+    opacity: 0;
+    transform: translateY(0.9rem);
+    pointer-events: none;
+    /* In chiusura sparisce subito (nessun ritardo), più rapido
+       dell'apertura: la card si stringe mentre il testo è già svanito,
+       non a metà comparsa. */
+    transition-delay: 0ms;
+    transition-duration: 200ms;
+  }
+
+  .theme-card:not(.theme-card--active) .theme-card__scrim {
+    background: linear-gradient(
+      to top,
+      rgba(34, 34, 34, 0.45) 0%,
+      rgba(34, 34, 34, 0.28) 38%,
+      rgba(34, 34, 34, 0) 75%
+    );
+  }
+
+  /* Su mobile non c'è hover: bits/theme-carousel torna a una riga
+     scorrevole dove ogni card mostra sempre il proprio contenuto,
+     indipendentemente dallo stato --active (gestito via JS solo per il
+     comportamento hover desktop). Titolo/sottotitolo più piccoli e
+     descrizione nascosta: 35 parole sono troppe per uno schermo stretto. */
+  @media (max-width: 768px) {
+    .theme-card:not(.theme-card--active) .theme-card__content {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition: none;
+    }
+
+    .theme-card:not(.theme-card--active) .theme-card__scrim {
+      background: linear-gradient(
+        to top,
+        rgba(34, 34, 34, 0.85) 0%,
+        rgba(34, 34, 34, 0.55) 38%,
+        rgba(34, 34, 34, 0) 75%
+      );
+    }
+
+    .theme-card__content {
+      gap: var(--space-s);
+      padding: var(--space-m) var(--space-l) var(--space-l);
+    }
+
+    .theme-card__title {
+      font-size: var(--text-h2);
+      margin-bottom: var(--space-m);
+    }
+
+    .theme-card__subtitle {
+      display: block;
+    }
+
+    .theme-card__description {
+      display: none;
+    }
+  }
+}

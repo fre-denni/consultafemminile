@@ -10,4 +10,9 @@ Description: Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulpu
 
 ----
 
+Mission: La Consulta Femminile di Milano, grazie alla diversità delle associazioni che la compongono, è portatrice di competenze in molti ambiti diversi, dall’imprenditoria alla scienza, dalla giurisprudenza alla cultura del progetto, dalla medicina all’ambiente. Le associazioni si confrontano su tematiche di attualità, sviluppando pensiero e proposte culturali condivise in eventi pubblici. La Consulta organizza progetti di medio e lungo termine su tematiche specifiche, che si attuano in eventi e iniziative concrete realizzate in collaborazione con le istituzioni di governo locale, con aziende e altri attori della società civile.
+
+
+----
+
 Uuid: ihyagt8sjjnsfshk

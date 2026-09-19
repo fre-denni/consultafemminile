@@ -1,0 +1,160 @@
+/** PATROCINIO-CAROUSEL — locandine dei progetti patrocinati, riga
+    orizzontale a scorrimento classico (mai a capo), click per aprire
+    in primo piano (vedi atoms/lightbox). Nessuna interazione hover,
+    a differenza di bits/people-carousel. **/
+@layer bits {
+  .patrocinio-carousel-section {
+    width: 100%;
+    /* Stesso sfondo del carosello temi (vedi
+       .block-container__section--tinted in atoms/block-container.css):
+       sono ora due sezioni consecutive nella home, devono leggersi come
+       un unico blocco visivo. */
+    background: var(--white-foreground);
+    padding-block: var(--space-2xl);
+  }
+
+  /* Header in stile "sezione" (vedi bits/section-divider,
+     .section-divider--section): una riga sola con bordo sopra.
+     L'etichetta resta SEMPRE centrata come nel resto del sito (vedi
+     .section-divider, text-align/justify-content: center) — le due
+     colonne laterali hanno ESPLICITAMENTE la stessa larghezza fissa
+     (quella occupata dalle frecce), non "1fr auto 1fr": con "auto" la
+     colonna vuota di sinistra collassa a 0 mentre quella delle frecce
+     resta al suo min-content, spostando l'etichetta fuori centro (e
+     facendola andare a capo prima del dovuto sullo spazio stretto di
+     mobile). */
+  .patrocinio-carousel-section__header {
+    --patrocinio-carousel-controls-w: calc(2 * 1.75rem + var(--space-xs));
+    display: grid;
+    grid-template-columns:
+      var(--patrocinio-carousel-controls-w)
+      1fr
+      var(--patrocinio-carousel-controls-w);
+    align-items: center;
+    gap: var(--space-m);
+    /* Stesso gutter fluido degli altri caroselli della home (vedi
+       --space-smooth in assets/css/global.css). */
+    padding-inline: var(--space-smooth);
+    padding-block: var(--space-s);
+    border-block-start: 1px solid var(--black-primary);
+    margin-block-end: var(--space-xl);
+  }
+
+  .patrocinio-carousel-section__header .section-label {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .patrocinio-carousel__controls {
+    grid-column: 3;
+    display: flex;
+    justify-self: end;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .patrocinio-carousel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--black-primary);
+    font-size: var(--text-h4);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* Disabilitato quando non si può più scorrere in quella direzione
+     (vedi assets/js/patrocinio-carousel.js) */
+  .patrocinio-carousel__button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .patrocinio-carousel {
+    position: relative;
+    width: 100%;
+  }
+
+  .patrocinio-carousel__track {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-m);
+    list-style: none;
+    /* Scroll nativo (drag/trackpad/touch): "stile classico", niente
+       frecce o JS di navigazione — solo scorre, mai a capo. */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* Stesso gutter fluido degli altri caroselli della home (vedi
+       --space-smooth in assets/css/global.css): a differenza di
+       bits/logo-showreel qui non c'è nessuna maschera a sfumare i
+       bordi (locandine sempre nitide fino all'ultimo pixel), quindi il
+       gutter serve solo ad allineare la prima/ultima card col resto
+       della pagina. */
+    padding-inline: var(--space-smooth);
+    scroll-padding-inline: var(--space-smooth);
+    /* Nasconde la scrollbar mantenendo lo scroll fruibile via touch/trackpad */
+    scrollbar-width: none;
+  }
+
+  .patrocinio-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .patrocinio-carousel__item {
+    /* Stessa proporzione carta di bits/person-card (vedi
+       aspect-ratio lì), per restare coerente con l'altro carosello
+       della home — qui però la card non cresce mai, resta sempre
+       alla sua larghezza piena: non c'è nessuno stato "aperto". */
+    flex: 0 0 min(20rem, 75vw);
+    aspect-ratio: 6 / 10;
+    scroll-snap-align: start;
+  }
+
+  .patrocinio-carousel__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .patrocinio-carousel__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms ease;
+  }
+
+  .patrocinio-carousel__link:hover .patrocinio-carousel__img,
+  .patrocinio-carousel__link:focus-visible .patrocinio-carousel__img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 768px) {
+    .patrocinio-carousel-section {
+      padding-block: var(--space-xl);
+    }
+
+    .patrocinio-carousel-section__header {
+      padding-inline: 1rem;
+    }
+
+    .patrocinio-carousel__track {
+      gap: var(--space-s);
+      padding-inline: 1rem;
+      scroll-padding-inline: 1rem;
+    }
+
+    .patrocinio-carousel__item {
+      aspect-ratio: 5 / 7;
+    }
+  }
+}

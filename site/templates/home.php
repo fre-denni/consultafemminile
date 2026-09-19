@@ -9,8 +9,11 @@
     <?php snippet('atoms/block-container', ['blocks' => $page->text()]) ?>
     <div class="block-container__section block-container__section--tinted">
       <?php snippet('bits/theme-carousel', ['items' => collection('tematiche')]) ?>
-      <?php //inserisci qui il carosello patrocini ?>
     </div>
+    <?php snippet('bits/patrocinio-carousel', [
+      'items'   => collection('patrocinio'),
+      'heading' => 'Con il patrocinio della Consulta',
+    ]) ?>
     <?php snippet('bits/people-carousel', [
       'items' => collection('consigliere'),
       'label' => 'Consiglio 2026-2027',

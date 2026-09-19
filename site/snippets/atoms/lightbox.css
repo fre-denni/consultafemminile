@@ -1,0 +1,58 @@
+/** LIGHTBOX (atom) — un'immagine in primo piano su sfondo oscurato,
+    aperta da qualunque link con l'attributo data-lightbox **/
+@layer atoms {
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-l);
+    /* L'header del sito è fixed con z-index 999 (sopra al lightbox,
+       vedi site/snippets/header.css): senza questo spazio riservato
+       in alto, un'immagine alta finisce centrata sull'intero
+       viewport e la sua parte superiore resta coperta dall'header. */
+    padding-top: calc(var(--header-height, 4.5rem) + var(--space-l));
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - var(--header-height, 4.5rem) - 2 * var(--space-l));
+    object-fit: contain;
+    border-radius: var(--radius-md);
+  }
+
+  .lightbox__close {
+    position: absolute;
+    /* Sotto l'header fixed (z-index più alto, vedi sopra), non dietro. */
+    top: calc(var(--header-height, 4.5rem) + var(--space-m));
+    right: var(--space-m);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white-background);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+  }
+
+  .lightbox__close:hover,
+  .lightbox__close:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}

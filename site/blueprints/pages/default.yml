@@ -14,7 +14,6 @@ columns:
               - titlepage
               - paragraph
               - divider
-              - themecarousel
               - heading
               - text
               - list

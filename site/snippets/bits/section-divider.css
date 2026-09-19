@@ -10,15 +10,22 @@
 
   /* Capitolo: titolo centrato importante, bordo sopra e sotto */
   .section-divider--chapter {
-    padding-block: var(--space-l);
+    padding-block: var(--space-m);
     border-block: 1px solid var(--black-primary);
   }
 
   .section-divider--chapter .section-divider__heading {
+    font-size: var(--text-h3);
+    line-height: var(--leading-display);
+  }
+
+  .section-divider--chapter {
+    font-family: var(--sans);
+  }
+
+  .section-divider__heading {
     font-family: var(--sans-semibold);
     font-weight: 600;
-    font-size: var(--text-h1);
-    line-height: var(--leading-display);
   }
 
   /* Sezione: etichetta discreta, solo bordo sopra */

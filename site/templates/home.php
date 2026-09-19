@@ -7,6 +7,9 @@
       'headingSecondary' => 'di Milano dal 1963',
     ]) ?>
     <?php snippet('atoms/block-container', ['blocks' => $page->text()]) ?>
+    <div class="block-container__section block-container__section--tinted">
+      <?php snippet('bits/theme-carousel', ['items' => collection('tematiche')]) ?>
+    </div>
   <?php endslot() ?>
 
 <?php endsnippet() ?>

@@ -97,7 +97,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      border-block-start: 1px solid var(--black-primary);
       padding-block: var(--space-s);
       margin-block-end: var(--space-s);
     }

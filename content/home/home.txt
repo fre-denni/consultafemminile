@@ -2,7 +2,7 @@ Title: Home
 
 ----
 
-Text: [{"content":{"pages":["page://njvwc57ornxm6qyz","page://pzvvy00scjyi5ehc","page://po0hpfntoq7gyj1s"]},"id":"a9ae158c-ee83-4e69-ab38-1df8a5df9153","isHidden":false,"type":"themecarousel"}]
+Text: [{"content":{"background":"default","label":"Chi siamo","heading":"La Consulta Femminile Interassociativa di Milano","paragraphs":[{"text":"Lorem IPsum"}]},"id":"ba89041e-a5f7-475d-b7e3-26b6ef995441","isHidden":false,"type":"paragraph"},{"content":{"background":"tinted","label":"La Nostra Missione","heading":"Lorem ipsum","paragraphs":[{"text":"Lorem ipsum"}]},"id":"bfeccbdb-bd45-4ab8-9f30-e29732c66adc","isHidden":false,"type":"paragraph"},{"content":{"background":"tinted","style":"chapter","heading":"I nostri temi"},"id":"2c399f01-910e-43a2-867d-2703085b7e94","isHidden":false,"type":"divider"}]
 
 ----
 

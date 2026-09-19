@@ -14,7 +14,7 @@
        proporzione fino al breakpoint mobile (768px), dove coincide con
        lo stesso gutter fisso del video (1rem) e da lì in giù resta
        fermo lì (il clamp non scende sotto il minimo). */
-    padding-inline: clamp(1rem, -6.8036rem + 16.2574vw, 7.8281rem);
+    padding-inline: clamp(1rem, -6.8036rem + 16.2574vw, 7.5rem);
   }
 
   .theme-carousel__track {

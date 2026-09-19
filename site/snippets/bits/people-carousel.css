@@ -1,0 +1,101 @@
+/** PEOPLE-CAROUSEL — riga di person-card (le consigliere in home): per
+    policy editoriale sono sempre ≤ 6, quindi qui non serve scroll/hover-
+    intent come in bits/theme-carousel, solo una riga che si adatta.
+    Rottura a numero di colonne fisso (6 → 3 → 2 → 1) invece che
+    auto-fit: con 6 card auto-fit può fermarsi su conteggi "storti" (5,
+    4...) che lasciano una riga sbilanciata — i passaggi qui sotto sono
+    scelti apposta perché 6 è divisibile per 3, 2 e 1. **/
+@layer bits {
+  /* Contenitore dell'intero blocco (etichetta + riga di card), come la
+     "Section" nel riferimento Figma: sfondo bianco proprio (non deve
+     dipendere dal wrapper esterno) e spaziatura verticale generosa
+     sopra/sotto, non solo attorno alle card. */
+  .people-carousel-section {
+    width: 100%;
+    background: var(--white-background);
+    padding-block: var(--space-2xl);
+  }
+
+  .people-carousel-section__label {
+    padding-inline: var(--space-3xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .people-carousel {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+    /* Meno spazio "sprecato" tra le card = più spazio laterale per
+       ciascuna, a parità di larghezza disponibile. */
+    gap: 0.6rem;
+    list-style: none;
+    /* Stesso gutter fluido del carosello temi (vedi
+       bits/theme-carousel.css), per restare coerenti a ogni larghezza. */
+    padding-inline: var(--space-3xl);
+    /* Lo spazio verticale lo dà già .people-carousel-section (sopra),
+       qui basta il gutter orizzontale. */
+    padding-block: 0;
+  }
+
+  .people-carousel__item {
+    /* Cap vicino alla card di riferimento Figma (≈250px): evita che le
+       card diventino enormi quando sono meno di 6. */
+    max-width: 20rem;
+    width: 100%;
+    justify-self: center;
+    /* Di default un grid item si allarga per fare spazio al proprio
+       min-content (es. il testo "Scopri di più"/badge non spezzabile
+       di person-card, sempre nel DOM anche a card chiusa): senza
+       questo, la colonna 1fr — e quindi tutta la riga — si allarga
+       leggermente quando in hover il contenuto diventa "misurabile",
+       spostando le altre card e il resto della pagina sotto. */
+    min-width: 0;
+    /* Query container per il testo di bits/person-card (vedi
+       person-card.css): con 6→3→2→1 colonne la card è più STRETTA su
+       desktop (tante colonne) e più LARGA su mobile (una colonna piena)
+       — l'opposto della normale scala fluida legata alla viewport.
+       Dimensionare il testo in cqw sulla larghezza REALE della card
+       (misurata qui sotto: 135px-448px nei nostri breakpoint) risolve
+       da sé sia il testo enorme su desktop sia quello minuscolo su
+       mobile, in un colpo solo e senza breakpoint manuali duplicati. */
+    container-type: inline-size;
+  }
+
+  @media (max-width: 1100px) {
+    .people-carousel {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .people-carousel {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .people-carousel {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .people-carousel-section {
+      padding-block: var(--space-xl);
+    }
+
+    .people-carousel-section__label {
+      padding-inline: 1rem;
+      margin-bottom: var(--space-m);
+    }
+
+    .people-carousel {
+      gap: var(--space-s);
+      padding-inline: 1rem;
+    }
+
+    .people-carousel__item {
+      max-width: none;
+    }
+  }
+}

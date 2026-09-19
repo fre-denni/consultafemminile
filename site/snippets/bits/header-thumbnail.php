@@ -5,7 +5,7 @@
  * @var string           $cta Testo del bottone mostrato in hover/focus
  */
 $cta ??= 'Scopri di più';
-$image = $page->file('cover.png');
+$image = $page->file('cover.webp');
 ?>
 <a href="<?= $page->url() ?>" class="header-thumbnail">
   <span class="header-thumbnail__media">

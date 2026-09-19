@@ -1,0 +1,76 @@
+title: Le Persone
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          persone:
+            label: Persone
+            help: >
+              Ogni riga è una persona: carica prima la foto nella sezione
+              "Foto" qui a fianco, poi selezionala qui. Chi ha il flag
+              "Consigliera" attivo compare nel carosello in home;
+              "Presidenza" mette la persona in cima a quella lista (usato
+              per Presidente e Vicepresidente).
+            type: structure
+            columns:
+              foto:
+                width: 1/12
+              nome:
+                width: 2/12
+              cognome:
+                width: 2/12
+              ruolo:
+                width: 2/12
+              consigliera:
+                width: 1/12
+              presidenza:
+                width: 1/12
+              associazione:
+                width: 2/12
+              email:
+                width: 1/12
+            fields:
+              foto:
+                label: Foto
+                type: files
+                query: page.images
+                max: 1
+              nome:
+                label: Nome
+                type: text
+                required: true
+              cognome:
+                label: Cognome
+                type: text
+                required: true
+              ruolo:
+                label: Ruolo
+                type: text
+                default: Delegata
+                required: true
+              consigliera:
+                label: Consigliera
+                type: toggle
+                default: false
+              presidenza:
+                label: Presidenza
+                help: Presidente/Vicepresidente — sempre prime nel carosello.
+                type: toggle
+                default: false
+              associazione:
+                label: Associazione
+                type: text
+              email:
+                label: Email
+                type: email
+  sidebar:
+    width: 1/3
+    sections:
+      foto:
+        label: Foto
+        type: files
+        help: Carica qui le foto, poi assegnale alle singole persone a sinistra.

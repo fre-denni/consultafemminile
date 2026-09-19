@@ -12,6 +12,6 @@ return function ($site) {
   $themes = $site->find('tematiche')?->children() ?? new Pages([]);
 
   return $themes
-    ->filter(fn ($theme) => $theme->file('cover.png') !== null)
+    ->filter(fn ($theme) => $theme->file('cover.webp') !== null)
     ->limit(8);
 };

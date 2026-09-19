@@ -5,7 +5,7 @@
 
 // bits/theme-card non renderizza nulla senza cover.png: scartiamo quelle
 // pagine qui, altrimenti il carosello si ritroverebbe slide vuote.
-$items = $items->filter(fn ($item) => $item->file('cover.png') !== null);
+$items = $items->filter(fn ($item) => $item->file('cover.webp') !== null);
 
 if ($items->count() === 0) return;
 ?>

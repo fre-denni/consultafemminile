@@ -16,7 +16,7 @@
  */
 $active ??= false;
 
-$image = $page->file('cover.png');
+$image = $page->file('cover.webp');
 if (!$image) return;
 
 $subtitle    = trim((string) $page->subtitle());

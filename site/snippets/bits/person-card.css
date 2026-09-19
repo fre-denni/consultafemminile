@@ -1,0 +1,220 @@
+/** PERSON-CARD — ritratto a riposo, dettagli (nome/ruolo/associazione/
+    contatto) a comparsa in hover — usata nel carosello delle consigliere **/
+@layer bits {
+  .person-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--white-background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    /* Più alta che su mobile (richiesto esplicitamente) ma senza
+       diventare lunga e stretta — 4/5 resta più larga che alta solo
+       di poco. Su mobile torna a 5/7, vedi media query in fondo. */
+    aspect-ratio: 6 / 10;
+    /* Niente hover-intent via JS qui: ogni card anima solo se stessa,
+       non le vicine (a differenza di bits/theme-carousel) — basta una
+       transizione CSS su :hover/:focus-within. */
+    transition: padding 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .person-card__media {
+    position: relative;
+    width: 100%;
+    /* Riempie sempre lo spazio che .person-card__content non usa (0 a
+       riposo, la sua altezza "naturale" in hover — vedi sotto): niente
+       più una percentuale fissa (era 50/50, poi 70/30) che ad alcune
+       larghezze di card lasciava troppo poco spazio al testo e lo
+       faceva sovrapporre/schiacciare. */
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 0;
+    transition: border-radius 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .person-card__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .person-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* A riposo collassata a 0 (solo la foto è visibile). In hover
+       diventa esattamente l'altezza che nome+ruolo+spazio+pillola
+       servono (vedi il clamp() qui sotto) — mai una percentuale fissa
+       della card, che a seconda della larghezza poteva essere troppo
+       stretta e far sovrapporre il testo. */
+    flex: 0 0 0%;
+    min-height: 0;
+    overflow: hidden;
+    width: 100%;
+
+    opacity: 0;
+    transform: translateY(0.6rem);
+    transition:
+      flex-basis 450ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 450ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: 0ms;
+  }
+
+  /* Scala fluida "in stile Utopia" ma legata alla larghezza della CARD
+     (cqw, vedi container-type su .people-carousel__item in
+     people-carousel.css), non a quella della viewport (i token fluidi
+     --text-* del sito): con 6→3→2→1 colonne la card è più stretta su
+     desktop e più larga su mobile — l'opposto di quello per cui i
+     token --text-* sono pensati, che infatti la facevano enorme su
+     desktop e minuscola su mobile. Bounds calcolati sulla larghezza
+     reale misurata della card nei nostri breakpoint (135px–448px). */
+  .person-card__name {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: clamp(0.8125rem, 0.5699rem + 2.8754cqw, 1.375rem);
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+  }
+
+  .person-card__role {
+    font-size: clamp(0.625rem, 0.4363rem + 2.2364cqw, 1.0625rem);
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+    /* Stesso principio per lo spazio verticale fino alla pillola/mail:
+       fluido con la card, non un valore fisso — è lo spazio segnalato
+       come "da tenere stabile e scalabile" nella review. */
+    margin-bottom: clamp(0.5rem, -0.0391rem + 6.3898cqw, 1.75rem);
+  }
+
+  .person-card__meta {
+    display: flex;
+    align-items: center;
+    /* La pillola e il link mail restano sempre sulla stessa riga (mai
+       a capo): se lo spazio non basta la pillola si tronca (vedi
+       .person-card__badge), non va a riga nuova. */
+    flex-wrap: nowrap;
+    /* Fluido con la larghezza della card come il resto (vedi
+       .person-card__name): un gap legato alla viewport (--space-xs)
+       resta grande proprio dove la card è più stretta — 6 colonne
+       capitano su viewport larghi, quindi il gap "fluido-viewport"
+       era al suo massimo esattamente quando la card aveva meno spazio
+       da dare, contribuendo all'overflow di .person-card__mail. */
+    gap: clamp(0.25rem, 0.0883rem + 1.9169cqw, 0.625rem);
+    /* Rete di sicurezza: senza questi due, il contenuto non troncabile
+       di .person-card__mail (flex-shrink:0, vedi sotto) può forzare
+       questa riga oltre la larghezza della card invece di restarci
+       dentro — succede raramente ma quando succede spinge il link
+       "Mail" visibilmente fuori dal bordo della card. */
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Pillola e link mail alla stessa identica dimensione — fluida con
+     la larghezza della card (vedi commento su .person-card__name):
+     var(--text-caption) è fluida sulla VIEWPORT, non sulla card, ed è
+     esattamente il motivo per cui la pillola tornava a essere
+     sproporzionata (troppo grande sulle card strette a 6 colonne). */
+  .person-card__badge,
+  .person-card__mail {
+    font-size: clamp(0.5625rem, 0.4277rem + 1.5974cqw, 0.875rem);
+  }
+
+  .person-card__badge {
+    display: inline-flex;
+    align-items: center;
+    /* Si tronca invece di spingere il link mail a capo se lo spazio
+       nella card è troppo stretto. */
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Anche il padding verticale fluido con la card (vedi sopra):
+       fisso o legato alla viewport la faceva sembrare "schiacciata"
+       quando il font si riduceva su una card stretta ma il padding no
+       (o restava grande su viewport larghi a prescindere dalla card). */
+    padding-block: clamp(0.1875rem, 0.1336rem + 0.639cqw, 0.3125rem);
+    padding-inline: var(--space-2xs);
+    background: var(--black-primary);
+    color: var(--white-background);
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+  }
+
+  .person-card__mail {
+    display: inline-flex;
+    align-items: center;
+    /* "Mail" non si tronca mai (è già il testo più corto possibile):
+       min-width:0 qui serve solo a evitare che il SUO automatic
+       minimum size forzi .person-card__meta più largo della card
+       quando lo spazio è quasi tutto preso dalla pillola — non lo fa
+       mai restringere davvero, dato che flex-shrink resta 0. */
+    flex-shrink: 0;
+    min-width: 0;
+    gap: var(--space-3xs);
+    color: var(--black-primary);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .person-card__mail .icon {
+    /* Fluida con la card come il resto del testo (vedi
+       .person-card__name): fissa a 0.9rem restava troppo grande
+       proprio sulle card più strette. */
+    width: clamp(0.75rem, 0.6421rem + 1.278cqw, 1rem);
+    height: clamp(0.75rem, 0.6421rem + 1.278cqw, 1rem);
+  }
+
+  /* ── Hover / focus (tastiera): apre la card ── */
+  .person-card:hover,
+  .person-card:focus-within {
+    padding: 0.55rem;
+  }
+
+  .person-card:hover .person-card__media,
+  .person-card:focus-within .person-card__media {
+    border-radius: var(--radius-sm);
+  }
+
+  .person-card:hover .person-card__content,
+  .person-card:focus-within .person-card__content {
+    /* L'altezza esatta di cui nome+ruolo+spazio+pillola hanno bisogno
+       a questa larghezza di card (somma dei clamp() sopra), non una
+       percentuale della card — così non si sovrappongono mai, quale
+       che sia l'altezza della card. .person-card__media (flex:1 1 0%)
+       si stringe automaticamente per lasciarle esattamente questo
+       spazio. */
+    flex-basis: clamp(4.5rem, 2.9904rem + 17.8914cqw, 8rem);
+    padding-top: 0.55rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 150ms;
+  }
+
+  /* Su mobile non c'è hover: i dettagli restano sempre visibili, come
+     nel carosello temi (vedi bits/theme-card.css). Proporzione più
+     bassa che su desktop (qui la card è già larga di suo, non le
+     serve la stessa altezza extra). */
+  @media (max-width: 768px) {
+    .person-card {
+      aspect-ratio: 5 / 7;
+      padding: 0.55rem;
+      transition: none;
+    }
+
+    .person-card__media {
+      border-radius: var(--radius-sm);
+      transition: none;
+    }
+
+    .person-card__content {
+      flex-basis: clamp(4.5rem, 2.9904rem + 17.8914cqw, 8rem);
+      padding-top: 0.55rem;
+      opacity: 1;
+      transform: translateY(0);
+      transition: none;
+    }
+  }
+}

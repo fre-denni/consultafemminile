@@ -1,1 +1,385 @@
 Title: Le Persone
+
+----
+
+Persone:
+
+- 
+  foto:
+    - file://a3in2lweas472ce0
+  nome: Susanna
+  cognome: Sciaky
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: ADEI WIZO
+  email: presidenza@adeiwizo.org
+  id: "0"
+- 
+  foto:
+    - file://tcrpi1bqfrlsglfj
+  nome: Paola
+  cognome: Furini
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: ADGI
+  email: paola.furini@studiolegalefurini.it
+  id: "1"
+- 
+  foto:
+    - file://as4j7qmoaikl2m3l
+  nome: Giada
+  cognome: Andriolo
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: ADGI
+  email: avv.andriolo@gmail.com
+  id: "2"
+- 
+  foto:
+    - file://qx45gzmlujvxoqcp
+  nome: Gabriella
+  cognome: Rimoldi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: AIDDA
+  email: gabriella.rimoldi@gmail.com
+  id: "3"
+- 
+  foto:
+    - file://nhlevtgjkwwytjgx
+  nome: Adriana Silvia
+  cognome: Sartor
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: AIDDA
+  email: delegazionelombardia@aidda.org
+  id: "4"
+- 
+  foto:
+    - file://bzpsoj5drfxgb3n4
+  nome: Isabella
+  cognome: Goldmann
+  ruolo: Consigliera
+  consigliera: 'true'
+  presidenza: 'false'
+  associazione: AIDIA
+  email: studio@goldmann.it
+  id: "5"
+- 
+  foto:
+    - file://ylkpg7zuanpmkqiv
+  nome: Antonietta
+  cognome: Lo Conte
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: AIDIA
+  email: antonietta.loconte@polimi.it
+  id: "6"
+- 
+  foto:
+    - file://zmbisrwya6zmh34q
+  nome: Manuela
+  cognome: Sanguini
+  ruolo: Segretaria
+  consigliera: 'true'
+  presidenza: 'false'
+  associazione: 'AIDM - Milano'
+  email: presidenza@aidm-milano.org
+  id: "7"
+- 
+  foto:
+    - file://xijknpnqjvdk1xf2
+  nome: Luciana
+  cognome: Bovone
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: 'AIDM - Milano'
+  email: luciana.bovone@email.it
+  id: "8"
+- 
+  foto:
+    - file://0zadrncetpeh18j3
+  nome: Anna Maria
+  cognome: Maniezzi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: 'AIDM - Milano'
+  email: annamaria.maniezzi@gmail.com
+  id: "9"
+- 
+  foto:
+    - file://6mq2tcvjchjcwaja
+  nome: Pinarosa
+  cognome: Cerasuolo
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: ANDE
+  email: bice@mazzoniconsulting.com
+  id: "10"
+- 
+  foto:
+    - file://4r6h2nfif3hy8lzl
+  nome: Bice
+  cognome: Mazzoni
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: ANDE
+  email: bice@mazzoniconsulting.com
+  id: "11"
+- 
+  foto:
+    - file://nz9d7wnozxppp76y
+  nome: Maria Teresa
+  cognome: Coppo Gavazzi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: CIF
+  email: miticoppo@gmail.com
+  id: "12"
+- 
+  foto:
+    - file://zvxtkg0qo8yu8w0s
+  nome: Maria Antonietta
+  cognome: Pepe
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: CIF
+  email: maria-pepe@hotmail.it
+  id: "13"
+- 
+  foto:
+    - file://kuvxk6nuzxycx9xq
+  nome: Immacolata
+  cognome: Esposito
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Club Lions Milano
+  email: mimma0676@gmail.com
+  id: "14"
+- 
+  foto:
+    - file://fxma2bxlwzgteyd2
+  nome: Irma
+  cognome: Manfredi Giordano
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Club Lions Milano
+  email: irmamanfredi@gmail.com
+  id: "15"
+- 
+  foto:
+    - file://omdocj6gscctjlj6
+  nome: Francesca
+  cognome: Mosciatti
+  ruolo: Consigliera
+  consigliera: 'true'
+  presidenza: 'false'
+  associazione: CPD
+  email: >
+    francesca.mosciatti@studioscaranochiara.it
+  id: "16"
+- 
+  foto:
+    - file://elaltshxaj9kvcsk
+  nome: Laura
+  cognome: Vitali
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: CPD
+  email: laura.vitali@cpdonna.it
+  id: "17"
+- 
+  foto:
+    - file://e81whjwfhqjs4x3j
+  nome: Alga
+  cognome: Rossi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: FIDAPA MI
+  email: algarossi@googlemail.com
+  id: "18"
+- 
+  foto:
+    - file://cyv3zrptkmv7ukvc
+  nome: Cristina
+  cognome: Berretta
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: FIDAPA MI
+  email: criberr01@gmail.com
+  id: "19"
+- 
+  foto:
+    - file://bacbmdxpch9qfsok
+  nome: Elena Ilaria
+  cognome: Malvezzi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Lilt Milano
+  email: Ilaria.Malvezzi@legatumori.mi.it
+  id: "20"
+- 
+  foto:
+    - file://kvfgssu9ney6mvtj
+  nome: Maria
+  cognome: Bonfanti
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Lilt Milano
+  email: mbonfanti46@gmail.com
+  id: "21"
+- 
+  foto:
+    - file://qlph9hm3thkakowy
+  nome: Camilla
+  cognome: Occhionorelli
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: MOICA
+  email: moicalombardia@moica.it
+  id: "22"
+- 
+  foto:
+    - file://kv45tzydnjh5qcvx
+  nome: Rita
+  cognome: Quinto
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: MOICA
+  email: rita.quinto@libero.it
+  id: "23"
+- 
+  foto:
+    - file://nup3og2gvvv43i6h
+  nome: Maria Bernadetta
+  cognome: Ferrari
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: SOROPTIMIST CLUB MILANO FONDATORE
+  email: mb.ferrari@libero.it
+  id: "24"
+- 
+  foto:
+    - file://5dvg4mgelnypz22t
+  nome: Benedetta
+  cognome: Smedile
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: SOROPTIMIST CLUB MILANO FONDATORE
+  email: benismedi@gmail.com
+  id: "25"
+- 
+  foto:
+    - file://maqexsdr1d4qcwly
+  nome: Margherita
+  cognome: Pillan
+  ruolo: Vicepresidente
+  consigliera: 'true'
+  presidenza: 'true'
+  associazione: Soroptimist
+  email: margherita.pillan@polimi.it
+  id: "26"
+- 
+  foto:
+    - file://pepvjk8uxsu6gpg4
+  nome: Maria Luisa
+  cognome: Frosio
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Soroptimist
+  email: mlfrosio@gmail.com
+  id: "27"
+- 
+  foto:
+    - file://hlto6gdqupprnmo7
+  nome: Laura
+  cognome: Caradonna
+  ruolo: Presidente
+  consigliera: 'true'
+  presidenza: 'true'
+  associazione: TUTTI PIU’ EDUCATI
+  email: lauraladacaradonna@gmail.com
+  id: "28"
+- 
+  foto:
+    - file://wwqtcqbsuxwhxvhr
+  nome: Rosaria
+  cognome: Fedrizzi
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: TUTTI PIU’ EDUCATI
+  email: rosariafedrizzi@yahoo.it
+  id: "29"
+- 
+  foto:
+    - file://tgtefc1qzrqibvet
+  nome: Margherita
+  cognome: Strigelli
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: UFN
+  email: strimarg@gmail.com
+  id: "30"
+- 
+  foto:
+    - file://esb7qqb69f0zkvk2
+  nome: Gisella
+  cognome: Incerti
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: YWCA Italia
+  email: gise2020@libero.it
+  id: "31"
+- 
+  foto:
+    - file://fdgwu5mswwduhpkj
+  nome: Elena
+  cognome: Federici Ballini
+  ruolo: Tesoriera
+  consigliera: 'true'
+  presidenza: 'false'
+  associazione: Zonta Club
+  email: aiuiah@alice.it
+  id: "32"
+- 
+  foto:
+    - file://mdujdxysyk0rwoll
+  nome: Lucia
+  cognome: Toniolo Reale
+  ruolo: Delegata
+  consigliera: 'false'
+  presidenza: 'false'
+  associazione: Zonta Club
+  email: luciatoniolo14@gmail.com
+  id: "33"
+
+----
+
+Uuid: zijjojmd8jjgwzcl

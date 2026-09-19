@@ -56,7 +56,7 @@
     margin-block-start: var(--space-s);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1062px) {
     .paragraph__grid {
       flex-direction: column;
       /* Lo stacco tra i due gruppi (label vs titolo+testo) va qui, non

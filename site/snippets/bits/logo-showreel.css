@@ -9,7 +9,10 @@
 
   .logo-showreel-section__heading {
     margin: 0 0 var(--space-xl);
-    padding-inline: var(--space-l);
+    /* Stesso gutter fluido degli altri caroselli della home (vedi
+       --space-smooth in assets/css/global.css), per restare allineati
+       a ogni larghezza. */
+    padding-inline: var(--space-smooth);
     margin-bottom: var(--space-2xl);
     font-family: var(--sans-semibold);
     font-weight: 600;

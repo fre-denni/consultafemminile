@@ -17,7 +17,7 @@
   }
 
   .people-carousel-section__label {
-    padding-inline: var(--space-3xl);
+    padding-inline: var(--space-smooth);
     margin-bottom: var(--space-xl);
   }
 
@@ -31,10 +31,8 @@
     list-style: none;
     /* Stesso gutter fluido del carosello temi (vedi
        bits/theme-carousel.css), per restare coerenti a ogni larghezza. */
-    padding-inline: var(--space-3xl);
-    /* Lo spazio verticale lo dà già .people-carousel-section (sopra),
-       qui basta il gutter orizzontale. */
-    padding-block: 0;
+    padding-inline: var(--space-smooth);
+    padding-block: 1rem;
   }
 
   .people-carousel__item {

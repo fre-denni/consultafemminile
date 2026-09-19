@@ -1,0 +1,161 @@
+/** LOGO-SHOWREEL — striscia di loghi delle associazioni, scorrimento
+    automatico infinito destra→sinistra, sfumata ai due lati **/
+@layer bits {
+  .logo-showreel-section {
+    width: 100%;
+    background: var(--white-foreground);
+    padding-block: var(--space-2xl);
+  }
+
+  .logo-showreel-section__heading {
+    margin: 0 0 var(--space-xl);
+    padding-inline: var(--space-l);
+    margin-bottom: var(--space-2xl);
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h3);
+    line-height: var(--leading-display);
+    color: var(--black-primary);
+    text-align: center;
+  }
+
+  .logo-showreel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Sfuma i loghi in entrata/uscita ai due lati invece di tagliarli
+       di netto (le due gradient overlay del riferimento Figma, qui
+       ottenute con una maschera sola: si adatta da sé a qualunque
+       sfondo, non deve "conoscere" il colore dietro). */
+    --logo-showreel-fade: clamp(3rem, 8vw, 9.5rem);
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black var(--logo-showreel-fade),
+      black calc(100% - var(--logo-showreel-fade)),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black var(--logo-showreel-fade),
+      black calc(100% - var(--logo-showreel-fade)),
+      transparent 100%
+    );
+  }
+
+  .logo-showreel__track {
+    display: flex;
+    width: max-content;
+    /* Lo scorrimento lo muove assets/js/logo-showreel.js con
+       requestAnimationFrame, non una @keyframes CSS: una percentuale
+       (-50%) calcolata una volta sola andava storta ogni volta che le
+       immagini finivano di caricare DOPO l'avvio dell'animazione (loghi
+       via via più grandi/piccoli = la larghezza reale del gruppo
+       cambiava, ma la keyframe restava legata a quella iniziale) —
+       causa dello scatto e del riavvio sbagliato del loop. Il JS
+       ricalcola la larghezza del gruppo quando ogni immagine finisce di
+       caricare, quindi resta sempre corretta. */
+    will-change: transform;
+  }
+
+  .logo-showreel__group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xl);
+    list-style: none;
+    flex-shrink: 0;
+    /* Stesso spazio dell'ultimo logo del gruppo verso il primo del
+       prossimo: due gruppi identici in fila, con lo stesso ritmo
+       interno, sono indistinguibili dal punto di saldatura — è questo
+       (insieme al riavvolgimento in assets/js/logo-showreel.js) che
+       rende il loop invisibile. */
+    margin-inline-end: var(--space-3xl);
+  }
+
+  .logo-showreel__item {
+    --logo-showreel-height: clamp(3rem, 6vw, 6.875rem);
+    flex-shrink: 0;
+    height: var(--logo-showreel-height);
+    /* Tetto alla larghezza: senza, un logo molto orizzontale (un
+       wordmark lungo) resta comunque alto quanto gli altri e finisce
+       per occupare 3-4 volte lo spazio di uno corto/quadrato. Con
+       questo, un logo più largo del previsto si restringe (altezza
+       compresa, vedi object-fit:contain sotto) invece di dominare la
+       riga — al massimo 1,5 volte un logo corto, non di più. */
+    max-width: calc(var(--logo-showreel-height) * 1.5);
+  }
+
+  /* <a> quando l'associazione ha un sito, <span> altrimenti (vedi
+     logo-showreel.php) — stessa resa in entrambi i casi, occupa tutto
+     lo spazio della card così il logo resta centrato come prima. */
+  .logo-showreel__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  a.logo-showreel__link {
+    cursor: pointer;
+  }
+
+  .logo-showreel__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* "Moltiplica" i pixel del logo con lo sfondo dietro: il bianco
+       (che qui "vale" 1) sparisce fondendosi con il panna della
+       sezione, mentre i colori più scuri del logo restano — utile per
+       i loghi con un rettangolo bianco pieno attorno invece che uno
+       sfondo trasparente. Sui loghi già trasparenti non cambia nulla. */
+    mix-blend-mode: multiply;
+    /* A riposo in scala di grigi (vedi Figma); a colori pieni solo al
+       passaggio del mouse sul singolo logo, vedi sotto. */
+    filter: grayscale(1);
+    transition: filter 300ms ease;
+  }
+
+  .logo-showreel__link:hover .logo-showreel__img,
+  .logo-showreel__link:focus-visible .logo-showreel__img {
+    filter: grayscale(0);
+  }
+
+  /* Su touch l'hover non esiste: restare in grigio per sempre (nessun
+     modo di "rivelare" il colore) sarebbe un vicolo cieco, non
+     un'animazione mancata — qui i loghi sono sempre a colori. */
+  @media (hover: none) {
+    .logo-showreel__img {
+      filter: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-showreel-section {
+      padding-block: var(--space-xl);
+    }
+
+    .logo-showreel-section__heading {
+      font-size: var(--text-h3);
+    }
+
+    /* Su mobile clamp() restava fermo al suo minimo (3rem): qui un
+       valore fisso più grande (+25%) e un gap più stretto, così i
+       loghi si leggono meglio invece di perdersi nel troppo spazio
+       vuoto attorno. */
+    .logo-showreel__item {
+      --logo-showreel-height: 3.75rem;
+    }
+
+    .logo-showreel__group {
+      gap: var(--space-m);
+      /* Deve restare identico al gap qui sopra — vedi il commento su
+         .logo-showreel__group per il perché (saldatura del loop). */
+      margin-inline-end: var(--space-m);
+    }
+  }
+}

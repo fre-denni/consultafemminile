@@ -1,0 +1,73 @@
+title: Le Associazioni
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          associazioni:
+            label: Associazioni
+            help: >
+              Ogni riga è un'associazione: carica prima logo e foto nella
+              sezione "File" qui a fianco, poi selezionali qui. Per ora è
+              il logo l'unico dato già mostrato sul sito (lo showreel in
+              home) — gli altri campi sono pronti per quando costruiremo
+              la pagina "Le Associazioni".
+            type: structure
+            columns:
+              logo:
+                width: 1/12
+              nome_completo:
+                width: 3/12
+              nome_breve:
+                width: 2/12
+              sito_web:
+                width: 2/12
+              delegate:
+                width: 2/12
+            fields:
+              logo:
+                label: Logo
+                type: files
+                query: page.images
+                max: 1
+              nome_completo:
+                label: Nome completo
+                type: text
+                required: true
+              nome_breve:
+                label: Nome breve
+                help: Usato dove lo spazio è poco (es. badge nelle card delle persone).
+                type: text
+              sito_web:
+                label: Sito web
+                type: url
+              foto:
+                label: Foto significativa
+                type: files
+                query: page.images
+                max: 1
+              descrizione:
+                label: Descrizione significativa
+                type: textarea
+              delegate:
+                label: Delegate collegate
+                help: >
+                  Le persone di site/blueprints/pages/persone.yml che fanno
+                  parte di questa associazione — l'elenco si aggiorna da
+                  solo, non serve toccarlo quando cambiano le persone.
+                type: multiselect
+                options:
+                  type: query
+                  query: site.find('chi-siamo/persone').persone.toStructure
+                  text: "{{ item.nome }} {{ item.cognome }}"
+                  value: "{{ item.nome }} {{ item.cognome }}"
+  sidebar:
+    width: 1/3
+    sections:
+      file:
+        label: File
+        type: files
+        help: Carica qui loghi e foto, poi assegnali alle singole associazioni a sinistra.

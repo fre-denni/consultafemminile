@@ -15,7 +15,10 @@
       'items' => collection('consigliere'),
       'label' => 'Consiglio 2026-2027',
     ]) ?>
-    <?php //inserisci qui i loghi della consulta ?>
+    <?php snippet('bits/logo-showreel', [
+      'items'   => collection('associazioni'),
+      'heading' => 'Le associazioni della consulta',
+    ]) ?>
   <?php endslot() ?>
 
 <?php endsnippet() ?>

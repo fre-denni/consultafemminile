@@ -1,1 +1,307 @@
 Title: Le Associazioni della Consulta
+
+----
+
+Associazioni:
+
+- 
+  logo:
+    - file://qiv2hkjcusytrrhu
+  nome_completo: "Associazione Donne Ebree d'Italia"
+  nome_breve: ADEI WIZO
+  sito_web: https://www.adeiwizo.org/
+  foto: [ ]
+  descrizione: |
+    ADEI WIZO ETS è una delle federazioni della Women's International Zionist Organization, un movimento a-politico nato a Londra nel 1920 con l’intento di dare voce alle donne nel grande progetto che avrebbe portato alla nascita di Israele. Con il tempo la WIZO è diventata sempre più una rete di donne per le donne, con il compito di difendere i loro diritti: al lavoro, allo studio, ad avere una famiglia, a vivere una vita serena al riparo dalla violenza. Per estensione di questa missione oggi WIZO si occupa anche di promuovere l’istruzione, di tutela dei minori, di inclusività, di diritti civili e della lotta ad antisemitismo e antisionismo. La WIZO è ad oggi il primo partner per il welfare del Governo di Israele, e centrale è il suo ruolo nel proporre leggi e normative a favore delle donne.
+    
+    ADEI, Associazione Donne Ebree d’Italia, il cui nucleo risale al 1927, supporta questa mission sia attraverso la raccolta di fondi per i progetti in Israele, sia sviluppando proprie iniziative a livello nazionale o a livello locale nelle sezioni territoriali che rappresentano l’Associazione in 16 città italiane.
+  delegate: Susanna Sciaky
+- 
+  logo:
+    - file://wtbkhw3gqdddnvrl
+  nome_completo: "Associazione Donne Giuriste d'Italia"
+  nome_breve: ADGI Milano
+  sito_web: >
+    https://associazionedonnegiuristeitalia.org/
+  foto:
+    - file://wdrzwjnocrw8c55q
+  descrizione: |
+    A.D.G.I., Associazione Donne Giuriste Italia ha l’obiettivo di contribuire all’eliminazione di tutte le forme di discriminazione nei confronti delle donne. Il 21 marzo 2006 si è costituita in Milano l’Associazione Donne Giuriste Milano che ha riconosciuto le proprie radici nella Fédération Internationale des Femmes des Carrières Juridiques (http://www.fifcj-ifwlc.net/) con sede a Parigi sorta nel 1928 ad iniziativa delle prime donne avvocato italiane e francesi.
+    
+    Successivamente il 07 novembre 2008, a seguito dell’adesione di altre sezioni costituitesi spontaneamente, nel corso di un’assemblea generale tenutasi a Roma, la medesima associazione si è costituita in sede nazionale con il nome di Associazione Donne Giuriste Italia accolta nella F.I.F.C.J.
+  delegate: Paola Furini, Giada Andriolo
+- 
+  logo:
+    - file://hua3zs6nhcqkrgro
+  nome_completo: >
+    Associazione Italiana Donne Ingegneri e
+    Architetti
+  nome_breve: AIDIA
+  sito_web: https://aidia-italia.it/
+  foto:
+    - file://fpcrxmggqzfeldjl
+  descrizione: |
+    AIDIA è acronimo di ASSOCIAZIONE ITALIANA DONNE INGEGNERI E ARCHITETTI che dal 1957 riunisce donne che lavorano nel campo dell’architettura e dell’ingegneria. Fondata per solidarietà umana e professionale tra colleghe ha come obiettivo la valorizzazione del lavoro della donna nel campo tecnico.
+    
+    In un’atmosfera di collaborazione e condivisione si sono rafforzati gli obiettivi verso la difesa dei diritti delle laureate nel campo dell’ingegneria e dell’architettura. Gli eventi organizzati e gestiti dall’associazione mirano a consolidare i legami culturali e professionali e intraprendere collaborazioni con la società civile, gli enti e le istituzioni.
+    
+    I legami e gli obiettivi comuni hanno portato alla nascita di numerose sezioni su tutto il territorio italiano.
+    
+    Le socie sono impegnate nel settore pubblico, in quello privato, nella docenza, nella ricerca e nella libera professione.
+  delegate: Isabella Goldmann, Antonietta Lo Conte
+- 
+  logo:
+    - file://e6wl3mqaotonhr2a
+  nome_completo: >
+    Associazione Donne Imprenditrici e Donne
+    Dirigenti di Azienda
+  nome_breve: AIDDA
+  sito_web: https://www.aidda.org/
+  foto: [ ]
+  descrizione: |
+    AIDDA è da 60 anni il punto di riferimento per le donne con ruoli di responsabilità.
+    
+    AIDDA è la prima associazione italiana nata con lo specifico obiettivo di valorizzare e sostenere l’imprenditoria al femminile, il ruolo delle donne manager e delle professioniste.
+    
+    Fondata nel 1961 a Torino e acquisita la personalità giuridica e la qualifica di Ente del Terzo Settore nel 2023, è il più autorevole punto di riferimento per le donne che assumono ruoli di responsabilità nella struttura economica italiana ed è una organizzazione che interagisce e stimola attivamente il tessuto socioeconomico e culturale della società civile.
+    
+    AIDDA con le sue 800 iscritte, dà un prezioso supporto e contributo in termini di idee e di esperienza del mondo imprenditoriale e professionale femminile, rappresentato dalle piccole, medie e grandi imprese femminili italiane con una trasversalità in ogni settore merceologico, una forte rappresentanza di aziende familiari, storiche, artigianali specchio di una Italia fatta di tradizione, creatività, eccellenza, qualità; un inestimabile patrimonio economico, storico.
+    
+    AIDDA è articolata in 13 Delegazioni regionali e le sue associate rappresentano un fatturato di 20 miliardi e 32.000 dipendenti.
+  delegate: Gabriella Rimoldi, Adriana Silvia Sartor
+- 
+  logo:
+    - file://ebbygnllwlvfexpw
+  nome_completo: Associazione Italiana Donne Medico
+  nome_breve: AIDM Milano
+  sito_web: https://www.donnemedico.org/
+  foto: [ ]
+  descrizione: |
+    L’Associazione Italiana Donne Medico (A.I.D.M.) è un’associazione apartitica e aconfessionale e senza fini di lucro. Fondata il 14 ottobre 1921 a Salsomaggiore Terme e riconosciuta nel 1922 a Ginevra, dal Bureau Internazionale, è membro della “Medical Women’s International Association” (M.W.I.A.) e adotta come emblema la figura di Igèa, figlia di Esculapio e Dea della Salute, che tiene nella mano una coppa nella quale si abbevera il serpente, con il motto “Matris animo curant”. L’Associazione si articola in sezioni comunali, provinciali o regionali. L’A.I.D.M. è entrata a far parte della FISM (Federazione delle Società Medico-Scientifiche Italiane) nel maggio 2003 con n° di protocollo A017 e nell’elaborare le sue attività scientifiche e di formazione adotta il sistema di verifica della qualità.
+    Dal gennaio 2011 è accreditata in qualità di Provider standard con il n° 558 dalla Commissione Nazionale per la Formazione Continua e pertanto è abilitata a realizzare attività formative riconosciute idonee per l’ECM (Educazione Continua in Medicina). Su tutto il territorio nazionale le varie sezioni organizzano convegni, seminari e gruppi di studio, partecipazione a progetti scientifici e collaborazioni con altre società scientifiche. Annualmente viene organizzato il Congresso Nazionale seguito dall’Assemblea Nazionale.
+  delegate: >
+    Manuela Sanguini, Luciana Bovone, Anna
+    Maria Maniezzi
+- 
+  logo:
+    - file://0vpgkklz6w8nxfcp
+  nome_completo: Associazione Nazionale Donne Elettrici
+  nome_breve: ANDE Milano
+  sito_web: https://www.ande-milano.org/chi-siamo/
+  foto: [ ]
+  descrizione: |
+    Fondata nel 1946 a Roma da Carla Orlando Garabelli, l’Associazione Nazionale Donne Elettrici (ANDE) rappresenta un unicum nel panorama europeo. L'ispirazione alla sua costituzione deriva dall’esperienza diretta della fondatrice con la “League of Women Voters” negli Stati Uniti. L’obiettivo primario di Carla Orlando Garabelli e del gruppo di donne di diversa estrazione politica che la affiancarono fu quello di accrescere la consapevolezza politica degli elettori, con particolare attenzione alle donne, che proprio nel 1946 ottennero il diritto di voto.
+    
+    Sin dalle sue origini, l’ANDE si è caratterizzata per una forte vocazione europeista e per un impegno costante nella promozione della partecipazione elettorale, diritto democratico conquistato con grande determinazione. L'Associazione si adopera attivamente per contrastare l’astensionismo attraverso iniziative volte a sensibilizzare l’elettorato e promuovere un voto libero, consapevole e responsabile.
+    
+    L’ANDE è un’associazione politica, ma apartitica, che vanta 79 anni di impegno civile, storia e battaglie a favore dell’elettorato. Con una presenza capillare su tutto il territorio nazionale, le sezioni locali, da Trieste a Marsala, portano avanti il tradizionale impegno per la partecipazione al voto, favorendo il dialogo con le istituzioni e le forze politiche. L'Associazione si dedica, inoltre, alla riflessione e alla formazione su temi di rilevanza sociale, dalla giustizia all’inclusione, con l’obiettivo di valorizzare la persona in un contesto di civile convivenza, sia a livello nazionale che europeo.
+  delegate: Pinarosa Cerasuolo, Bice Mazzoni
+- 
+  logo:
+    - file://o2yke7g54ng5q8a1
+  nome_completo: Centro Italiano Femminile
+  nome_breve: CIF
+  sito_web: https://www.cifnazionale.it/
+  foto:
+    - file://tv4k4xphealbgufa
+  descrizione: "Il Centro Italiano Femminile (CIF) è un'associazione di ispirazione cattolica fondata nel 1944, con l'obiettivo di promuovere e difendere i diritti delle donne e delle famiglie, contribuendo alla costruzione di una società più equa e solidale. Da 80 anni, il CIF si impegna a valorizzare il ruolo della donna in tutti gli ambiti della vita sociale, culturale e politica, promuovendo il rispetto della dignità umana e l'uguaglianza di genere."
+  delegate: >
+    Maria Teresa Coppo Gavazzi, Maria
+    Antonietta Pepe
+- 
+  logo:
+    - file://br2cqsaqcpcbntb7
+  nome_completo: Centro Progetti Donna
+  nome_breve: CPD
+  sito_web: https://www.cpdonna.it/
+  foto: [ ]
+  descrizione: |
+    Da Centro Problemi Donna ...
+    ... a Centro Progetti Donna
+    Il "Centro Problemi Donna"
+    
+    Il Centro Problemi Donna è un consultorio laico autogestito, che opera da trent'anni nella realtà milanese. Si è distinto per il servizio fornito alle donne, nell'affrontare con progetti propositivi di carattere psicologico, familiare, sessuale, affettivo, di relazione e legale, in una società che diviene sempre più complessa.
+    Nato negli anni settanta, per iniziativa di Gabriella Parca, giornalista, come luogo di incontro delle donne, si è costituito in "associazione senza scopo di lucro" con atto 17/11/1975 del notaio Giuliana Raja: una delle prime donne notaio in Italia.
+    
+    Socie fondatrici sono, oltre a Gabriella Parca, Lidia Custodi (sindacalista), Anna Longoni (sessuologa), Fausta Fano (consulente familiare), Giovanna Chiara (avvocato).
+    Lo statuto delinea l'organizzazione dell'associazione, retta da un direttivo di cinque socie, elette dall'assemblea.
+    Il "Centro" ha sede in Milano - Via Silvio Pellico, 6 - dal 1975, in locali presi in affitto dal Comune.
+  delegate: Francesca Mosciatti, Laura Vitali
+- 
+  logo:
+    - file://niectcpouzrwfgp3
+  nome_completo: >
+    Federazione Italiana delle Donne nelle
+    Arti, Professioni ed Affari
+  nome_breve: FIDAPA Milano
+  sito_web: https://www.fidapa.org/HomePage
+  foto: [ ]
+  descrizione: |
+    La FIDAPA BPW Italy E’ un movimento di opinione indipendente; non ha scopi di lucro, persegue i suoi obiettivi senza distinzione di etnia, lingua e religione e di opinioni politiche. La Federazione ha lo scopo di promuovere, coordinare e sostenere le iniziative delle donne che operano nel campo delle Arti, delle Professioni e degli Affari, autonomamente o in collaborazione con altri Enti, Associazioni ed altri soggetti. Per raggiungere tale scopo si propone i seguenti obiettivi:
+    a) Valorizzare le competenze e la preparazione delle Socie indirizzandole verso attività sociali e culturali che favoriscono il miglioramento della vita, anche lavorativa, delle donne;
+    b) incoraggiare le donne a un continuo impegno nonché ad una consapevole partecipazione alla vita sociale, amministrativa e politica, adoperandosi per rimuovere gli ostacoli ancora esistenti;
+    c) essere portavoce delle donne che operano nel campo delle Arti, delle Professioni e degli Affari, presso le Organizzazioni e le Istituzioni Nazionali, europee ed internazionali;
+    d) adoperarsi per rimuovere ogni forma di discriminazione a sfavore delle donne, sia nell'ambito della famiglia che in quello del lavoro, nel pieno rispetto delle norme vigenti in materia di pari opportunità; e) favorire rapporti amichevoli, reciproca comprensione e proficua collaborazione fra le persone di tutto il mondo. Le Sezioni, seguendo le direttive nazionali e internazionali, assicurano la più ampia partecipazione delle loro iscritte alla vita associativa e conformano la loro azione ai principi della BPW International.
+  delegate: Alga Rossi, Cristina Berretta
+- 
+  logo:
+    - file://bks8phykkjqu4cm6
+  nome_completo: >
+    Lega Italiana per la Lotta contro i
+    Tumori
+  nome_breve: LILT Milano Brianza APS
+  sito_web: https://www.legatumori.mi.it/
+  foto: [ ]
+  descrizione: >
+    La Lega Italiana per la Lotta contro i
+    Tumori – Associazione Provinciale
+    Milano Monza Brianza APS – è nata nel
+    1948 sulla spinta di una forte cultura
+    della solidarietà e dell’educazione
+    alla salute. Opera sul territorio di
+    Milano e Monza Brianza per promuovere e
+    realizzare iniziative volte a far
+    conoscere, potenziare e valorizzare la
+    prevenzione, la diagnosi precoce e la
+    ricerca in campo oncologico e rispondere
+    ai bisogni dei malati e delle loro
+    famiglie, in condizioni economicamente
+    disagiate, con concreti servizi di
+    assistenza. L’Associazione,
+    riconosciuta dalla Regione Lombardia
+    come organizzazione senza fini di lucro
+    e di attività sociale, fa parte di un
+    Ente Pubblico su base associativa che
+    opera sotto l’Alto Patronato del
+    Presidente della Repubblica e sotto la
+    vigilanza del Ministero della Salute.
+    Nel 2010 ha ottenuto la certificazione
+    di qualità ISO 9001:2015 per i servizi
+    di prevenzione, assistenza e
+    volontariato.
+  delegate: Elena Ilaria Malvezzi, Maria Bonfanti
+- 
+  logo:
+    - file://lfqsid7nkog2wvbi
+  nome_completo: Lions Milano Galleria
+  nome_breve: LIONS Club
+  sito_web: >
+    https://e-clubhouse.org/sites/milano_galleria/
+  foto: [ ]
+  descrizione: |
+    I Lions sono la più grande organizzazione umanitaria di servizio al mondo presente in più di 200 Paesi con più di 1,4 milioni di soci.
+    
+    Attraverso iniziative solidali, progetti sociali e campagne di sensibilizzazione, i Lions operano in diversi ambiti, mettendo al centro valori come altruismo, collaborazione e responsabilità civica.
+    
+    Tra le principali attività rientrano i progetti a favore della salute, come la prevenzione delle malattie della vista, la donazione di occhiali e il sostegno alla ricerca.
+    
+    I soci lions si  concentrano  su aree come la lotta alla cecità, il sostegno ai giovani, la protezione dell'ambiente, la lotta alla fame, il diabete, il cancro giovanile e gli interventi nelle calamità, attraverso progetti concreti e raccolte fondi.
+    
+    Seguendo il motto WE SERVE, I Lions sono inoltre impegnati nel supporto alle famiglie in difficoltà, nella raccolta e distribuzione di generi alimentari, nel sostegno a persone con disabilità e nella promozione dell’inclusione sociale.
+    
+    Ogni progetto nasce dall’ascolto dei bisogni del territorio e dalla collaborazione con enti locali, scuole, ospedali, associazioni e istituzioni. Grazie al contributo dei soci e al coinvolgimento della comunità, i Lions Club riescono a trasformare piccoli gesti in grandi risultati, dimostrando che il servizio agli altri è una forza capace di generare cambiamento positivo.
+    
+    Il LIONS CLUB MILANO GALLERIA nasce il 18 febbraio 1989, sponsorizzato dal Lions Club Milano Alla Scala.
+    
+    Fin dai primissimi anni il Club si distingue con l’accettazione di un nutrito numero di socie lioness, in un periodo in cui solo pochi club accettavano di inserirle nel loro sodalizio.
+    
+    Il Club attiva negli anni numerosi service rivolti agli anziani e ai non abbienti, ai bambini, .. in generale alle persone in difficoltà.
+  delegate: >
+    Immacolata Esposito, Irma Manfredi
+    Giordano
+- 
+  logo:
+    - file://0me6kddxix5pubjy
+  nome_completo: Donne Attive in Famiglia e Società
+  nome_breve: MOICA Mi
+  sito_web: https://www.moica.it/
+  foto: [ ]
+  descrizione: |
+    MOICA APS è un’Associazione di Promozione Sociale, apartitica, con status consultivo al Consiglio Economico e Sociale delle Nazioni Unite. D’ispirazione cristiana, la nostra Associazione è da 40 anni al fianco delle donne e della società nella tutela e promozione del lavoro familiare e pari opportunità.
+    
+    Oltre al nazionale, il perseguimento degli obbiettivi MOICA è demandato alle delegazioni regionali di Piemonte, Valle d’Aosta, Lombardia, Trentino Alto Adige, Veneto, Friuli Venezia Glulia, Emilia Romagna, Toscana, Umbria, Marche, Lazio, Molise, Campania, Basilicata, Puglia, Calabria, Sicilia e Sardegna. Svariate, inoltre, le sezioni provinciali e cittadine lungo tutto il Pase. Moica conta ad oggi migliaia tra soci e simpatizzanti.
+    
+    MOICA opera istituzionalmente attraverso la sede nazionale sita in Brescia, i comitati regionali afferenti alle relative delegazioni e i numerosi gruppi territoriali che a quest’ultime si riferiscono. Svariati i progetti a carattere nazionale che vengono declinati lungo l’intero territorio italiano grazie alla proattiva rete locale, la vera forza della squadra MOICA.
+  delegate: Camilla Occhionorelli, Rita Quinto
+- 
+  logo:
+    - file://38xbeifdd3wlu74v
+  nome_completo: Soroptmist Milano alla Scala
+  nome_breve: Soroptmist Milano
+  sito_web: >
+    https://www.soroptimist.it/club/it/milano-scala/
+  foto: [ ]
+  descrizione: |
+    Il 13 ottobre 1984 nasce il Club Soroptimist Milano alla Scala. Le socie fondatrici sono 35, così suddivise in categorie professionali: 1 architetto, 1 arredatrice, 1 antiquario, 2 avvocati (diritto di famiglia e civile-commerciale), 1 dietologo, 1 direttore commerciale, 1 econometrico, 1 enologo, 1 fotografo, 3 giornalisti (inviato speciale, corrispondente, Ufficio stampa), 1 editore, 1 magistrato, 1 notaio, 2 professori universitari (anatomia/fisiologia animali domestici, microbiologia), 4 medici (laboratorista, oncologo, pediatra, psichiatra), 1 funzionario CEE, 3 imprenditori (gastronomia. Industrie estrattive, distilleria), 1 direttore di scuola di danza, 1 direttore di scuola di ginnastica 1 direttore di Museo Arti applicate, 1 estetista, 1 pittrice-acquafortista, 1 consulente ippico, 1 esperta sviluppo economico, 1 P.R., ed inoltre 2 socie amiche. Fanno parte delle socie fondatrici due personalità soroptimiste: la past-presidente mondiale Lida Longoni Brambilla e la past-presidente nazionale Ada Cammeo.
+    
+    Da allora il Club si è gradualmente ampliato fino alle attuali 56 Socie e 3 Socie Amiche.
+    Il club di Milano alla Scala è iscritto all'Albo delle Associazioni, dei Movimenti e delle Organizzazioni Femminili, presso la Regione Lombardia.
+  delegate: >
+    Maria Bernadetta Ferrari, Benedetta
+    Smedile, Margherita Pillan, Maria Luisa
+    Frosio
+- 
+  logo:
+    - file://aoom4rudvvgkrq7q
+  nome_completo: Associazione Centro Culturale
+  nome_breve: Tutti più educati
+  sito_web: http://www.tuttipiueducati.it/
+  foto: [ ]
+  descrizione: "Tutti più Educati è un'Associazione Culturale e Centro Studi per la promozione dei valori civili in Italia e in Europa in collaborazione con le istituzioni del territorio. Ogni progetto per diffondere la Cultura dell’educazione e della legalità è oggetto di studio da parte di un gruppo sinergico di professionisti di sicuro prestigio nelle diverse discipline."
+  delegate: Laura Caradonna, Rosaria Fedrizzi
+- 
+  logo:
+    - file://2qukyly3g17s9o4q
+  nome_completo: Unione Femminile Nazionale
+  nome_breve: UFN
+  sito_web: https://unionefemminile.it/
+  foto:
+    - file://mjgxzpo9q5ukx7n5
+  descrizione: |
+    “L’Unione femminile si è costituita per l’elevazione ed istruzione della donna, per la difesa dell’infanzia e della maternità, per dare studi ed opera alle varie istituzioni di utilità sociale, per riunire in una sola sede le Associazioni ed Istituzioni Femminili, con il vantaggio per le socie: a) di avere una Sede decorosa.; b) una Biblioteca in comune; c) una sala di lettura.; d) conferenze, corsi di lezioni, trattenimenti”.
+    Così recita il manifesto programmatico dell’associazione fondata nel 1899, a Milano, da un gruppo di donne diverse per estrazione sociale e formazione culturale: Ersilia Majno Bronzini, Nina Rignano Sullam, Ada Garlanda Negri, Edvige Vonwiller Gessner, Adele Riva, Antonietta Pisa Rizzi, Jole Bersellini Bellini, Rebecca Calderini; del gruppo fondatore fanno parte anche personalità maschili di indirizzo progressista: Luigi Majno, marito di Ersilia, Giuseppe Mentessi e Umano, pseudonimo di Eugenio Meale. Ricordiamo che le donne non hanno ancora autonomia giuridica e devono ricorrere all’autorizzazione maritale. L’Unione si diffonde rapidamente in tutta Italia, con un proprio progetto politico per un femminismo caratterizzato dall’impegno pratico per la salvaguardia delle lavoratrici – operaie, maestre, impiegate, insegnanti di scuola media – e per l’affermazione del valore sociale della maternità.
+    Oggi, l’attività dell’Unione si articola in servizi differenziati: lo Sportello di assistenza legale gratuita per il Diritto di famiglia; la biblioteca specializzata sui temi della storia, condizione, identità femminile e sugli studi di genere, per la quale è attivo un servizio di reference; assistenza alla ricerca relativa ai fondi archivistici già inventariati, attività di inventariazione per i fondi non ordinati; la promozione di incontri di discussione.
+  delegate: Margherita Strigelli
+- 
+  logo:
+    - file://ioetfwekxtndczbt
+  nome_completo: Unione Cristiana Delle Giovani
+  nome_breve: 'YWCA - UCDG'
+  sito_web: https://www.ywcaitalia.it/home-it
+  foto:
+    - file://wqivfj8sapcwtghq
+  descrizione: |
+    Non si può parlare di YWCA-UCDG (oggi YWCA Italia) senza menzionare la nascita del World YWCA, avvenuta in Inghilterra nella seconda metà del XIX secolo. In quell'epoca, il mondo anglosassone fu teatro di grandi movimenti sociali, come la lotta contro la schiavitù, la prostituzione e lo sfruttamento del lavoro femminile e infantile nelle industrie. Questi movimenti videro le donne, sempre più consapevoli dei propri diritti e doveri, impegnarsi attivamente per il cambiamento. Come organizzazione non governativa, YWCA ha una voce consultiva presso alcune agenzie specializzate dell’ONU, tra cui UNESCO, UNICEF e FAO. L'Alleanza Mondiale della YWCA ha sempre avuto particolare attenzione verso i paesi in cui la figura della “donna nuova” stava emergendo e necessitava di supporto per prendere consapevolezza di sé.
+    Il primo consiglio mondiale si tenne a Londra nel 1898, con la partecipazione di sette associazioni nazionali, tra cui quella italiana, rappresentata da delegate regolarmente elette. Da allora, delegazioni italiane sono state quasi sempre presenti ai congressi mondiali, traendone grande arricchimento. Già in quei primi congressi vennero approvate mozioni su temi che restano di drammatica attualità, come l’assistenza ai profughi di ogni paese e la lotta contro la fame nel mondo.
+  delegate: Gisella Incerti
+- 
+  logo:
+    - file://dcirqhc18giiq3zy
+  nome_completo: "Club of Milano Sant'Ambrogio"
+  nome_breve: "Zonta Sant'Ambrogio"
+  sito_web: 'https://zontamilanosantambrogio.eu/attivit%C3%A0-del-club/'
+  foto:
+    - file://rfk8pjjt7i02wsfg
+  descrizione: |
+    Zonta International è un’organizzazione mondiale di servizio costituita da persone preminenti negli affari e nelle professioni che lavorano insieme per migliorare le condizioni della donna nel mondo.
+    
+    La visione di Zonta International è un mondo in cui i diritti delle donne sono riconosciuti come diritti umani e ogni donna è in grado di raggiungere il suo pieno potenziale.In un mondo del genere, le donne hanno accesso a tutte le risorse e sono rappresentate nei processi decisionali in condizioni di parità con gli uomini. In un mondo del genere, nessuna donna vive nella paura della violenza.
+    
+    Fondato nel 1919 a Buffalo, nello stato di New York (USA), Zonta significa, nel linguaggio Sioux, “onesto e degno di fiducia”.
+    
+    Zonta International vanta lo stato consultivo presso l’ONU dal 1946, in particolare presso ECOSOC, UNICEF, UN WOMEN, ILO . Ha inoltre lo stato partecipatorio presso il Council of Europe, mantiene rapporti attivi con l’UNESCO e ha rappresentanti presso la sede delle Nazioni Unite di Ginevra, New York, Parigi e Vienna.
+    
+    Le Socie sono circa 30.000, iscritte a più di 1150 Club Zonta in 66 paesi e aree geografiche, suddivisi in 31 Distretti e un’area geografica. Zonta International, i suoi clubs e distretti sono apartitici e aconfessionali.
+    
+    Nella storia di Zonta International, il miglioramento della condizione femminile – in ambito politico, legale, professionale e in tutti gli altri aspetti della vita – è stato una spinta motivante. Zonta International sta concretizzando questo ideale, in modo che le donne possano raggiungere non solamente i propri obiettivi personali, ma migliorare le condizioni di altre donne in tutto il mondo.
+    
+    Dal 1985, Zonta International opera tramite la propria fondazione, la Zonta International Foundation, che ha elargito milioni di dollari in sovvenzioni per programmi internazionali e progetti in tutto il mondo. Le sovvenzioni della fondazione sono possibili grazie a contributi volontari dei club Zonta, soci e amici di Zonta.
+    
+    Dall’ottobre 2020, il nome della fondazione è stato aggiornato per meglio riflettere il nostro impegno per le donne e le ragazze: Zonta Foundation for Women
+  delegate: >
+    Elena Federici Ballini, Lucia Toniolo
+    Reale
+
+----
+
+Uuid: antwpgo4j7bd2dlu

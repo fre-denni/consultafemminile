@@ -1,7 +1,7 @@
 name: Deploy to Production
 
 on:
-  workflow_dispatch:      # va lanciato manualmente da GitHub, tab "Actions"
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -23,11 +23,6 @@ jobs:
           set ssl:verify-certificate no;
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
           mirror --reverse --verbose \
-            --exclude-glob .git* \
-            --exclude-glob content/ \
-            --exclude-glob site/accounts/ \
-            --exclude-glob site/cache/ \
-            --exclude-glob site/sessions/ \
-            --exclude-glob media/ \
+            --exclude-glob-from=.deployignore \
             . www.consultafemminile.org/
-          "
+          "   

@@ -20,6 +20,10 @@
       'items'      => collection('consigliere'),
       'label'      => 'Consiglio 2026-2027',
       'background' => $page->personeBackground()->or('default')->value(),
+      'cta'        => [
+        'href' => $site->find('chi-siamo/persone')->url(),
+        'text' => 'Scopri tutte le persone ›',
+      ],
     ]) ?>
     <?php snippet('bits/logo-showreel', [
       'items'      => collection('associazioni'),

@@ -1,0 +1,59 @@
+/** ASSOCIAZIONI-GRID — griglia a 4 colonne di bits/association-card,
+    una per associazione. **/
+@layer bits {
+  .associazioni-grid-section {
+    width: 100%;
+    background: var(--white-background);
+    padding-block: var(--space-2xl);
+  }
+
+  /* Sfondo scelto da chi chiama il componente (vedi
+     bits/associazioni-grid.php). */
+  .associazioni-grid-section--tinted {
+    background: var(--white-foreground);
+  }
+
+  /* A differenza delle altre sezioni della home (sempre centrate),
+     l'etichetta qui è allineata a sinistra, come nel riferimento
+     Figma — la griglia sotto parte dallo stesso margine. */
+  .associazioni-grid-section__header {
+    padding-inline: var(--space-smooth);
+    margin-bottom: var(--space-xl);
+  }
+
+  .associazioni-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-m);
+    list-style: none;
+    padding-inline: var(--space-smooth);
+  }
+
+  @media (max-width: 1100px) {
+    .associazioni-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .associazioni-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .associazioni-grid-section {
+      padding-block: var(--space-xl);
+    }
+
+    .associazioni-grid-section__header {
+      padding-inline: 1rem;
+      margin-bottom: var(--space-m);
+    }
+
+    .associazioni-grid {
+      gap: var(--space-s);
+      padding-inline: 1rem;
+    }
+  }
+}

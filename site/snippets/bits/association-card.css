@@ -1,0 +1,76 @@
+/** ASSOCIATION-CARD — logo, nome breve/completo e un bottone che apre
+    bits/association-modal con i dettagli. **/
+@layer bits {
+  .association-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--white-background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .association-card__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    padding: var(--space-m);
+    /* Vuoto (nessuna immagine) quando l'associazione non ha ancora un
+       logo caricato: l'altezza resta comunque riservata, così tutte le
+       card della griglia restano alte uguali. */
+  }
+
+  .association-card__logo-img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .association-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+    flex-grow: 1;
+    padding-inline: var(--space-m);
+  }
+
+  .association-card__name {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-body);
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+  }
+
+  .association-card__full-name {
+    font-size: var(--text-caption);
+    line-height: var(--leading-snug);
+    color: var(--black-secondary);
+  }
+
+  /* Stesso "pill" delle altre call-to-action del sito (vedi
+     bits/theme-card.css .theme-card__cta, bits/nav.css
+     .navbar-panel__cta), ma in giallo — colore riservato a questo
+     bottone nel riferimento Figma — e a piena larghezza della card
+     invece che hug, per restare sempre allineato in fondo. */
+  .association-card__cta {
+    display: block;
+    width: calc(100% - 2 * var(--space-m));
+    margin: var(--space-m);
+    margin-top: var(--space-s);
+    padding: var(--space-2xs) var(--space-s);
+    border: none;
+    background: var(--yellow-accent);
+    color: var(--black-primary);
+    text-align: center;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-caption);
+    font-family: inherit;
+    cursor: pointer;
+  }
+}

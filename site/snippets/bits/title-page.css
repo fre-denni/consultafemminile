@@ -6,6 +6,7 @@
     align-items: center;
     gap: var(--space-m);
     text-align: center;
+    padding-bottom: var(--space-xl-2xl);
   }
 
   .title-page__heading {
@@ -15,12 +16,12 @@
     font-weight: 500;
     font-size: var(--text-h1);
     color: var(--black-primary);
-    max-width: 80%;
+    max-width: 70%;
     line-height: var(--leading-display);
   }
 
   .title-page__text {
-    max-width: 46rem;
+    max-width: 80%;
     font-size: var(--text-lead);
     line-height: var(--leading-body);
     color: var(--black-primary);

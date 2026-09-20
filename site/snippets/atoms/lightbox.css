@@ -29,6 +29,28 @@
     max-height: calc(100vh - var(--header-height, 4.5rem) - 2 * var(--space-l));
     object-fit: contain;
     border-radius: var(--radius-md);
+    /* Zoom/pan (vedi assets/js/lightbox.js): niente transizione di
+       default, per restare reattiva a rotellina/pinch — la classe
+       qui sotto la riattiva solo per il "salto" del doppio click/tap. */
+    cursor: zoom-in;
+    /* Lascia tutta la gestione dei gesti touch (pinch, doppio tap,
+       trascinamento) al JS, senza che il browser li intercetti prima
+       per lo scroll o lo zoom nativo della pagina. */
+    touch-action: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .lightbox__img--transition {
+    transition: transform 200ms ease;
+  }
+
+  .lightbox__img--zoomed {
+    cursor: grab;
+  }
+
+  .lightbox__img--zoomed:active {
+    cursor: grabbing;
   }
 
   .lightbox__close {

@@ -112,7 +112,7 @@
        della home — qui però la card non cresce mai, resta sempre
        alla sua larghezza piena: non c'è nessuno stato "aperto". */
     flex: 0 0 min(20rem, 75vw);
-    aspect-ratio: 6 / 10;
+    aspect-ratio: 4 / 6;
     scroll-snap-align: start;
   }
 

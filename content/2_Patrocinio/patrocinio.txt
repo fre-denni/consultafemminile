@@ -1,3 +1,7 @@
 Title: Con il patrocinio
 ----
+Payoff: Con il patrocinio della consulta
+----
+Mission: La Consulta Femminile di Milano, grazie alla diversità delle associazioni che la compongono, è portatrice di competenze in molti ambiti diversi, dall’imprenditoria alla scienza, dalla giurisprudenza alla cultura del progetto, dalla medicina all’ambiente. La Consulta Femminile riconosce il patrocinio di diversi progetti all’interno della rete delle associazioni.
+----
 Uuid: qty3jqqvmpvlfmgi

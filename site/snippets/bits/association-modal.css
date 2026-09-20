@@ -18,7 +18,7 @@
     margin: auto;
     padding: 0;
     border: none;
-    width: min(46rem, calc(100vw - 2 * var(--space-l)));
+    width: min(64rem, calc(100vw - 2 * var(--space-l)));
     height: fit-content;
     max-height: calc(100vh - 2 * var(--space-l));
     overflow-y: auto;
@@ -100,7 +100,9 @@
        solo "left", il box resta shrink-to-fit intorno al logo, e
        max-width gli impedisce solo di sconfinare oltre il bordo
        destro della modale. */
-    max-width: calc(100% - (var(--space-s) + 2.75rem + var(--space-2xs)) - var(--space-s));
+    max-width: calc(
+      100% - (var(--space-s) + 2.75rem + var(--space-2xs)) - var(--space-s)
+    );
     z-index: 1;
     display: flex;
     /* NON align-items:center: un <picture> senza altezza propria si
@@ -136,7 +138,7 @@
     /* Bottom più stretto di top/lati: .association-modal__body ha già
        il suo padding-top, sommandosi altrimenti a un distacco doppio
        dal testo che segue. */
-    padding: var(--space-m) var(--space-m) var(--space-s);
+    padding: var(--space-m) var(--space-m) var(--space-3xs);
     padding-top: calc(var(--space-s) + 3.5rem);
     font-size: var(--text-h4);
     line-height: var(--leading-snug);

@@ -2,8 +2,8 @@
 
   <?php slot() ?>
     <?php snippet('bits/title-page', [
-      'heading' => $page->payoff(),
-      'text'    => $page->mission(),
+      'heading' => $site->payoff(),
+      'borderBottom' => true,
     ]) ?>
     <?php snippet('bits/associazioni-grid', [
       'items' => collection('associazioni'),

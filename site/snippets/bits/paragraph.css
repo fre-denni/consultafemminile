@@ -1,7 +1,7 @@
 /** PARAGRAPH — presentazione "importante": etichetta + titolo + testo su due colonne **/
 @layer bits {
   .paragraph {
-    padding-block: var(--space-xl);
+    padding-block: var(--space-3xl);
   }
 
   .paragraph__grid {

@@ -1,8 +1,7 @@
-name: Deploy to Staging
+name: Deploy to Production
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:      # va lanciato manualmente da GitHub, tab "Actions"
 
 jobs:
   deploy:
@@ -19,7 +18,7 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-dev --optimize-autoloader
 
-      - name: Deploy to Aruba staging
+      - name: Deploy to Aruba production
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
@@ -37,5 +36,5 @@ jobs:
           set ftp:ssl-protect-data true;
           set ssl:verify-certificate no;
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
-          mirror --reverse --verbose $EXCLUDES . www.consultafemminile.org/staging/
+          mirror --reverse --verbose $EXCLUDES . www.consultafemminile.org/
           "

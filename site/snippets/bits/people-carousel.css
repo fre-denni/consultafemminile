@@ -1,10 +1,10 @@
-/** PEOPLE-CAROUSEL — riga di person-card (le consigliere in home): per
-    policy editoriale sono sempre ≤ 6, quindi qui non serve scroll/hover-
-    intent come in bits/theme-carousel, solo una riga che si adatta.
-    Rottura a numero di colonne fisso (6 → 3 → 2 → 1) invece che
-    auto-fit: con 6 card auto-fit può fermarsi su conteggi "storti" (5,
-    4...) che lasciano una riga sbilanciata — i passaggi qui sotto sono
-    scelti apposta perché 6 è divisibile per 3, 2 e 1. **/
+/** PEOPLE-CAROUSEL — riga (o griglia, per liste più lunghe) di
+    person-card: niente scroll/hover-intent come in bits/theme-carousel,
+    solo colonne che vanno a capo da sé. Rottura a numero di colonne
+    fisso (6 → 3 → 2 → 1) invece che auto-fit: con un multiplo di 6
+    card auto-fit può fermarsi su conteggi "storti" (5, 4...) che
+    lasciano una riga sbilanciata — i passaggi qui sotto sono scelti
+    apposta perché 6 è divisibile per 3, 2 e 1. **/
 @layer bits {
   /* Contenitore dell'intero blocco (etichetta + riga di card), come la
      "Section" nel riferimento Figma: sfondo bianco proprio (non deve
@@ -22,9 +22,36 @@
     background: var(--white-foreground);
   }
 
-  .people-carousel-section__label {
+  .people-carousel-section__header {
     padding-inline: var(--space-smooth);
     margin-bottom: var(--space-xl);
+  }
+
+  /* Bottone opzionale SOTTO la griglia (non nell'header): resta sempre
+     in fondo alla sezione, dopo l'ultima riga di card, qualunque sia
+     la lunghezza dell'elenco sopra. */
+  .people-carousel-section__footer {
+    display: flex;
+    justify-content: center;
+    padding-inline: var(--space-smooth);
+    margin-top: var(--space-m);
+  }
+
+  /* Stesso "pill" blu usato altrove per le call-to-action (vedi
+     bits/theme-card.css .theme-card__cta, bits/nav.css
+     .navbar-panel__cta — stesso stile, duplicato apposta invece di
+     condiviso: ogni componente resta autonomo). */
+  .people-carousel-section__cta {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--blue-primary);
+    color: var(--white-background);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-caption);
+    white-space: nowrap;
   }
 
   .people-carousel {
@@ -88,9 +115,13 @@
       padding-block: var(--space-xl);
     }
 
-    .people-carousel-section__label {
+    .people-carousel-section__header {
       padding-inline: 1rem;
       margin-bottom: var(--space-m);
+    }
+
+    .people-carousel-section__footer {
+      padding-inline: 1rem;
     }
 
     .people-carousel {

@@ -30,6 +30,7 @@
      in bits/title-page.php e, per i blocchi, blocks/titlepage.yml) —
      stesso trattamento di bits/section-divider. */
   .title-page--divider {
+    width: 100%;
     padding-block-end: var(--space-xl);
     border-block-end: 1px solid var(--black-primary);
   }

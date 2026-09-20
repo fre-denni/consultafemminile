@@ -7,5 +7,6 @@ content/
 site/accounts/
 site/cache/
 site/sessions/
+site/config/.license
 media/
 .htpasswd

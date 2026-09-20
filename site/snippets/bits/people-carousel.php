@@ -3,16 +3,20 @@
  * @var iterable $items Persone (righe structure, vedi bits/person-card)
  *   da mostrare — per policy editoriale non sono mai più di 6, quindi
  *   niente scroll/paginazione qui, solo una riga che si adatta.
- * @var string   $label Etichetta piccola sopra il carosello (es.
+ * @var string   $label      Etichetta piccola sopra il carosello (es.
  *   "Consiglio 2026-2027"), come nel riferimento Figma. Facoltativa.
+ * @var string   $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
+ *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
+ *   di default 'default'.
  */
 $items = $items->filter(fn ($person) => $person->foto()->toFile() !== null);
 
 if ($items->count() === 0) return;
 
-$label ??= '';
+$label      ??= '';
+$background ??= 'default';
 ?>
-<section class="people-carousel-section block-full">
+<section class="people-carousel-section block-full<?= $background === 'tinted' ? ' people-carousel-section--tinted' : '' ?>">
   <?php if ($label !== ''): ?>
     <div class="people-carousel-section__label">
       <?php snippet('atoms/section-label', ['text' => $label]) ?>

@@ -3,10 +3,14 @@
 @layer bits {
   .theme-carousel {
     position: relative;
-    /* Niente width qui: la larghezza (incluso il breakout edge-to-edge
-       su mobile) la gestisce già .block-full in block-container.css —
-       dichiararla di nuovo qui vincerebbe sempre, dato che il layer
-       "bits" ha priorità su "atoms" indipendentemente dalla specificità. */
+    /* .theme-carousel è ora un figlio diretto di <main> (vedi
+       site/templates/home.php: non più avvolto in
+       .block-container__section), che è un flex container con
+       align-items:center — senza width:100% esplicita, un figlio
+       flex si restringe al fit-content del proprio contenuto invece
+       di riempire la riga (bug osservato: il carosello si allargava
+       ben oltre il viewport, inseguendo il min-content delle card). */
+    width: 100%;
     padding-block: 1rem;
     /* Gutter orizzontale: alla larghezza di progetto (1440px) è quello
        esatto della griglia Figma (125.25px per lato) — il massimo che
@@ -18,6 +22,14 @@
        caroselli della home la condividono per restare allineati tra
        loro a ogni larghezza. */
     padding-inline: var(--space-smooth);
+    /* Sfondo scelto da chi chiama il carosello (vedi bits/theme-carousel.php
+       e, sulla home, il campo Panel "Sfondo dei caroselli"): di default
+       bianco, .theme-carousel--tinted per lo stesso panna usato altrove. */
+    background: var(--white-background);
+  }
+
+  .theme-carousel--tinted {
+    background: var(--white-foreground);
   }
 
   .theme-carousel__track {

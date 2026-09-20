@@ -3,6 +3,10 @@ icon: title
 fields:
   background:
     extends: fields/background
+  borderBottom:
+    label: Linea separatrice in basso
+    type: toggle
+    default: false
   heading:
     label: Titolo
     type: writer

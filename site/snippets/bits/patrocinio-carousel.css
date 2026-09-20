@@ -5,12 +5,18 @@
 @layer bits {
   .patrocinio-carousel-section {
     width: 100%;
-    /* Stesso sfondo del carosello temi (vedi
-       .block-container__section--tinted in atoms/block-container.css):
-       sono ora due sezioni consecutive nella home, devono leggersi come
-       un unico blocco visivo. */
-    background: var(--white-foreground);
+    background: var(--white-background);
     padding-block: var(--space-2xl);
+  }
+
+  /* Sfondo scelto da chi chiama il carosello (vedi
+     bits/patrocinio-carousel.php e, sulla home, il campo Panel "Sfondo
+     dei caroselli") — sulla home è 'tinted', lo stesso panna del
+     carosello temi appena sopra, per leggersi come un unico blocco
+     visivo; sulla pagina dedicata (site/templates/patrocinio.php)
+     resta invece il bianco di default. */
+  .patrocinio-carousel-section--tinted {
+    background: var(--white-foreground);
   }
 
   /* Header in stile "sezione" (vedi bits/section-divider,

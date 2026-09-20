@@ -27,6 +27,25 @@ columns:
         type: files
         template: video
         max: 1
+      carousels:
+        label: Sfondo dei caroselli
+        type: fields
+        fields:
+          tematicheBackground:
+            label: Tematiche
+            extends: fields/background
+            default: tinted
+          patrocinioBackground:
+            label: Con il patrocinio
+            extends: fields/background
+            default: tinted
+          personeBackground:
+            label: Consiglio
+            extends: fields/background
+          associazioniBackground:
+            label: Associazioni
+            extends: fields/background
+            default: tinted
       pages:
         type: pages
         template: default

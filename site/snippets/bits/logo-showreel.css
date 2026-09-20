@@ -3,8 +3,14 @@
 @layer bits {
   .logo-showreel-section {
     width: 100%;
-    background: var(--white-foreground);
+    background: var(--white-background);
     padding-block: var(--space-2xl);
+  }
+
+  /* Sfondo scelto da chi chiama il carosello (vedi bits/logo-showreel.php
+     e, sulla home, il campo Panel "Sfondo dei caroselli"). */
+  .logo-showreel-section--tinted {
+    background: var(--white-foreground);
   }
 
   .logo-showreel-section__heading {

@@ -5,17 +5,17 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-m);
-    border-bottom: 1px solid var(--black-primary);
     text-align: center;
   }
 
   .title-page__heading {
     margin-inline: auto;
-    padding-block: var(--space-xl) var(--space-2xl);
+    padding-block: var(--space-2xl) var(--space-l);
     font-family: var(--sans);
     font-weight: 500;
-    font-size: var(--text-display);
+    font-size: var(--text-h1);
     color: var(--black-primary);
+    max-width: 80%;
     line-height: var(--leading-display);
   }
 
@@ -24,5 +24,13 @@
     font-size: var(--text-lead);
     line-height: var(--leading-body);
     color: var(--black-primary);
+  }
+
+  /* Linea separatrice opzionale in fondo al blocco (vedi $borderBottom
+     in bits/title-page.php e, per i blocchi, blocks/titlepage.yml) —
+     stesso trattamento di bits/section-divider. */
+  .title-page--divider {
+    padding-block-end: var(--space-xl);
+    border-block-end: 1px solid var(--black-primary);
   }
 }

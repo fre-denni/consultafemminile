@@ -1,0 +1,23 @@
+title: Con il patrocinio
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          payoff:
+            extends: fields/payoff
+          mission:
+            extends: fields/mission
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        label: Locandine
+        type: files
+        help: >
+          Le immagini dei progetti patrocinati mostrate nel carosello in
+          fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
+          caricate qui compaiono lì, nell'ordine in cui sono elencate.

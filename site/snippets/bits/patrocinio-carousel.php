@@ -3,9 +3,12 @@
  * @var iterable $items   Locandine (file immagine, vedi
  *   site/collections/patrocinio.php) — nessun dato oltre l'immagine
  *   per ora, il modello dei progetti patrocinati non è ancora definito.
- * @var string   $heading Etichetta nell'header sopra il carosello
+ * @var string   $heading    Etichetta nell'header sopra il carosello
  *   (opzionale) — stile "sezione" (vedi bits/section-divider), una
  *   riga sola con le frecce di navigazione.
+ * @var string   $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
+ *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
+ *   di default 'default'.
  *
  * Striscia orizzontale "classica": scroll nativo (drag/trackpad/touch)
  * con snap, mai a capo — a differenza di bits/people-carousel non c'è
@@ -18,10 +21,11 @@
  */
 if ($items->count() === 0) return;
 
-$heading ??= '';
+$heading     ??= '';
+$background  ??= 'default';
 $hasControls = $items->count() > 1;
 ?>
-<section class="patrocinio-carousel-section block-full">
+<section class="patrocinio-carousel-section block-full<?= $background === 'tinted' ? ' patrocinio-carousel-section--tinted' : '' ?>">
   <?php if ($heading !== '' || $hasControls): ?>
     <div class="patrocinio-carousel-section__header">
       <?php if ($heading !== ''): ?>

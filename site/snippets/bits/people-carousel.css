@@ -16,6 +16,12 @@
     padding-block: var(--space-2xl);
   }
 
+  /* Sfondo scelto da chi chiama il carosello (vedi bits/people-carousel.php
+     e, sulla home, il campo Panel "Sfondo dei caroselli"). */
+  .people-carousel-section--tinted {
+    background: var(--white-foreground);
+  }
+
   .people-carousel-section__label {
     padding-inline: var(--space-smooth);
     margin-bottom: var(--space-xl);

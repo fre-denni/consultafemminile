@@ -7,20 +7,24 @@
       'headingSecondary' => 'di Milano dal 1963',
     ]) ?>
     <?php snippet('atoms/block-container', ['blocks' => $page->text()]) ?>
-    <div class="block-container__section block-container__section--tinted">
-      <?php snippet('bits/theme-carousel', ['items' => collection('tematiche')]) ?>
-    </div>
+    <?php snippet('bits/theme-carousel', [
+      'items'      => collection('tematiche'),
+      'background' => $page->tematicheBackground()->or('tinted')->value(),
+    ]) ?>
     <?php snippet('bits/patrocinio-carousel', [
-      'items'   => collection('patrocinio'),
-      'heading' => 'Con il patrocinio della Consulta',
+      'items'      => collection('patrocinio'),
+      'heading'    => 'Con il patrocinio della Consulta',
+      'background' => $page->patrocinioBackground()->or('tinted')->value(),
     ]) ?>
     <?php snippet('bits/people-carousel', [
-      'items' => collection('consigliere'),
-      'label' => 'Consiglio 2026-2027',
+      'items'      => collection('consigliere'),
+      'label'      => 'Consiglio 2026-2027',
+      'background' => $page->personeBackground()->or('default')->value(),
     ]) ?>
     <?php snippet('bits/logo-showreel', [
-      'items'   => collection('associazioni'),
-      'heading' => 'Le associazioni della consulta',
+      'items'      => collection('associazioni'),
+      'heading'    => 'Le associazioni della consulta',
+      'background' => $page->associazioniBackground()->or('tinted')->value(),
     ]) ?>
   <?php endslot() ?>
 

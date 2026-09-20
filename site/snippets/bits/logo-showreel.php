@@ -4,7 +4,10 @@
  *   site/collections/associazioni.php) — qui si usa solo il logo, gli
  *   altri campi (foto, descrizione, delegate...) sono per quando
  *   costruiremo la pagina "Le Associazioni".
- * @var string   $heading Titolo centrato sopra lo showreel (opzionale).
+ * @var string   $heading    Titolo centrato sopra lo showreel (opzionale).
+ * @var string   $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
+ *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
+ *   di default 'default'.
  *
  * Striscia di loghi che scorre da destra verso sinistra in loop
  * infinito: la lista è duplicata due volte (vedi
@@ -21,9 +24,10 @@ $items = $items->filter(fn ($assoc) => $assoc->logo()->toFile() !== null);
 
 if ($items->count() === 0) return;
 
-$heading ??= '';
+$heading    ??= '';
+$background ??= 'default';
 ?>
-<section class="logo-showreel-section block-full">
+<section class="logo-showreel-section block-full<?= $background === 'tinted' ? ' logo-showreel-section--tinted' : '' ?>">
   <?php if ($heading !== ''): ?>
     <h2 class="logo-showreel-section__heading"><?= html($heading) ?></h2>
   <?php endif ?>

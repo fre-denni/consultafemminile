@@ -11,6 +11,14 @@ columns:
             extends: fields/payoff
           mission:
             extends: fields/mission
+          introduzione:
+            label: Introduzione
+            help: >
+              Testo introduttivo mostrato sopra i capitoli, su sfondo
+              azzurro (vedi bits/timeline-section). Vive solo qui: la
+              stessa pagina "Chi siamo" lo richiama da qui invece di
+              ripeterlo.
+            type: textarea
           capitoli:
             label: Capitoli
             help: >

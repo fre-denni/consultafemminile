@@ -22,7 +22,10 @@ foreach (collection('timeline') as $capitolo) {
       'heading' => $page->payoff()->or($site->payoff()),
       'text'    => $page->mission(),
     ]) ?>
-    <?php snippet('bits/timeline-accordion', ['items' => $capitoli]) ?>
+    <?php snippet('bits/timeline-section', [
+      'intro' => $page->introduzione(),
+      'items' => $capitoli,
+    ]) ?>
   <?php endslot() ?>
 
 <?php endsnippet() ?>

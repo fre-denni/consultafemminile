@@ -10,6 +10,10 @@ Mission:
 
 ----
 
+Introduzione: Esempio di paragrafo senza titolo su sfondo azzurro, come nel riferimento Figma — solo testo, nessuna etichetta o intestazione sopra, mostrato prima dei capitoli della timeline.
+
+----
+
 Capitoli:
 
 - 

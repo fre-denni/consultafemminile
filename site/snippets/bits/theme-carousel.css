@@ -24,12 +24,17 @@
     padding-inline: var(--space-smooth);
     /* Sfondo scelto da chi chiama il carosello (vedi bits/theme-carousel.php
        e, sulla home, il campo Panel "Sfondo dei caroselli"): di default
-       bianco, .theme-carousel--tinted per lo stesso panna usato altrove. */
+       bianco, .theme-carousel--tinted/--blue per le altre opzioni dello
+       stesso campo condiviso blueprints/fields/background.yml. */
     background: var(--white-background);
   }
 
   .theme-carousel--tinted {
     background: var(--white-foreground);
+  }
+
+  .theme-carousel--blue {
+    background: var(--blue-background);
   }
 
   .theme-carousel__track {

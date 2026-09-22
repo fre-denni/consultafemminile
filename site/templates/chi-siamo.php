@@ -15,6 +15,7 @@
     <?php snippet('bits/people-carousel', [
       'items' => collection('delegate'),
       'label' => 'Le delegate delle associazioni',
+      'background' => 'tinted',
     ]) ?>
     <?php snippet('bits/associazioni-grid', [
       'items' => collection('associazioni'),

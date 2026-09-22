@@ -1,9 +1,9 @@
 <?php
 /**
  * @var \Kirby\Cms\Pages $items      Pagine tematica da mostrare (già filtrate/limitate a monte)
- * @var string           $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
- *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
- *   di default 'default'.
+ * @var string           $background Sfondo della sezione: 'default' (bianco), 'tinted' (panna)
+ *   o 'blue' (azzurro) — stesso vocabolario del campo condiviso blueprints/fields/background.yml.
+ *   Facoltativo, di default 'default'.
  */
 
 // bits/theme-card non renderizza nulla senza cover.png: scartiamo quelle
@@ -14,7 +14,7 @@ if ($items->count() === 0) return;
 
 $background ??= 'default';
 ?>
-<div class="theme-carousel block-full<?= $background === 'tinted' ? ' theme-carousel--tinted' : '' ?>">
+<div class="theme-carousel block-full<?= $background !== 'default' ? ' theme-carousel--' . html($background) : '' ?>">
   <?php if ($items->count() > 1): ?>
     <div class="theme-carousel__header">
       <div class="theme-carousel__controls">

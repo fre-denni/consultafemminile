@@ -6,3 +6,5 @@ options:
     text: Bianco
   - value: tinted
     text: Panna
+  - value: blue
+    text: Azzurro

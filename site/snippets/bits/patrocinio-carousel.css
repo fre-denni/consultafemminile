@@ -19,6 +19,10 @@
     background: var(--white-foreground);
   }
 
+  .patrocinio-carousel-section--blue {
+    background: var(--blue-background);
+  }
+
   /* Header in stile "sezione" (vedi bits/section-divider,
      .section-divider--section): una riga sola con bordo sopra.
      L'etichetta resta SEMPRE centrata come nel resto del sito (vedi

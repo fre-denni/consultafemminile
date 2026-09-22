@@ -22,6 +22,10 @@
     background: var(--white-foreground);
   }
 
+  .people-carousel-section--blue {
+    background: var(--blue-background);
+  }
+
   .people-carousel-section__header {
     padding-inline: var(--space-smooth);
     margin-bottom: var(--space-xl);

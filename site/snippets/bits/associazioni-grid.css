@@ -13,6 +13,10 @@
     background: var(--white-foreground);
   }
 
+  .associazioni-grid-section--blue {
+    background: var(--blue-background);
+  }
+
   /* A differenza delle altre sezioni della home (sempre centrate),
      l'etichetta qui è allineata a sinistra, come nel riferimento
      Figma — la griglia sotto parte dallo stesso margine. */

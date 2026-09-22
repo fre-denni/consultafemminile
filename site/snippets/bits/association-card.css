@@ -11,23 +11,35 @@
     overflow: hidden;
   }
 
+  /* Altezza fissa uguale per tutti i loghi (verticali e orizzontali),
+     non un box a proporzione fissa: dentro un box 16/10 un logo molto
+     verticale (es. MOICA) arriva a occupare tutta l'altezza disponibile
+     mentre uno orizzontale si schiaccia — risultato sbilanciato, alcuni
+     loghi molto più "grandi" di altri. Stesso principio già usato per
+     bits/logo-showreel e bits/association-modal .association-modal__logo. */
   .association-card__logo {
     display: flex;
-    align-items: center;
     justify-content: center;
-    aspect-ratio: 16 / 10;
+    /* L'altezza del logo vive sul <picture> qui sotto, non qui: con
+       box-sizing:border-box il padding si sarebbe mangiato l'altezza
+       dichiarata (56px totali - 2×padding lasciavano solo ~8px di
+       spazio utile al logo, praticamente invisibile su mobile dove
+       --space-m è più piccolo). Qui il padding resta puro spazio
+       AGGIUNTIVO attorno al logo, non condiviso con la sua altezza. */
     padding: var(--space-m);
-    /* Vuoto (nessuna immagine) quando l'associazione non ha ancora un
-       logo caricato: l'altezza resta comunque riservata, così tutte le
-       card della griglia restano alte uguali. */
+  }
+
+  .association-card__logo picture {
+    display: block;
+    height: clamp(3.5rem, 8vw, 5.5rem);
+    max-width: 100%;
   }
 
   .association-card__logo-img {
     display: block;
-    max-width: 100%;
-    max-height: 100%;
     width: auto;
-    height: auto;
+    height: 100%;
+    max-width: 100%;
     object-fit: contain;
   }
 

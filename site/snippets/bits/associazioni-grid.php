@@ -6,9 +6,9 @@
  *   associazioni"), allineata a sinistra come nel riferimento Figma —
  *   a differenza delle altre sezioni della home, sempre centrate qui è
  *   voluto: la griglia stessa parte dallo stesso margine. Facoltativa.
- * @var string   $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
- *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
- *   di default 'default'.
+ * @var string   $background Sfondo della sezione: 'default' (bianco), 'tinted' (panna) o
+ *   'blue' (azzurro) — stesso vocabolario del campo condiviso blueprints/fields/background.yml.
+ *   Facoltativo, di default 'default'.
  *
  * Una modale per associazione (vedi bits/association-modal) è resa qui
  * accanto alla griglia, non dentro ogni card: sono <dialog> nativi,
@@ -22,7 +22,7 @@ if ($items->count() === 0) return;
 $label      ??= '';
 $background ??= 'default';
 ?>
-<section class="associazioni-grid-section block-full<?= $background === 'tinted' ? ' associazioni-grid-section--tinted' : '' ?>">
+<section class="associazioni-grid-section block-full<?= $background !== 'default' ? ' associazioni-grid-section--' . html($background) : '' ?>">
   <?php if ($label !== ''): ?>
     <div class="associazioni-grid-section__header">
       <?php snippet('atoms/section-label', ['text' => $label]) ?>

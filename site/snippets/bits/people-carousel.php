@@ -5,9 +5,9 @@
  *   colonne per liste più lunghe (vedi la pagina "Le Persone", che ce ne passa fino a decine).
  * @var string   $label      Etichetta piccola sopra il carosello (es.
  *   "Consiglio 2026-2027"), come nel riferimento Figma. Facoltativa.
- * @var string   $background Sfondo della sezione: 'default' (bianco) o 'tinted' (panna) —
- *   stesso vocabolario del campo condiviso blueprints/fields/background.yml. Facoltativo,
- *   di default 'default'.
+ * @var string   $background Sfondo della sezione: 'default' (bianco), 'tinted' (panna) o
+ *   'blue' (azzurro) — stesso vocabolario del campo condiviso blueprints/fields/background.yml.
+ *   Facoltativo, di default 'default'.
  * @var array{href: string, text: string}|null $cta Bottone opzionale sotto la griglia (es.
  *   "Scopri tutte le persone ›" verso la pagina dedicata, usato sulla home). Facoltativo.
  */
@@ -19,7 +19,7 @@ $label      ??= '';
 $background ??= 'default';
 $cta        ??= null;
 ?>
-<section class="people-carousel-section block-full<?= $background === 'tinted' ? ' people-carousel-section--tinted' : '' ?>">
+<section class="people-carousel-section block-full<?= $background !== 'default' ? ' people-carousel-section--' . html($background) : '' ?>">
   <?php if ($label !== ''): ?>
     <div class="people-carousel-section__header">
       <?php snippet('atoms/section-label', ['text' => $label]) ?>

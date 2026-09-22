@@ -6,7 +6,7 @@ foreach (collection('tematiche') as $tema) {
     'title'       => $tema->title()->value(),
     'subtitle'    => trim((string) $tema->subtitle()),
     'description' => trim((string) $tema->description()),
-    'image'       => $tema->file('cover.webp'),
+    'images'      => $tema->images()->limit(7)->values(),
     'ctaUrl'      => $tema->url(),
   ];
 }

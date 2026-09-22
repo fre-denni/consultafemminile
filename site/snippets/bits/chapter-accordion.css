@@ -24,7 +24,7 @@
     cursor: pointer;
     font-family: var(--sans-semibold);
     font-weight: 600;
-    font-size: var(--text-h3);
+    font-size: var(--text-h1);
     line-height: var(--leading-display);
     color: var(--black-primary);
     text-align: center;
@@ -57,24 +57,101 @@
     padding-inline: var(--space-smooth);
   }
 
+  /* Metà della sezione, sia con una foto sola che con un carosello —
+     stesso trattamento di bits/timeline-accordion (vedi lì): a una
+     larghezza fissa le foto finivano innaturalmente strette e alte. */
   .chapter-accordion__media {
-    flex: 0 0 20rem;
-    aspect-ratio: 1;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  /* Stesso "pill" delle frecce di bits/timeline-accordion — duplicato
+     apposta invece di condiviso, ogni componente resta autonomo. */
+  .chapter-accordion__media-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-xs);
+  }
+
+  .chapter-accordion__media-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--black-primary);
+    font-size: var(--text-h4);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .chapter-accordion__media-button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .chapter-accordion__media-track {
+    display: block;
+    list-style: none;
+  }
+
+  /* Una sola immagine: .chapter-accordion__media-track resta un
+     semplice contenitore (a proporzione naturale). Da due in su, un
+     carosello a scorrimento orizzontale — vedi
+     assets/js/chapter-media-carousel.js per le frecce. */
+  .chapter-accordion__media-track--carousel {
+    display: flex;
+    gap: var(--space-s);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .chapter-accordion__media-track--carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chapter-accordion__media-track--carousel .chapter-accordion__media-item {
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
   }
 
   .chapter-accordion__img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
+    border-radius: var(--radius-lg);
   }
 
+  /* Nel carosello l'<img> deve riempire il box a proporzione fissa
+     del suo <li>, non la propria altezza naturale. */
+  .chapter-accordion__media-track--carousel .chapter-accordion__img {
+    height: 100%;
+  }
+
+  /* L'altra metà della sezione è il CONTENITORE del testo — il testo
+     vero e proprio (.chapter-accordion__body-inner) ne occupa solo una
+     parte, allineato a destra: stesso trattamento di
+     bits/timeline-accordion (80% del contenitore = 40% della sezione,
+     quindi il blocco parte al 60%). */
   .chapter-accordion__body {
-    flex: 1 1 0%;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 50%;
     min-width: 0;
     padding-block-start: var(--space-2xs);
+  }
+
+  .chapter-accordion__body-inner {
+    max-width: 80%;
+    text-align: left;
   }
 
   .chapter-accordion__body-title {
@@ -128,6 +205,16 @@
     .chapter-accordion__media {
       flex-basis: auto;
       width: 100%;
+    }
+
+    /* Su una sola colonna il testo allineato a destra e stretto avrebbe
+       poco senso — vedi bits/timeline-accordion, stesso trattamento. */
+    .chapter-accordion__body {
+      justify-content: flex-start;
+    }
+
+    .chapter-accordion__body-inner {
+      max-width: none;
     }
   }
 }

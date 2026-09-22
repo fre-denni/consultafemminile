@@ -1,0 +1,215 @@
+/** TIMELINE-ACCORDION — capitoli della timeline (presidenze/eventi) a
+    scomparsa: stessa meccanica di apertura di bits/chapter-accordion
+    (riga chiusa in stile "sezione", un click apre e richiude gli altri),
+    ma un layout di contenuto diverso — non condiviso tra i due
+    componenti, vedi bits/timeline-accordion.php. **/
+@layer bits {
+  .timeline-accordion {
+    width: 100%;
+    /* Unico tra i componenti della home/pagine: sfondo azzurro fisso
+       (non un default/tinted a scelta come altrove — nel riferimento
+       Figma la timeline lo usa sempre, --blue-background esisteva già
+       come token ma non era ancora usato in nessun componente). */
+    background: var(--blue-background);
+    border-block-end: 1px solid var(--black-primary);
+  }
+
+  .timeline-accordion__heading {
+    margin: 0;
+    font: inherit;
+  }
+
+  /* Riga chiusa più compatta di bits/chapter-accordion (120px contro
+     185px nel riferimento Figma): meno testo per riga (solo un anno),
+     ha senso restare più bassa. */
+  .timeline-accordion__header {
+    display: block;
+    width: 100%;
+    padding-block: var(--space-m);
+    padding-inline: var(--space-smooth);
+    border: none;
+    border-block-start: 1px solid var(--black-primary);
+    background: none;
+    cursor: pointer;
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h4);
+    line-height: var(--leading-display);
+    color: var(--black-primary);
+    text-align: center;
+  }
+
+  /* Stesso trucco grid-template-rows 0fr↔1fr di bits/chapter-accordion
+     per animare verso "auto" senza JS — vedi lì per i dettagli. */
+  .timeline-accordion__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .timeline-accordion__item[data-open="true"] .timeline-accordion__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .timeline-accordion__panel-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .timeline-accordion__content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-l);
+    padding-block: var(--space-l);
+    padding-inline: var(--space-smooth);
+  }
+
+  /* Metà della sezione, sia per la presidenza (una foto) che per
+     l'evento (un carosello) — non più una larghezza fissa in rem: a
+     14rem le foto finivano innaturalmente strette e alte. */
+  .timeline-accordion__media {
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  /* Stesso "pill" delle frecce di bits/patrocinio-carousel (stesso
+     trattamento: sempre visibili, desktop compreso, non solo su
+     mobile come bits/theme-carousel) — duplicato apposta invece di
+     condiviso, ogni componente resta autonomo. */
+  .timeline-accordion__media-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-xs);
+  }
+
+  .timeline-accordion__media-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--black-primary);
+    font-size: var(--text-h4);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .timeline-accordion__media-button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .timeline-accordion__media-track {
+    display: block;
+    list-style: none;
+  }
+
+  /* Una sola immagine: .timeline-accordion__media-track resta un
+     semplice contenitore (l'unica foto, a proporzione naturale). Da
+     due in su, un carosello a scorrimento orizzontale — vedi
+     assets/js/timeline-media-carousel.js per le frecce. */
+  .timeline-accordion__media-track--carousel {
+    display: flex;
+    gap: var(--space-s);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .timeline-accordion__media-track--carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-accordion__media-track--carousel .timeline-accordion__media-item {
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: start;
+  }
+
+  .timeline-accordion__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Nel carosello l'<img> deve riempire il box a proporzione fissa
+     del suo <li>, non la propria altezza naturale. */
+  .timeline-accordion__media-track--carousel .timeline-accordion__img {
+    height: 100%;
+  }
+
+  /* L'altra metà della sezione è il CONTENITORE del testo — il testo
+     vero e proprio (.timeline-accordion__body-inner) ne occupa solo
+     una parte, allineato a destra: vedi il riferimento Figma, dove il
+     paragrafo non si allarga mai su tutta la colonna. */
+  .timeline-accordion__body {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 50%;
+    min-width: 0;
+    padding-block-start: var(--space-2xs);
+  }
+
+  /* .timeline-accordion__body è già metà sezione (50%): l'80% di
+     quella metà è il 40% della sezione intera, quindi allineato a
+     destra (justify-content:flex-end sul genitore) il blocco di testo
+     parte esattamente al 60% della sezione, non più al "65% del suo
+     contenitore" (che di fatto partiva al 67.5% della sezione, un
+     calcolo in due passaggi più complicato del necessario). */
+  .timeline-accordion__body-inner {
+    max-width: 80%;
+    text-align: left;
+  }
+
+  .timeline-accordion__label {
+    margin: 0 0 var(--space-s);
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-body);
+    color: var(--black-primary);
+  }
+
+  .timeline-accordion__description {
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    color: var(--black-primary);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-accordion__header {
+      padding-block: var(--space-s);
+      padding-inline: 1rem;
+      font-size: var(--text-lead);
+    }
+
+    .timeline-accordion__content {
+      flex-direction: column;
+      padding-inline: 1rem;
+      padding-block: var(--space-m);
+    }
+
+    .timeline-accordion__media {
+      flex-basis: auto;
+      width: 100%;
+    }
+
+    /* Su una sola colonna il testo allineato a destra e stretto al
+       65% avrebbe poco senso (righe cortissime, molto spazio vuoto a
+       sinistra): qui torna a piena larghezza e allineato a sinistra. */
+    .timeline-accordion__body {
+      justify-content: flex-start;
+    }
+
+    .timeline-accordion__body-inner {
+      max-width: none;
+    }
+  }
+}

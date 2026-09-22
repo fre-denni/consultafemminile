@@ -1,4 +1,46 @@
 Title: La nostra storia
+
+----
+
+Payoff: 
+
+----
+
+Mission: 
+
+----
+
+Capitoli:
+
+- 
+  immagini:
+    - file://9him3wtfn50ha96q
+  anno: "1963"
+  etichetta: Presidente
+  descrizione: 'Esempio di capitolo "presidenza": una sola foto, il nome e gli anni di mandato della presidente in carica.'
+- 
+  immagini:
+    - file://hwspldp6bornygau
+    - file://frrbviocnxyped81
+    - file://8n6jjvrasqzsfajh
+    - file://wkilal1hirrlmjcs
+    - file://r9xhabcbr7lbx0vk
+    - file://rn5obwt3qscjttub
+    - file://kukaisyvqjwqdz9y
+  anno: "1980"
+  etichetta: Evento importante per la consulta
+  descrizione: 'Esempio di capitolo "evento" con 7 foto: un piccolo carosello con le frecce, sempre visibili anche su desktop.'
+- 
+  immagini:
+    - file://myx7epccjkrimuoq
+  anno: "1990"
+  etichetta: Presidente
+  descrizione: >
+    Un secondo esempio di capitolo
+    "presidenza", per verificare che più
+    righe dello stesso tipo si susseguano
+    correttamente nellaccordion.
+
 ----
 
 Uuid: q86gbui2snlghtuc

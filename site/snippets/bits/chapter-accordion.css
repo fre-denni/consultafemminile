@@ -1,0 +1,133 @@
+/** CHAPTER-ACCORDION — capitoli a scomparsa (tematiche, timeline): chiusi
+    sono righe in stile "sezione" (bordo sopra, titolo centrato, vedi
+    bits/section-divider--chapter); un click ne apre uno rivelando immagine
+    e descrizione, richiudendo qualunque altro già aperto. **/
+@layer bits {
+  .chapter-accordion {
+    width: 100%;
+    border-block-end: 1px solid var(--black-primary);
+  }
+
+  .chapter-accordion__heading {
+    margin: 0;
+    font: inherit;
+  }
+
+  .chapter-accordion__header {
+    display: block;
+    width: 100%;
+    padding-block: var(--space-l);
+    padding-inline: var(--space-smooth);
+    border: none;
+    border-block-start: 1px solid var(--black-primary);
+    background: none;
+    cursor: pointer;
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h3);
+    line-height: var(--leading-display);
+    color: var(--black-primary);
+    text-align: center;
+  }
+
+  /* Trucco grid-template-rows 0fr↔1fr: anima verso "auto" senza dover
+     misurare l'altezza via JS — vedi .chapter-accordion__panel-inner
+     per l'overflow:hidden che nasconde davvero il contenuto mentre il
+     riquadro è a 0fr, non solo lo clippa visivamente a metà. */
+  .chapter-accordion__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .chapter-accordion__item[data-open="true"] .chapter-accordion__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .chapter-accordion__panel-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .chapter-accordion__content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-l);
+    padding-block: var(--space-l);
+    padding-inline: var(--space-smooth);
+  }
+
+  .chapter-accordion__media {
+    flex: 0 0 20rem;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .chapter-accordion__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .chapter-accordion__body {
+    flex: 1 1 0%;
+    min-width: 0;
+    padding-block-start: var(--space-2xs);
+  }
+
+  .chapter-accordion__body-title {
+    margin: 0 0 var(--space-3xs);
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-body);
+    color: var(--black-primary);
+  }
+
+  .chapter-accordion__subtitle {
+    margin: 0 0 var(--space-s);
+    font-style: italic;
+    font-size: var(--text-caption);
+    color: var(--black-secondary);
+  }
+
+  .chapter-accordion__description {
+    margin: 0 0 var(--space-m);
+    font-size: var(--text-caption);
+    line-height: var(--leading-body);
+    color: var(--black-primary);
+  }
+
+  /* Pill piccola e scura, diversa dalle altre CTA del sito (gialla su
+     bits/association-card, blu su bits/theme-card): così nel Figma,
+     più discreta perché qui è dentro un pannello già molto pieno. */
+  .chapter-accordion__cta {
+    display: inline-block;
+    padding: var(--space-3xs) var(--space-xs);
+    background: var(--black-primary);
+    color: var(--white-background);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-caption);
+  }
+
+  @media (max-width: 768px) {
+    .chapter-accordion__header {
+      padding-block: var(--space-m);
+      padding-inline: 1rem;
+      font-size: var(--text-h4);
+    }
+
+    .chapter-accordion__content {
+      flex-direction: column;
+      padding-inline: 1rem;
+      padding-block: var(--space-m);
+    }
+
+    .chapter-accordion__media {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
+}

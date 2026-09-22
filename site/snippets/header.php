@@ -37,10 +37,10 @@
 
   // 1. Peschiamo la timeline (che fisicamente è una sottopagina)
   // e l'aggiungiamo alla collection del menu principale
-  // $timeline = $site->find('chi-siamo/timeline');
-  // if ($timeline) {
-  //     $navItems = $navItems->add($timeline);
-  // }
+  $timeline = $site->find('chi-siamo/timeline');
+  if ($timeline) {
+      $navItems = $navItems->add($timeline);
+  }
 
   //secondo livello
   $tematiche = $site->find('tematiche');
@@ -49,8 +49,8 @@
   $chiSiamo = $site->find(
     'chi-siamo/persone',
     'chi-siamo/associazioni',
-    //'statuto',
-    //'chi-siamo/contatti'
+    'statuto',
+    'chi-siamo/contatti'
   );
 
   // Config dei pannelli, indicizzata per slug della pagina di primo livello.

@@ -22,7 +22,7 @@
       'background' => $page->personeBackground()->or('default')->value(),
       'cta'        => [
         'href' => $site->find('chi-siamo/persone')->url(),
-        'text' => 'Scopri tutte le persone ›',
+        'text' => 'Scopri tutte le delegate ›',
       ],
     ]) ?>
     <?php snippet('bits/logo-showreel', [

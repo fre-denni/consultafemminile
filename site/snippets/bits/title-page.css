@@ -14,15 +14,15 @@
     padding-block: var(--space-2xl) var(--space-l);
     font-family: var(--sans);
     font-weight: 500;
-    font-size: var(--text-h1);
+    font-size: var(--text-h2);
     color: var(--black-primary);
-    max-width: 70%;
+    max-width: 50%;
     line-height: var(--leading-display);
   }
 
   .title-page__text {
-    max-width: 80%;
-    font-size: var(--text-lead);
+    max-width: 60%;
+    font-size: var(--text-body);
     line-height: var(--leading-body);
     color: var(--black-primary);
   }

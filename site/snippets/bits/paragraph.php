@@ -15,6 +15,7 @@
  *   <?php endsnippet() ?>
  */
 $label      ??= null;
+$heading    ??= null;
 $paragraphs ??= [];
 
 // Un Field Kirby è sempre "truthy" come oggetto anche se vuoto: va
@@ -30,7 +31,7 @@ $textSlot      = $slots->text ?? null;
 $hasParagraphs = $textSlot !== null || count($paragraphs) > 0;
 ?>
 <div class="paragraph block-full">
-  <div class="paragraph__grid">
+  <div class="paragraph__grid<?= !$label ? ' paragraph__grid--centered' : '' ?>">
     <?php if ($label): ?>
       <div class="paragraph__label">
         <?php snippet('atoms/section-label', ['text' => $label]) ?>

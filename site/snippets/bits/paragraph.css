@@ -23,6 +23,17 @@
     padding-inline: clamp(1rem, -6.8036rem + 16.2574vw, 7.8281rem);
   }
 
+  /* Senza etichetta (vedi bits/paragraph.php), .paragraph__grid ha un
+     solo figlio: con justify-content:space-between quel figlio
+     resterebbe a sinistra invece che al centro. Qui il blocco di
+     testo va centrato nella sezione, con il testo normalmente
+     orientato da sinistra a destra (niente text-align:right, a
+     differenza di bits/timeline-accordion — è un blocco a colonna
+     singola, non a due colonne). */
+  .paragraph__grid--centered {
+    justify-content: center;
+  }
+
   .paragraph__label {
     flex-shrink: 0;
     padding-block-start: var(--space-3xs);

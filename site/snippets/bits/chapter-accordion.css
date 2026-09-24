@@ -98,6 +98,7 @@
   .chapter-accordion__media-track {
     display: block;
     list-style: none;
+    padding-inline-start: 0;
   }
 
   /* Una sola immagine: .chapter-accordion__media-track resta un
@@ -151,6 +152,13 @@
 
   .chapter-accordion__body-inner {
     max-width: 80%;
+    /* Figlio flex di .chapter-accordion__body: senza questo, il
+       carosello annidato (vedi bits/output-carousel, largo quanto il
+       contenuto non scrollato) impedisce a questo box di scendere
+       sotto la sua dimensione naturale, sforando l'80% dichiarato e
+       tagliando le ultime card fuori dallo schermo invece di scorrere
+       — min-width:auto di default vince su max-width in un flex item. */
+    min-width: 0;
     text-align: left;
   }
 
@@ -170,7 +178,7 @@
   }
 
   .chapter-accordion__description {
-    margin: 0 0 var(--space-m);
+    margin: 0 0 var(--space-l);
     font-size: var(--text-caption);
     line-height: var(--leading-body);
     color: var(--black-primary);
@@ -211,6 +219,10 @@
        poco senso — vedi bits/timeline-accordion, stesso trattamento. */
     .chapter-accordion__body {
       justify-content: flex-start;
+      /* Stesso motivo di bits/timeline-accordion: azzerato qui così
+         immagine e testo sono staccati dagli elementi vicini (riga
+         sopra, foto sopra) della stessa identica misura. */
+      padding-block-start: 0;
     }
 
     .chapter-accordion__body-inner {

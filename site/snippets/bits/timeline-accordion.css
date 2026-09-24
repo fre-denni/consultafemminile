@@ -107,6 +107,7 @@
   .timeline-accordion__media-track {
     display: block;
     list-style: none;
+    padding-inline-start: 0;
   }
 
   /* Una sola immagine: .timeline-accordion__media-track resta un
@@ -206,6 +207,12 @@
        sinistra): qui torna a piena larghezza e allineato a sinistra. */
     .timeline-accordion__body {
       justify-content: flex-start;
+      /* Su due colonne questo offset avvicina il testo alla foto
+         accanto; impilati, sommandosi al gap di .content renderebbe lo
+         spazio foto→testo più largo di quello riga→foto. Azzerato qui
+         così immagine e testo sono staccati dagli elementi vicini
+         (riga sopra, foto sopra) della stessa identica misura. */
+      padding-block-start: 0;
     }
 
     .timeline-accordion__body-inner {

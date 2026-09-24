@@ -7,6 +7,7 @@
  *   description?: string,
  *   images?: \Kirby\Cms\File[],
  *   ctaUrl?: string|null,
+ *   outputs?: \Kirby\Cms\Pages|null,
  * }> $items Elenco capitoli — un array associativo normalizzato per
  *   ognuno, non pagine/righe structure direttamente: tematiche (pagine,
  *   vedi site/templates/tematiche.php) e timeline (righe structure,
@@ -31,6 +32,12 @@
  * Gli "eventi collegati" del riferimento Figma non compaiono ancora:
  * il modello dati per gli eventi non è definito, verranno aggiunti in
  * un secondo momento.
+ *
+ * $item['outputs'] (gli articoli della tematica, vedi
+ * site/blueprints/pages/output.yml): mostrati con bits/output-carousel
+ * dentro lo stesso div del testo (.chapter-accordion__body-inner), sotto
+ * il CTA — non come sezione a piena larghezza a parte (vedi il parametro
+ * $nested di bits/output-carousel).
  */
 $items = is_array($items) ? $items : iterator_to_array($items);
 
@@ -95,6 +102,13 @@ if (count($items) === 0) return;
                 <?php endif ?>
                 <?php if ($ctaUrl !== ''): ?>
                   <a href="<?= html($ctaUrl) ?>" class="chapter-accordion__cta">Scopri di più ›</a>
+                <?php endif ?>
+                <?php if (($item['outputs'] ?? null) !== null): ?>
+                  <?php snippet('bits/output-carousel', [
+                    'items'   => $item['outputs'],
+                    'heading' => 'Output',
+                    'nested'  => true,
+                  ]) ?>
                 <?php endif ?>
               </div>
             </div>

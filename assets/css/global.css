@@ -236,6 +236,12 @@
     color: inherit;
   }
 
+  strong,
+  b {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+  }
+
   blockquote {
     font-size: var(--text-lead);
     line-height: var(--leading-snug);

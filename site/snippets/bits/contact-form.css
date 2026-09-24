@@ -1,0 +1,247 @@
+/** CONTACT-FORM — sezione a piena larghezza con l'etichetta a sinistra e,
+    a destra, un riquadro con il form (email, oggetto, messaggio da
+    massimo 500 parole) affiancato da una foto con il suo credito. Su
+    mobile la foto sparisce e l'etichetta passa sopra il riquadro.
+    Dimensioni dal Figma (nodo 636:134972), che è disegnato al 75%: i
+    valori qui sono quelli reali, riportati sui token del sito. **/
+@layer bits {
+  .contact-form-section {
+    width: 100%;
+    padding-block: var(--space-3xl);
+  }
+
+  .contact-form-section--tinted {
+    background: var(--white-foreground);
+  }
+
+  .contact-form-section--blue {
+    background: var(--blue-background);
+  }
+
+  .contact-form-section__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-l);
+    max-width: 100rem;
+    margin-inline: auto;
+    padding-inline: var(--space-smooth);
+  }
+
+  .contact-form-section__label {
+    flex-shrink: 0;
+    padding-block-start: var(--space-3xs);
+  }
+
+  .contact-form {
+    display: flex;
+    gap: var(--space-m);
+    /* 730.5px nel Figma a 0.75 = 974px. */
+    flex: 0 1 60.875rem;
+    min-width: 0;
+    padding: var(--space-m);
+    background: var(--white-background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-form__form {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: var(--space-m);
+    min-width: 0;
+  }
+
+  /* Fuori schermo invece di display:none: i bot più semplici saltano i
+     campi nascosti, ma non quelli semplicemente spostati. */
+  .contact-form__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .contact-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  /* Nel Figma le etichette sono al 13% di opacità, quasi illeggibili:
+     qui --black-secondary, che resta leggibile. Weight 500 come nel
+     riferimento (con il font variabile; altrimenti il semibold). */
+  .contact-form__label {
+    font-family: var(--sans-semibold);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--black-secondary);
+  }
+
+  .contact-form__input {
+    width: 100%;
+    min-height: 2.25rem;
+    padding: var(--space-3xs) var(--space-xs);
+    background: var(--white-background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    font: inherit;
+    /* Mai sotto i 16px: iOS zooma la pagina quando si mette il focus su
+       un campo con testo più piccolo. */
+    font-size: max(1rem, var(--text-body));
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+  }
+
+  .contact-form__input::placeholder {
+    color: var(--black-secondary);
+    opacity: 1;
+  }
+
+  .contact-form__input:focus-visible,
+  .contact-form__submit:focus-visible {
+    outline: 2px solid var(--blue-primary);
+    outline-offset: 2px;
+  }
+
+  .contact-form__textarea {
+    display: block;
+    min-height: 5rem;
+    padding-block: var(--space-2xs);
+    resize: vertical;
+  }
+
+  .contact-form__counter {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--black-secondary);
+  }
+
+  .contact-form__counter[data-over] {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    color: var(--black-primary);
+  }
+
+  .contact-form__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.25rem;
+    padding: var(--space-2xs) var(--space-xs);
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--yellow-accent);
+    box-shadow: var(--shadow-sm);
+    font-family: var(--sans-semibold);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    color: var(--black-primary);
+    cursor: pointer;
+  }
+
+  .contact-form__submit:hover {
+    filter: brightness(0.96);
+  }
+
+  .contact-form__submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .contact-form__status {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+  }
+
+  .contact-form__status[data-kind="ok"] {
+    color: var(--blue-primary);
+  }
+
+  .contact-form__status[data-kind="error"] {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+  }
+
+  .contact-form__status[hidden] {
+    display: none;
+  }
+
+  /* 427px nel Figma a 0.75 (320px × 258px la foto): la colonna si
+     stira quanto il form, la foto riempie lo spazio che avanza sopra
+     al credito. L'immagine è in absolute per non fare da sola l'altezza
+     del riquadro (è una foto enorme, altrimenti lo allungherebbe). */
+  .contact-form__media {
+    display: flex;
+    flex: 0 0 min(44%, 26.7rem);
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin: 0;
+  }
+
+  .contact-form__media picture {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 14rem;
+  }
+
+  .contact-form__img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-form__credit {
+    font-size: var(--text-caption);
+    line-height: var(--leading-snug);
+    color: var(--black-primary);
+  }
+
+  .contact-form__credit a {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1062px) {
+    .contact-form-section__inner {
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .contact-form {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+
+  /* Mobile: la foto sparisce, il form resta da solo. */
+  @media (max-width: 768px) {
+    .contact-form-section {
+      padding-block: var(--space-xl);
+    }
+
+    .contact-form-section__inner {
+      padding-inline: 1rem;
+    }
+
+    .contact-form__media {
+      display: none;
+    }
+  }
+}

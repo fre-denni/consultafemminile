@@ -1,0 +1,35 @@
+title: Contatti
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          etichetta:
+            label: Etichetta
+            help: Testo a sinistra del riquadro (vedi bits/contact-form).
+            type: text
+            default: Contattaci
+          foto:
+            label: Foto
+            help: >
+              Carica prima la foto nella sezione "Foto" qui a fianco, poi
+              selezionala qui. Compare accanto al form, non su mobile.
+            type: files
+            query: page.images
+            multiple: false
+          credit:
+            label: Credito della foto
+            help: Es. "Foto di Nome su Unsplash", con i link se servono.
+            type: writer
+            inline: true
+            marks:
+              - link
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        label: Foto
+        type: files

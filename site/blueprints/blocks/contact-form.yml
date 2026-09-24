@@ -1,0 +1,25 @@
+name: Form contatti
+icon: email
+fields:
+  background:
+    extends: fields/background
+    default: tinted
+  label:
+    label: Etichetta
+    type: text
+    default: Contattaci
+  image:
+    label: Foto
+    help: Facoltativa. Su mobile non viene mostrata.
+    type: files
+    query: model.images
+    multiple: false
+    image:
+      back: black
+  credit:
+    label: Credito della foto
+    help: Es. "Foto di Nome su Unsplash", con i link se servono.
+    type: writer
+    inline: true
+    marks:
+      - link

@@ -1,0 +1,166 @@
+/** OUTPUT-CAROUSEL — gli articoli (sottopagine "output" di una
+    tematica, vedi bits/output-card) in una striscia orizzontale a
+    scorrimento nativo con snap. Stesso trattamento di
+    bits/patrocinio-carousel (duplicato apposta, ogni componente resta
+    autonomo): frecce sempre visibili, desktop compreso. **/
+@layer bits {
+  .output-carousel-section {
+    width: 100%;
+    background: var(--white-background);
+    padding-block: var(--space-2xl);
+  }
+
+  .output-carousel-section--tinted {
+    background: var(--white-foreground);
+  }
+
+  .output-carousel-section--blue {
+    background: var(--blue-background);
+  }
+
+  /* Incorporato dentro un altro componente (vedi bits/chapter-accordion,
+     $nested in bits/output-carousel.php): niente sfondo/piena larghezza
+     propri, il carosello resta semplicemente largo quanto il div del
+     testo che lo contiene. */
+  .output-carousel-section--nested {
+    width: auto;
+    background: none;
+    padding-block: 0;
+  }
+
+  /* Header in stile "sezione": una riga sola con bordo sopra,
+     etichetta sempre centrata — vedi bits/patrocinio-carousel.css per
+     il ragionamento sulle due colonne laterali a larghezza fissa. */
+  .output-carousel-section__header {
+    --output-carousel-controls-w: calc(2 * 1.75rem + var(--space-xs));
+    display: grid;
+    grid-template-columns:
+      var(--output-carousel-controls-w)
+      1fr
+      var(--output-carousel-controls-w);
+    align-items: center;
+    gap: var(--space-m);
+    padding-inline: var(--space-smooth);
+    padding-block: var(--space-s);
+    border-block-start: 1px solid var(--black-primary);
+    margin-block-end: var(--space-xl);
+  }
+
+  .output-carousel-section__header .section-label {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+  }
+
+  /* Niente bordo/gutter di pagina, solo un piccolo distacco dal CTA
+     sopra (vedi bits/chapter-accordion) — l'etichetta "Output" resta
+     comunque centrata sulla larghezza del carosello. */
+  .output-carousel-section--nested .output-carousel-section__header {
+    padding-inline: 0;
+    padding-block: 0;
+    border-block-start: none;
+    margin-block: var(--space-m) var(--space-s);
+  }
+
+  /* Annidato dentro bits/chapter-accordion (vedi
+     .chapter-accordion__body-inner, un contenitore stretto): con
+     l'etichetta in colonna 2 come sulla pagina della tematica singola,
+     la colonna 3 (frecce) a larghezza fissa la spingeva visibilmente
+     fuori centro. In colonna 1 resta invece coerente con la strettezza
+     del contenitore. */
+  .output-carousel-section--nested .output-carousel-section__header .section-label {
+    grid-column: 1;
+  }
+
+  .output-carousel__controls {
+    grid-column: 3;
+    display: flex;
+    justify-self: end;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .output-carousel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--black-primary);
+    font-size: var(--text-h4);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .output-carousel__button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .output-carousel {
+    position: relative;
+    width: 100%;
+  }
+
+  .output-carousel__track {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-m);
+    list-style: none;
+    padding-inline: var(--space-smooth);
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--space-smooth);
+    scrollbar-width: none;
+  }
+
+  .output-carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Stessa dimensione ovunque, nested o no (vedi bits/chapter-accordion
+     e site/templates/tematica.php): le card devono restare identiche
+     tra la pagina "Tematiche" e la singola tematica. */
+  .output-carousel__item {
+    flex: 0 0 min(14rem, 75vw);
+    scroll-snap-align: start;
+  }
+
+  .output-carousel-section--nested .output-carousel__track {
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+
+  @media (max-width: 768px) {
+    .output-carousel-section {
+      padding-block: var(--space-xl);
+    }
+
+    .output-carousel-section--nested {
+      padding-block: 0;
+    }
+
+    .output-carousel-section__header {
+      padding-inline: 1rem;
+    }
+
+    .output-carousel-section--nested .output-carousel-section__header {
+      padding-inline: 0;
+    }
+
+    .output-carousel__track {
+      gap: var(--space-s);
+      padding-inline: 1rem;
+      scroll-padding-inline: 1rem;
+    }
+
+    .output-carousel-section--nested .output-carousel__track {
+      padding-inline: 0;
+      scroll-padding-inline: 0;
+    }
+  }
+}

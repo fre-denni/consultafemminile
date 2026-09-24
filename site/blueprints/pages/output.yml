@@ -1,0 +1,107 @@
+title: Output
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          categoria:
+            label: Tipologia
+            help: Es. "Contributo", "Intervista" — mostrata sopra il titolo (vedi bits/article-header).
+            type: text
+          intro:
+            label: Introduzione
+            help: Testo breve in corsivo sotto il titolo (vedi bits/article-header).
+            type: textarea
+          autori:
+            label: Autore/i
+            help: >
+              Un autore per riga, mostrati come "Di ..." nell'intestazione
+              dell'articolo (vedi bits/article-header). Se è un membro
+              della Consulta il nome porta automaticamente alla pagina
+              "Le Persone"; altrimenti puoi aggiungere un link esterno
+              facoltativo (es. il sito o il profilo della persona).
+            type: structure
+            columns:
+              nome: {}
+              membro_consulta:
+                width: 1/4
+              link:
+                width: 1/4
+            fields:
+              nome:
+                label: Nome
+                type: text
+                required: true
+              membro_consulta:
+                label: Membro della Consulta
+                type: toggle
+                default: true
+              link:
+                label: Link esterno
+                help: Solo se non è un membro della Consulta.
+                type: url
+                when:
+                  membro_consulta: false
+          data:
+            label: Data
+            help: Mostrata nell'intestazione dell'articolo (vedi bits/article-header).
+            type: date
+          text:
+            label: Contenuto
+            help: >
+              Il corpo dell'articolo, mostrato quando si apre questa pagina
+              dalla card (vedi bits/output-card). "Testo in evidenza"
+              (blocco "paragraph") copre sia le sezioni con titolo che i
+              passaggi centrati da mettere in risalto; le immagini
+              possono avere una didascalia.
+            type: blocks
+            fieldsets:
+              - paragraph
+              - divider
+              - heading
+              - text
+              - image
+              - list
+              - quote
+              - line
+      correlati:
+        type: fields
+        fields:
+          correlati_headline:
+            type: headline
+            label: Correlati
+          correlati_auto:
+            label: Output della stessa tematica
+            help: >
+              Di default il carosello "Correlati" in fondo all'articolo
+              mostra gli altri output della sua tematica (vedi
+              bits/related-outputs). Spegni per mostrare solo quelli scelti
+              qui sotto.
+            type: toggle
+            default: true
+            text:
+              - Non mostrare
+              - Mostra
+          correlati_extra:
+            label: Altri output da aggiungere
+            help: >
+              Output di qualunque tematica, aggiunti dopo quelli della
+              stessa tematica (o da soli, se sopra è spento). Trascina per
+              cambiare l'ordine.
+            type: pages
+            multiple: true
+            query: site.index.filterBy('intendedTemplate', 'output').not(page)
+            info: "{{ page.parent.title }}"
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        label: Immagine
+        help: >
+          La prima immagine caricata qui è la cover della card (vedi
+          bits/output-card) ed è mostrata anche nell'intestazione
+          dell'articolo (vedi bits/article-header).
+        type: files

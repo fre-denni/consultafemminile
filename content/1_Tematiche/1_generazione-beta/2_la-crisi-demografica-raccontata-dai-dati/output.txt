@@ -1,0 +1,38 @@
+Title: La crisi demografica raccontata dai dati
+
+----
+
+Categoria: Approfondimento
+
+----
+
+Intro: I numeri della natalità italiana raccontano una crisi strutturale, non solo demografica.
+
+----
+
+Autori:
+
+- 
+  nome: Giada Andriolo
+  membro_consulta: 'true'
+  link: ""
+- 
+  nome: Dr. Mario Somigliana
+  membro_consulta: 'false'
+  link: https://example.org/mario-somigliana
+- 
+  nome: Redazione esterna
+  membro_consulta: 'false'
+  link: ""
+
+----
+
+Data: 2026-02-02
+
+----
+
+Text: [{"content":{"background":"","label":"","heading":"Il contesto: cosa dicono i numeri","paragraphs":[{"text":"Negli ultimi vent'anni le nascite in Italia sono diminuite in modo costante, un fenomeno che riguarda tutte le regioni e che intreccia fattori economici, sociali e culturali.\n\nQuesto secondo paragrafo dimostra che due paragrafi scritti nello stesso campo, separati da una riga vuota, restano visivamente distinti."}]},"id":"cdd94bfa-3153-4a76-acab-8e439fe191d5","isHidden":false,"type":"paragraph"},{"content":{"location":"kirby","image":["file://gqugwtqlfdtq1pqb"],"src":"","alt":"Grafico della natalità in Italia","caption":"<p>Andamento delle nascite in Italia, elaborazione su dati ISTAT.</p>","link":"","ratio":"3/2","crop":"true"},"id":"dda99f4e-f609-466b-a012-350b9b9a4fd1","isHidden":false,"type":"image"},{"content":{"background":"","label":"","heading":"","paragraphs":[{"text":"**Non è un destino, è una scelta politica.** Investire su asili nido, congedi parentali e lavoro femminile significa investire sul futuro demografico del paese."}]},"id":"3c5517d5-3ae0-49bf-bca7-d5b316854e46","isHidden":false,"type":"paragraph"}]
+
+----
+
+Uuid: yd8occb7jd1gvxgq

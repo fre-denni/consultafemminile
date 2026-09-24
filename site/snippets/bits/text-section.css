@@ -1,0 +1,89 @@
+/** TEXT-SECTION — un articolo di statuto/regolamento (o l'apertura di una
+    sezione): titolo su una o due righe e testo, in una colonna di
+    lettura di 608px (Figma) al centro della pagina, testo a sinistra.
+    Dimensioni dal Figma a 1920px: titolo e testo a 21.5px (--text-lead),
+    titolo "grande" a 33px (--text-h3). **/
+@layer bits {
+  /* Il ritmo verticale vive qui e non in atoms/block-container, che dà a
+     tutti i blocchi lo stesso stacco: 80px sopra (dopo l'header o un
+     banner), 60px tra un articolo e il successivo, e a fine serie —
+     prima del banner o del blocco seguente — 120px (80 per il titolo
+     grande, che apre e non chiude una serie). I margini di un flex
+     column non collassano: si sommano, come i padding del Figma. */
+  .text-section {
+    width: 100%;
+    max-width: 38rem;
+    margin-block: var(--space-2xl) 0;
+    color: var(--black-primary);
+  }
+
+  .text-section + .text-section {
+    margin-block-start: var(--space-xl);
+  }
+
+  .text-section:not(:has(+ .text-section)) {
+    margin-block-end: var(--space-2xl);
+  }
+
+  .text-section--article:not(:has(+ .text-section)) {
+    margin-block-end: var(--space-3xl);
+  }
+
+  /* Un <h3> con due <span> a capo: per chi legge con lo screen reader è
+     un unico titolo ("Art.1 Denominazione sede"), non due paragrafi. */
+  .text-section__heading {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--text-lead);
+    font-weight: 400;
+    line-height: var(--leading-heading);
+  }
+
+  .text-section__title {
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+  }
+
+  .text-section__subtitle {
+    font-family: var(--sans-regular);
+  }
+
+  .text-section--large .text-section__heading {
+    font-size: var(--text-h3);
+  }
+
+  .text-section__text {
+    margin-block-start: var(--space-s);
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
+  }
+
+  .text-section--large .text-section__text {
+    margin-block-start: var(--space-xs);
+  }
+
+  /* Il base layer dà a p/ul/ol il --text-body: qui vale il --text-lead
+     dell'intera colonna. */
+  .text-section__text :is(p, ul, ol, li) {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  /* Un paragrafo vuoto tra due paragrafi, come nel Figma. */
+  .text-section__text > * + * {
+    margin-block-start: var(--space-m);
+  }
+
+  .text-section__text :is(ul, ol) {
+    padding-inline-start: 1.5em;
+  }
+
+  .text-section__text li + li {
+    margin-block-start: var(--space-3xs);
+  }
+
+  /* Gli elenchi del writer contengono a loro volta dei <p>. */
+  .text-section__text li > p + p {
+    margin-block-start: var(--space-3xs);
+  }
+}

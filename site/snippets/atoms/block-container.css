@@ -30,6 +30,78 @@
     margin-block-start: 0;
   }
 
+  /* ── Blocco "image" di Kirby (figure/img/figcaption, nessuna classe
+     propria): resta nella colonna di lettura come qualunque altro
+     blocco (.block-container > *), qui solo l'immagine e la didascalia. ── */
+  .block-container > figure {
+    margin: 0;
+  }
+
+  /* Stesso trattamento delle altre immagini del sito (card, loghi,
+     patrocinio): bordo sottile + raggio --radius-lg. */
+  .block-container > figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .block-container > figure figcaption {
+    margin-block-start: var(--space-s);
+    font-size: var(--text-caption);
+    color: var(--black-secondary);
+  }
+
+  /* data-ratio è una stringa letterale ("16/9", ...): senza un valore
+     noto in anticipo CSS non può convertirla in aspect-ratio, va quindi
+     abbinata esplicitamente per ciascuna delle opzioni che il blocco
+     "image" di Kirby offre in pannello. */
+  .block-container > figure[data-ratio="1/1"] img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="16/9"] img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="10/8"] img {
+    aspect-ratio: 10 / 8;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="21/9"] img {
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="7/5"] img {
+    aspect-ratio: 7 / 5;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="4/3"] img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="5/3"] img {
+    aspect-ratio: 5 / 3;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="3/2"] img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  .block-container > figure[data-ratio="3/1"] img {
+    aspect-ratio: 3 / 1;
+    object-fit: cover;
+  }
+
   /* ── Sezione a piena larghezza con sfondo opzionale ── */
   .block-container__section {
     width: 100%;

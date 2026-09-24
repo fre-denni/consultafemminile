@@ -8,6 +8,7 @@ foreach (collection('tematiche') as $tema) {
     'description' => trim((string) $tema->description()),
     'images'      => $tema->images()->limit(7)->values(),
     'ctaUrl'      => $tema->url(),
+    'outputs'     => $tema->children()->filterBy('intendedTemplate', 'output'),
   ];
 }
 ?>

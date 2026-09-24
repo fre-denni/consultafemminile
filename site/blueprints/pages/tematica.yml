@@ -1,0 +1,40 @@
+title: Tematica
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          subtitle:
+            label: Sottotitolo
+            help: Mostrato in corsivo nell'accordion della pagina "Tematiche" (vedi bits/chapter-accordion).
+            type: text
+          description:
+            label: Descrizione
+            help: >
+              Mostrata sia nell'accordion della pagina "Tematiche" (vedi
+              bits/chapter-accordion) sia come paragrafo introduttivo di
+              questa pagina, sotto l'immagine di copertina (vedi
+              bits/tema-hero e bits/paragraph).
+            type: textarea
+  sidebar:
+    width: 1/3
+    sections:
+      outputs:
+        label: Output
+        help: >
+          Gli articoli collegati a questa tematica, mostrati in un
+          carosello sia qui che nella pagina "Tematiche" (vedi
+          bits/output-carousel). Crea qui le sottopagine, poi carica
+          l'immagine e scrivi il contenuto nella pagina di ognuna.
+        type: pages
+        template: output
+      files:
+        label: Immagini
+        help: >
+          La prima immagine caricata qui è la copertina della tematica:
+          usata in cima a questa pagina (vedi bits/tema-hero) e
+          nell'accordion della pagina "Tematiche".
+        type: files

@@ -1,0 +1,21 @@
+/** DOWNLOAD-LINK — link di download centrato, maiuscolo e sottolineato
+    (22px nel Figma, tracking 1.1px): 79px sopra e 60px sotto. **/
+@layer bits {
+  .download-link {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--space-2xl) var(--space-xl);
+    padding-inline: var(--space-l);
+    text-align: center;
+  }
+
+  .download-link__link {
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    color: var(--black-primary);
+  }
+}

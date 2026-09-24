@@ -1,0 +1,67 @@
+/** ARTICLE-FOOTER — chiude l'articolo: banner blu col titolo della
+    tematica (vedi bits/section-divider, stile "banner"), sotto la sua
+    descrizione centrata e un pulsante verso la pagina della tematica.
+    Tutto su sfondo panna, a piena larghezza. **/
+@layer bits {
+  .article-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2xl);
+    width: 100%;
+    padding-block-end: calc(var(--space-l) * 2);
+    background: var(--white-foreground);
+  }
+
+  /* In una colonna flex con align-items:center il banner si ridurrebbe
+     al proprio contenuto: deve invece coprire tutta la larghezza. */
+  .article-footer .section-divider {
+    align-self: stretch;
+  }
+
+  .article-footer__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-m);
+    width: 100%;
+    /* 734px di testo nel Figma, più il gutter su entrambi i lati. */
+    max-width: calc(45.875rem + 2 * var(--space-m));
+    padding-inline: var(--space-m);
+  }
+
+  .article-footer__text {
+    text-align: center;
+  }
+
+  .article-footer__text p {
+    font-size: var(--text-body);
+    line-height: var(--leading-snug);
+  }
+
+  .article-footer__text > * + * {
+    margin-block-start: var(--space-m);
+  }
+
+  /* Stesso pill blu dei CTA di bits/theme-card e bits/nav, con la
+     freccia del Figma a fianco. */
+  .article-footer__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    padding: var(--space-2xs) var(--space-s);
+    background: var(--blue-primary);
+    color: var(--white-background);
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-caption);
+    white-space: nowrap;
+  }
+
+  /* 12×16 nel Figma: il wrapper ha le proporzioni dell'SVG, non il
+     quadrato di default di atoms/icon. */
+  .article-footer__cta .icon {
+    width: 0.75rem;
+    height: 1rem;
+  }
+}

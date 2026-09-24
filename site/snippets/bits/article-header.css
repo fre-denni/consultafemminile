@@ -1,0 +1,204 @@
+/** ARTICLE-HEADER — intestazione della pagina di un articolo (output):
+    tipologia, titolo, introduzione, autore/i, data e condividi, con
+    accanto — se presente — la copertina (stessa immagine della card,
+    vedi bits/output-card). Senza immagine .article-header__text resta
+    l'unico figlio e occupa tutta la larghezza: stesso componente,
+    entrambe le varianti nel riferimento Figma. **/
+@layer bits {
+  /* align-items:center (non stretch): l'altezza della riga segue il
+     più alto dei due contenuti — di norma l'immagine, vedi
+     .article-header__img — invece di forzare il testo a riempire
+     tutto lo spazio verticale disponibile nella pagina. Il bordo sotto
+     vive qui, non su .article-header__text, per estendersi sotto
+     ENTRAMBE le colonne fino al bordo della pagina. Niente
+     padding-inline né gap qui: nel riferimento Figma l'immagine arriva
+     a filo del bordo destro della pagina (a piena larghezza, come
+     bits/tema-hero) — è il testo ad avere il proprio gutter, vedi
+     .article-header__text. */
+  .article-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-block-end: 1px solid var(--black-primary);
+  }
+
+  .article-header__text {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding-inline: var(--space-smooth);
+  }
+
+  .article-header__group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-m);
+    width: 100%;
+  }
+
+  .article-header__category {
+    margin: 0;
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--blue-primary);
+  }
+
+  .article-header__title {
+    max-width: 50rem;
+    margin: 0;
+    font-family: var(--sans-semibold);
+    font-weight: 600;
+    font-size: var(--text-h2);
+    line-height: var(--leading-heading);
+    color: var(--black-primary);
+    text-align: center;
+  }
+
+  .article-header__lead {
+    max-width: 41.875rem;
+    margin: var(--space-m) 0 0;
+    font-family: var(--sans-regular);
+    font-style: italic;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    color: var(--black-primary);
+    text-align: center;
+  }
+
+  .article-header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-l);
+    margin-block-start: var(--space-l);
+    font-size: var(--text-caption);
+    color: var(--black-primary);
+  }
+
+  .article-header__authors,
+  .article-header__date {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+
+  /* "Di" resta nero (colore ereditato da .article-header__meta): solo i
+     nomi, dentro .article-header__author-link, sono blu — link veri
+     per i membri della Consulta o per un autore esterno con un link,
+     semplice testo altrimenti (vedi bits/article-header.php). */
+  .article-header__author-link {
+    color: var(--blue-primary);
+    text-decoration: none;
+  }
+
+  a.article-header__author-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Un solo bottone (copia link, vedi bits/article-header.php e
+     assets/js/article-share.js): niente più menu di social da aprire,
+     --text-compact lo rende leggibile senza appesantire la riga di
+     metadata (in --text-caption, più piccolo). */
+  .article-header__share-button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: var(--text-sm);
+    text-transform: capitalize;
+    color: var(--black-primary);
+    cursor: pointer;
+  }
+
+  .article-header__share-button:hover {
+    text-decoration: underline;
+  }
+
+  /* La freccia deve leggersi grande quanto il testo del bottone (di
+     default .icon è 1.25rem, pensata per icone autonome): 1em la
+     aggancia al font-size di .article-header__share-button, qualunque
+     esso sia. */
+  .article-header__share-button .icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  /* Due icone nel DOM, una sola visibile: al click assets/js/article-share.js
+     mette data-copied sul bottone e la freccia lascia il posto al check
+     (doppia conferma insieme al testo), poi torna com'era. Niente
+     transizione: il cambio deve essere istantaneo. */
+  .article-header__share-icon {
+    display: flex;
+  }
+
+  .article-header__share-icon--done,
+  .article-header__share-button[data-copied] .article-header__share-icon--idle {
+    display: none;
+  }
+
+  .article-header__share-button[data-copied] .article-header__share-icon--done {
+    display: flex;
+  }
+
+  /* Nessun max-width: a piena larghezza fino al bordo della pagina a
+     qualunque risoluzione, non un riquadro con un tetto fisso. */
+  .article-header__media {
+    flex: 0 0 45%;
+  }
+
+  /* aspect-ratio (non più height:50% di un genitore stirato) dà
+     all'immagine un'altezza propria, indipendente dal contenuto del
+     testo: è così che .article-header, ora allineato al centro
+     (align-items:center, non stretch), resta alto quanto l'immagine
+     invece di allungarsi con lei per tutta la pagina. Proporzione
+     816×678 del riferimento Figma. */
+  .article-header__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 816 / 678;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 1062px) {
+    .article-header {
+      flex-direction: column;
+      /* In riga (desktop) non serve: le due colonne sono già separate
+         dal proprio gutter/padding. In colonna invece l'immagine (in
+         cima, vedi .article-header__media order:-1) toccherebbe subito
+         "CONTRIBUTO" senza un po' di respiro. */
+      gap: var(--space-l);
+      padding-block: 0 var(--space-l);
+    }
+
+    /* In colonna .article-header non stira più l'immagine all'altezza
+       del testo (non c'è più una riga con due colonne): serve di
+       nuovo una proporzione propria. L'immagine va sopra il testo
+       (vedi bits/article-header.php per l'ordine nel markup) mentre
+       resta a piena larghezza della sezione. */
+    .article-header__media {
+      order: -1;
+      flex-basis: auto;
+      width: 100%;
+    }
+
+    /* In colonna l'immagine è a piena larghezza della sezione: la
+       proporzione 816/678 del desktop la farebbe troppo alta, 16/9 è
+       la proporzione che la mantiene più bassa e cinematica. */
+    .article-header__img {
+      aspect-ratio: 16 / 9;
+      border-radius: 0;
+    }
+
+    .article-header__meta {
+      gap: var(--space-m);
+    }
+  }
+}

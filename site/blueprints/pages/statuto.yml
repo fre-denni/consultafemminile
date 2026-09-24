@@ -1,0 +1,53 @@
+title: Statuto e Regolamento
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      fields:
+        type: fields
+        fields:
+          text:
+            label: Contenuto
+            help: >
+              Ogni "Sezione di testo" è un articolo (o l'apertura di una
+              sezione); i "Divisori" in stile banner separano Statuto e
+              Regolamento. Per aggiungere un articolo duplica uno esistente
+              e cambia titolo, sottotitolo e testo.
+            type: blocks
+            fieldsets:
+              - text-section
+              - divider
+              - download-link
+              - paragraph
+              - heading
+              - text
+              - list
+              - line
+          etichetta:
+            label: Etichetta del form contatti
+            help: Testo a sinistra del riquadro in fondo alla pagina (vedi bits/contact-form).
+            type: text
+            default: Contattaci
+          foto:
+            label: Foto del form contatti
+            help: >
+              Facoltativa. Carica la foto nella sezione "File" a fianco,
+              poi selezionala qui. Non compare su mobile.
+            type: files
+            query: page.images
+            multiple: false
+          credit:
+            label: Credito della foto
+            help: Es. "Foto di Nome su Unsplash", con i link se servono.
+            type: writer
+            inline: true
+            marks:
+              - link
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        label: File
+        help: Carica qui il PDF della brochure e le foto; poi selezionali nei blocchi.
+        type: files

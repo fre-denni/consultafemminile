@@ -19,4 +19,29 @@ return [
 
     return implode(' ', array_slice($words, 0, $count)) . $suffix;
   },
+
+  /**
+   * Formatta un campo "date" in italiano ("16 marzo 2026"): date()
+   * di PHP non è locale-aware e il progetto non configura un locale di
+   * sistema, quindi i nomi dei mesi vanno tradotti a mano.
+   * Uso: $page->data()->toItalianDate()
+   */
+  'toItalianDate' => function (Field $field): string {
+    if ($field->isEmpty()) {
+      return '';
+    }
+
+    $timestamp = strtotime($field->value());
+
+    if ($timestamp === false) {
+      return '';
+    }
+
+    $months = [
+      'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+      'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+    ];
+
+    return date('j', $timestamp) . ' ' . $months[(int) date('n', $timestamp) - 1] . ' ' . date('Y', $timestamp);
+  },
 ];

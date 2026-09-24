@@ -2,7 +2,7 @@
 /**
  * @var string                      $label      Etichetta breve sopra il titolo (opzionale)
  * @var \Kirby\Content\Field|string $heading    Titolo (HTML inline, es. da un campo writer)
- * @var iterable<string>            $paragraphs Elenco di paragrafi di testo semplice, uno per <p>
+ * @var iterable<string>            $paragraphs Elenco di HTML già pronto (kirbytext), uno o più <p> ciascuno
  *
  * A piena larghezza (così un eventuale sfondo colorato applicato da
  * atoms/block-container.php arriva ai bordi) con dentro una griglia a
@@ -47,9 +47,7 @@ $hasParagraphs = $textSlot !== null || count($paragraphs) > 0;
             <?= $textSlot ?>
           <?php else: ?>
             <?php foreach ($paragraphs as $paragraph): ?>
-              <?php if (trim((string) $paragraph) !== ''): ?>
-                <p><?= html($paragraph) ?></p>
-              <?php endif ?>
+              <?= $paragraph ?>
             <?php endforeach ?>
           <?php endif ?>
         </div>

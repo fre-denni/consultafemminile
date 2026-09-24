@@ -3,6 +3,13 @@ title: Site
 fields:
   pages:
     type: pages
+  contact_email:
+    label: Email per i messaggi del form contatti
+    help: >
+      Dove arrivano i messaggi inviati dal form (vedi bits/contact-form).
+      Se vuoto, consfim@gmail.com.
+    type: email
+    placeholder: consfim@gmail.com
   social:
     label: Social
     type: structure

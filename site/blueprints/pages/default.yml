@@ -18,6 +18,7 @@ columns:
               - titlepage
               - paragraph
               - divider
+              - contact-form
               - heading
               - text
               - list

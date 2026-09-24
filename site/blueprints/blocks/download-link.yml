@@ -1,0 +1,17 @@
+name: Link scaricabile
+icon: download
+fields:
+  label:
+    label: Testo del link
+    type: text
+    default: Scarica la brochure (.pdf)
+    required: true
+  link:
+    label: File o indirizzo
+    help: >
+      Carica il file (es. il PDF) nella sezione "File" della pagina e
+      selezionalo qui. Finché non è scelto, il link non compare nella pagina.
+    type: link
+    options:
+      - file
+      - url

@@ -1,0 +1,36 @@
+name: Sezione di testo
+icon: title
+fields:
+  style:
+    label: Stile
+    help: >
+      "Articolo": titolo e sottotitolo su due righe (es. "Art.1" /
+      "Denominazione sede"). "Titolo grande": un solo titolo più grande
+      per aprire una sezione (es. "La missione della Consulta").
+    type: toggles
+    default: article
+    options:
+      - value: article
+        text: Articolo
+      - value: large
+        text: Titolo grande
+  title:
+    label: Titolo
+    help: Prima riga, in evidenza. Es. "Art.1".
+    type: text
+    required: true
+  subtitle:
+    label: Sottotitolo
+    help: Seconda riga, facoltativa. Es. "Denominazione sede".
+    type: text
+  text:
+    label: Testo
+    help: Un paragrafo per riga vuota; elenchi puntati e numerati dalla barra degli strumenti.
+    type: writer
+    nodes:
+      - bulletList
+      - orderedList
+    marks:
+      - bold
+      - italic
+      - link

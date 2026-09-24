@@ -43,7 +43,12 @@ foreach (collection('timeline') as $capitolo) {
       'items' => collection('associazioni'),
       'label' => 'Le associazioni',
     ]) ?>
-
+        <?php snippet('bits/contact-form', [
+      'label'      => $page->etichetta()->or('Contattaci')->value(),
+      'image'      => $page->foto()->toFile(),
+      'credit'     => $page->credit()->value(),
+      'background' => 'tinted',
+    ]) ?>
   <?php endslot() ?>
 
 <?php endsnippet() ?>

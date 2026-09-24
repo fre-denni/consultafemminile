@@ -1,0 +1,38 @@
+Title: Fertilità biologica — Intervista con il Dr. Somigliana
+
+----
+
+Categoria: Contributo
+
+----
+
+Intro: Un dialogo sulla libera scelta di genitorialità e sulle barriere mediche, sociali e culturali che la condizionano ancora oggi.
+
+----
+
+Autori:
+
+- 
+  nome: Susanna Sciaky
+  membro_consulta: 'true'
+  link: ""
+- 
+  nome: Paola Furini
+  membro_consulta: 'true'
+  link: ""
+
+----
+
+Data: 2026-03-16
+
+----
+
+Text: 
+
+----
+
+Link: 
+
+----
+
+Uuid: bhzlaha3jp3cm1qw

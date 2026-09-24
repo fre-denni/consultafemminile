@@ -1,0 +1,53 @@
+/** TEMA-HERO — copertina a piena larghezza in cima alla pagina di una
+    tematica, con il titolo enorme centrato sopra (vedi
+    bits/tema-hero.php). Stesso principio di bits/hero-video (media di
+    sfondo + testo sovrapposto), ma piena larghezza/senza cornice
+    arrotondata e con una tinta piatta invece di uno scrim, come nel
+    riferimento Figma. **/
+@layer bits {
+  .tema-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* ~900px a 1440px di viewport (il riferimento Figma), con un
+       minimo/massimo ragionevole oltre quella fascia. */
+    height: clamp(24rem, 62.5vw, 56.25rem);
+    overflow: hidden;
+  }
+
+  .tema-hero picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .tema-hero__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tema-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(34, 34, 34, 0.25);
+  }
+
+  .tema-hero__heading {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-inline: var(--space-smooth);
+    font-family: var(--sans-semibold);
+    font-weight: 700;
+    /* Molto più grande di --text-hero (pensato per bits/hero-video, una
+       fascia bassa in stile 21:9): qui l'immagine occupa quasi tutto lo
+       schermo, il titolo nel Figma è enorme (150px a 1440px). */
+    font-size: clamp(2.5rem, 0.08rem + 10.33vw, 9.375rem);
+    line-height: var(--leading-heading);
+    color: #fff;
+    text-align: center;
+  }
+}

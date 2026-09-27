@@ -100,6 +100,14 @@
     cursor: pointer;
   }
 
+  /* La freccia deve leggersi grande quanto lo era il carattere ←/→ che
+     sostituisce (di default .icon è 1.25rem, pensata per icone
+     autonome): 1em la aggancia al font-size del bottone qui sopra. */
+  .carousel__button .icon {
+    width: 1em;
+    height: 1em;
+  }
+
   /* Disabilitato quando non si può più scorrere in quella direzione
      (vedi assets/js/carousel.js). */
   .carousel__button:disabled {

@@ -112,6 +112,14 @@
     cursor: pointer;
   }
 
+  /* La freccia deve leggersi grande quanto lo era il carattere ←/→ che
+     sostituisce (di default .icon è 1.25rem, pensata per icone
+     autonome): 1em la aggancia al font-size del bottone qui sopra. */
+  .accordion__media-button .icon {
+    width: 1em;
+    height: 1em;
+  }
+
   .accordion__media-button:disabled {
     opacity: 0.3;
     cursor: default;

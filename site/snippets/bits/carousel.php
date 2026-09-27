@@ -48,8 +48,12 @@ $hasControls = count($items) > 1;
       <?php endif ?>
       <?php if ($hasControls): ?>
         <div class="carousel__controls">
-          <button type="button" class="carousel__button carousel__button--prev" aria-label="<?= html($prevLabel) ?>">←</button>
-          <button type="button" class="carousel__button carousel__button--next" aria-label="<?= html($nextLabel) ?>">→</button>
+          <button type="button" class="carousel__button carousel__button--prev" aria-label="<?= html($prevLabel) ?>">
+            <?php snippet('atoms/icon', ['name' => 'arrow-left']) ?>
+          </button>
+          <button type="button" class="carousel__button carousel__button--next" aria-label="<?= html($nextLabel) ?>">
+            <?php snippet('atoms/icon', ['name' => 'arrow-right']) ?>
+          </button>
         </div>
       <?php endif ?>
     </div>

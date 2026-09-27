@@ -71,8 +71,12 @@ $background     ??= 'default';
               <div class="accordion__media">
                 <?php if ($isCarousel): ?>
                   <div class="accordion__media-controls">
-                    <button type="button" class="accordion__media-button accordion__media-button--prev" aria-label="Foto precedente">←</button>
-                    <button type="button" class="accordion__media-button accordion__media-button--next" aria-label="Foto successiva">→</button>
+                    <button type="button" class="accordion__media-button accordion__media-button--prev" aria-label="Foto precedente">
+                      <?php snippet('atoms/icon', ['name' => 'arrow-left']) ?>
+                    </button>
+                    <button type="button" class="accordion__media-button accordion__media-button--next" aria-label="Foto successiva">
+                      <?php snippet('atoms/icon', ['name' => 'arrow-right']) ?>
+                    </button>
                   </div>
                 <?php endif ?>
                 <ul class="accordion__media-track<?= $isCarousel ? ' accordion__media-track--carousel' : '' ?>">

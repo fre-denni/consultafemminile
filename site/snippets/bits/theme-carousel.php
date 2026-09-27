@@ -18,8 +18,12 @@ $background ??= 'default';
   <?php if ($items->count() > 1): ?>
     <div class="theme-carousel__header">
       <div class="theme-carousel__controls">
-        <button type="button" class="theme-carousel__button theme-carousel__button--prev" aria-label="Tema precedente">←</button>
-        <button type="button" class="theme-carousel__button theme-carousel__button--next" aria-label="Tema successivo">→</button>
+        <button type="button" class="theme-carousel__button theme-carousel__button--prev" aria-label="Tema precedente">
+          <?php snippet('atoms/icon', ['name' => 'arrow-left']) ?>
+        </button>
+        <button type="button" class="theme-carousel__button theme-carousel__button--next" aria-label="Tema successivo">
+          <?php snippet('atoms/icon', ['name' => 'arrow-right']) ?>
+        </button>
       </div>
     </div>
   <?php endif ?>

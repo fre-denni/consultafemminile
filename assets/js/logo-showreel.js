@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let paused = false;
 
     // La larghezza del gruppo è nota per certo solo dopo che ogni
-    // immagine ha finito di caricare (i loghi sono lazy e di
-    // dimensioni diverse tra loro) — senza questo ricalcolo il loop
+    // immagine ha finito di caricare (i loghi hanno proporzioni
+    // diverse tra loro) — senza questo ricalcolo il loop
     // scatta ogni volta che un logo cambia la larghezza del gruppo
     // dopo che l'animazione era già partita.
     const recalcGroupWidth = () => {

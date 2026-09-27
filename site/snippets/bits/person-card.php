@@ -31,7 +31,7 @@ $association = $association !== '' ? mb_convert_case($association, MB_CASE_TITLE
   <div class="person-card__media">
     <?php snippet('atoms/picture', [
       'image'     => $image,
-      'sizes'     => [320, 500, 700],
+      'sizes'     => [400, 640, 800],
       'sizesAttr' => '(min-width: 768px) 20vw, 45vw',
       'class'     => 'person-card__img',
     ]) ?>

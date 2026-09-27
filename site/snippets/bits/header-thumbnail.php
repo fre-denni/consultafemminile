@@ -12,7 +12,7 @@ $image = $page->file('cover.webp');
     <?php if ($image): ?>
       <?php snippet('atoms/picture', [
         'image'     => $image,
-        'sizes'     => [320, 640],
+        'sizes'     => [400, 640],
         'sizesAttr' => '16rem',
         'class'     => 'header-thumbnail__img',
       ]) ?>

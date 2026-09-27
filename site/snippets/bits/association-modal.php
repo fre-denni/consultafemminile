@@ -13,6 +13,12 @@
  * da reimplementare (a differenza di atoms/lightbox, scritto prima che
  * questo pattern fosse usato altrove nel sito).
  *
+ * Le immagini (atoms/picture, 'deferred' => true) non scaricano nulla
+ * finché la modale non viene aperta almeno una volta: su una pagina con
+ * decine di associazioni, quasi nessuna verrà mai aperta da un dato
+ * visitatore. È lo stesso association-modal.js ad assegnare src/srcset
+ * al momento dell'apertura.
+ *
  * Le delegate sono salvate come semplice elenco di nomi (vedi il campo
  * "delegate" in associazioni.yml, un multiselect che pesca da
  * persone.yml ma non conserva un riferimento — solo il testo "Nome
@@ -46,27 +52,23 @@ $modalId = 'association-' . $association->id();
       <?php snippet('atoms/picture', [
         'image'     => $foto,
         'alt'       => '',
-        'sizes'     => [500, 900, 1300],
+        'sizes'     => [640, 1024, 1280],
         'sizesAttr' => '(min-width: 768px) 60vw, 100vw',
         'class'     => 'association-modal__hero-img',
-        'lazy'      => false,
+        'deferred'  => true,
       ]) ?>
       <?php if ($logo): ?>
         <div class="association-modal__logo">
           <?php snippet('atoms/picture', [
             'image'     => $logo,
             'alt'       => '',
-            // Stesse dimensioni di bits/association-card (non 80/120,
-            // più adatte alla resa qui): riusa gli stessi derivati già
-            // generati per la card, invece di farne generare di nuovi
-            // — il server ha un memory_limit basso e generare thumb da
-            // un logo sorgente pesante può esaurirlo (vedi PHP Fatal
-            // error osservato in test: "Allowed memory size of
-            // 134217728 bytes exhausted" dentro SimpleImage).
-            'sizes'     => [160, 240],
+            // 56px sullo schermo: i 240px della scala bastano anche per un
+            // display 4x. Il derivato si genera al caricamento del logo (vedi
+            // site/plugins/image-derivatives), non alla prima visita.
+            'sizes'     => [240],
             'sizesAttr' => '56px',
             'class'     => 'association-modal__logo-img',
-            'lazy'      => false,
+            'deferred'  => true,
           ]) ?>
         </div>
       <?php endif ?>
@@ -81,10 +83,10 @@ $modalId = 'association-' . $association->id();
           <?php snippet('atoms/picture', [
             'image'     => $logo,
             'alt'       => '',
-            'sizes'     => [160, 240],
+            'sizes'     => [240],
             'sizesAttr' => '56px',
             'class'     => 'association-modal__logo-img',
-            'lazy'      => false,
+            'deferred'  => true,
           ]) ?>
         </div>
       <?php endif ?>

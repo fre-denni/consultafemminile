@@ -40,7 +40,21 @@ $background ??= 'default';
             $logo   = $assoc->logo()->toFile();
             $alt    = trim((string) $assoc->nome_completo()) ?: trim((string) $assoc->nome_breve());
             $website = trim((string) $assoc->sito_web());
-            $img    = '<img src="' . html($logo->url()) . '" alt="' . ($i === 0 ? html($alt) : '') . '" class="logo-showreel__img">';
+            // Derivati ridimensionati, non l'originale (fino a 4 MB per logo):
+            // 240/320px coprono i 165px di larghezza massima sullo schermo
+            // (90px su mobile), anche a 2x. Non lazy di proposito: la striscia scorre via
+            // JS (transform), non con lo scroll, quindi il lazy-load nativo
+            // caricherebbe i loghi fuori dal riquadro solo quando ci
+            // entrano — con lo spazio vuoto in mezzo; i derivati sono
+            // comunque pochi KB l'uno.
+            $img    = snippet('atoms/picture', [
+              'image'     => $logo,
+              'alt'       => $i === 0 ? $alt : '',
+              'sizes'     => [240, 320],
+              'sizesAttr' => '(max-width: 768px) 90px, 160px',
+              'class'     => 'logo-showreel__img',
+              'lazy'      => false,
+            ], return: true);
             ?>
             <li class="logo-showreel__item">
               <?php if ($website !== ''): ?>

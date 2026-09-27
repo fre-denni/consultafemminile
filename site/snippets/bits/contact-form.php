@@ -103,7 +103,9 @@ $maxWords      = CONTACT_FORM_MAX_WORDS;
           <?php snippet('atoms/picture', [
             'image'     => $image,
             'alt'       => '',
-            'sizes'     => [500, 800, 1200],
+            // 27rem (432px) al massimo sullo schermo: 800px bastano anche
+            // per un display 2x.
+            'sizes'     => [400, 640, 800],
             'sizesAttr' => '(min-width: 1062px) 27rem, 40vw',
             'class'     => 'contact-form__img',
           ]) ?>

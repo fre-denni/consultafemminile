@@ -114,6 +114,13 @@
     cursor: pointer;
   }
 
+  /* <picture> (vedi atoms/picture.php) non deve fare da scatola: i
+     max-width/max-height in % dell'<img> si misurano sul link, non su
+     un wrapper dall'altezza indefinita. */
+  .logo-showreel__link picture {
+    display: contents;
+  }
+
   .logo-showreel__img {
     display: block;
     width: auto;

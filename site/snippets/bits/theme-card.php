@@ -26,7 +26,7 @@ $description = trim($page->description()->truncateWords(35));
   <span class="theme-card__media">
     <?php snippet('atoms/picture', [
       'image'     => $image,
-      'sizes'     => [640, 1080, 1600],
+      'sizes'     => [640, 1280, 1600],
       'sizesAttr' => '(min-width: 768px) 70vw, 100vw',
       'class'     => 'theme-card__img',
     ]) ?>

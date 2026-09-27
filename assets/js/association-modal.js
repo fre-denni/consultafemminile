@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Le immagini della modale sono "deferred" (vedi atoms/picture.php e
+  // bits/association-modal.php): niente src/srcset finché non si apre,
+  // per non scaricare foto e loghi di associazioni che quasi nessuno
+  // clicca. Idempotente: riaprire la stessa modale non ridownloada nulla,
+  // src/srcset sono già impostati dalla prima apertura.
+  const activateImages = (dialog) => {
+    dialog.querySelectorAll("img[data-src]").forEach((img) => {
+      img.src = img.dataset.src;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      delete img.dataset.src;
+      delete img.dataset.srcset;
+    });
+  };
+
   // Delegato sul documento: funziona per qualunque coppia bottone/dialog
   // aggiunta in pagina (vedi bits/association-card e bits/association-modal),
   // niente da ripetere per ogni nuova card.
@@ -6,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const opener = event.target.closest("[data-modal-open]");
     if (opener) {
       const dialog = document.getElementById(opener.dataset.modalTarget);
+      if (dialog) activateImages(dialog);
       dialog?.showModal();
       return;
     }

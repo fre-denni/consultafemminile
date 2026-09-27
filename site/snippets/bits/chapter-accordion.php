@@ -82,7 +82,7 @@ if (count($items) === 0) return;
                       <?php snippet('atoms/picture', [
                         'image'     => $image,
                         'alt'       => '',
-                        'sizes'     => [400, 700, 1000],
+                        'sizes'     => [400, 800, 1024],
                         'sizesAttr' => '(min-width: 768px) 35vw, 90vw',
                         'class'     => 'chapter-accordion__img',
                       ]) ?>

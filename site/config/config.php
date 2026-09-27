@@ -10,10 +10,8 @@ return [
     'extensions' => [
         'fieldMethods' => require __DIR__ . '/methods.php',
     ],
-    // Qualità dei derivati generati da thumb()/srcset(): il default di
-    // Kirby è 90, un livello che su foto e loghi web non si distingue da
-    // 80 ma pesa circa un quarto in più.
     'thumbs' => [
+        'format'  => 'webp',
         'quality' => 80,
     ],
     'routes' => [

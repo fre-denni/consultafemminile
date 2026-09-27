@@ -39,6 +39,10 @@
 
   /* Stesso trattamento delle altre immagini del sito (card, loghi,
      patrocinio): bordo sottile + raggio --radius-lg. */
+  .block-container > figure picture {
+    display: block;
+  }
+
   .block-container > figure img {
     display: block;
     width: 100%;

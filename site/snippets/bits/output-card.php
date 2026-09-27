@@ -18,7 +18,7 @@ if (!$image) return;
   <?php snippet('atoms/picture', [
     'image'     => $image,
     'alt'       => '',
-    'sizes'     => [400, 700, 1000],
+    'sizes'     => [400, 640, 800],
     'sizesAttr' => '(min-width: 768px) 20vw, 75vw',
     'class'     => 'output-card__img',
   ]) ?>

@@ -43,15 +43,16 @@ $hasControls = $items->count() > 1;
     <ul class="patrocinio-carousel__track">
       <?php foreach ($items as $image): ?>
         <li class="patrocinio-carousel__item">
+          <?php /* La locandina a tutto schermo si apre nel lightbox solo al click: un derivato entro 1600px (non l'originale, anche di qualche MB) basta per schermi di ogni dimensione, portrait o landscape. */ ?>
           <a
-            href="<?= $image->url() ?>"
+            href="<?= $image->thumb(['width' => 1600, 'height' => 1600])->url() ?>"
             class="patrocinio-carousel__link"
             data-lightbox
           >
             <?php snippet('atoms/picture', [
               'image'     => $image,
               'alt'       => $image->name(),
-              'sizes'     => [320, 500, 700],
+              'sizes'     => [400, 640, 800],
               'sizesAttr' => '(min-width: 768px) 20vw, 60vw',
               'class'     => 'patrocinio-carousel__img',
             ]) ?>

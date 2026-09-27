@@ -14,9 +14,10 @@ if (!$image) return;
   <?php snippet('atoms/picture', [
     'image'     => $image,
     'alt'       => '',
-    'sizes'     => [800, 1200, 1600, 2000],
+    'sizes'     => [800, 1280, 1600, 2000],
     'sizesAttr' => '100vw',
     'class'     => 'tema-hero__img',
+    'priority'  => true,
   ]) ?>
   <div class="tema-hero__overlay" aria-hidden="true"></div>
   <h1 class="tema-hero__heading"><?= html($heading) ?></h1>

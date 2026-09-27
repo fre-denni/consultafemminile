@@ -1,0 +1,12 @@
+title: File
+
+# Le foto caricate nel Panel vengono ridotte da sole al momento del
+# caricamento (anche quando si sostituisce un file): al massimo 2400px sul
+# lato lungo, senza mai ingrandire quelle più piccole. La scala dei derivati
+# per il browser (site/plugins/image-derivatives) arriva a 2000px di
+# larghezza, quindi 2400px lasciano margine anche su schermi 2x. Non tocca
+# PDF, video e SVG, e non cambia il formato del file.
+create:
+  width: 2400
+  height: 2400
+  quality: 82

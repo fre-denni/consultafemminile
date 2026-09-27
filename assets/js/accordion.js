@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Agnostico al contenuto (solo attributi data-accordion*): condiviso
+  // da bits/chapter-accordion e bits/timeline-accordion, vedi bits/accordion.
   document.querySelectorAll("[data-accordion]").forEach((accordion) => {
     const items = [...accordion.querySelectorAll("[data-accordion-item]")];
 

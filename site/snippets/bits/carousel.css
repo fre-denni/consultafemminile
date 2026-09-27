@@ -1,0 +1,188 @@
+/** CAROUSEL — meccanica condivisa da bits/output-carousel e
+    bits/patrocinio-carousel (nati come due componenti duplicati,
+    accorpati qui): striscia orizzontale a scorrimento nativo con
+    snap, frecce sempre visibili anche su desktop. Il contenuto di
+    ogni card resta di chi chiama (vedi bits/carousel.php, $item) —
+    qui c'è solo la meccanica e le due varianti di dimensione/proporzione
+    della card ($variant: 'cards' di default, o 'posters'). **/
+@layer bits {
+  .carousel-section {
+    width: 100%;
+    background: var(--white-background);
+    padding-block: var(--space-2xl);
+  }
+
+  .carousel-section--tinted {
+    background: var(--white-foreground);
+  }
+
+  .carousel-section--blue {
+    background: var(--blue-background);
+  }
+
+  /* Incorporato dentro un altro componente (vedi $nested in
+     bits/carousel.php, usato da bits/chapter-accordion): niente
+     sfondo/piena larghezza propri, il carosello resta semplicemente
+     largo quanto il div del testo che lo contiene. */
+  .carousel-section--nested {
+    width: auto;
+    background: none;
+    padding-block: 0;
+  }
+
+  /* Header in stile "sezione": una riga sola con bordo sopra,
+     etichetta sempre centrata — le due colonne laterali hanno
+     ESPLICITAMENTE la stessa larghezza fissa (quella occupata dalle
+     frecce), non "1fr auto 1fr": con "auto" la colonna vuota di
+     sinistra collassa a 0 mentre quella delle frecce resta al suo
+     min-content, spostando l'etichetta fuori centro (e facendola
+     andare a capo prima del dovuto sullo spazio stretto di mobile). */
+  .carousel-section__header {
+    --carousel-controls-w: calc(2 * 1.75rem + var(--space-xs));
+    display: grid;
+    grid-template-columns:
+      var(--carousel-controls-w)
+      1fr
+      var(--carousel-controls-w);
+    align-items: center;
+    gap: var(--space-m);
+    padding-inline: var(--space-smooth);
+    padding-block: var(--space-s);
+    border-block-start: 1px solid var(--black-primary);
+    margin-block-end: var(--space-xl);
+  }
+
+  .carousel-section__header .section-label {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+  }
+
+  /* Niente bordo/gutter di pagina, solo un piccolo distacco dal
+     contenuto sopra (vedi bits/chapter-accordion) — l'etichetta resta
+     comunque centrata sulla larghezza del carosello. */
+  .carousel-section--nested .carousel-section__header {
+    padding-inline: 0;
+    padding-block: 0;
+    border-block-start: none;
+    margin-block: var(--space-m) var(--space-s);
+  }
+
+  /* Annidato dentro un contenitore stretto (vedi
+     .chapter-accordion__body-inner): con l'etichetta in colonna 2 come
+     nel caso non annidato, la colonna 3 (frecce) a larghezza fissa la
+     spingeva visibilmente fuori centro. In colonna 1 resta invece
+     coerente con la strettezza del contenitore. */
+  .carousel-section--nested .carousel-section__header .section-label {
+    grid-column: 1;
+  }
+
+  .carousel__controls {
+    grid-column: 3;
+    display: flex;
+    justify-self: end;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+  }
+
+  .carousel__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--black-primary);
+    font-size: var(--text-h4);
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* Disabilitato quando non si può più scorrere in quella direzione
+     (vedi assets/js/carousel.js). */
+  .carousel__button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel__track {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-m);
+    list-style: none;
+    padding-inline: var(--space-smooth);
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--space-smooth);
+    scrollbar-width: none;
+  }
+
+  .carousel__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Variante 'cards' (default, vedi bits/output-carousel): stessa
+     dimensione ovunque, annidato o no — le card devono restare
+     identiche tra la pagina "Tematiche" e la singola tematica. Nessuna
+     proporzione qui: la card stessa (es. bits/output-card) definisce
+     la propria. */
+  .carousel__item {
+    flex: 0 0 min(14rem, 75vw);
+    scroll-snap-align: start;
+  }
+
+  /* Variante 'posters' (vedi bits/patrocinio-carousel): più larga,
+     proporzione fissa da poster verticale — la card qui non cresce mai
+     (a differenza di bits/people-carousel), resta sempre alla sua
+     larghezza piena, non c'è nessuno stato "aperto". */
+  .carousel--posters .carousel__item {
+    flex: 0 0 min(20rem, 75vw);
+    aspect-ratio: 4 / 6;
+  }
+
+  .carousel-section--nested .carousel__track {
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-section {
+      padding-block: var(--space-xl);
+    }
+
+    .carousel-section--nested {
+      padding-block: 0;
+    }
+
+    .carousel-section__header {
+      padding-inline: 1rem;
+    }
+
+    .carousel-section--nested .carousel-section__header {
+      padding-inline: 0;
+    }
+
+    .carousel__track {
+      gap: var(--space-s);
+      padding-inline: 1rem;
+      scroll-padding-inline: 1rem;
+    }
+
+    .carousel-section--nested .carousel__track {
+      padding-inline: 0;
+      scroll-padding-inline: 0;
+    }
+
+    .carousel--posters .carousel__item {
+      aspect-ratio: 5 / 7;
+    }
+  }
+}

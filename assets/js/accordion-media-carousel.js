@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".patrocinio-carousel-section").forEach((section) => {
-    const track = section.querySelector(".patrocinio-carousel__track");
-    const prev = section.querySelector(".patrocinio-carousel__button--prev");
-    const next = section.querySelector(".patrocinio-carousel__button--next");
-    if (!track || !prev || !next) return;
+  // Stesso pattern di assets/js/carousel.js: frecce sempre visibili
+  // (desktop compreso), niente hover-intent da gestire. Un capitolo
+  // alla volta può avere il suo carosello — anche più di uno nella
+  // stessa pagina, se più capitoli hanno 2+ immagini — quindi operiamo
+  // su tutti quelli trovati, non solo il primo.
+  document.querySelectorAll(".accordion__media-track--carousel").forEach((track) => {
+    const media = track.closest(".accordion__media");
+    const prev = media?.querySelector(".accordion__media-button--prev");
+    const next = media?.querySelector(".accordion__media-button--next");
+    if (!prev || !next) return;
 
-    // A differenza di bits/theme-carousel.js queste frecce restano
-    // sempre visibili (desktop compreso, vedi patrocinio-carousel.css)
-    // — qui basta scorrere di una locandina alla volta, niente
-    // hover-intent da gestire.
     const scrollByOneItem = (direction) => {
-      const item = track.querySelector(".patrocinio-carousel__item");
+      const item = track.querySelector(".accordion__media-item");
       if (!item) return;
 
       const gap = parseFloat(getComputedStyle(track).columnGap || "0");
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     next.addEventListener("click", () => scrollByOneItem(1));
 
     // Disabilita la freccia quando non c'è più modo di scorrere in
-    // quella direzione (inizio/fine riga).
+    // quella direzione (inizio/fine).
     const updateButtonStates = () => {
       const maxScroll = track.scrollWidth - track.clientWidth;
       prev.disabled = track.scrollLeft <= 1;

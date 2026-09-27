@@ -1,17 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Stesso pattern di assets/js/timeline-media-carousel.js: frecce sempre
-  // visibili (desktop compreso), niente hover-intent da gestire. Un
-  // capitolo alla volta può avere il suo carosello — anche più di uno
-  // nella stessa pagina, se più capitoli hanno 2+ immagini — quindi
-  // operiamo su tutti quelli trovati, non solo il primo.
-  document.querySelectorAll(".chapter-accordion__media-track--carousel").forEach((track) => {
-    const media = track.closest(".chapter-accordion__media");
-    const prev = media?.querySelector(".chapter-accordion__media-button--prev");
-    const next = media?.querySelector(".chapter-accordion__media-button--next");
-    if (!prev || !next) return;
+  // Condiviso da bits/output-carousel e bits/patrocinio-carousel (vedi
+  // bits/carousel): frecce sempre visibili anche su desktop, niente
+  // hover-intent da gestire — a differenza di quelle di
+  // assets/js/theme-carousel.js, solo mobile.
+  document.querySelectorAll(".carousel-section").forEach((section) => {
+    const track = section.querySelector(".carousel__track");
+    const prev = section.querySelector(".carousel__button--prev");
+    const next = section.querySelector(".carousel__button--next");
+    if (!track || !prev || !next) return;
 
     const scrollByOneItem = (direction) => {
-      const item = track.querySelector(".chapter-accordion__media-item");
+      const item = track.querySelector(".carousel__item");
       if (!item) return;
 
       const gap = parseFloat(getComputedStyle(track).columnGap || "0");
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     next.addEventListener("click", () => scrollByOneItem(1));
 
     // Disabilita la freccia quando non c'è più modo di scorrere in
-    // quella direzione (inizio/fine).
+    // quella direzione (inizio/fine riga).
     const updateButtonStates = () => {
       const maxScroll = track.scrollWidth - track.clientWidth;
       prev.disabled = track.scrollLeft <= 1;

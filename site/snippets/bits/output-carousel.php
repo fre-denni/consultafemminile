@@ -16,42 +16,24 @@
  *   dentro .chapter-accordion__body-inner) — niente piena larghezza, gutter o bordo,
  *   il carosello resta semplicemente largo quanto il suo contenitore.
  *
- * Stesso comportamento di bits/patrocinio-carousel (duplicato apposta,
- * ogni componente resta autonomo): striscia a scorrimento nativo con
- * snap, frecce sempre visibili sia su mobile che su desktop — a
- * differenza di quelle di bits/theme-carousel, solo mobile.
+ * Adattatore sottile su bits/carousel (meccanica di scorrimento
+ * condivisa con bits/patrocinio-carousel): qui vive solo ciò che è
+ * specifico degli output — il filtro su chi ha una copertina e la card
+ * da usare per ogni elemento.
  */
 $items = $items->filter(fn ($item) => $item->images()->first() !== null);
 
-if ($items->count() === 0) return;
+$heading    ??= '';
+$background ??= 'default';
+$nested     ??= false;
 
-$heading     ??= '';
-$background  ??= 'default';
-$nested      ??= false;
-$hasControls = $items->count() > 1;
-?>
-<section class="output-carousel-section<?= $nested ? ' output-carousel-section--nested' : ' block-full' ?><?= !$nested && $background !== 'default' ? ' output-carousel-section--' . html($background) : '' ?>">
-  <?php if ($heading !== '' || $hasControls): ?>
-    <div class="output-carousel-section__header">
-      <?php if ($heading !== ''): ?>
-        <?php snippet('atoms/section-label', ['text' => $heading]) ?>
-      <?php endif ?>
-      <?php if ($hasControls): ?>
-        <div class="output-carousel__controls">
-          <button type="button" class="output-carousel__button output-carousel__button--prev" aria-label="Articolo precedente">←</button>
-          <button type="button" class="output-carousel__button output-carousel__button--next" aria-label="Articolo successivo">→</button>
-        </div>
-      <?php endif ?>
-    </div>
-  <?php endif ?>
-  <div class="output-carousel">
-    <ul class="output-carousel__track">
-      <?php foreach ($items as $item): ?>
-        <li class="output-carousel__item">
-          <?php snippet('bits/output-card', ['item' => $item]) ?>
-        </li>
-      <?php endforeach ?>
-    </ul>
-  </div>
-</section>
-<?= js('assets/js/output-carousel.js', ['defer' => true]) ?>
+snippet('bits/carousel', [
+  'items'      => $items,
+  'item'       => fn ($item) => snippet('bits/output-card', ['item' => $item], return: true),
+  'heading'    => $heading,
+  'background' => $background,
+  'nested'     => $nested,
+  'variant'    => 'cards',
+  'prevLabel'  => 'Articolo precedente',
+  'nextLabel'  => 'Articolo successivo',
+]) ?>

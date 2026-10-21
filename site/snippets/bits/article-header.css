@@ -20,6 +20,7 @@
     align-items: center;
     width: 100%;
     border-block-end: 1px solid var(--black-primary);
+    margin-bottom: var(--space-2xl-3xl);
   }
 
   .article-header__text {
@@ -29,6 +30,7 @@
     align-items: center;
     min-width: 0;
     padding-inline: var(--space-smooth);
+    margin-bottom: var(--space-l-xl);
   }
 
   .article-header__group {

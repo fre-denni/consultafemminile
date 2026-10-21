@@ -11,6 +11,7 @@
     width: 100%;
     padding-block-end: calc(var(--space-l) * 2);
     background: var(--white-foreground);
+    margin-top: var(--space-2xl);
   }
 
   /* In una colonna flex con align-items:center il banner si ridurrebbe

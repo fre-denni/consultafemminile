@@ -1,29 +1,73 @@
-title: Site
+title: Consulta Femminile di Milano
 
-fields:
-  pages:
-    type: pages
-  contact_email:
-    label: Email per i messaggi del form contatti
-    help: >
-      Dove arrivano i messaggi inviati dal form (vedi bits/contact-form).
-      Se vuoto, consfim@gmail.com.
-    type: email
-    placeholder: consfim@gmail.com
+tabs:
+  pagine:
+    label: Pagine sito
+    sections:
+      payoff:
+        label: Payoff
+        type: fields
+        fields:
+          payoff:
+            extends: fields/payoff
+            label: Payoff del sito
+            help: >
+              Usato come sottotitolo di riserva nelle pagine che non ne
+              definiscono uno proprio (vedi bits/title-page).
+      pagineNavigazione:
+        label: Pagine di navigazione
+        help: >
+          Pagine principali, si possono trascinare per cambiare l'ordine di
+          apparizione nella barra superiore di navigazione. "La nostra
+          storia" è mostrata qui anche se tecnicamente è una sottopagina
+          di Chi siamo, per tenerla visibile in questo elenco.
+        type: pages
+        query: site.children.listed.add('chi-siamo/timeline')
+      pagineSecondarie:
+        label: Pagine secondarie
+        type: pages
+        status: unlisted
+      contatti:
+        label: Contatti
+        type: fields
+        fields:
+          contact_email:
+            label: Email per i messaggi del form contatti
+            help: >
+              Dove arrivano i messaggi inviati dal form (vedi bits/contact-form).
+              Se vuoto, consfim@gmail.com.
+            type: email
+            placeholder: consfim@gmail.com
+
   social:
-    label: Social
-    type: structure
-    columns:
-      platform:
-        width: 1/3
-      url:
-        width: 2/3
+    label: Social Media
     fields:
-      platform:
-        label: Piattaforma
-        type: text
-        required: true
-      url:
-        label: URL
-        type: url
-        required: true
+      social:
+        label: Social
+        type: structure
+        columns:
+          icon:
+            width: 1/12
+          platform:
+            width: 1/3
+          url:
+            width: 7/12
+        fields:
+          icon:
+            label: Icona
+            type: select
+            options:
+              type: query
+              query: site.socialIconOptions
+              text: "{{ item.text }}"
+              value: "{{ item.value }}"
+            help: >
+              Aggiungere icona per il footer, non necessario.
+          platform:
+            label: Piattaforma
+            type: text
+            required: true
+          url:
+            label: URL
+            type: url
+            required: true

@@ -1,10 +1,10 @@
 label: Sfondo
-type: toggles
+type: select
 default: default
 options:
   - value: default
-    text: Bianco
+    text: "⚪ Bianco"
   - value: tinted
-    text: Panna
+    text: "⬜ Panna"
   - value: blue
-    text: Azzurro
+    text: "🔵 Azzurro"

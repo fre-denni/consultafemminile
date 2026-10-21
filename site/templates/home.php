@@ -1,3 +1,29 @@
+<?php
+/**
+ * Le due "descrizioni" e il titolo sopra il carosello Tematiche sono tre
+ * voci fisse di questa pagina (non un campo "blocks" aperto come nelle
+ * altre — vedi home.yml): qui ricostruiamo a mano lo stesso identico
+ * contenitore/comportamento di atoms/block-container.php (spaziatura
+ * verticale tra i blocchi, sezione a piena larghezza con sfondo colorato
+ * quando non è quello di default), visto che qui non serve un editor di
+ * blocchi libero.
+ */
+$paragraphRows = function ($field) {
+  $rows = [];
+  foreach ($field->toStructure() as $row) {
+    $rows[] = $row->text()->kirbytext()->value();
+  }
+  return $rows;
+};
+
+$wrapBackground = function (string $html, $background): string {
+  $background = (string) $background;
+  if ($background === '' || $background === 'default') {
+    return $html;
+  }
+  return '<div class="block-container__section block-container__section--' . html($background) . '">' . $html . '</div>';
+};
+?>
 <?php snippet('layout', slots: true) ?>
 
   <?php slot() ?>
@@ -6,7 +32,24 @@
       'headingPrimary'   => 'La Consulta Femminile',
       'headingSecondary' => 'di Milano dal 1963',
     ]) ?>
-    <?php snippet('atoms/block-container', ['blocks' => $page->text()]) ?>
+    <div class="block-container">
+      <?= $wrapBackground(snippet('bits/paragraph', [
+        'label'      => $page->descrizioneUnoLabel()->value(),
+        'heading'    => $page->descrizioneUnoHeading(),
+        'paragraphs' => $paragraphRows($page->descrizioneUnoTesto()),
+      ], return: true), $page->descrizioneUnoBackground()) ?>
+      <?= $wrapBackground(snippet('bits/paragraph', [
+        'label'      => $page->descrizioneDueLabel()->value(),
+        'heading'    => $page->descrizioneDueHeading(),
+        'paragraphs' => $paragraphRows($page->descrizioneDueTesto()),
+      ], return: true), $page->descrizioneDueBackground()) ?>
+      <?php if ($page->tematicheHeading()->isNotEmpty()): ?>
+        <?= $wrapBackground(snippet('bits/section-divider', [
+          'heading' => $page->tematicheHeading()->value(),
+          'style'   => 'chapter',
+        ], return: true), $page->tematicheBackground()->or('tinted')->value()) ?>
+      <?php endif ?>
+    </div>
     <?php snippet('bits/theme-carousel', [
       'items'      => collection('tematiche'),
       'background' => $page->tematicheBackground()->or('tinted')->value(),

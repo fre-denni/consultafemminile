@@ -1,4 +1,5 @@
 title: Le Persone
+icon: user
 
 columns:
   main:
@@ -7,10 +8,6 @@ columns:
       fields:
         type: fields
         fields:
-          payoff:
-            extends: fields/payoff
-          mission:
-            extends: fields/mission
           persone:
             label: Persone
             help: >
@@ -71,6 +68,14 @@ columns:
               email:
                 label: Email
                 type: email
+          etichetta:
+            extends: fields/contact-etichetta
+          foto:
+            extends: fields/contact-foto
+          fotoAlt:
+            extends: fields/contact-foto-alt
+          credit:
+            extends: fields/contact-credit
   sidebar:
     width: 1/3
     sections:

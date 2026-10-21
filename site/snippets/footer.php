@@ -1,17 +1,22 @@
 <?php use Kirby\Toolkit\Obj; ?>
 
 <?php
-// Nome file in assets/icons per ciascuna piattaforma social (chiave in minuscolo)
-$socialIcons = [
-  'facebook' => 'facebook-logo-fill',
-  'linkedin' => 'linkedin-logo-fill',
-];
-
+// L'icona (nome file in assets/icons) la sceglie l'editor dal Panel, campo
+// "Icona" della struttura Social in site.yml — vuota, il link resta testo.
 $socialItems = $site->social()->toStructure()->map(fn($s) => new Obj([
   'title' => $s->platform()->value(),
   'url'   => $s->url()->value(),
-  'icon'  => $socialIcons[strtolower($s->platform()->value())] ?? null,
+  'icon'  => $s->icon()->value() ?: null,
 ]))->values();
+
+// "Carbon Footprint" punta al report pubblico di Website Carbon Calculator,
+// non più a una pagina del sito (vedi bits/list per il supporto a ->target()).
+$secondaryLinks   = $site->find('chi-siamo/persone', 'chi-siamo/associazioni', 'statuto')->values();
+$secondaryLinks[] = new Obj([
+  'title'  => 'Carbon Footprint',
+  'url'    => 'https://www.websitecarbon.com/website/consultafemminile-org/',
+  'target' => '_blank',
+]);
 ?>
 
 <footer class="footer">
@@ -21,7 +26,7 @@ $socialItems = $site->social()->toStructure()->map(fn($s) => new Obj([
     consfim@gmail.com
   </a>
   <?php snippet('bits/list', ['items' => $site->children()->listed()]) ?>
-  <?php snippet('bits/list', ['items' => $site->find('chi-siamo/persone', 'chi-siamo/associazioni', 'statuto', 'terms', 'carbon')]) ?>
+  <?php snippet('bits/list', ['items' => $secondaryLinks]) ?>
   <?php snippet('bits/list', ['items' => $socialItems]) ?>
   <p>
     &copy;<?= date('Y') ?>. Consulta Femminile Interassociativa di Milano. <br/>

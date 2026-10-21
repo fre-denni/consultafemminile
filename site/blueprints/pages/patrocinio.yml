@@ -1,18 +1,16 @@
 title: Con il patrocinio
 
-columns:
-  main:
-    width: 2/3
-    sections:
-      fields:
-        type: fields
-        fields:
-          payoff:
-            extends: fields/payoff
-          mission:
-            extends: fields/mission
-  sidebar:
-    width: 1/3
+tabs:
+  descrizione:
+    label: Descrizione pagina
+    fields:
+      payoff:
+        extends: fields/payoff
+      mission:
+        extends: fields/mission
+
+  contenuto:
+    label: Contenuto
     sections:
       files:
         label: Locandine

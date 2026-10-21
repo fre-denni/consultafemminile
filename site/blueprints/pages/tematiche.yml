@@ -1,0 +1,22 @@
+title: Tematiche
+icon: folder
+
+tabs:
+  descrizione:
+    label: Descrizione pagina
+    fields:
+      payoff:
+        extends: fields/payoff
+      mission:
+        extends: fields/mission
+
+  contenuto:
+    label: Contenuto
+    sections:
+      tematiche:
+        label: Tematiche
+        help: >
+          Ogni sottopagina è una tematica, mostrata come capitolo
+          nell'accordion qui sotto (vedi bits/chapter-accordion).
+        type: pages
+        template: tematica

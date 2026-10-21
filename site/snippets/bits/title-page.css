@@ -35,4 +35,10 @@
     padding-block-end: var(--space-xl);
     border-block-end: 1px solid var(--black-primary);
   }
+
+  @media (max-width: 1062px) {
+    .title-page__text {
+      max-width: 90%;
+    }
+  }
 }

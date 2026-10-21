@@ -2,6 +2,7 @@
 /**
  * @var string                    $label      Etichetta a sinistra del riquadro (default "Contattaci")
  * @var \Kirby\Cms\File|null      $image      Foto accanto al form (opzionale; su mobile sparisce)
+ * @var string                    $alt        Testo alternativo della foto (accessibilità/SEO)
  * @var string                    $credit     Credito della foto, HTML inline con eventuali link
  * @var string                    $background Sfondo della sezione: 'default' (bianco), 'tinted'
  *   (panna) o 'blue' (azzurro) — stesso vocabolario di blueprints/fields/background.yml.
@@ -17,6 +18,7 @@
  */
 $label      ??= 'Contattaci';
 $image      ??= null;
+$alt        ??= '';
 $credit     ??= '';
 $background ??= 'default';
 $id         ??= 'contatti';
@@ -102,7 +104,7 @@ $maxWords      = CONTACT_FORM_MAX_WORDS;
         <figure class="contact-form__media">
           <?php snippet('atoms/picture', [
             'image'     => $image,
-            'alt'       => '',
+            'alt'       => $alt,
             // 27rem (432px) al massimo sullo schermo: 800px bastano anche
             // per un display 2x.
             'sizes'     => [400, 640, 800],

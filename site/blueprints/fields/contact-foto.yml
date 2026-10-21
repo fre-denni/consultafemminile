@@ -1,0 +1,7 @@
+label: Foto del form contatti
+help: >
+  Facoltativa. Carica la foto nella sezione "File" a fianco, poi
+  selezionala qui (vedi bits/contact-form). Non compare su mobile.
+type: files
+query: page.images
+multiple: false

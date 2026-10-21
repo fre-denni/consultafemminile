@@ -1,0 +1,6 @@
+label: Testo alternativo della foto
+help: >
+  Descrizione breve per chi non vede l'immagine (lettori per non
+  vedenti, motori di ricerca) — es. "Due donne sorridenti in un
+  ufficio". Facoltativo ma consigliato se la foto sopra è compilata.
+type: text

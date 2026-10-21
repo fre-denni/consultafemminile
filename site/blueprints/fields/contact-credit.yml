@@ -1,0 +1,8 @@
+label: Didascalia della foto (diritti/credito)
+help: >
+  Mostrata sotto la foto — es. "Foto di Nome su Unsplash", con i link
+  se servono.
+type: writer
+inline: true
+marks:
+  - link

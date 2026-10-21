@@ -2,16 +2,11 @@ Title: Tematiche
 
 ----
 
-Text: [{"content":{"heading":"Prova","size":"tagline","text":"<p>Prova</p>","divider":"true"},"id":"7564cb05-b5e5-4f1a-adf0-d370d0496d31","isHidden":false,"type":"pageheader"},{"content":{"heading":"Prova","size":"tagline","text":"<p>Prova</p>","divider":"false"},"id":"321b74a6-ad72-4e07-a425-94f61fd98dcd","isHidden":false,"type":"pageheader"},{"content":{"style":"chapter","heading":"Prova?"},"id":"4febba2d-c0ba-4b3a-9ac4-ca9435dd2021","isHidden":false,"type":"divider"},{"content":{"style":"section","heading":"Prova?"},"id":"3c419e7e-294a-41f7-b721-e1359b9cf067","isHidden":false,"type":"divider"},{"content":{"style":"banner","heading":"Prova?"},"id":"41749d99-80f2-4954-8ce1-c89939df6abe","isHidden":false,"type":"divider"},{"content":{"level":"h2","text":"Prova"},"id":"c43afa41-5cd7-494a-8dd5-b036d0beeee1","isHidden":false,"type":"heading"}]
-
-----
-
-Description: La Consulta Femminile di Milano, grazie alla diversità delle associazioni che la compongono, è portatrice di competenze in molti ambiti diversi, dall’imprenditoria alla scienza, dalla giurisprudenza alla cultura del progetto, dalla medicina all’ambiente.
+Payoff: 
 
 ----
 
 Mission: La Consulta Femminile di Milano, grazie alla diversità delle associazioni che la compongono, è portatrice di competenze in molti ambiti diversi, dall’imprenditoria alla scienza, dalla giurisprudenza alla cultura del progetto, dalla medicina all’ambiente. Le associazioni si confrontano su tematiche di attualità, sviluppando pensiero e proposte culturali condivise in eventi pubblici. La Consulta organizza progetti di medio e lungo termine su tematiche specifiche, che si attuano in eventi e iniziative concrete realizzate in collaborazione con le istituzioni di governo locale, con aziende e altri attori della società civile.
-
 
 ----
 

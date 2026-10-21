@@ -2,17 +2,15 @@ Title: Consulta Femminile di Milano
 
 ----
 
-Pages: - page://04u7gvbqkljpiguy
-
-----
-
 Social:
 
 - 
+  icon: social/facebook-logo-fill
   platform: Facebook
   url: >
     https://www.facebook.com/consultafemminileinterassociativamilano/
 - 
+  icon: social/linkedin-logo-fill
   platform: Linkedin
   url: >
     https://www.linkedin.com/in/consulta-femminile-interassociativa-di-milano-61598315b/
@@ -20,3 +18,12 @@ Social:
 ----
 
 Payoff: Un'unica voce per la cittadinanza, una rete di associazioni per unire le forze
+
+----
+
+Pages:
+
+- page://04u7gvbqkljpiguy
+- page://antwpgo4j7bd2dlu
+- page://f5i8do3rguyhedgo
+- page://q86gbui2snlghtuc

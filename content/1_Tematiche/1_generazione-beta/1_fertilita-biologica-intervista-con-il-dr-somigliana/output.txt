@@ -6,10 +6,6 @@ Categoria: Contributo
 
 ----
 
-Intro: Un dialogo sulla libera scelta di genitorialità e sulle barriere mediche, sociali e culturali che la condizionano ancora oggi.
-
-----
-
 Autori:
 
 - 
@@ -23,11 +19,27 @@ Autori:
 
 ----
 
+Intro: Un dialogo sulla libera scelta di genitorialità e sulle barriere mediche, sociali e culturali che la condizionano ancora oggi.
+
+----
+
 Data: 2026-03-16
 
 ----
 
-Text: 
+Immagine: - file://l30zm5nnbada2m3y
+
+----
+
+Text: [{"content":{"text":"<p>Prova</p><p></p>"},"id":"6c766eec-a70d-4f5a-8bb4-07ea679bf0cc","isHidden":false,"type":"text"}]
+
+----
+
+Correlati-auto: false
+
+----
+
+Correlati-extra: 
 
 ----
 

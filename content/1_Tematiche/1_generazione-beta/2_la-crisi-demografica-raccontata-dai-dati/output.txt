@@ -2,11 +2,7 @@ Title: La crisi demografica raccontata dai dati
 
 ----
 
-Categoria: Approfondimento
-
-----
-
-Intro: I numeri della natalità italiana raccontano una crisi strutturale, non solo demografica.
+Categoria: Contributo
 
 ----
 
@@ -27,11 +23,27 @@ Autori:
 
 ----
 
+Intro: I numeri della natalità italiana raccontano una crisi strutturale, non solo demografica.
+
+----
+
 Data: 2026-02-02
 
 ----
 
-Text: [{"content":{"background":"","label":"","heading":"Il contesto: cosa dicono i numeri","paragraphs":[{"text":"Negli ultimi vent'anni le nascite in Italia sono diminuite in modo costante, un fenomeno che riguarda tutte le regioni e che intreccia fattori economici, sociali e culturali.\n\nQuesto secondo paragrafo dimostra che due paragrafi scritti nello stesso campo, separati da una riga vuota, restano visivamente distinti."}]},"id":"cdd94bfa-3153-4a76-acab-8e439fe191d5","isHidden":false,"type":"paragraph"},{"content":{"location":"kirby","image":["file://gqugwtqlfdtq1pqb"],"src":"","alt":"Grafico della natalità in Italia","caption":"<p>Andamento delle nascite in Italia, elaborazione su dati ISTAT.</p>","link":"","ratio":"3/2","crop":"true"},"id":"dda99f4e-f609-466b-a012-350b9b9a4fd1","isHidden":false,"type":"image"},{"content":{"background":"","label":"","heading":"","paragraphs":[{"text":"**Non è un destino, è una scelta politica.** Investire su asili nido, congedi parentali e lavoro femminile significa investire sul futuro demografico del paese."}]},"id":"3c5517d5-3ae0-49bf-bca7-d5b316854e46","isHidden":false,"type":"paragraph"}]
+Immagine: - file://gqugwtqlfdtq1pqb
+
+----
+
+Text: [{"content":{"level":"h3","text":"Il contesto: cosa dicono i numeri"},"id":"693d6f47-7467-4aa9-abdb-7814d14deb32","isHidden":false,"type":"heading"},{"content":{"text":"<p>Negli ultimi vent’anni le nascite in Italia sono diminuite in modo costante, un fenomeno che riguarda tutte le regioni e che intreccia fattori economici, sociali e culturali.</p><p>Questo secondo paragrafo dimostra che due paragrafi scritti nello stesso campo, separati da una riga vuota, restano visivamente distinti.</p>"},"id":"64f2153e-22d6-40a2-8065-40b4c1d14c9d","isHidden":false,"type":"text"},{"content":{"location":"kirby","image":["file://gqugwtqlfdtq1pqb"],"src":"","alt":"Grafico della natalità in Italia","caption":"<p>Andamento delle nascite in Italia, elaborazione su dati ISTAT.</p>","link":"","ratio":"3/2","crop":"true"},"id":"4da594ef-8e57-4f8d-a80b-21dcb8443810","isHidden":false,"type":"image"},{"content":{"text":"<p><strong>Non è un destino, è una scelta politica.</strong> Investire su asili nido, congedi parentali e lavoro femminile significa investire sul futuro demografico del paese.</p>"},"id":"fc69c4a9-a9be-4d9d-a165-d0c16235c037","isHidden":false,"type":"text"}]
+
+----
+
+Correlati-auto: true
+
+----
+
+Correlati-extra: 
 
 ----
 

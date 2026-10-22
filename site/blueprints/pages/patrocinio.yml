@@ -1,24 +1,26 @@
 title: Con il patrocinio
 
 # Come nel sito (vedi patrocinio.php): in alto la descrizione, poi le
-# locandine del carosello. Una colonna sola, niente tab.
-sections:
-  descrizione:
-    label: Descrizione pagina
-    type: fields
-    fields:
-      payoff:
-        extends: fields/payoff
-      mission:
-        extends: fields/mission
-  files:
-    label: Locandine
-    help: >
-      Le immagini dei progetti patrocinati mostrate nel carosello in
-      fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
-      caricate qui compaiono lì, nell'ordine in cui sono elencate.
-    type: files
-    info: "{{ file.alt.or('⚠ Alt mancante') }}"
-
+# locandine del carosello. Una colonna sola nel tab "Contenuto"; la SEO ha un tab a parte.
+tabs:
+  contenuto:
+    label: Contenuto
+    sections:
+      descrizione:
+        label: Descrizione pagina
+        type: fields
+        fields:
+          payoff:
+            extends: fields/payoff
+          mission:
+            extends: fields/mission
+      files:
+        label: Locandine
+        help: >
+          Le immagini dei progetti patrocinati mostrate nel carosello in
+          fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
+          caricate qui compaiono lì, nell'ordine in cui sono elencate.
+        type: files
+        info: "{{ file.alt.or('⚠ Alt mancante') }}"
   seo:
-    extends: sections/seo
+    extends: tabs/seo

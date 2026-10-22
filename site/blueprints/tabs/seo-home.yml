@@ -1,0 +1,28 @@
+# Come tabs/seo.yml ma senza immagine di condivisione né "nascondi": la
+# home usa l'immagine predefinita del sito (site → tab SEO) e deve restare
+# sempre indicizzata.
+label: SEO
+icon: search
+sections:
+  seo:
+    type: fields
+    fields:
+      seoHeadline:
+        type: headline
+        label: SEO e condivisione
+      seoTitle:
+        label: Titolo per i motori di ricerca
+        help: >
+          Consigliato fino a 60 caratteri. Se vuoto, si usa il nome del
+          sito. L'immagine di condivisione della home è quella
+          predefinita del sito (site → tab SEO).
+        type: text
+        maxlength: 70
+      seoDescription:
+        label: Descrizione per i motori di ricerca
+        help: >
+          Consigliata tra 120 e 160 caratteri. Se vuota, si ricava dalla
+          prima descrizione della pagina.
+        type: textarea
+        size: small
+        maxlength: 160

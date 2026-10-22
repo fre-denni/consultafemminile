@@ -2,73 +2,75 @@ title: La nostra storia
 icon: terminal
 
 # Come nel sito (vedi timeline.php): in alto la descrizione, poi
-# introduzione e capitoli. Una colonna sola, niente tab.
-sections:
-  descrizione:
-    label: Descrizione pagina
-    type: fields
-    fields:
-      payoff:
-        extends: fields/payoff
-      mission:
-        extends: fields/mission
-
+# introduzione e capitoli. Una colonna sola nel tab "Contenuto"; la SEO ha un tab a parte.
+tabs:
   contenuto:
     label: Contenuto
-    type: fields
-    fields:
-      introduzione:
-        label: Introduzione
-        help: >
-          Testo introduttivo mostrato sopra i capitoli, su sfondo
-          azzurro (vedi bits/timeline-section). Vive solo qui: la
-          stessa pagina "Chi siamo" lo richiama da qui invece di
-          ripeterlo.
-        extends: fields/rich-text
-      capitoli:
-        label: Capitoli
-        help: >
-          Ogni riga è un capitolo della timeline (es. un anno di
-          presidenza o un evento importante), mostrato nell'accordion
-          della pagina (vedi bits/timeline-accordion). Una sola
-          immagine mostra una foto singola (una presidenza); da due
-          in su, un piccolo carosello con le frecce, fino a 7 (un
-          evento) — non c'è un campo "tipo" da tenere sincronizzato
-          a mano, decide il numero di immagini caricate.
-        type: structure
-        columns:
-          immagini:
-            width: 1/12
-          anno:
-            width: 2/12
-          etichetta:
-            width: 3/12
-          descrizione:
-            width: 4/12
+    sections:
+      descrizione:
+        label: Descrizione pagina
+        type: fields
         fields:
-          immagini:
-            label: Immagini
-            type: files
-            info: "{{ file.alt.or('⚠ Alt mancante') }}"
-            query: page.images
-            max: 7
-          anno:
-            label: Anno
-            type: text
-            required: true
-          etichetta:
-            label: Etichetta
-            help: Es. "Presidente" o "Evento importante per la consulta".
-            type: text
-          descrizione:
-            label: Descrizione
+          payoff:
+            extends: fields/payoff
+          mission:
+            extends: fields/mission
+
+      contenuto:
+        label: Contenuto
+        type: fields
+        fields:
+          introduzione:
+            label: Introduzione
+            help: >
+              Testo introduttivo mostrato sopra i capitoli, su sfondo
+              azzurro (vedi bits/timeline-section). Vive solo qui: la
+              stessa pagina "Chi siamo" lo richiama da qui invece di
+              ripeterlo.
             extends: fields/rich-text
+          capitoli:
+            label: Capitoli
+            help: >
+              Ogni riga è un capitolo della timeline (es. un anno di
+              presidenza o un evento importante), mostrato nell'accordion
+              della pagina (vedi bits/timeline-accordion). Una sola
+              immagine mostra una foto singola (una presidenza); da due
+              in su, un piccolo carosello con le frecce, fino a 7 (un
+              evento) — non c'è un campo "tipo" da tenere sincronizzato
+              a mano, decide il numero di immagini caricate.
+            type: structure
+            columns:
+              immagini:
+                width: 1/12
+              anno:
+                width: 2/12
+              etichetta:
+                width: 3/12
+              descrizione:
+                width: 4/12
+            fields:
+              immagini:
+                label: Immagini
+                type: files
+                info: "{{ file.alt.or('⚠ Alt mancante') }}"
+                query: page.images
+                max: 7
+              anno:
+                label: Anno
+                type: text
+                required: true
+              etichetta:
+                label: Etichetta
+                help: Es. "Presidente" o "Evento importante per la consulta".
+                type: text
+              descrizione:
+                label: Descrizione
+                extends: fields/rich-text
 
-  immagini:
-    label: Immagini
-    type: files
-    info: "{{ file.alt.or('⚠ Alt mancante') }}"
-    help: Carica qui le immagini, poi assegnale ai singoli capitoli qui sopra.
-
+      immagini:
+        label: Immagini
+        type: files
+        info: "{{ file.alt.or('⚠ Alt mancante') }}"
+        help: Carica qui le immagini, poi assegnale ai singoli capitoli qui sopra.
   seo:
-    extends: sections/seo
+    extends: tabs/seo

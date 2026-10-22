@@ -2,7 +2,6 @@
 # pagina compare su Google e quando viene condivisa sui social. Tutto
 # facoltativo — se vuoti, titolo, descrizione e immagine si ricavano dal
 # contenuto della pagina (vedi site/plugins/seo/classes/Meta.php).
-label: SEO
 type: fields
 fields:
   seoHeadline:

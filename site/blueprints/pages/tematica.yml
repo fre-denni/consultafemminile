@@ -3,42 +3,44 @@ title: Tematica
 # Una colonna sola, nello stesso ordine della pagina reale (vedi
 # tematica.php): immagine di copertina sopra (bits/tema-hero), poi il
 # testo (bits/paragraph), poi gli output sotto (bits/output-carousel).
-sections:
-  immagini:
-    label: Immagini
-    help: >
-      La prima immagine caricata qui è la copertina della tematica:
-      usata in cima a questa pagina (vedi bits/tema-hero) e
-      nell'accordion della pagina "Tematiche".
-    type: files
-    info: "{{ file.alt.or('⚠ Alt mancante') }}"
-  testo:
-    label: Testo
-    type: fields
-    fields:
-      subtitle:
-        label: Sottotitolo
-        help: Mostrato in corsivo nell'accordion della pagina "Tematiche" (vedi bits/chapter-accordion).
-        type: text
-        required: true
-      description:
-        label: Descrizione
+tabs:
+  contenuto:
+    label: Contenuto
+    sections:
+      immagini:
+        label: Immagini
         help: >
-          Mostrata sia nell'accordion della pagina "Tematiche" (vedi
-          bits/chapter-accordion) sia come paragrafo introduttivo di
-          questa pagina, sotto l'immagine di copertina (vedi
-          bits/tema-hero e bits/paragraph).
-        extends: fields/rich-text
-        required: true
-  outputs:
-    label: Output
-    help: >
-      Gli articoli collegati a questa tematica, mostrati in un
-      carosello sia qui che nella pagina "Tematiche" (vedi
-      bits/output-carousel). Crea qui le sottopagine, poi carica
-      l'immagine e scrivi il contenuto nella pagina di ognuna.
-    type: pages
-    template: output
-
+          La prima immagine caricata qui è la copertina della tematica:
+          usata in cima a questa pagina (vedi bits/tema-hero) e
+          nell'accordion della pagina "Tematiche".
+        type: files
+        info: "{{ file.alt.or('⚠ Alt mancante') }}"
+      testo:
+        label: Testo
+        type: fields
+        fields:
+          subtitle:
+            label: Sottotitolo
+            help: Mostrato in corsivo nell'accordion della pagina "Tematiche" (vedi bits/chapter-accordion).
+            type: text
+            required: true
+          description:
+            label: Descrizione
+            help: >
+              Mostrata sia nell'accordion della pagina "Tematiche" (vedi
+              bits/chapter-accordion) sia come paragrafo introduttivo di
+              questa pagina, sotto l'immagine di copertina (vedi
+              bits/tema-hero e bits/paragraph).
+            extends: fields/rich-text
+            required: true
+      outputs:
+        label: Output
+        help: >
+          Gli articoli collegati a questa tematica, mostrati in un
+          carosello sia qui che nella pagina "Tematiche" (vedi
+          bits/output-carousel). Crea qui le sottopagine, poi carica
+          l'immagine e scrivi il contenuto nella pagina di ognuna.
+        type: pages
+        template: output
   seo:
-    extends: sections/seo
+    extends: tabs/seo

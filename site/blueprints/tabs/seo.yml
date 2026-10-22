@@ -1,0 +1,9 @@
+# Tab "SEO" di ogni pagina (vedi site/plugins/seo): come la pagina compare
+# su Google e quando viene condivisa sui social. Tutto facoltativo — se
+# vuoti, titolo, descrizione e immagine si ricavano dal contenuto della
+# pagina (vedi site/plugins/seo/classes/Meta.php).
+label: SEO
+icon: search
+sections:
+  seo:
+    extends: sections/seo

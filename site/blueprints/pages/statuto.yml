@@ -1,34 +1,37 @@
 title: Statuto e Regolamento
 icon: document
 
-columns:
-  main:
-    width: 2/3
-    sections:
-      fields:
-        type: fields
-        fields:
-          text:
-            label: Contenuto
-            help: >
-              Ogni "Articolo" ha titolo (es. "Art.1"), sottotitolo
-              facoltativo e testo; i "Divisori" in stile banner separano
-              Statuto e Regolamento. Per aggiungere un articolo duplica
-              uno esistente e cambia titolo, sottotitolo e testo.
-            type: blocks
-            fieldsets:
-              - text-section
-              - divider
-              - download-link
-              - text
-      contatti:
-        extends: sections/contatti-globali
-      seo:
-        extends: sections/seo
-  sidebar:
-    width: 1/3
-    sections:
-      files:
-        label: File
-        help: Carica qui il PDF della brochure e le foto; poi selezionali nei blocchi.
-        type: files
+tabs:
+  contenuto:
+    label: Contenuto
+    columns:
+      main:
+        width: 2/3
+        sections:
+          fields:
+            type: fields
+            fields:
+              text:
+                label: Contenuto
+                help: >
+                  Ogni "Articolo" ha titolo (es. "Art.1"), sottotitolo
+                  facoltativo e testo; i "Divisori" in stile banner separano
+                  Statuto e Regolamento. Per aggiungere un articolo duplica
+                  uno esistente e cambia titolo, sottotitolo e testo.
+                type: blocks
+                fieldsets:
+                  - text-section
+                  - divider
+                  - download-link
+                  - text
+          contatti:
+            extends: sections/contatti-globali
+      sidebar:
+        width: 1/3
+        sections:
+          files:
+            label: File
+            help: Carica qui il PDF della brochure e le foto; poi selezionali nei blocchi.
+            type: files
+  seo:
+    extends: tabs/seo

@@ -1,0 +1,12 @@
+name: Testo
+icon: text
+# Sostituisce il blocco "Testo" di Kirby (senza titoli né elenchi): un solo
+# blocco per tutto il testo, con la stessa barra degli strumenti della Home
+# (vedi fields/rich-text.yml). Titoli, elenchi e citazioni si fanno da qui,
+# non servono più blocchi separati.
+wysiwyg: true
+preview: text
+fields:
+  text:
+    extends: fields/rich-text
+    placeholder: Scrivi qui il testo…

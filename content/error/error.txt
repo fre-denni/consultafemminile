@@ -6,7 +6,7 @@ Payoff: Uhm! Sembra che ci sia stato un problema!
 
 ----
 
-Mission: Prova a vedere se l'indirizzo è corretto o se la connessione wifi è stabile. Potrebbe essere che la risorsa è stata eliminata. Se il problema sussiste non esitare a contattarci!
+Mission: <p>Prova a vedere se l'indirizzo è corretto o se la connessione wifi è stabile. Potrebbe essere che la risorsa è stata eliminata. Se il problema sussiste non esitare a contattarci!</p>
 
 ----
 

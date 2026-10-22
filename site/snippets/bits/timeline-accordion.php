@@ -4,7 +4,7 @@
  *   id: string,
  *   anno: string,
  *   etichetta?: string,
- *   description?: string,
+ *   description?: string, (HTML da un campo writer, stampato così com'è)
  *   images?: \Kirby\Cms\File[],
  * }> $items Capitoli della timeline (vedi site/templates/timeline.php).
  *
@@ -34,7 +34,7 @@ snippet('bits/accordion', [
       <p class="timeline-accordion__label"><?= html($etichetta) ?></p>
     <?php endif ?>
     <?php if ($description !== ''): ?>
-      <p class="timeline-accordion__description"><?= html($description) ?></p>
+      <div class="timeline-accordion__description"><?= $description ?></div>
     <?php endif ?>
     <?php
     return ob_get_clean();

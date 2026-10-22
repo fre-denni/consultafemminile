@@ -1,21 +1,20 @@
 title: Con il patrocinio
 
-tabs:
+# Come nel sito (vedi patrocinio.php): in alto la descrizione, poi le
+# locandine del carosello. Una colonna sola, niente tab.
+sections:
   descrizione:
     label: Descrizione pagina
+    type: fields
     fields:
       payoff:
         extends: fields/payoff
       mission:
         extends: fields/mission
-
-  contenuto:
-    label: Contenuto
-    sections:
-      files:
-        label: Locandine
-        type: files
-        help: >
-          Le immagini dei progetti patrocinati mostrate nel carosello in
-          fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
-          caricate qui compaiono lì, nell'ordine in cui sono elencate.
+  files:
+    label: Locandine
+    help: >
+      Le immagini dei progetti patrocinati mostrate nel carosello in
+      fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
+      caricate qui compaiono lì, nell'ordine in cui sono elencate.
+    type: files

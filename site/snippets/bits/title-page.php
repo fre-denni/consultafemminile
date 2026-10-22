@@ -4,8 +4,7 @@
  * @var \Kirby\Content\Field|string|null $text         Testo esplicativo opzionale sotto il titolo
  * @var bool                             $borderBottom Se true, aggiunge una linea separatrice in
  *   fondo al blocco (vedi .title-page--divider in title-page.css). Facoltativo, di default false
- *   — non aggiunge nulla finché non lo si chiede esplicitamente (in codice o dal blueprint del
- *   blocco, vedi blocks/titlepage.yml).
+ *   — non aggiunge nulla finché non lo si chiede esplicitamente.
  *
  * Header di apertura pagina: titolo grande, separatore in basso opzionale.
  *

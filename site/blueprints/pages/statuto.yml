@@ -11,28 +11,18 @@ columns:
           text:
             label: Contenuto
             help: >
-              Ogni "Sezione di testo" è un articolo (o l'apertura di una
-              sezione); i "Divisori" in stile banner separano Statuto e
-              Regolamento. Per aggiungere un articolo duplica uno esistente
-              e cambia titolo, sottotitolo e testo.
+              Ogni "Articolo" ha titolo (es. "Art.1"), sottotitolo
+              facoltativo e testo; i "Divisori" in stile banner separano
+              Statuto e Regolamento. Per aggiungere un articolo duplica
+              uno esistente e cambia titolo, sottotitolo e testo.
             type: blocks
             fieldsets:
               - text-section
               - divider
               - download-link
-              - paragraph
-              - heading
               - text
-              - list
-              - line
-          etichetta:
-            extends: fields/contact-etichetta
-          foto:
-            extends: fields/contact-foto
-          fotoAlt:
-            extends: fields/contact-foto-alt
-          credit:
-            extends: fields/contact-credit
+      contatti:
+        extends: sections/contatti-globali
   sidebar:
     width: 1/3
     sections:

@@ -1,23 +1,29 @@
 title: Contatti
 
-columns:
-  main:
-    width: 2/3
-    sections:
-      fields:
-        type: fields
-        fields:
-          etichetta:
-            extends: fields/contact-etichetta
-          foto:
-            extends: fields/contact-foto
-          fotoAlt:
-            extends: fields/contact-foto-alt
-          credit:
-            extends: fields/contact-credit
-  sidebar:
-    width: 1/3
-    sections:
-      files:
-        label: Foto
-        type: files
+# Pagina globale del form contatti: i dati qui sotto valgono per TUTTE le
+# pagine e i blocchi che mostrano il form (vedi bits/contact-form, che li
+# legge da questa pagina), non vanno ripetuti altrove.
+sections:
+  form:
+    label: Form contatti
+    type: fields
+    fields:
+      contact_email:
+        label: Email per i messaggi del form
+        help: >
+          Dove arrivano i messaggi inviati dal form (vedi
+          site/plugins/contact-form). Se vuoto, consfim@gmail.com.
+        type: email
+        placeholder: consfim@gmail.com
+      etichetta:
+        extends: fields/contact-etichetta
+      foto:
+        extends: fields/contact-foto
+      fotoAlt:
+        extends: fields/contact-foto-alt
+      credit:
+        extends: fields/contact-credit
+  immagini:
+    label: Foto
+    help: Carica qui la foto, poi selezionala nel campo "Foto del form contatti".
+    type: files

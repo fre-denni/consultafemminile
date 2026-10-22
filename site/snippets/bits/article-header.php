@@ -59,7 +59,7 @@ $shareUrl = $page->url();
       <h1 class="article-header__title"><?= html($page->title()) ?></h1>
     </div>
     <?php if ($intro !== ''): ?>
-      <p class="article-header__lead"><?= html($intro) ?></p>
+      <p class="article-header__lead"><?= $intro ?></p>
     <?php endif ?>
     <div class="article-header__meta">
       <?php if ($autoriCount > 0): ?>

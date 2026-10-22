@@ -1,24 +1,14 @@
-name: Testo in evidenza
+name: Paragrafo con titolo
 icon: text
+# Titolo breve + testo con styling (stessa forma di Payoff + Mission, vedi
+# fields/rich-text.yml). Anteprima = i campi stessi, modificabili
+# direttamente nel blocco.
+preview: fields
+wysiwyg: true
 fields:
-  background:
-    extends: fields/background
-  label:
-    label: Etichetta
-    type: text
-    placeholder: "es. Chi siamo"
   heading:
     label: Titolo
-    type: writer
-    inline: true
-  paragraphs:
+    type: text
+  text:
+    extends: fields/rich-text
     label: Testo
-    type: structure
-    fields:
-      text:
-        label: Paragrafo
-        type: textarea
-        size: small
-    columns:
-      text:
-        type: text

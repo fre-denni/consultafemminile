@@ -10,7 +10,7 @@ Mission:
 
 ----
 
-Introduzione: Esempio di paragrafo senza titolo su sfondo azzurro, come nel riferimento Figma — solo testo, nessuna etichetta o intestazione sopra, mostrato prima dei capitoli della timeline.
+Introduzione: <p>Esempio di paragrafo senza titolo su sfondo azzurro, come nel riferimento Figma — solo testo, nessuna etichetta o intestazione sopra, mostrato prima dei capitoli della timeline.</p>
 
 ----
 
@@ -21,7 +21,7 @@ Capitoli:
     - file://9him3wtfn50ha96q
   anno: "1963"
   etichetta: Presidente
-  descrizione: 'Esempio di capitolo "presidenza": una sola foto, il nome e gli anni di mandato della presidente in carica.'
+  descrizione: '<p>Esempio di capitolo "presidenza": una sola foto, il nome e gli anni di mandato della presidente in carica.</p>'
 - 
   immagini:
     - file://hwspldp6bornygau
@@ -33,17 +33,13 @@ Capitoli:
     - file://kukaisyvqjwqdz9y
   anno: "1980"
   etichetta: Evento importante per la consulta
-  descrizione: 'Esempio di capitolo "evento" con 7 foto: un piccolo carosello con le frecce, sempre visibili anche su desktop.'
+  descrizione: '<p>Esempio di capitolo "evento" con 7 foto: un piccolo carosello con le frecce, sempre visibili anche su desktop.</p>'
 - 
   immagini:
     - file://myx7epccjkrimuoq
   anno: "1990"
   etichetta: Presidente
-  descrizione: >
-    Un secondo esempio di capitolo
-    "presidenza", per verificare che più
-    righe dello stesso tipo si susseguano
-    correttamente nellaccordion.
+  descrizione: '<p>Un secondo esempio di capitolo "presidenza", per verificare che più righe dello stesso tipo si susseguano correttamente nellaccordion.</p>'
 
 ----
 

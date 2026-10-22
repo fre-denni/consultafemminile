@@ -1,0 +1,16 @@
+# Editor di testo "con styling" condiviso da TUTTI i campi di testo lungo
+# (mission, paragrafi, blocchi di testo, descrizioni, introduzioni): stessa
+# barra degli strumenti ovunque. Non limita i segni (grassetto, corsivo,
+# codice, link, email... = quelli predefiniti del Panel) e offre titoli,
+# elenchi e citazione. Salva HTML, da stampare così com'è (non kirbytext).
+# Uso: `text: { extends: fields/rich-text, label: Testo }`
+type: writer
+headings:
+  - 2
+  - 3
+  - 4
+nodes:
+  - heading
+  - bulletList
+  - orderedList
+  - quote

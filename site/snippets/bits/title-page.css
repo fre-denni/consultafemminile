@@ -28,7 +28,7 @@
   }
 
   /* Linea separatrice opzionale in fondo al blocco (vedi $borderBottom
-     in bits/title-page.php e, per i blocchi, blocks/titlepage.yml) —
+     in bits/title-page.php) —
      stesso trattamento di bits/section-divider. */
   .title-page--divider {
     width: 100%;

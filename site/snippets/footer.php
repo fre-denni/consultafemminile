@@ -25,7 +25,7 @@ $secondaryLinks[] = new Obj([
     <?php snippet('atoms/icon', ['name' => 'mailbox']) ?>
     consfim@gmail.com
   </a>
-  <?php snippet('bits/list', ['items' => $site->children()->listed()]) ?>
+  <?php snippet('bits/list', ['items' => $site->children()->listed()->not('home')]) ?>
   <?php snippet('bits/list', ['items' => $secondaryLinks]) ?>
   <?php snippet('bits/list', ['items' => $socialItems]) ?>
   <p>

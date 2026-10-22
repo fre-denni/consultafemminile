@@ -4,7 +4,7 @@
  *   id: string,
  *   title: string,
  *   subtitle?: string,
- *   description?: string,
+ *   description?: string, (HTML da un campo writer, stampato così com'è)
  *   images?: \Kirby\Cms\File[],
  *   ctaUrl?: string|null,
  *   outputs?: \Kirby\Cms\Pages|null,
@@ -40,7 +40,7 @@ snippet('bits/accordion', [
       <p class="chapter-accordion__subtitle"><?= html($subtitle) ?></p>
     <?php endif ?>
     <?php if ($description !== ''): ?>
-      <p class="chapter-accordion__description"><?= html($description) ?></p>
+      <div class="chapter-accordion__description"><?= $description ?></div>
     <?php endif ?>
     <?php if ($ctaUrl !== ''): ?>
       <a href="<?= html($ctaUrl) ?>" class="chapter-accordion__cta">Scopri di più ›</a>

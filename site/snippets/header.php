@@ -32,8 +32,10 @@
   <?php
   // ————————————————————————————————————————————————————— DATI NAV
 
-  // Voci di primo livello (menu principale)
-  $navItems = $site->children()->listed();
+  // Voci di primo livello (menu principale). La home è "listed" solo per
+  // stare in cima all'elenco del Panel (vedi site.yml): nel menu non
+  // compare, il logo già porta lì.
+  $navItems = $site->children()->listed()->not('home');
 
   // 1. Peschiamo la timeline (che fisicamente è una sottopagina)
   // e l'aggiungiamo alla collection del menu principale

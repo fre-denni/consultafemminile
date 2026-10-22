@@ -1,5 +1,7 @@
 name: Link scaricabile
 icon: download
+preview: fields
+wysiwyg: true
 fields:
   label:
     label: Testo del link

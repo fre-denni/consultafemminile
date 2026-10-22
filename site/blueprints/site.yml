@@ -17,27 +17,44 @@ tabs:
       pagineNavigazione:
         label: Pagine di navigazione
         help: >
-          Pagine principali, si possono trascinare per cambiare l'ordine di
-          apparizione nella barra superiore di navigazione. "La nostra
-          storia" è mostrata qui anche se tecnicamente è una sottopagina
-          di Chi siamo, per tenerla visibile in questo elenco.
+          Pagine principali: trascinale per cambiare l'ordine di
+          apparizione nella barra superiore di navigazione. La Home sta
+          in cima ma non compare nel menu (il logo porta già lì).
         type: pages
-        query: site.children.listed.add('chi-siamo/timeline')
+        status: listed
+      paginaStoria:
+        label: Sottopagina di Chi siamo
+        help: >
+          "La nostra storia" compare nel menu principale pur essendo una
+          sottopagina di Chi siamo, per questo è mostrata qui. Non è
+          trascinabile: Kirby disattiva l'ordinamento in un elenco che
+          mescola pagine di livelli diversi.
+        type: pages
+        query: site.index.filterBy('id', 'chi-siamo/timeline')
+        createable: false
+        sortable: false
+        max: 1
       pagineSecondarie:
         label: Pagine secondarie
+        help: >
+          Raggiungibili solo tramite un link diretto (es. dal footer o da
+          un'altra pagina): non compaiono nel menu principale. La pagina
+          d'errore (404) è sempre l'ultima.
         type: pages
-        status: unlisted
+        query: site.children.unlisted.not('error').add('error')
+        sortable: false
       contatti:
         label: Contatti
-        type: fields
-        fields:
-          contact_email:
-            label: Email per i messaggi del form contatti
-            help: >
-              Dove arrivano i messaggi inviati dal form (vedi bits/contact-form).
-              Se vuoto, consfim@gmail.com.
-            type: email
-            placeholder: consfim@gmail.com
+        help: >
+          Email di destinazione, etichetta, foto, testo alternativo e
+          credito del form contatti sono unici per tutto il sito e si
+          gestiscono nella pagina Contatti qui sotto: il form compare
+          uguale in ogni pagina che lo mostra (vedi bits/contact-form).
+        type: pages
+        query: site.index.filterBy('id', 'chi-siamo/contatti')
+        createable: false
+        sortable: false
+        max: 1
 
   social:
     label: Social Media

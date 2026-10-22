@@ -22,15 +22,10 @@ tabs:
                 label: Contenuto
                 type: blocks
                 fieldsets:
-                  - titlepage
+                  - text
                   - paragraph
                   - divider
                   - contact-form
-                  - heading
-                  - text
-                  - list
-                  - quote
-                  - line
       sidebar:
         width: 1/3
         sections:

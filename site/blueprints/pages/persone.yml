@@ -68,14 +68,8 @@ columns:
               email:
                 label: Email
                 type: email
-          etichetta:
-            extends: fields/contact-etichetta
-          foto:
-            extends: fields/contact-foto
-          fotoAlt:
-            extends: fields/contact-foto-alt
-          credit:
-            extends: fields/contact-credit
+      contatti:
+        extends: sections/contatti-globali
   sidebar:
     width: 1/3
     sections:

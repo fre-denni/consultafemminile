@@ -16,4 +16,15 @@
     line-height: var(--leading-body);
     color: var(--black-primary);
   }
+
+  /* Il testo arriva da un editor con paragrafi/elenchi: stessa
+     dimensione del contenitore, stacco tra un blocco e il successivo. */
+  .timeline-accordion__description :is(p, ul, ol, li) {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .timeline-accordion__description > * + * {
+    margin-block-start: var(--space-s);
+  }
 }

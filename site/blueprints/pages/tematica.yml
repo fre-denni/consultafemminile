@@ -27,7 +27,7 @@ sections:
           bits/chapter-accordion) sia come paragrafo introduttivo di
           questa pagina, sotto l'immagine di copertina (vedi
           bits/tema-hero e bits/paragraph).
-        type: textarea
+        extends: fields/rich-text
         required: true
   outputs:
     label: Output

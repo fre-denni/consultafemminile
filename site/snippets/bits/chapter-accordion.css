@@ -24,6 +24,17 @@
     color: var(--black-primary);
   }
 
+  /* Il testo arriva da un editor con paragrafi/elenchi: stessa
+     dimensione del contenitore, stacco tra un blocco e il successivo. */
+  .chapter-accordion__description :is(p, ul, ol, li) {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .chapter-accordion__description > * + * {
+    margin-block-start: var(--space-s);
+  }
+
   /* Pill piccola e scura, diversa dalle altre CTA del sito (gialla su
      bits/association-card, blu su bits/theme-card): così nel Figma,
      più discreta perché qui è dentro un pannello già molto pieno. */

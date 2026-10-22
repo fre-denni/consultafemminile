@@ -98,7 +98,7 @@ $modalId = 'association-' . $association->id();
 
   <div class="association-modal__body">
     <div class="association-modal__description">
-      <?= $association->descrizione()->kirbytext() ?>
+      <?= $association->descrizione() ?>
     </div>
     <div class="association-modal__aside">
       <?php if (count($delegate) > 0): ?>

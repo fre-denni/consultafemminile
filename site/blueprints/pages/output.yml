@@ -62,7 +62,7 @@ sections:
       intro:
         label: Descrizione
         help: Testo breve in corsivo sotto il titolo (vedi bits/article-header).
-        type: textarea
+        extends: fields/rich-text-inline
         width: 1/2
       data:
         label: Data
@@ -90,16 +90,14 @@ sections:
         label: Testo
         help: >
           Il corpo dell'articolo, mostrato quando si apre questa pagina
-          dalla card (vedi bits/output-card). Solo i tipi di testo
-          semplice, per restare rapidi da scrivere — niente più
-          divisori o box decorativi qui dentro.
+          dalla card (vedi bits/output-card). Due soli tipi di blocco:
+          "Testo" (titoli, elenchi, citazioni, grassetto e corsivo si
+          fanno dalla sua barra degli strumenti) e "Immagine" (con
+          didascalia).
         type: blocks
         fieldsets:
-          - heading
           - text
           - image
-          - list
-          - quote
 
   correlati:
     type: fields

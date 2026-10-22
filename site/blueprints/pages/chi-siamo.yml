@@ -1,94 +1,71 @@
 title: Chi siamo
 
-# Niente campo "Payoff": il titolo di questa pagina è sempre quello del
-# sito ($site->payoff() in chi-siamo.php), non è mai personalizzabile
-# per pagina.
-tabs:
+# Come nel sito (vedi chi-siamo.php): in alto la descrizione (Mission),
+# poi i blocchi liberi e le sezioni che mostrano contenuto gestito
+# altrove, nello stesso ordine in cui compaiono. Una colonna sola, niente
+# tab. Le sezioni di sola consultazione (createable/sortable disattivati,
+# un solo risultato fisso) sono un link rapido alla pagina che gestisce
+# davvero quel contenuto. Niente campo "Payoff": il titolo è sempre quello
+# del sito ($site->payoff() in chi-siamo.php).
+sections:
   descrizione:
     label: Descrizione pagina
+    type: fields
     fields:
       mission:
         extends: fields/mission
 
-  contenuto:
-    label: Contenuto
-    # Una colonna sola, una sezione per ogni parte della pagina nello
-    # stesso ordine in cui compaiono dall'alto in basso (vedi
-    # site/templates/chi-siamo.php), ciascuna col proprio titolo per
-    # distinguerle a colpo d'occhio. Le sezioni "Pagina collegata" sono
-    # di sola consultazione (createable/sortable disattivati, un solo
-    # risultato fisso): il contenuto si gestisce nella pagina collegata,
-    # qui c'è solo il link rapido per andarci.
-    sections:
-      blocchi:
+  blocchi:
+    label: Blocchi
+    help: Contenuto libero subito sotto il testo introduttivo.
+    type: fields
+    fields:
+      blocchiTitolo:
+        type: headline
         label: Blocchi
-        help: Contenuto libero subito sotto il testo introduttivo.
-        type: fields
-        fields:
-          blocchiTitolo:
-            type: headline
-            label: Blocchi
-          text:
-            label: Blocchi
-            type: blocks
-            fieldsets:
-              - titlepage
-              - paragraph
-              - divider
-              - contact-form
-              - heading
-              - text
-              - list
-              - quote
-              - line
+      text:
+        label: Blocchi
+        type: blocks
+        fieldsets:
+          - text
+          - paragraph
+          - divider
+          - contact-form
 
-      storia:
-        label: La nostra storia
-        help: >
-          Introduzione e capitoli si gestiscono nella pagina collegata qui
-          sotto (vedi bits/timeline-section) — qui compaiono così come
-          sono, senza altre impostazioni.
-        type: pages
-        query: site.index.filterBy('id', 'chi-siamo/timeline')
-        createable: false
-        sortable: false
-        max: 1
+  storia:
+    label: La nostra storia
+    help: >
+      Introduzione e capitoli si gestiscono nella pagina collegata qui
+      sotto (vedi bits/timeline-section) — qui compaiono così come
+      sono, senza altre impostazioni.
+    type: pages
+    query: site.index.filterBy('id', 'chi-siamo/timeline')
+    createable: false
+    sortable: false
+    max: 1
 
-      consiglio:
-        label: Consiglio
-        help: >
-          Il carosello mostra automaticamente le persone con il flag
-          "Consigliera" attivo (vedi bits/people-carousel) — gestiscile
-          nella pagina collegata qui sotto.
-        type: pages
-        query: site.index.filterBy('id', 'chi-siamo/persone')
-        createable: false
-        sortable: false
-        max: 1
+  consiglio:
+    label: Consiglio
+    help: >
+      Il carosello mostra automaticamente le persone con il flag
+      "Consigliera" attivo (vedi bits/people-carousel) — gestiscile
+      nella pagina collegata qui sotto.
+    type: pages
+    query: site.index.filterBy('id', 'chi-siamo/persone')
+    createable: false
+    sortable: false
+    max: 1
 
-      associazioni:
-        label: Associazioni
-        help: >
-          La griglia mostra automaticamente le associazioni elencate nella
-          pagina collegata qui sotto (vedi bits/associazioni-grid).
-        type: pages
-        query: site.index.filterBy('id', 'chi-siamo/associazioni')
-        createable: false
-        sortable: false
-        max: 1
+  associazioni:
+    label: Associazioni
+    help: >
+      La griglia mostra automaticamente le associazioni elencate nella
+      pagina collegata qui sotto (vedi bits/associazioni-grid).
+    type: pages
+    query: site.index.filterBy('id', 'chi-siamo/associazioni')
+    createable: false
+    sortable: false
+    max: 1
 
-      contatti:
-        label: Contatti
-        type: fields
-        fields:
-          contattiTitolo:
-            type: headline
-            label: Contatti
-          etichetta:
-            extends: fields/contact-etichetta
-          foto:
-            extends: fields/contact-foto
-          fotoAlt:
-            extends: fields/contact-foto-alt
-          credit:
-            extends: fields/contact-credit
+  contatti:
+    extends: sections/contatti-globali

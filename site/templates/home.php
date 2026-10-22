@@ -8,12 +8,12 @@
  * quando non è quello di default), visto che qui non serve un editor di
  * blocchi libero.
  */
+// I campi "Testo" sono editor con styling (writer, vedi fields/rich-text.yml):
+// salvano già HTML con uno o più <p>, da passare così com'è (un solo
+// elemento) a bits/paragraph.
 $paragraphRows = function ($field) {
-  $rows = [];
-  foreach ($field->toStructure() as $row) {
-    $rows[] = $row->text()->kirbytext()->value();
-  }
-  return $rows;
+  $html = trim((string) $field->value());
+  return $html !== '' ? [$html] : [];
 };
 
 $wrapBackground = function (string $html, $background): string {

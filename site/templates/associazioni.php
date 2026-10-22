@@ -10,10 +10,6 @@
       'label' => 'Le associazioni',
     ]) ?>
     <?php snippet('bits/contact-form', [
-      'label'      => $page->etichetta()->or('Contattaci')->value(),
-      'image'      => $page->foto()->toFile(),
-      'alt'        => $page->fotoAlt()->value(),
-      'credit'     => $page->credit()->value(),
       'background' => 'tinted',
     ]) ?>
   <?php endslot() ?>

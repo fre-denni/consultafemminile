@@ -1,9 +1,15 @@
 <?php
 /**
- * @var string                    $label      Etichetta a sinistra del riquadro (default "Contattaci")
- * @var \Kirby\Cms\File|null      $image      Foto accanto al form (opzionale; su mobile sparisce)
- * @var string                    $alt        Testo alternativo della foto (accessibilità/SEO)
- * @var string                    $credit     Credito della foto, HTML inline con eventuali link
+ * Etichetta, foto, testo alternativo e credito NON si passano più da
+ * fuori: sono dati globali, gestiti una volta sola nella pagina Contatti
+ * (chi-siamo/contatti, vedi pages/contatti.yml) e letti da qui — così il
+ * form è identico ovunque compaia. I parametri $label/$image/$alt/$credit
+ * restano accettati solo per eventuali sostituzioni eccezionali.
+ *
+ * @var string                    $label      Etichetta a sinistra del riquadro (default dalla pagina Contatti)
+ * @var \Kirby\Cms\File|null      $image      Foto accanto al form (default dalla pagina Contatti; su mobile sparisce)
+ * @var string                    $alt        Testo alternativo della foto (default dalla pagina Contatti)
+ * @var string                    $credit     Credito della foto (default dalla pagina Contatti), HTML inline
  * @var string                    $background Sfondo della sezione: 'default' (bianco), 'tinted'
  *   (panna) o 'blue' (azzurro) — stesso vocabolario di blueprints/fields/background.yml.
  *   Come blocco (blocks/contact-form) lo sfondo lo applica già atoms/block-container.php:
@@ -16,10 +22,11 @@
  * site/plugins/contact-form; il contatore delle parole e l'invio senza
  * ricaricare la pagina, assets/js/contact-form.js.
  */
-$label      ??= 'Contattaci';
-$image      ??= null;
-$alt        ??= '';
-$credit     ??= '';
+$contacts   = $site->find('chi-siamo/contatti');
+$label      ??= $contacts?->etichetta()->or('Contattaci')->value() ?? 'Contattaci';
+$image      ??= $contacts?->foto()->toFile();
+$alt        ??= $contacts?->fotoAlt()->value() ?? '';
+$credit     ??= $contacts?->credit()->value() ?? '';
 $background ??= 'default';
 $id         ??= 'contatti';
 

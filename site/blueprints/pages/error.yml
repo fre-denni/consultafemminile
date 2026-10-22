@@ -3,25 +3,17 @@ icon: alert
 
 # Non estende più pages/default: quel blueprint ha anche un campo
 # "Contenuto" a blocchi che error.php non legge mai — più semplice
-# scrivere qui solo i due campi che questa pagina usa davvero (vedi
-# site/templates/error.php).
-tabs:
+# scrivere qui solo i campi che questa pagina usa davvero (vedi
+# site/templates/error.php). Come nel sito: in alto la descrizione, in
+# fondo il form contatti (globale).
+sections:
   descrizione:
     label: Descrizione pagina
+    type: fields
     fields:
       payoff:
         extends: fields/payoff
       mission:
         extends: fields/mission
-
   contatti:
-    label: Contatti
-    fields:
-      etichetta:
-        extends: fields/contact-etichetta
-      foto:
-        extends: fields/contact-foto
-      fotoAlt:
-        extends: fields/contact-foto-alt
-      credit:
-        extends: fields/contact-credit
+    extends: sections/contatti-globali

@@ -21,7 +21,7 @@ if (!$tematica || $tematica->intendedTemplate()->name() !== 'tematica') return;
   <div class="article-footer__body">
     <?php if ($tematica->description()->isNotEmpty()): ?>
       <div class="article-footer__text">
-        <?= $tematica->description()->kirbytext() ?>
+        <?= $tematica->description() ?>
       </div>
     <?php endif ?>
     <a href="<?= html($tematica->url()) ?>" class="article-footer__cta">

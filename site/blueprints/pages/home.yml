@@ -34,17 +34,8 @@ sections:
         width: 1/3
       descrizioneUnoTesto:
         label: Testo
-        help: Un paragrafo per riga.
-        type: structure
+        extends: fields/rich-text
         width: 2/3
-        fields:
-          text:
-            label: Paragrafo
-            type: textarea
-            size: small
-        columns:
-          text:
-            type: text
 
   descrizioneDue:
     label: Descrizione due
@@ -68,17 +59,8 @@ sections:
         width: 1/3
       descrizioneDueTesto:
         label: Testo
-        help: Un paragrafo per riga.
-        type: structure
+        extends: fields/rich-text
         width: 2/3
-        fields:
-          text:
-            label: Paragrafo
-            type: textarea
-            size: small
-        columns:
-          text:
-            type: text
 
   tematiche:
     label: Tematiche

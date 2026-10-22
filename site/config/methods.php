@@ -10,7 +10,10 @@ return [
    * Uso: $page->description()->truncateWords(35)
    */
   'truncateWords' => function (Field $field, int $count = 35, string $suffix = '…'): string {
-    $text  = trim(strip_tags((string) $field->value()));
+    // Il campo è HTML (editor con paragrafi): uno spazio tra un blocco e
+    // l'altro prima di togliere i tag, altrimenti le parole si incollano.
+    $html  = preg_replace('/<\/(p|li|h[1-6]|blockquote)>|<br\s*\/?>/i', ' ', (string) $field->value());
+    $text  = trim(html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
     $words = preg_split('/\s+/u', $text, -1, PREG_SPLIT_NO_EMPTY);
 
     if ($words === [] || count($words) <= $count) {

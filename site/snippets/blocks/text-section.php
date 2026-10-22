@@ -5,5 +5,4 @@
   'title'    => $block->title()->value(),
   'subtitle' => $block->subtitle()->value(),
   'text'     => $block->text()->value(),
-  'style'    => $block->style()->or('article')->value(),
 ]) ?>

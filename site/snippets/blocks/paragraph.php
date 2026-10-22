@@ -1,17 +1,12 @@
 <?php
 /** @var \Kirby\Cms\Block $block */
 
-// kirbytext() (non ->value()) così una riga vuota dentro un singolo
-// paragrafo del textarea produce comunque due <p> distinti e spaziati
-// (vedi .paragraph__text > * + * in paragraph.css), non un unico blocco
-// di testo con gli a-capo appiattiti dal browser.
-$paragraphs = [];
-foreach ($block->paragraphs()->toStructure() as $row) {
-  $paragraphs[] = $row->text()->kirbytext()->value();
-}
+// Il campo "text" è un writer: salva già HTML con uno o più <p> (e titoli,
+// elenchi...), da stampare così com'è — vedi .paragraph__text > * + * in
+// paragraph.css per la spaziatura tra i blocchi di testo.
+$text = trim((string) $block->text()->value());
 ?>
 <?php snippet('bits/paragraph', [
-  'label'      => $block->label()->value(),
-  'heading'    => $block->heading(),
-  'paragraphs' => $paragraphs,
+  'heading'    => $block->heading()->escape(),
+  'paragraphs' => $text !== '' ? [$text] : [],
 ]) ?>

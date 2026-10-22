@@ -30,7 +30,7 @@ function contactFormMessage(string $code): string
 
 /**
  * Valida un messaggio del form contatti e lo invia via email
- * all'indirizzo del sito (campo "contact_email" di site.yml).
+ * all'indirizzo del sito (campo "contact_email" della pagina Contatti, vedi pages/contatti.yml).
  *
  * @return array{status: int, ok: bool, code: string, message: string}
  */
@@ -71,7 +71,7 @@ function contactFormProcess(App $kirby, array $input, bool $csrfValid): array
     return $result(422, 'dati');
   }
 
-  $to = $kirby->site()->contact_email()->or(CONTACT_FORM_FALLBACK_TO)->value();
+  $to = $kirby->site()->find('chi-siamo/contatti')?->contact_email()->or(CONTACT_FORM_FALLBACK_TO)->value() ?? CONTACT_FORM_FALLBACK_TO;
 
   try {
     $kirby->email([

@@ -1,0 +1,6 @@
+# Come fields/rich-text.yml ma su una riga sola (niente paragrafi, titoli
+# o elenchi): per le frasi brevi che stanno già dentro un <p> (es. la
+# descrizione in corsivo sotto il titolo di un articolo). Stessi segni
+# (grassetto, corsivo, link...).
+type: writer
+inline: true

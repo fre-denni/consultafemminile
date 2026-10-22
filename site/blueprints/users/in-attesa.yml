@@ -1,0 +1,9 @@
+title: In attesa di approvazione
+description: >
+  Account creato dalla pagina di login del Panel (vedi
+  site/plugins/panel-registration): non ha alcun permesso e non può
+  entrare finché un amministratore non gli assegna un altro ruolo da
+  Utenti → modifica ruolo.
+
+# Nessun permesso, nemmeno l'accesso al Panel (come il ruolo "nobody").
+permissions: false

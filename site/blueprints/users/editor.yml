@@ -1,0 +1,47 @@
+title: Editor
+description: >
+  Modifica i contenuti del sito (pagine, articoli, immagini, SEO, impostazioni
+  del sito) ma non gestisce utenti, lingue né il sistema, e non cambia la
+  struttura delle pagine (indirizzi, template, spostamenti, eliminazioni).
+
+permissions:
+  # Aree del Panel: solo contenuti e il proprio account — niente Utenti,
+  # Sistema o Lingue (spariscono dal menu e le loro pagine rispondono "non
+  # hai accesso").
+  access:
+    panel: true
+    site: true
+    account: true
+    users: false
+    system: false
+    languages: false
+
+  # Contenuti: si crea, si modifica, si pubblica, si riordina, si duplica.
+  # Restano all'amministratore le azioni che cambiano la struttura del
+  # sito o non si possono annullare: indirizzo (slug), template, spostare o
+  # eliminare una pagina.
+  pages:
+    changeSlug: false
+    changeTemplate: false
+    move: false
+    delete: false
+
+  # Immagini e file: si caricano, si sostituiscono, si modificano (Alt
+  # compreso) e si eliminano; non si cambia il tipo di file (template).
+  files:
+    changeTemplate: false
+
+  # Impostazioni del sito (payoff, social, SEO predefinita): si modificano,
+  # ma il nome del sito — usato in titoli, SEO e dati strutturati — no.
+  site:
+    changeTitle: false
+
+  # Gli altri account e le lingue sono dell'amministratore.
+  users: false
+  languages: false
+
+  # Il proprio account: nome, lingua, email e password sì; ruolo no, né
+  # eliminarlo.
+  user:
+    changeRole: false
+    delete: false

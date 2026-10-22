@@ -77,10 +77,10 @@ tabs:
             width: 1/2
           immagine:
             label: Immagine
-            help: >
-              La prima immagine caricata qui è la cover della card (vedi
-              bits/output-card) ed è mostrata anche nell'intestazione
-              dell'articolo (vedi bits/article-header).
+            help: |
+              La prima immagine caricata qui è la cover della card (vedi bits/output-card) ed è mostrata anche nell'intestazione dell'articolo (vedi bits/article-header).
+
+              **Dimensioni consigliate: 1600 × 1600 px** (quadrata), oltre non serve. Nello strumento immagini imposta **400 × 400**: il file esce 4 volte più grande. Viene ritagliata in verticale nella card e in orizzontale nell'intestazione: tieni il soggetto al centro.
             type: files
             info: "{{ file.alt.or('⚠ Alt mancante') }}"
             max: 1

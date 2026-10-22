@@ -40,6 +40,7 @@ tabs:
                 fields:
                   foto:
                     label: Foto
+                    help: "**800 × 1330 px** (3:5, verticale), oltre non serve."
                     type: files
                     query: page.images
                     max: 1
@@ -79,10 +80,9 @@ tabs:
           foto:
             label: Foto
             type: files
-            help: >
-              Carica qui le foto, poi assegnale alle singole persone a sinistra.
-              Il testo alternativo (Alt) si genera da solo sul sito ("Foto di
-              profilo di Nome Cognome dell'associazione X"): qui non serve
-              scriverlo.
+            help: |
+              Carica qui le foto, poi assegnale alle singole persone a sinistra. Il testo alternativo (Alt) si genera da solo sul sito ("Foto di profilo di Nome Cognome dell'associazione X"): qui non serve scriverlo.
+
+              **Dimensioni consigliate: 800 × 1330 px** (3:5, verticale), oltre non serve.
   seo:
     extends: tabs/seo

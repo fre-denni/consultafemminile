@@ -106,9 +106,10 @@ tabs:
         maxlength: 160
       seoImage:
         label: Immagine di condivisione predefinita
-        help: >
-          Mostrata quando una pagina senza immagine propria (es. la home)
-          viene condivisa sui social. Consigliata 1200×630.
+        help: |
+          Mostrata quando una pagina senza immagine propria (es. la home) viene condivisa sui social.
+
+          **1200 × 630 px**, oltre non serve. Nello strumento immagini imposta **400 × 210**: il file esce 4 volte più grande (1600 × 840, stesso rapporto) e il sito lo ritaglia a 1200 × 630.
         type: files
         info: "{{ file.alt.or('⚠ Alt mancante') }}"
         max: 1

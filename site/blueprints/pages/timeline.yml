@@ -51,6 +51,7 @@ tabs:
             fields:
               immagini:
                 label: Immagini
+                help: "**1120 × 840 px** (4:3): nello strumento immagini **280 × 210**."
                 type: files
                 info: "{{ file.alt.or('⚠ Alt mancante') }}"
                 query: page.images
@@ -71,6 +72,9 @@ tabs:
         label: Immagini
         type: files
         info: "{{ file.alt.or('⚠ Alt mancante') }}"
-        help: Carica qui le immagini, poi assegnale ai singoli capitoli qui sopra.
+        help: |
+          Carica qui le immagini, poi assegnale ai singoli capitoli qui sopra.
+
+          **Dimensioni consigliate: 1120 × 840 px** (4:3), oltre non serve. Nello strumento immagini imposta **280 × 210**: il file esce 4 volte più grande.
   seo:
     extends: tabs/seo

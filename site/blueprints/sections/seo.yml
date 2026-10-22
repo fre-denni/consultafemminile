@@ -1,0 +1,44 @@
+# Sezione "SEO" in fondo a ogni pagina (vedi site/plugins/seo): come la
+# pagina compare su Google e quando viene condivisa sui social. Tutto
+# facoltativo — se vuoti, titolo, descrizione e immagine si ricavano dal
+# contenuto della pagina (vedi site/plugins/seo/classes/Meta.php).
+label: SEO
+type: fields
+fields:
+  seoHeadline:
+    type: headline
+    label: SEO e condivisione
+  seoTitle:
+    label: Titolo per i motori di ricerca
+    help: >
+      Consigliato fino a 60 caratteri. Il nome del sito viene aggiunto da
+      solo. Se vuoto, si usa il titolo della pagina.
+    type: text
+    maxlength: 70
+    width: 1/2
+  seoImage:
+    label: Immagine di condivisione
+    help: >
+      Mostrata quando la pagina viene condivisa sui social (consigliata
+      1200×630). Se vuota, si usa la copertina della pagina o l'immagine
+      predefinita del sito.
+    type: files
+    info: "{{ file.alt.or('⚠ Alt mancante') }}"
+    query: page.images
+    max: 1
+    width: 1/2
+  seoDescription:
+    label: Descrizione per i motori di ricerca
+    help: >
+      Consigliata tra 120 e 160 caratteri. Se vuota, si ricava dal testo
+      della pagina.
+    type: textarea
+    size: small
+    maxlength: 160
+  seoNoindex:
+    label: Nascondi dai motori di ricerca
+    help: >
+      Attivo: la pagina resta raggiungibile dal link ma non compare su
+      Google né nella sitemap.
+    type: toggle
+    default: false

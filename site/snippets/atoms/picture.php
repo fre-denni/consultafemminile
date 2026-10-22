@@ -4,7 +4,9 @@
  * @var array                $sizes     Larghezze da offrire al browser: valori della scala in
  *   site/plugins/image-derivatives (240, 320, 400, 640, 800, 1024, 1280, 1600, 2000), es. [400, 800, 1024].
  *   Sono già generate al caricamento dell'immagine nel Panel.
- * @var string                $alt       Testo alternativo — vuoto ("") se l'immagine è puramente decorativa
+ * @var string|null          $alt       Testo alternativo. Se non passato (null) si usa il campo Alt
+ *   dell'immagine nel Panel ($image->alt()); passare "" solo se l'immagine è puramente decorativa
+ *   (es. una foto accanto al testo che già la nomina)
  * @var string                $sizesAttr Attributo "sizes" per il browser, es. "(min-width: 768px) 50vw, 100vw"
  * @var string                $class     Classi CSS opzionali sull'<img>
  * @var bool                   $lazy      Di default true (loading="lazy"). Passare false per immagini dentro
@@ -34,7 +36,7 @@
  * componenti, ma non ha più <source>: c'è un solo formato.
  */
 $sizes      ??= [400, 800, 1280, 1600];
-$alt        ??= '';
+$alt        ??= null;
 $sizesAttr  ??= '100vw';
 $class      ??= '';
 $lazy       ??= true;
@@ -43,6 +45,8 @@ $dimensions ??= false;
 $deferred   ??= false;
 
 if (!$image) return;
+
+$alt ??= (string) $image->alt()->value();
 
 $classAttr = $class !== '' ? ' class="' . html($class) . '"' : '';
 

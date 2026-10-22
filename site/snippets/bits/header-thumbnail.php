@@ -12,6 +12,7 @@ $image = $page->file('cover.webp');
     <?php if ($image): ?>
       <?php snippet('atoms/picture', [
         'image'     => $image,
+        'alt'       => '', // decorativa: il nome è nel testo accanto
         'sizes'     => [400, 640],
         'sizesAttr' => '16rem',
         'class'     => 'header-thumbnail__img',

@@ -1,0 +1,16 @@
+/** VISUALLY-HIDDEN — testo letto da screen reader e motori di ricerca ma
+    invisibile a schermo (es. il <h1> delle pagine il cui titolo grande è
+    il payoff del sito, vedi bits/title-page.php). **/
+@layer atoms {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+}

@@ -1,0 +1,62 @@
+Title: “Non è colpa mia”
+
+----
+
+Categoria: Dialogo
+
+----
+
+Autori:
+
+- 
+  nome: Giada Andriolo
+  membro_consulta: 'true'
+  link: ""
+- 
+  nome: Francesca Mosciatti
+  membro_consulta: 'true'
+  link: ""
+
+----
+
+Intro: I luoghi comuni quando si parla di violenza di genere
+
+----
+
+Data: 2025-11-25
+
+----
+
+Immagine: 
+
+----
+
+Text: [{"content":{"text":"<p><em>Il dialogo è stato scritto dalle Avvocate Giada Andriolo e Francesca Mosciatti ed è stato presentato durante un evento presso il Gruppo CAP di Milano in occasione della Giornata internazionale per l’eliminazione della violenza contro le donne del 25 novembre 2025.</em></p><p><strong>Accusa</strong><br>La tua colpa è come eri vestita</p><p><strong>Diritto/donna</strong><br>Il mio corpo non è un invito. La libertà non si misura in centimetri di tessuto, ma in dignità.</p><p><strong>Accusa</strong><br>La tua colpa è aver preteso di lavorare. Una madre deve stare a casa.</p><p><strong>Diritto/donna</strong><br>Io non pretendo, io esercito un diritto. La nostra carta costituzionale riconosce pari opportunità, pari retribuzione.</p><p><strong>Accusa</strong><br>La tua colpa è di essere troppo emotiva.</p><p><strong>Diritto/donna</strong><br>L’empatia non è debolezza: è intelligenza del cuore</p><p><strong>Accusa</strong><br>La tua colpa è di aver provocato. “lui ha perso la testa”.</p><p><strong>Diritto/donna</strong><br>No. Non è perdita di controllo: è dominio. La convenzione di Istanbul ci insegna l’importanza di dare un nome a tali condotte: si chiamano violenza.<br>E comunque, non serve capire il perché “lui ha perso la testa “, serve ricordare perché lei ha perso la vita.</p><p><strong>Accusa</strong><br>La tua colpa è di aver denunciato. Hai rovinato la sua reputazione.</p><p><strong>Diritto/donna</strong><br>Chi denuncia esercita un diritto. Il silenzio pesa come una sentenza non scritta.</p><p><strong>Accusa</strong><br>La tua colpa è voler essere libera.</p><p><strong>Diritto/donna</strong><br>La libertà non è un capriccio: è uno dei pilastri di uno stato di diritto.</p><p><strong>Accusa</strong><br>La tua colpa è che non sembri davvero traumatizzata.</p><p><strong>Diritto/donna</strong><br>Il trauma non ha un solo volto. Ogni vittima reagisce a modo proprio.</p><p><strong>Accusa</strong><br>La tua colpa è che non hai gridato.</p><p><strong>Diritto/donna</strong><br>La paura atterrisce. Il corpo si blocca, si dissocia. L’assenza di un grido non cancella la violenza.</p><p><strong>Accusa</strong><br>La tua colpa è aver di denunciato troppo tardi.</p><p><strong>Diritto/donna</strong><br>Le donne denunciano quando possono, non quando vogliono. Il trauma necessita tempo di elaborazione.</p><p><strong>Accusa</strong><br>La tua colpa è non aver protetto i tuoi figli.</p><p><strong>Diritto/donna</strong><br>La colpa non è della vittima. La vittimizzazione secondaria è essa stessa una violenza.</p><p><strong>Accusa</strong><br>La tua colpa è non essere stata una compagna perfetta.</p><p><strong>Diritto/donna</strong><br>Nessuna imperfezione giustifica il controllo, il possesso o la paura.</p><p><strong>Accusa</strong><br>La tua colpa è che ci sono contraddizioni nel tuo racconto.</p><p><strong>Diritto/donna</strong><br>Il trauma spezza la memoria, non la verità.</p><p><strong>Accusa</strong><br>La tua colpa è aver continuato a vivere, a lavorare, a sorridere.</p><p><strong>Diritto/donna</strong><br>La forza non cancella la violenza: la supera. La resilienza non è una prova contro la vittima.</p><p><strong>Accusa</strong><br>La tua colpa è che lui ti amava troppo. Era geloso perché ti teneva.</p><p><strong>Diritto/donna</strong><br>La gelosia non è amore. È controllo. È dominio dove l’amore non abita più.</p><p><strong>Finale</strong><br>Non è colpa mia se lavoro, se sogno, se amo, se dico no.<br>Non è colpa mia se vivo fuori dallo stereotipo.<br>I diritti delle donne sono diritti umani.<br>I diritti umani sono diritti delle donne.<br>Il contrario della violenza non è solo la pace.<br>È la parità.<br>È la parola che rompe il silenzio.<br>È la legge che diventa umanità.</p>"},"id":"714ab757-387d-42f3-906f-1f0d86c3ff6e","isHidden":false,"type":"text"}]
+
+----
+
+Correlati-auto: true
+
+----
+
+Correlati-extra: 
+
+----
+
+Seotitle: 
+
+----
+
+Seoimage: 
+
+----
+
+Seodescription: 
+
+----
+
+Seonoindex: false
+
+----
+
+Uuid: b8tffyh7dl4eo1iy

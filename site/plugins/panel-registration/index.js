@@ -5,7 +5,8 @@
  * componente prende il posto del form di login e lo riusa così com'è
  * (<k-login-form>), aggiungendo sotto un link che apre il modulo di
  * richiesta. L'account nasce senza permessi e lo approva un amministratore
- * (vedi index.php e classes/Registration.php). Niente build: JS semplice.
+ * (vedi index.php e classes/Registration.php). Niente build: JS semplice, con
+ * una funzione render (il Panel non ha il compilatore di template Vue).
  */
 (() => {
   const TEXT = {
@@ -104,36 +105,94 @@
           }
         },
       },
-      template: `
-        <div class="consulta-login">
-          <k-login-alert v-if="error" @click.native="error = ''">{{ error }}</k-login-alert>
+      // Funzione render e non `template:`: il Panel gira senza compilatore
+      // Vue (config.php, panel.vue.compiler = false), quindi i template in
+      // stringa non verrebbero compilati.
+      render(h) {
+        const t = this.t;
+        const children = [];
 
-          <template v-if="mode === 'login'">
-            <k-login-form :methods="methods" :value="value" @error="$emit('error', $event)" />
-            <p v-if="open" class="consulta-login__switch">
-              <k-button :text="t.toggle" variant="dimmed" size="sm" @click="show('register')" />
-            </p>
-          </template>
+        if (this.error) {
+          children.push(
+            h("k-login-alert", { nativeOn: { click: () => (this.error = "") } }, this.error)
+          );
+        }
 
-          <form v-else-if="mode === 'register'" class="k-login-form" @submit.prevent="send">
-            <div class="k-login-fields">
-              <k-fieldset :fields="fields" :value="form" @input="form = $event" />
-              <input v-model="website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="consulta-login__trap">
-            </div>
-            <footer class="k-login-buttons">
-              <k-button class="k-login-button k-login-back-button" :text="t.back" icon="angle-left" size="lg" variant="filled" @click="show('login')" />
-              <k-button class="k-login-button" :text="t.send" icon="check" size="lg" theme="positive" type="submit" variant="filled" :disabled="busy" />
-            </footer>
-          </form>
+        if (this.mode === "login") {
+          children.push(
+            h("k-login-form", {
+              attrs: { methods: this.methods, value: this.value },
+              on: { error: (e) => this.$emit("error", e) },
+            })
+          );
 
-          <div v-else class="k-login-form">
-            <p class="consulta-login__done">{{ t.done }}</p>
-            <footer class="k-login-buttons">
-              <k-button class="k-login-button" :text="t.back" icon="angle-left" size="lg" variant="filled" @click="show('login')" />
-            </footer>
-          </div>
-        </div>
-      `,
+          if (this.open) {
+            children.push(
+              h("p", { class: "consulta-login__switch" }, [
+                h("k-button", {
+                  attrs: { text: t.toggle, variant: "dimmed", size: "sm" },
+                  on: { click: () => this.show("register") },
+                }),
+              ])
+            );
+          }
+        } else if (this.mode === "register") {
+          children.push(
+            h(
+              "form",
+              {
+                class: "k-login-form",
+                on: {
+                  submit: (e) => {
+                    e.preventDefault();
+                    this.send();
+                  },
+                },
+              },
+              [
+                h("div", { class: "k-login-fields" }, [
+                  h("k-fieldset", {
+                    attrs: { fields: this.fields, value: this.form },
+                    on: { input: (value) => (this.form = value) },
+                  }),
+                  h("input", {
+                    class: "consulta-login__trap",
+                    attrs: { type: "text", name: "website", tabindex: "-1", autocomplete: "off", "aria-hidden": "true" },
+                    domProps: { value: this.website },
+                    on: { input: (e) => (this.website = e.target.value) },
+                  }),
+                ]),
+                h("footer", { class: "k-login-buttons" }, [
+                  h("k-button", {
+                    class: "k-login-button k-login-back-button",
+                    attrs: { text: t.back, icon: "angle-left", size: "lg", variant: "filled" },
+                    on: { click: () => this.show("login") },
+                  }),
+                  h("k-button", {
+                    class: "k-login-button",
+                    attrs: { text: t.send, icon: "check", size: "lg", theme: "positive", type: "submit", variant: "filled", disabled: this.busy },
+                  }),
+                ]),
+              ]
+            )
+          );
+        } else {
+          children.push(
+            h("div", { class: "k-login-form" }, [
+              h("p", { class: "consulta-login__done" }, t.done),
+              h("footer", { class: "k-login-buttons" }, [
+                h("k-button", {
+                  class: "k-login-button",
+                  attrs: { text: t.back, icon: "angle-left", size: "lg", variant: "filled" },
+                  on: { click: () => this.show("login") },
+                }),
+              ]),
+            ])
+          );
+        }
+
+        return h("div", { class: "consulta-login" }, children);
+      },
     },
   });
 })();

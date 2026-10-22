@@ -38,6 +38,10 @@ Icon
 # ---------------
 .htpasswd
 
+# Segreti dell'installazione (salt, chiave cookie): uno per server
+# ---------------
+/site/config/secrets.php
+
 # Cache Files
 # ---------------
 

@@ -26,11 +26,19 @@ $email = trim((string) $person->email());
 // basta un text-transform CSS per ottenerlo.
 $association = trim((string) $person->associazione());
 $association = $association !== '' ? mb_convert_case($association, MB_CASE_TITLE, 'UTF-8') : '';
+
+// Alt programmatico (le foto delle persone non hanno un Alt scritto a mano:
+// il Panel non lo chiede per la pagina "Le Persone", vedi
+// site/plugins/image-alt): "Foto di profilo di Nome Cognome dell'associazione X".
+$associationRaw = trim((string) $person->associazione());
+$alt = 'Foto di profilo di ' . $name
+  . ($associationRaw !== '' ? ' dell\'associazione ' . $associationRaw : '');
 ?>
 <article class="person-card">
   <div class="person-card__media">
     <?php snippet('atoms/picture', [
       'image'     => $image,
+      'alt'       => $alt,
       'sizes'     => [400, 640, 800],
       'sizesAttr' => '(min-width: 768px) 20vw, 45vw',
       'class'     => 'person-card__img',

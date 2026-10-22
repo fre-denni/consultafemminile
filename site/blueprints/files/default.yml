@@ -10,3 +10,18 @@ create:
   width: 2400
   height: 2400
   quality: 82
+
+# Testo alternativo: per chi non vede l'immagine (screen reader) e per i
+# motori di ricerca. Obbligatorio: il Panel non permette di salvare il file
+# senza, e le pagine non si salvano se contengono immagini nuove senza Alt
+# (vedi site/plugins/image-alt). Per un PDF scrivi il titolo del documento.
+fields:
+  alt:
+    label: Testo alternativo (Alt)
+    help: >
+      Descrivi in una frase cosa mostra l'immagine (es. "Due donne
+      parlano sul palco durante il convegno"), senza scrivere "immagine
+      di". Per un PDF, il titolo del documento.
+    type: text
+    required: true
+    maxlength: 200

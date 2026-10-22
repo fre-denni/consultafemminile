@@ -15,6 +15,10 @@ use Kirby\Exception\InvalidArgumentException;
  * della pagina (o del sito) che contiene immagini nuove senza Alt, con un
  * messaggio che elenca quali sono.
  *
+ * Eccezione: le pagine con template in 'consulta.alt.exempt' (default:
+ * "persone") non bloccano nulla, perché il loro Alt si genera da codice
+ * (vedi bits/person-card.php: "Foto di profilo di Nome Cognome ...").
+ *
  * "Nuove" = caricate (o sostituite) dopo la data 'consulta.alt.since'
  * (config.php, default sotto): le immagini già presenti prima non bloccano
  * nulla, si completano quando serve — nelle liste del Panel sono segnate
@@ -39,6 +43,13 @@ if (!function_exists('imageAltMissing')) {
 }
 
 $assertAlt = function (ModelWithContent $model): void {
+  if (
+    $model instanceof Page &&
+    in_array($model->intendedTemplate()->name(), (array) option('consulta.alt.exempt', ['persone']), true)
+  ) {
+    return;
+  }
+
   $missing = imageAltMissing($model);
 
   if ($missing === []) {

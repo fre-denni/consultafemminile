@@ -79,6 +79,7 @@ sections:
           bits/output-card) ed è mostrata anche nell'intestazione
           dell'articolo (vedi bits/article-header).
         type: files
+        info: "{{ file.alt.or('⚠ Alt mancante') }}"
         max: 1
         width: 1/2
 
@@ -127,3 +128,6 @@ sections:
         multiple: true
         query: site.index.filterBy('intendedTemplate', 'output').not(page)
         info: "{{ page.parent.title }}"
+
+  seo:
+    extends: sections/seo

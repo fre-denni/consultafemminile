@@ -49,6 +49,7 @@ sections:
           immagini:
             label: Immagini
             type: files
+            info: "{{ file.alt.or('⚠ Alt mancante') }}"
             query: page.images
             max: 7
           anno:
@@ -66,4 +67,8 @@ sections:
   immagini:
     label: Immagini
     type: files
+    info: "{{ file.alt.or('⚠ Alt mancante') }}"
     help: Carica qui le immagini, poi assegnale ai singoli capitoli qui sopra.
+
+  seo:
+    extends: sections/seo

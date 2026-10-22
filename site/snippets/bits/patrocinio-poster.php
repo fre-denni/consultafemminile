@@ -15,7 +15,7 @@
 >
   <?php snippet('atoms/picture', [
     'image'     => $image,
-    'alt'       => $image->name(),
+    'alt'       => $image->alt()->or($image->name())->value(),
     'sizes'     => [400, 640, 800],
     'sizesAttr' => '(min-width: 768px) 20vw, 60vw',
     'class'     => 'patrocinio-carousel__img',

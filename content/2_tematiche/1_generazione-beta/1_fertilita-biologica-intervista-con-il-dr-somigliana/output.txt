@@ -31,7 +31,7 @@ Immagine: - file://l30zm5nnbada2m3y
 
 ----
 
-Text: 
+Text: [{"content":{"text":"<p>Prov</p>"},"id":"6c766eec-a70d-4f5a-8bb4-07ea679bf0cc","isHidden":false,"type":"text"}]
 
 ----
 

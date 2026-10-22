@@ -11,6 +11,7 @@ sections:
       usata in cima a questa pagina (vedi bits/tema-hero) e
       nell'accordion della pagina "Tematiche".
     type: files
+    info: "{{ file.alt.or('⚠ Alt mancante') }}"
   testo:
     label: Testo
     type: fields
@@ -38,3 +39,6 @@ sections:
       l'immagine e scrivi il contenuto nella pagina di ognuna.
     type: pages
     template: output
+
+  seo:
+    extends: sections/seo

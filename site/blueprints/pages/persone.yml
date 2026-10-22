@@ -70,10 +70,16 @@ columns:
                 type: email
       contatti:
         extends: sections/contatti-globali
+      seo:
+        extends: sections/seo
   sidebar:
     width: 1/3
     sections:
       foto:
         label: Foto
         type: files
-        help: Carica qui le foto, poi assegnale alle singole persone a sinistra.
+        help: >
+          Carica qui le foto, poi assegnale alle singole persone a sinistra.
+          Il testo alternativo (Alt) si genera da solo sul sito ("Foto di
+          profilo di Nome Cognome dell'associazione X"): qui non serve
+          scriverlo.

@@ -18,3 +18,7 @@ sections:
       fondo alla pagina (vedi bits/patrocinio-carousel) — tutte quelle
       caricate qui compaiono lì, nell'ordine in cui sono elencate.
     type: files
+    info: "{{ file.alt.or('⚠ Alt mancante') }}"
+
+  seo:
+    extends: sections/seo

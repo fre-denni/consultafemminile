@@ -69,3 +69,6 @@ sections:
 
   contatti:
     extends: sections/contatti-globali
+
+  seo:
+    extends: sections/seo

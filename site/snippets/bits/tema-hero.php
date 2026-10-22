@@ -13,7 +13,6 @@ if (!$image) return;
 <section class="tema-hero">
   <?php snippet('atoms/picture', [
     'image'     => $image,
-    'alt'       => '',
     'sizes'     => [800, 1280, 1600, 2000],
     'sizesAttr' => '100vw',
     'class'     => 'tema-hero__img',

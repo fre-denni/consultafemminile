@@ -87,7 +87,6 @@ $shareUrl = $page->url();
     <div class="article-header__media">
       <?php snippet('atoms/picture', [
         'image'     => $image,
-        'alt'       => '',
         'sizes'     => [640, 800, 1280, 1600],
         'sizesAttr' => '(min-width: 1024px) 45vw, 100vw',
         'class'     => 'article-header__img',

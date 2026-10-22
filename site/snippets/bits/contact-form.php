@@ -25,7 +25,7 @@
 $contacts   = $site->find('chi-siamo/contatti');
 $label      ??= $contacts?->etichetta()->or('Contattaci')->value() ?? 'Contattaci';
 $image      ??= $contacts?->foto()->toFile();
-$alt        ??= $contacts?->fotoAlt()->value() ?? '';
+$alt        ??= $contacts?->fotoAlt()->or($image?->alt())->value() ?? '';
 $credit     ??= $contacts?->credit()->value() ?? '';
 $background ??= 'default';
 $id         ??= 'contatti';

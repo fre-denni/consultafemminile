@@ -23,6 +23,8 @@ columns:
               - text
       contatti:
         extends: sections/contatti-globali
+      seo:
+        extends: sections/seo
   sidebar:
     width: 1/3
     sections:

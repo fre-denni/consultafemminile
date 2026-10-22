@@ -84,7 +84,6 @@ $background     ??= 'default';
                     <li class="accordion__media-item">
                       <?php snippet('atoms/picture', [
                         'image'     => $image,
-                        'alt'       => '',
                         'sizes'     => [400, 800, 1024],
                         'sizesAttr' => $imageSizesAttr,
                         'class'     => 'accordion__img',

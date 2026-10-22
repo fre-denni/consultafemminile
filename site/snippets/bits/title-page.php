@@ -7,6 +7,10 @@
  *   — non aggiunge nulla finché non lo si chiede esplicitamente.
  *
  * Header di apertura pagina: titolo grande, separatore in basso opzionale.
+ * Il titolo grande è quasi sempre il payoff del sito (uguale su più pagine),
+ * quindi non è il <h1> giusto per i motori di ricerca: l'<h1> è il titolo
+ * della pagina, nascosto a schermo ma presente (vedi atoms/visually-hidden.css).
+ * Con $headingTag = 'h1' il titolo grande diventa invece l'<h1> visibile.
  *
  * Slot "text": permette di sostituire il testo esplicativo con markup
  * personalizzato quando il componente è usato fuori dal block editor,
@@ -16,6 +20,7 @@
  *   <?php endsnippet() ?>
  */
 $text         ??= null;
+$headingTag   ??= 'p';
 $borderBottom ??= false;
 
 // Un Field Kirby è sempre "truthy" come oggetto anche se vuoto: va
@@ -25,7 +30,10 @@ $hasText  = $textSlot !== null
   || ($text instanceof \Kirby\Content\Field ? $text->isNotEmpty() : !empty($text));
 ?>
 <header class="title-page block-full<?= $borderBottom ? ' title-page--divider' : '' ?>">
-  <p class="title-page__heading"><?= $heading ?></p>
+  <?php if ($headingTag !== 'h1'): ?>
+    <h1 class="visually-hidden"><?= html($page->title()) ?></h1>
+  <?php endif ?>
+  <<?= $headingTag ?> class="title-page__heading"><?= $heading ?></<?= $headingTag ?>>
   <?php if ($hasText): ?>
     <div class="title-page__text"><?= $textSlot ?? $text ?></div>
   <?php endif ?>

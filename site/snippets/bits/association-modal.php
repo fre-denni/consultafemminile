@@ -51,7 +51,6 @@ $modalId = 'association-' . $association->id();
     <div class="association-modal__hero">
       <?php snippet('atoms/picture', [
         'image'     => $foto,
-        'alt'       => '',
         'sizes'     => [640, 1024, 1280],
         'sizesAttr' => '(min-width: 768px) 60vw, 100vw',
         'class'     => 'association-modal__hero-img',

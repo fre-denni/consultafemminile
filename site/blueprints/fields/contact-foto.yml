@@ -3,5 +3,6 @@ help: >
   Facoltativa. Carica la foto nella sezione "File" a fianco, poi
   selezionala qui (vedi bits/contact-form). Non compare su mobile.
 type: files
+info: "{{ file.alt.or('⚠ Alt mancante') }}"
 query: page.images
 multiple: false

@@ -19,3 +19,6 @@ sections:
       nell'accordion qui sotto (vedi bits/chapter-accordion).
     type: pages
     template: tematica
+
+  seo:
+    extends: sections/seo

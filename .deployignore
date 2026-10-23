@@ -10,3 +10,4 @@ site/sessions/
 site/config/.license
 media/
 .htpasswd
+docs/

@@ -12,7 +12,7 @@ tabs:
         help: |
           La prima immagine caricata qui è la copertina della tematica: usata in cima a questa pagina (vedi bits/tema-hero) e nell'accordion della pagina "Tematiche".
 
-          **Copertina: 2000 × 1250 px** (16:10), oltre non serve. Nello strumento immagini imposta **500 × 310**: il file esce 4 volte più grande. Viene ritagliata a seconda dello schermo e dell'uso (cima alla pagina, card della home, menu): tieni il soggetto al centro.
+          **Copertina: 2000 × 1250 px** (16:10), oltre non serve. **Il file deve chiamarsi `cover.webp`** (dopo il caricamento: ⋯ → Rinomina): con un altro nome la tematica non compare nella home, nel menu e nell'elenco. Nello strumento immagini imposta **500 × 310**: il file esce 4 volte più grande. Viene ritagliata a seconda dello schermo e dell'uso (cima alla pagina, card della home, menu): tieni il soggetto al centro.
 
           **Altre immagini: 1120 × 840 px** (4:3), nello strumento **280 × 210**: compaiono nel carosello della pagina "Tematiche".
         type: files

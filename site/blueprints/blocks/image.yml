@@ -14,9 +14,7 @@ fields:
       kirby: "{{ t('field.blocks.image.location.internal') }}"
       web: "{{ t('field.blocks.image.location.external') }}"
   image:
-    label: field.blocks.image.name
-    help: |
-      **Larghezza consigliata: 1600 px**, oltre non serve (nell'articolo la colonna del testo è larga ~740 px; il rapporto si sceglie più sotto). Nello strumento immagini imposta larghezza **400** (es. 400 × 270 per un 3:2): il file esce 4 volte più grande.
+    label: field.blocks.image.name.
     type: files
     info: "{{ file.alt.or('⚠ Alt mancante') }}"
     query: model.images

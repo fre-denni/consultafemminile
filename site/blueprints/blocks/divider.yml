@@ -11,11 +11,11 @@ fields:
     default: chapter
     options:
       - value: chapter
-        text: Capitolo
+        text: Divisore Doppio
       - value: section
-        text: Sezione
+        text: Divisore Alto
       - value: banner
-        text: Banner
+        text: Divisore Blu
   heading:
     label: Testo
     type: text

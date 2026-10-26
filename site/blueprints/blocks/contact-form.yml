@@ -6,10 +6,6 @@ fields:
   info:
     type: info
     label: Dati del form
-    text: >
-      Etichetta, foto, credito ed email di destinazione sono globali: si
-      modificano una sola volta nella pagina Contatti (Chi siamo →
-      Contatti) e valgono per tutti i form del sito.
   background:
     extends: fields/background
     default: tinted

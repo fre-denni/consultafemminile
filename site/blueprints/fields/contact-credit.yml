@@ -1,7 +1,7 @@
 label: Didascalia della foto (diritti/credito)
 help: >
-  Mostrata sotto la foto — es. "Foto di Nome su Unsplash", con i link
-  se servono.
+  Aggiungi sempre il credito di chi ha fatto la foto,
+  anche se gratuita
 type: writer
 inline: true
 marks:

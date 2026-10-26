@@ -3,10 +3,6 @@
 # testo alternativo, credito) non si ripetono qui, si gestiscono una volta
 # sola là (vedi bits/contact-form.php).
 label: Form contatti
-help: >
-  Il form in fondo alla pagina è uguale in tutto il sito: etichetta,
-  foto, credito ed email di destinazione si modificano nella pagina
-  collegata qui sotto.
 type: pages
 query: site.index.filterBy('id', 'chi-siamo/contatti')
 createable: false

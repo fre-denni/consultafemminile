@@ -13,11 +13,6 @@ tabs:
             fields:
               text:
                 label: Contenuto
-                help: >
-                  Ogni "Articolo" ha titolo (es. "Art.1"), sottotitolo
-                  facoltativo e testo; i "Divisori" in stile banner separano
-                  Statuto e Regolamento. Per aggiungere un articolo duplica
-                  uno esistente e cambia titolo, sottotitolo e testo.
                 type: blocks
                 fieldsets:
                   - text-section

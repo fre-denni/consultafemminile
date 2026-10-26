@@ -15,10 +15,7 @@ tabs:
                 label: Associazioni
                 help: >
                   Ogni riga è un'associazione: carica prima logo e foto nella
-                  sezione "File" qui a fianco, poi selezionali qui. Per ora è
-                  il logo l'unico dato già mostrato sul sito (lo showreel in
-                  home) — gli altri campi sono pronti per quando costruiremo
-                  la pagina "Le Associazioni".
+                  sezione "File" qui a fianco, poi selezionali qui.
                 type: structure
                 columns:
                   logo:
@@ -34,7 +31,6 @@ tabs:
                 fields:
                   logo:
                     label: Logo
-                    help: "**320 px di larghezza** (meglio SVG, sfondo trasparente), oltre non serve."
                     type: files
                     info: "{{ file.alt.or('⚠ Alt mancante') }}"
                     query: page.images
@@ -45,14 +41,12 @@ tabs:
                     required: true
                   nome_breve:
                     label: Nome breve
-                    help: Usato dove lo spazio è poco (es. badge nelle card delle persone).
                     type: text
                   sito_web:
                     label: Sito web
                     type: url
                   foto:
                     label: Foto significativa
-                    help: "**1280 × 400 px** (3,2:1, panoramica): nello strumento immagini **640 × 200**."
                     type: files
                     info: "{{ file.alt.or('⚠ Alt mancante') }}"
                     query: page.images
@@ -63,8 +57,7 @@ tabs:
                   delegate:
                     label: Delegate collegate
                     help: >
-                      Le persone di site/blueprints/pages/persone.yml che fanno
-                      parte di questa associazione — l'elenco si aggiorna da
+                      Le persone dell'associazione — l'elenco si aggiorna da
                       solo, non serve toccarlo quando cambiano le persone.
                     type: multiselect
                     options:
@@ -83,9 +76,7 @@ tabs:
             info: "{{ file.alt.or('⚠ Alt mancante') }}"
             help: |
               Carica qui loghi e foto, poi assegnali alle singole associazioni a sinistra.
-
               **Logo: 320 px di larghezza** (meglio SVG, sfondo trasparente), oltre non serve: sul sito è alto al massimo ~90 px.
-
               **Foto significativa: 1280 × 400 px** (3,2:1, panoramica), oltre non serve: è il banner della finestra di dettaglio. Nello strumento immagini imposta **640 × 200** (200 è il minimo dell'altezza): il file esce 4 volte più grande (2560 × 800) e il sito lo riduce da solo.
   seo:
     extends: tabs/seo

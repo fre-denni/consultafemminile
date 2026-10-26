@@ -9,8 +9,7 @@ tabs:
         label: Video
         help: >
           Il video a schermo intero in cima alla pagina, con il titolo "La
-          Consulta Femminile di Milano dal 1963" sopra (vedi bits/hero-video).
-          Un solo file.
+          Consulta Femminile di Milano dal 1963".
         type: files
         template: video
         max: 1
@@ -23,7 +22,6 @@ tabs:
             extends: fields/background
           descrizioneUnoLabel:
             label: Etichetta
-            help: Testo piccolo sopra il titolo (facoltativo).
             type: text
             placeholder: "es. Chi siamo"
             width: 1/3
@@ -48,7 +46,6 @@ tabs:
             extends: fields/background
           descrizioneDueLabel:
             label: Etichetta
-            help: Testo piccolo sopra il titolo (facoltativo).
             type: text
             placeholder: "es. La nostra missione"
             width: 1/3
@@ -81,9 +78,6 @@ tabs:
             default: tinted
       tematichePagina:
         label: Pagina collegata
-        help: >
-          Il carosello mostra automaticamente le pagine pubblicate qui sotto
-          (fino a 8, quelle con una copertina).
         type: pages
         query: site.index.filterBy('id', 'tematiche')
         createable: false

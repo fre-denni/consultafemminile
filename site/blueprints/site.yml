@@ -18,17 +18,11 @@ tabs:
         label: Pagine di navigazione
         help: >
           Pagine principali: trascinale per cambiare l'ordine di
-          apparizione nella barra superiore di navigazione. La Home sta
-          in cima ma non compare nel menu (il logo porta già lì).
+          apparizione nella barra superiore di navigazione.
         type: pages
         status: listed
       paginaStoria:
-        label: Sottopagina di Chi siamo
-        help: >
-          "La nostra storia" compare nel menu principale pur essendo una
-          sottopagina di Chi siamo, per questo è mostrata qui. Non è
-          trascinabile: Kirby disattiva l'ordinamento in un elenco che
-          mescola pagine di livelli diversi.
+        label: La nostra storia
         type: pages
         query: site.index.filterBy('id', 'chi-siamo/timeline')
         createable: false

@@ -5,12 +5,10 @@ wysiwyg: true
 fields:
   title:
     label: Titolo
-    help: Prima riga, in evidenza. Es. "Art.1".
     type: text
     required: true
   subtitle:
     label: Sottotitolo
-    help: Seconda riga, facoltativa. Es. "Denominazione sede".
     type: text
   text:
     extends: fields/rich-text

@@ -7,11 +7,6 @@ preview: fields
 fields:
   url:
     label: Link del video
-    help: >
-      Incolla il link di un video su **YouTube** o **Vimeo** (quello della barra
-      degli indirizzi o del pulsante "Condividi"). Sul sito viene mostrato con
-      l'incorporamento "senza cookie" dei due servizi, e parte solo quando chi
-      legge preme "Riproduci".
     type: url
     placeholder: https://www.youtube.com/watch?v=…
     required: true

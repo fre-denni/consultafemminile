@@ -17,9 +17,6 @@ tabs:
             extends: fields/mission
       tematiche:
         label: Tematiche
-        help: >
-          Ogni sottopagina è una tematica, mostrata come capitolo
-          nell'accordion qui sotto (vedi bits/chapter-accordion).
         type: pages
         template: tematica
   seo:

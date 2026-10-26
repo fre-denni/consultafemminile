@@ -19,7 +19,7 @@ tabs:
         fields:
           categoria:
             label: Tipologia
-            help: Mostrata sopra il titolo (vedi bits/article-header).
+            help: Utile per SEO e filtraggio
             type: select
             width: 1/2
             options:
@@ -34,10 +34,9 @@ tabs:
           autori:
             label: Autore/i
             help: >
-              Un autore per riga, mostrati come "Di ..." nell'intestazione
-              dell'articolo (vedi bits/article-header). Se è un membro
-              della Consulta il nome porta automaticamente alla pagina
-              "Le Persone"; altrimenti puoi aggiungere un link esterno
+              Un autore per riga. Se è un membro della Consulta il nome
+              porta automaticamente alla pagina "Le Persone"; 
+              altrimenti puoi aggiungere un link esterno
               facoltativo (es. il sito o il profilo della persona).
             type: structure
             width: 1/2
@@ -58,18 +57,16 @@ tabs:
                 default: true
               link:
                 label: Link esterno
-                help: Solo se non è un membro della Consulta.
+                help: Per chi non è membro.
                 type: url
                 when:
                   membro_consulta: false
           intro:
             label: Descrizione
-            help: Testo breve in corsivo sotto il titolo (vedi bits/article-header).
             extends: fields/rich-text-inline
             width: 1/2
           data:
             label: Data
-            help: Mostrata nell'intestazione dell'articolo (vedi bits/article-header).
             type: date
             width: 1/2
           immagineGap:
@@ -78,9 +75,7 @@ tabs:
           immagine:
             label: Immagine
             help: |
-              La prima immagine caricata qui è la cover della card (vedi bits/output-card) ed è mostrata anche nell'intestazione dell'articolo (vedi bits/article-header).
-
-              **Dimensioni consigliate: 1600 × 1600 px** (quadrata), oltre non serve. Nello strumento immagini imposta **400 × 400**: il file esce 4 volte più grande. Viene ritagliata in verticale nella card e in orizzontale nell'intestazione: tieni il soggetto al centro.
+              Inserisci un immagine significativa o falla generare dal tool.
             type: files
             info: "{{ file.alt.or('⚠ Alt mancante') }}"
             max: 1
@@ -92,12 +87,6 @@ tabs:
         fields:
           text:
             label: Testo
-            help: >
-              Il corpo dell'articolo, mostrato quando si apre questa pagina
-              dalla card (vedi bits/output-card). Tre tipi di blocco:
-              "Testo" (titoli, elenchi, citazioni, grassetto e corsivo si
-              fanno dalla sua barra degli strumenti), "Immagine" (con
-              didascalia) e "Video" (link YouTube o Vimeo).
             type: blocks
             fieldsets:
               - text
@@ -113,10 +102,8 @@ tabs:
           correlati_auto:
             label: Output della stessa tematica
             help: >
-              Di default il carosello "Correlati" in fondo all'articolo
-              mostra gli altri output della sua tematica (vedi
-              bits/related-outputs). Spegni per mostrare solo quelli scelti
-              qui sotto.
+              Di default il carosello mostra tutti gli altri output.
+              Spegnere per un controllo più granulare
             type: toggle
             default: true
             text:

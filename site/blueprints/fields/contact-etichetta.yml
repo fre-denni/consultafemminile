@@ -1,4 +1,3 @@
 label: Etichetta del form contatti
-help: Testo a sinistra del riquadro in fondo alla pagina (vedi bits/contact-form).
 type: text
 default: Contattaci

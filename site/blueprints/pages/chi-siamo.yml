@@ -38,9 +38,7 @@ tabs:
       storia:
         label: La nostra storia
         help: >
-          Introduzione e capitoli si gestiscono nella pagina collegata qui
-          sotto (vedi bits/timeline-section) — qui compaiono così come
-          sono, senza altre impostazioni.
+          Gestiti nella pagina "Chi siamo"
         type: pages
         query: site.index.filterBy('id', 'chi-siamo/timeline')
         createable: false
@@ -51,8 +49,7 @@ tabs:
         label: Consiglio
         help: >
           Il carosello mostra automaticamente le persone con il flag
-          "Consigliera" attivo (vedi bits/people-carousel) — gestiscile
-          nella pagina collegata qui sotto.
+          "Consigliera" attivo — gestiscile nella pagina collegata qui sotto.
         type: pages
         query: site.index.filterBy('id', 'chi-siamo/persone')
         createable: false
@@ -63,7 +60,7 @@ tabs:
         label: Associazioni
         help: >
           La griglia mostra automaticamente le associazioni elencate nella
-          pagina collegata qui sotto (vedi bits/associazioni-grid).
+          pagina collegata qui sotto.
         type: pages
         query: site.index.filterBy('id', 'chi-siamo/associazioni')
         createable: false

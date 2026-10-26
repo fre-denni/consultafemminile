@@ -30,7 +30,6 @@ tabs:
         label: Foto
         help: |
           Carica qui la foto, poi selezionala nel campo "Foto del form contatti".
-
           **Dimensioni consigliate: 800 × 800 px** (quadrata), oltre non serve. Nello strumento immagini imposta **200 × 200**: il file esce 4 volte più grande. Viene ritagliata a seconda dell'altezza del form.
         type: files
         info: "{{ file.alt.or('⚠ Alt mancante') }}"

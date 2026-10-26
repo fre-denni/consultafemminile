@@ -18,10 +18,6 @@ create:
 fields:
   alt:
     label: Testo alternativo (Alt)
-    help: >
-      Descrivi in una frase cosa mostra l'immagine (es. "Due donne
-      parlano sul palco durante il convegno"), senza scrivere "immagine
-      di". Per un PDF, il titolo del documento.
     type: text
     required: true
     maxlength: 200

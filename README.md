@@ -14,16 +14,14 @@ Node, npm né compilatori.
 
 ## Cosa c'è nel sito
 
-| Pagina | A cosa serve |
-|---|---|
-| **Home** | Video di apertura, due testi di presentazione, carosello delle tematiche, locandine del patrocinio, consiglio, loghi delle associazioni |
-| **Tematiche** | Elenco delle tematiche come capitoli espandibili; ogni tematica ha la sua pagina con gli **articoli** ("Output") |
-| **Articoli** | Contributi, interviste, dialoghi ed eventi, con autori, data e immagine di copertina |
-| **Con il patrocinio** | Locandine dei progetti patrocinati dalla Consulta |
-| **Chi siamo** | Presentazione, storia ("La nostra storia"), consiglio e associazioni; sottopagine **Le persone**, **Le associazioni**, **Contatti** |
-| **Lo statuto** | Statuto e regolamento, con la brochure scaricabile |
-
-Il modulo contatti compare in fondo alle pagine principali e manda i messaggi per email.
+| Pagina                | A cosa serve                                                                                                                            |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Home**              | Video di apertura, due testi di presentazione, carosello delle tematiche, locandine del patrocinio, consiglio, loghi delle associazioni |
+| **Tematiche**         | Elenco delle tematiche come capitoli espandibili; ogni tematica ha la sua pagina con gli **articoli** ("Output")                        |
+| **Articoli**          | Contributi, interviste, dialoghi ed eventi, con autori, data e immagine di copertina                                                    |
+| **Con il patrocinio** | Locandine dei progetti patrocinati dalla Consulta                                                                                       |
+| **Chi siamo**         | Presentazione, storia ("La nostra storia"), consiglio e associazioni; sottopagine **Le persone**, **Le associazioni**, **Contatti**     |
+| **Lo statuto**        | Statuto e regolamento, con la brochure scaricabile                                                                                      |
 
 ## Requisiti
 
@@ -88,16 +86,16 @@ hanno versione: dopo una modifica forza il ricaricamento del browser.
 
 ### Plugin del progetto (`site/plugins/`)
 
-| Plugin | Cosa fa |
-|---|---|
-| `asset-builders` | Unisce i CSS dei componenti in un solo file con firma |
-| `contact-form` | Modulo contatti: validazione, protezione anti-spam, invio email |
-| `image-derivatives` | Ridimensiona le immagini al caricamento e prepara le miniature in WebP |
-| `image-alt` | Impedisce di salvare pagine con immagini nuove senza testo alternativo (Alt) |
-| `seo` | Meta tag, Open Graph, dati strutturati, `sitemap.xml`, `robots.txt` |
-| `video-embed` | Video YouTube/Vimeo negli articoli: solo indirizzi "senza cookie", caricati al clic su "Riproduci" |
-| `social-icons` | Icone dei social scelte dal Panel (da `assets/icons/social/`) |
-| `panel-registration` | "Richiedi l'accesso" nella pagina di login del Panel |
+| Plugin               | Cosa fa                                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------------------- |
+| `asset-builders`     | Unisce i CSS dei componenti in un solo file con firma                                              |
+| `contact-form`       | Modulo contatti: validazione, protezione anti-spam, invio email                                    |
+| `image-derivatives`  | Ridimensiona le immagini al caricamento e prepara le miniature in WebP                             |
+| `image-alt`          | Impedisce di salvare pagine con immagini nuove senza testo alternativo (Alt)                       |
+| `seo`                | Meta tag, Open Graph, dati strutturati, `sitemap.xml`, `robots.txt`                                |
+| `video-embed`        | Video YouTube/Vimeo negli articoli: solo indirizzi "senza cookie", caricati al clic su "Riproduci" |
+| `social-icons`       | Icone dei social scelte dal Panel (da `assets/icons/social/`)                                      |
+| `panel-registration` | "Richiedi l'accesso" nella pagina di login del Panel                                               |
 
 ## Il Panel in breve
 
@@ -113,40 +111,6 @@ predefinita) sono nella pagina principale **Sito**. Ruoli:
 
 Nel menu del Panel c'è anche un link allo **strumento per generare le immagini** in linea col
 brand (si apre in una nuova scheda).
-
-## Configurazione
-
-`site/config/config.php` imposta, tra l'altro: WebP per le miniature, Panel senza compilatore
-Vue, menu del Panel, e il riconoscimento dello staging (cartella `/staging/`: debug acceso e
-installer attivo). I segreti stanno in `site/config/secrets.php` (`content.salt` e
-`cookie.key`): **un file diverso per ogni server, mai nel repository**.
-
-Opzioni dei plugin (tutte facoltative, nel `config.php`):
-
-| Opzione | Default | Significato |
-|---|---|---|
-| `consulta.seo.index` | automatico | `true`/`false` forza l'indicizzazione; di default solo online, mai in locale o su staging |
-| `consulta.seo.descriptionLength` | 155 | Lunghezza massima della descrizione per i motori di ricerca |
-| `consulta.alt.since` | 2026-10-22 21:00 | Le immagini caricate dopo questa data devono avere l'Alt |
-| `consulta.alt.exempt` | `['persone']` | Pagine il cui Alt si genera da codice |
-| `consulta.registration.active` | `true` | Attiva/disattiva "Richiedi l'accesso" |
-| `consulta.registration.maxUsers` / `maxPending` | 25 / 10 | Tetti agli utenti totali e alle richieste in attesa |
-| `consulta.contactForm.from` | `no-reply@consultafemminile.org` | Mittente delle email del modulo contatti |
-
-## Pubblicazione
-
-Il sito è su un hosting Aruba. Il deploy è manuale, da GitHub: tab **Actions → Run workflow**.
-
-- `.github/workflows/deploy-production.yml` carica via FTP i file del repository.
-- `.github/workflows/deploy-staging.yml` esegue prima `composer install --no-dev` e poi
-  carica via FTP, quindi include anche `kirby/` e `vendor/`.
-- Le credenziali FTP sono nei *secrets* del repository (`FTP_SERVER`, `FTP_USERNAME`,
-  `FTP_PASSWORD`).
-- `.deployignore` elenca ciò che **non** viene caricato: `content/`, `site/accounts/`,
-  `site/cache/`, `site/sessions/`, `site/config/.license`, `media/`, `.htpasswd`, la
-  documentazione. Quindi in produzione contenuti, utenti e licenza restano quelli del server.
-- Sul server servono una volta sola: `site/config/secrets.php` (da `secrets.example.php`) e la
-  licenza Kirby attivata per il dominio.
 
 ## Documentazione
 

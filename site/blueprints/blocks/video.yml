@@ -1,0 +1,22 @@
+name: Video
+icon: video
+# Sostituisce il blocco "Video" di Kirby: solo link YouTube o Vimeo, mostrati
+# con gli indirizzi "senza cookie" (vedi site/plugins/video-embed) e caricati
+# solo quando si preme "Riproduci". Niente file video né autoplay.
+preview: fields
+fields:
+  url:
+    label: Link del video
+    help: >
+      Incolla il link di un video su **YouTube** o **Vimeo** (quello della barra
+      degli indirizzi o del pulsante "Condividi"). Sul sito viene mostrato con
+      l'incorporamento "senza cookie" dei due servizi, e parte solo quando chi
+      legge preme "Riproduci".
+    type: url
+    placeholder: https://www.youtube.com/watch?v=…
+    required: true
+    validate: videoUrl
+  caption:
+    label: Didascalia
+    type: writer
+    inline: true

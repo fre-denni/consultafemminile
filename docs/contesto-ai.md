@@ -398,7 +398,7 @@ Templates: la pagina **Output** = articolo (`output.php`: `bits/article-header`,
 - Campi di testo ricco: `extends: fields/rich-text` (writer: titoli 2–4, elenchi, citazione) o
   `fields/rich-text-inline`; salvano **HTML** da stampare così com'è.
 - Blocchi: `site/blueprints/blocks/*.yml` con `preview: fields` e `wysiwyg: true`; lo snippet
-  corrispondente è in `site/snippets/blocks/`. `text.yml` e `image.yml` sostituiscono quelli di Kirby.
+  corrispondente è in `site/snippets/blocks/`. `text.yml`, `image.yml` e `video.yml` sostituiscono quelli di Kirby.
 - Campi a larghezza frazionaria con campo `gap` come distanziatore (`output.yml`, `home.yml`).
 - Il **campo `alt`** è in `blueprints/files/default.yml` (obbligatorio); `info: "{{ file.alt.or('⚠ Alt mancante') }}"`
   segna le immagini senza Alt.
@@ -423,6 +423,7 @@ Templates: la pagina **Output** = articolo (`output.php`: `bits/article-header`,
   opzioni `consulta.seo.index`, `descriptionLength`, `titleLength`. Non usa il plugin
   `tobimori/kirby-seo` (v1 incompatibile con Kirby 5.6, v2 a pagamento).
 - **social-icons** — metodo `site.socialIconOptions` (file `.svg` di `assets/icons/social/`).
+- **video-embed** — blocco "Video" degli articoli (output): accetta solo link YouTube o Vimeo (validatore `videoUrl`), li riduce a provider + ID e costruisce l'indirizzo di embed "senza cookie" (`youtube-nocookie.com`; Vimeo con `dnt=1`). L'iframe non è nella pagina finché chi legge non preme "Riproduci" (`assets/js/video-embed.js`). Non può impedire la pubblicità dei video monetizzati.
 - **panel-registration** — "Richiedi l'accesso": API pubblica `registration` (GET/POST),
   ruolo `in-attesa`, hook `user.login:before`, opzioni `consulta.registration.*`
   (`active`, `role`, `maxUsers`, `maxPending`, `attempts`, `notify`).

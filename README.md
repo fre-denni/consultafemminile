@@ -95,6 +95,7 @@ hanno versione: dopo una modifica forza il ricaricamento del browser.
 | `image-derivatives` | Ridimensiona le immagini al caricamento e prepara le miniature in WebP |
 | `image-alt` | Impedisce di salvare pagine con immagini nuove senza testo alternativo (Alt) |
 | `seo` | Meta tag, Open Graph, dati strutturati, `sitemap.xml`, `robots.txt` |
+| `video-embed` | Video YouTube/Vimeo negli articoli: solo indirizzi "senza cookie", caricati al clic su "Riproduci" |
 | `social-icons` | Icone dei social scelte dal Panel (da `assets/icons/social/`) |
 | `panel-registration` | "Richiedi l'accesso" nella pagina di login del Panel |
 

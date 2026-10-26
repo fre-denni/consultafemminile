@@ -94,14 +94,15 @@ tabs:
             label: Testo
             help: >
               Il corpo dell'articolo, mostrato quando si apre questa pagina
-              dalla card (vedi bits/output-card). Due soli tipi di blocco:
+              dalla card (vedi bits/output-card). Tre tipi di blocco:
               "Testo" (titoli, elenchi, citazioni, grassetto e corsivo si
-              fanno dalla sua barra degli strumenti) e "Immagine" (con
-              didascalia).
+              fanno dalla sua barra degli strumenti), "Immagine" (con
+              didascalia) e "Video" (link YouTube o Vimeo).
             type: blocks
             fieldsets:
               - text
               - image
+              - video
 
       correlati:
         type: fields

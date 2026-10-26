@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php snippet('seo/head') ?>
+  <?php /* Indirizzi assoluti: un href relativo nelle sottopagine cercherebbe /tematiche/xxx/favicon.ico. Icone generate da assets/logo.svg. */ ?>
+  <link rel="icon" href="<?= url('favicon.ico') ?>" sizes="32x32">
+  <link rel="icon" href="<?= url('favicon.svg') ?>" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="<?= url('apple-touch-icon.png') ?>">
   <?= css('assets/css/global.css') ?>
   <?= js('assets/js/header.js', ['defer' => true]) ?>
   <?= css('@auto') ?>

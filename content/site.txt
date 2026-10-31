@@ -2,6 +2,17 @@ Title: Consulta Femminile di Milano
 
 ----
 
+Payoff: Un'unica voce per la cittadinanza, una rete di associazioni per unire le forze
+
+----
+
+Navigazione:
+
+- page://f5i8do3rguyhedgo
+- page://ihyagt8sjjnsfshk
+
+----
+
 Social:
 
 - 
@@ -10,14 +21,18 @@ Social:
   url: >
     https://www.facebook.com/consultafemminileinterassociativamilano/
 - 
-  icon: social/linkedin-logo-fill
+  icon: ""
   platform: Linkedin
   url: >
     https://www.linkedin.com/in/consulta-femminile-interassociativa-di-milano-61598315b/
 
 ----
 
-Payoff: Un'unica voce per la cittadinanza, una rete di associazioni per unire le forze
+Seodescription: 
+
+----
+
+Seoimage: 
 
 ----
 

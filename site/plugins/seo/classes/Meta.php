@@ -179,7 +179,7 @@ final class Meta
     $file = $p->seoImage()->toFile();
 
     $file ??= match ($this->template()) {
-      'output'   => $p->images()->first(),
+      'output'   => $p->coverImage(),
       'tematica' => $p->file('cover.webp') ?? $p->images()->first(),
       default    => null,
     };

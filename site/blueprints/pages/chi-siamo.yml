@@ -20,7 +20,7 @@ tabs:
 
       blocchi:
         label: Blocchi
-        help: Contenuto libero subito sotto il testo introduttivo.
+        help: Aggiungi il tuo contenuto.
         type: fields
         fields:
           blocchiTitolo:
@@ -33,7 +33,8 @@ tabs:
               - text
               - paragraph
               - divider
-              - contact-form
+              - image
+              - video
 
       storia:
         label: La nostra storia

@@ -21,7 +21,8 @@ fields:
       Mostrata quando la pagina viene condivisa sui social. Se vuota, si usa la copertina della pagina o l'immagine predefinita del sito.
       **1200 × 630 px**, oltre non serve. Nello strumento immagini imposta **400 × 210**: il file esce 4 volte più grande (1600 × 840, stesso rapporto) e il sito lo ritaglia a 1200 × 630.
     type: files
-    info: "{{ file.alt.or('⚠ Alt mancante') }}"
+    info: "{{ file.altInfo }}"
+    imgtool: 400x210
     query: page.images
     max: 1
     width: 1/2

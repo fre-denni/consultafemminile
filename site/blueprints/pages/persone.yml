@@ -8,17 +8,20 @@ tabs:
       main:
         width: 2/3
         sections:
-          fields:
+          consiglio:
+            label: Consiglio
             type: fields
             fields:
-              persone:
-                label: Persone
+              consiglio:
+                label: Consiglio 2026-2027
                 help: >
-                  Ogni riga è una persona: carica prima la foto nella sezione
-                  "Foto" qui a fianco, poi selezionala qui. Chi ha il flag
-                  "Consigliera" attivo compare nel carosello in home;
-                  "Presidenza" mette la persona in cima a quella lista (usato
-                  per Presidente e Vicepresidente).
+                  Le persone del consiglio: compaiono nel carosello in home,
+                  in "Chi siamo" e in cima a questa pagina. Carica prima la
+                  foto nella sezione "Foto" qui a fianco, poi selezionala
+                  qui. "Presidenza" mette la persona in testa al carosello
+                  (usato per Presidente e Vicepresidente); le altre restano
+                  nell'ordine di questa tabella. Per togliere qualcuna dal
+                  consiglio spostala nella tabella "Delegate" qui sotto.
                 type: structure
                 columns:
                   foto:
@@ -29,14 +32,68 @@ tabs:
                     width: 2/12
                   ruolo:
                     width: 2/12
-                  consigliera:
-                    width: 1/12
                   presidenza:
                     width: 1/12
                   associazione:
                     width: 2/12
                   email:
+                    width: 2/12
+                fields:
+                  foto:
+                    label: Foto
+                    type: files
+                    query: page.images
+                    max: 1
+                  nome:
+                    label: Nome
+                    type: text
+                    required: true
+                  cognome:
+                    label: Cognome
+                    type: text
+                    required: true
+                  ruolo:
+                    label: Ruolo
+                    type: text
+                    default: Consigliera
+                    required: true
+                  presidenza:
+                    label: Presidenza
+                    type: toggle
+                    default: false
+                  associazione:
+                    label: Associazione
+                    type: text
+                  email:
+                    label: Email
+                    type: email
+          delegate:
+            label: Delegate
+            type: fields
+            fields:
+              persone:
+                label: Delegate delle associazioni
+                help: >
+                  Le delegate (e chiunque non sia nel consiglio): compaiono
+                  nella griglia "Le delegate delle associazioni", in ordine
+                  alfabetico per associazione. Carica prima la foto nella
+                  sezione "Foto" qui a fianco, poi selezionala qui. Una
+                  persona del consiglio sta nella tabella "Consiglio" qui
+                  sopra, non in questa.
+                type: structure
+                columns:
+                  foto:
                     width: 1/12
+                  nome:
+                    width: 2/12
+                  cognome:
+                    width: 2/12
+                  ruolo:
+                    width: 2/12
+                  associazione:
+                    width: 3/12
+                  email:
+                    width: 2/12
                 fields:
                   foto:
                     label: Foto
@@ -56,14 +113,6 @@ tabs:
                     type: text
                     default: Delegata
                     required: true
-                  consigliera:
-                    label: Consigliera
-                    type: toggle
-                    default: false
-                  presidenza:
-                    label: Presidenza
-                    type: toggle
-                    default: false
                   associazione:
                     label: Associazione
                     type: text

@@ -3,8 +3,8 @@ type: select
 default: default
 options:
   - value: default
-    text: "⚪ Bianco"
+    text: "⚪ Sfondo Bianco"
   - value: tinted
-    text: "⬜ Panna"
+    text: "⬜ Sfondo Panna"
   - value: blue
-    text: "🔵 Azzurro"
+    text: "🔵 Sfondo Azzurro"

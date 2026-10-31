@@ -32,7 +32,6 @@ tabs:
                   logo:
                     label: Logo
                     type: files
-                    info: "{{ file.alt.or('⚠ Alt mancante') }}"
                     query: page.images
                     max: 1
                   nome_completo:
@@ -48,7 +47,7 @@ tabs:
                   foto:
                     label: Foto significativa
                     type: files
-                    info: "{{ file.alt.or('⚠ Alt mancante') }}"
+                    imgtool: 640x200
                     query: page.images
                     max: 1
                   descrizione:
@@ -62,7 +61,7 @@ tabs:
                     type: multiselect
                     options:
                       type: query
-                      query: site.find('chi-siamo/persone').persone.toStructure
+                      query: kirby.collection('persone')
                       text: "{{ item.nome }} {{ item.cognome }}"
                       value: "{{ item.nome }} {{ item.cognome }}"
           contatti:
@@ -73,9 +72,8 @@ tabs:
           file:
             label: File
             type: files
-            info: "{{ file.alt.or('⚠ Alt mancante') }}"
             help: |
-              Carica qui loghi e foto, poi assegnali alle singole associazioni a sinistra.
+              Carica qui loghi e foto, poi assegnali alle singole associazioni a sinistra. Il testo alternativo (Alt) non serve: si genera da solo come "logo-Nome associazione" e "foto-significativa-Nome associazione".
               **Logo: 320 px di larghezza** (meglio SVG, sfondo trasparente), oltre non serve: sul sito è alto al massimo ~90 px.
               **Foto significativa: 1280 × 400 px** (3,2:1, panoramica), oltre non serve: è il banner della finestra di dettaglio. Nello strumento immagini imposta **640 × 200** (200 è il minimo dell'altezza): il file esce 4 volte più grande (2560 × 800) e il sito lo riduce da solo.
   seo:

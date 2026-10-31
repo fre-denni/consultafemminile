@@ -22,11 +22,6 @@ tabs:
         fields:
           introduzione:
             label: Introduzione
-            help: >
-              Testo introduttivo mostrato sopra i capitoli, su sfondo
-              azzurro (vedi bits/timeline-section). Vive solo qui: la
-              stessa pagina "Chi siamo" lo richiama da qui invece di
-              ripeterlo.
             extends: fields/rich-text
           capitoli:
             label: Capitoli
@@ -53,7 +48,8 @@ tabs:
                 label: Immagini
                 help: "**1120 × 840 px** (4:3): nello strumento immagini **280 × 210**."
                 type: files
-                info: "{{ file.alt.or('⚠ Alt mancante') }}"
+                info: "{{ file.altInfo }}"
+                imgtool: 280x210
                 query: page.images
                 max: 7
               anno:
@@ -71,6 +67,6 @@ tabs:
       immagini:
         label: Immagini
         type: files
-        info: "{{ file.alt.or('⚠ Alt mancante') }}"
+        info: "{{ file.altInfo }}"
   seo:
     extends: tabs/seo

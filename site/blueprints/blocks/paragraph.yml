@@ -1,4 +1,4 @@
-name: Paragrafo con titolo
+name: Blocco testo con titolo
 icon: text
 # Titolo breve + testo con styling (stessa forma di Payoff + Mission, vedi
 # fields/rich-text.yml). Anteprima = i campi stessi, modificabili

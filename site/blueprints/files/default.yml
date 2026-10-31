@@ -15,9 +15,23 @@ create:
 # motori di ricerca. Obbligatorio: il Panel non permette di salvare il file
 # senza, e le pagine non si salvano se contengono immagini nuove senza Alt
 # (vedi site/plugins/image-alt). Per un PDF scrivi il titolo del documento.
+#
+# Eccezione: un'immagine "decorativa" (solo ornamento, come quelle generate
+# con lo strumento immagini) non ha Alt e sul sito esce con alt="" voluto,
+# così chi usa un lettore di schermo la salta. Le immagini create dallo
+# strumento immagini del Panel sono già segnate così.
 fields:
+  decorative:
+    label: Immagine decorativa
+    help: Valore default per immagini generate. Sono saltate dagli screen reader. Modificare per aggiungere descrizione.
+    type: toggle
+    text:
+      - No
+      - Sì
   alt:
     label: Testo alternativo (Alt)
     type: text
     required: true
     maxlength: 200
+    when:
+      decorative: false

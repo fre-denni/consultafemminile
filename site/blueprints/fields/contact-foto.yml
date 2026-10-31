@@ -1,5 +1,6 @@
-label: Foto del form contatti
+label: Foto form contatti
 type: files
-info: "{{ file.alt.or('⚠ Alt mancante') }}"
+info: "{{ file.altInfo }}"
+imgtool: 200x200
 query: page.images
 multiple: false

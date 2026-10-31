@@ -17,6 +17,6 @@ tabs:
       files:
         label: Locandine
         type: files
-        info: "{{ file.alt.or('⚠ Alt mancante') }}"
+        info: "{{ file.altInfo }}"
   seo:
     extends: tabs/seo

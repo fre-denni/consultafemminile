@@ -13,23 +13,24 @@ tabs:
             label: Payoff del sito
             help: >
               Usato come sottotitolo di riserva nelle pagine che non ne
-              definiscono uno proprio (vedi bits/title-page).
-      pagineNavigazione:
-        label: Pagine di navigazione
-        help: >
-          Pagine principali: trascinale per cambiare l'ordine di
-          apparizione nella barra superiore di navigazione.
-        type: pages
-        status: listed
-      paginaStoria:
-        label: La nostra storia
-        type: pages
-        query: site.index.filterBy('id', 'chi-siamo/timeline')
-        createable: false
-        sortable: false
-        max: 1
+              definiscono uno proprio.
+      navigazione:
+        label: Menu di navigazione
+        type: fields
+        fields:
+          navigazione:
+            label: Pagine di navigazione
+            help: >
+              Le voci della barra di navigazione in alto, nell'ordine in cui
+              compaiono: trascinale per cambiarlo, aggiungi o togli voci con
+              il pulsante.
+            type: pages
+            query: site.children.listed.add('chi-siamo/timeline')
+            subpages: false
+            layout: list
+            empty: Nessuna voce scelta
       pagineSecondarie:
-        label: Pagine secondarie
+        label: Pagine non in lista
         help: >
           Raggiungibili solo tramite un link diretto (es. dal footer o da
           un'altra pagina): non compaiono nel menu principale. La pagina
@@ -42,8 +43,7 @@ tabs:
         help: >
           Email di destinazione, etichetta, foto, testo alternativo e
           credito del form contatti sono unici per tutto il sito e si
-          gestiscono nella pagina Contatti qui sotto: il form compare
-          uguale in ogni pagina che lo mostra (vedi bits/contact-form).
+          gestiscono nella pagina Contatti.
         type: pages
         query: site.index.filterBy('id', 'chi-siamo/contatti')
         createable: false
@@ -105,6 +105,7 @@ tabs:
 
           **1200 × 630 px**, oltre non serve. Nello strumento immagini imposta **400 × 210**: il file esce 4 volte più grande (1600 × 840, stesso rapporto) e il sito lo ritaglia a 1200 × 630.
         type: files
-        info: "{{ file.alt.or('⚠ Alt mancante') }}"
+        info: "{{ file.altInfo }}"
+        imgtool: 400x210
         max: 1
         multiple: false

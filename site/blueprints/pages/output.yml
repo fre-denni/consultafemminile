@@ -75,9 +75,9 @@ tabs:
           immagine:
             label: Immagine
             help: |
-              Inserisci un immagine significativa o falla generare dal tool.
-            type: files
-            info: "{{ file.alt.or('⚠ Alt mancante') }}"
+              Inserisci un immagine significativa oppure usa «Genera» per crearne una.
+            info: "{{ file.altInfo }}"
+            imgtool: 400x400
             max: 1
             width: 1/2
 

@@ -95,6 +95,8 @@ hanno versione: dopo una modifica forza il ricaricamento del browser.
 | `seo`                | Meta tag, Open Graph, dati strutturati, `sitemap.xml`, `robots.txt`                                |
 | `video-embed`        | Video YouTube/Vimeo negli articoli: solo indirizzi "senza cookie", caricati al clic su "Riproduci" |
 | `social-icons`       | Icone dei social scelte dal Panel (da `assets/icons/social/`)                                      |
+| `imgtool` | Pulsante "Genera" sui campi immagine del Panel (chiave `imgtool: 400x400` nel blueprint): apre lo strumento (`assets/imgtool`) già impostato sulla misura dello slot e inserisce l'immagine nel campo, segnata come decorativa |
+| `panel-login` | Accesso al Panel con il nome utente (Nome dell'account) oppure con l'email |
 | `panel-registration` | "Richiedi l'accesso" nella pagina di login del Panel                                               |
 
 ## Il Panel in breve

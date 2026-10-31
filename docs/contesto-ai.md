@@ -68,7 +68,7 @@ pagina principale **Sito** (la prima voce del menu laterale, col nome del sito).
 | Con il patrocinio | **Con il patrocinio** | Payoff, testo, **Locandine** (immagini) |
 | Chi siamo | **Chi siamo** | Testo introduttivo, **Blocchi** liberi |
 | La nostra storia | Chi siamo → **La nostra storia** | Introduzione e **Capitoli** (anno, etichetta, descrizione, immagini) |
-| Le persone | Chi siamo → **Le Persone** | Elenco persone (foto, nome, ruolo, associazione, email, flag Consigliera/Presidenza) |
+| Le persone | Chi siamo → **Le Persone** | Due tabelle: **Consiglio** (con flag Presidenza per Presidente/Vicepresidente) e **Delegate** (foto, nome, ruolo, associazione, email) |
 | Le associazioni | Chi siamo → **Le Associazioni della Consulta** | Elenco associazioni (logo, nomi, sito, foto, descrizione, delegate) |
 | Contatti / modulo contatti | Chi siamo → **Contatti** | **Per tutto il sito**: email di destinazione, etichetta, foto, Alt, credito |
 | Statuto | **Lo Statuto** | Blocchi (articoli, divisori, brochure scaricabile) |
@@ -146,6 +146,9 @@ Chi siamo → **Le Persone** → campo **Persone** → **+**: foto (carica prima
 - **Presidenza**: la mette in cima a quell'elenco (Presidente e Vicepresidente).
 - Il testo alternativo delle foto **si genera da solo**: "Foto di profilo di Nome Cognome
   dell'associazione X" (non serve scriverlo).
+- Anche per **le associazioni** l'Alt si genera da solo: "logo-Nome associazione" per i loghi e
+  "foto-significativa-Nome associazione" per le foto significative (Nome = nome completo, o breve
+  se manca). Per correggerlo basta correggere il nome dell'associazione.
 
 ### 4.4 Aggiungere o modificare un'associazione
 Chi siamo → **Le Associazioni della Consulta** → campo **Associazioni** → **+**: logo, nome
@@ -168,8 +171,10 @@ Azzurro). Carosello Tematiche, Patrocinio, Consiglio e loghi si riempiono **da s
 rispettive pagine: dalla Home si cambia solo lo sfondo.
 
 ### 4.8 Cambiare l'ordine del menu
-Sito → tab **Pagine sito** → "Pagine di navigazione": trascina le voci. (La nostra storia ha una
-sezione a parte, non trascinabile.)
+Sito → tab **Pagine sito** → "Menu di navigazione": un'unica lista, trascina le voci (anche La
+nostra storia) e aggiungi o togli voci con il pulsante. È un campo del sito (`navigazione`, in
+`site.txt`): se è vuoto il menu ripiega sulle pagine "in lista" con La nostra storia in fondo.
+Il contenuto non viene caricato dal deploy: in produzione la lista va impostata dal Panel.
 
 ### 4.9 Il modulo contatti (valido per tutto il sito)
 Chi siamo → **Contatti**: **Email per i messaggi del form** (se vuota: l'indirizzo di riserva
@@ -215,6 +220,10 @@ chi usa uno screen reader e ai motori di ricerca. Per un PDF scrivi il titolo de
   immagine, compila l'Alt, salva, poi salva di nuovo la pagina.
 - Le immagini già presenti prima di quella data non bloccano nulla (ma vanno completate).
 - Eccezione: le foto della pagina **Le Persone** hanno un Alt generato da codice.
+- **Immagini decorative**: nel file c'è l'interruttore **Immagine decorativa**. Se è attivo l'Alt non
+  serve e sul sito esce `alt=""` voluto (il lettore di schermo la salta); nelle liste compare
+  **"Decorativa (senza Alt)"**. Le immagini create dallo strumento immagini del Panel
+  (pulsante "Genera" sul campo) sono segnate così in automatico.
 
 ### 5.3 Dimensioni consigliate (le massime utili)
 Valori in pixel del **file finale**; oltre queste misure non serve andare. Nelle sezioni del
@@ -244,6 +253,16 @@ geometrici con i colori del brand. Come usarlo:
 3. Premi **"Scarica Immagine"**: scarica `img.webp`.
 4. Caricalo nel Panel nel punto giusto, **rinominalo se serve** (es. `cover.webp` per le
    tematiche) e compila l'**Alt**.
+
+**Scorciatoia nei campi immagine.** Dove un campo ha la chiave `imgtool: LARGHEZZAxALTEZZA` nel
+blueprint (Output → Immagine 400×400, immagine di condivisione SEO 400×210, foto significativa
+associazioni 640×200, immagini timeline 280×210, foto del form contatti 200×200) accanto a
+"Carica" e "Seleziona" c'è **"Genera"**: apre lo strumento già impostato sulla misura dello slot
+(non serve calcolare nulla), con il solo pulsante **"Aggiungi alla pagina"**; l'immagine finisce
+direttamente nel campo, segnata come **decorativa** (Alt vuoto voluto), poi si salva la pagina come
+sempre. Il nome del file si sceglie nella finestra. Non è disponibile nelle *sezioni* file (es. le
+copertine delle tematiche): lì resta il link del menu laterale. Per aggiungerlo a un altro campo
+basta `imgtool: 280x210` nel suo blueprint (solo `type: files`).
 Valori da impostare nello strumento: copertina tematica 500 × 310; copertina articolo 400 × 400;
 locandina 270 × 400; tematica/timeline (altre immagini) 280 × 210; contatti 200 × 200; foto
 associazione 640 × 200 (il sito la riduce da solo); condivisione SEO 400 × 210.
@@ -282,12 +301,14 @@ riordinarli. Lo **Sfondo** può essere Bianco, Panna o Azzurro.
   oppure è la nona (la home ne mostra al massimo 8).
 - **Articolo assente** dai caroselli (tematica, "Correlati") → non ha **nessuna immagine**. La sua
   pagina esiste e funziona; manca solo nelle card.
-- **Persona assente** dal consiglio → il flag **Consigliera** non è attivo (le altre persone sono
-  nella griglia "Le delegate delle associazioni" della pagina Le Persone). Una persona senza
-  foto non viene mostrata.
+- **Persona assente** dal consiglio → non è nella tabella **Consiglio** della pagina Le Persone
+  (le persone della tabella **Delegate** finiscono nella griglia "Le delegate delle associazioni").
+  Una persona senza foto non viene mostrata. Per spostare qualcuna dal consiglio alle delegate (o
+  viceversa) si aggiunge la riga nell'altra tabella e si toglie da quella di partenza; se compare
+  in entrambe vale il Consiglio.
 - **Locandina assente** dal carosello del patrocinio → non è un'immagine caricata nella pagina
   **Con il patrocinio**.
-- **Pagina assente** dal menu → non è tra le "Pagine di navigazione" (Sito → Pagine sito).
+- **Pagina assente** dal menu → non è nel "Menu di navigazione" (Sito → Pagine sito).
 - **Carosello Tematiche in Home vuoto** → nessuna tematica ha `cover.webp`.
 - Una pagina in **bozza** non è visibile ai visitatori.
 
@@ -417,12 +438,15 @@ Templates: la pagina **Output** = articolo (`output.php`: `bits/article-header`,
   hook che generano subito le miniature WebP (`thumbs.format = webp`, qualità 80).
 - **image-alt** — hook `page.update:before` / `site.update:before`: blocca il salvataggio con
   immagini nuove senza Alt (data `consulta.alt.since`; template esenti `consulta.alt.exempt`,
-  di default `persone`).
+  di default `persone` e `associazioni`: il loro Alt si genera da codice, vedi `associationAlt()`
+  nello stesso plugin).
 - **seo** — snippet `seo/head` (in `header.php`), classe `Consulta\Seo\Meta` (cascata), route
   `robots.txt` e `sitemap.xml`; campi `seoTitle`, `seoDescription`, `seoImage`, `seoNoindex`;
   opzioni `consulta.seo.index`, `descriptionLength`, `titleLength`. Non usa il plugin
   `tobimori/kirby-seo` (v1 incompatibile con Kirby 5.6, v2 a pagamento).
 - **social-icons** — metodo `site.socialIconOptions` (file `.svg` di `assets/icons/social/`).
+- **imgtool** — pulsante "Genera" nei campi `type: files` che hanno la chiave `imgtool: LARGHEZZAxALTEZZA` nel blueprint (il plugin estende `k-files-field`; non vale per le sezioni file). Apre in una finestra del Panel lo strumento ospitato dal sito (`assets/imgtool`, copia di quello su GitHub `fre-denni/consultafemminile_imgtool`, che resta quello "normale"): nella copia ospitata larghezza/altezza partono dalla misura dello slot, mancano "Scarica Immagine" e il tasto S, c'è solo "Aggiungi alla pagina". L'immagine (2400 px sul lato lungo, WebP) si carica con l'endpoint di upload del campo, finisce nello slot e si segna **decorativa** (`decorative: true`, Alt vuoto voluto: il lettore di schermo la salta). Il nome del file si sceglie nella finestra (di default `cover.webp` se non c'è già, poi `immagine-1.webp`…). Il collegamento passa da un accesso diretto tra finestra del Panel e strumento (stessa origine, niente messaggi tra siti diversi), richiede un utente connesso.
+- **panel-login** — nel login del Panel il primo campo è "Utente o email". Con una @ vale l'email (rotta di Kirby); senza @ si cerca l'unico account il cui **Nome** coincide (senza badare a maiuscole e spazi doppi) e si entra con la sua password, tramite la rotta `login-by-name`. Se due account hanno lo stesso nome quel nome non funziona (si usa l'email); la registrazione "Richiedi l'accesso" ignora i nomi già in uso. Un account senza Nome si può usare solo con l'email.
 - **video-embed** — blocco "Video" degli articoli (output): accetta solo link YouTube o Vimeo (validatore `videoUrl`), li riduce a provider + ID e costruisce l'indirizzo di embed "senza cookie" (`youtube-nocookie.com`; Vimeo con `dnt=1`). L'iframe non è nella pagina finché chi legge non preme "Riproduci" (`assets/js/video-embed.js`). Non può impedire la pubblicità dei video monetizzati.
 - **panel-registration** — "Richiedi l'accesso": API pubblica `registration` (GET/POST),
   ruolo `in-attesa`, hook `user.login:before`, opzioni `consulta.registration.*`

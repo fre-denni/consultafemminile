@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php snippet('seo/head') ?>
-  <?php /* Indirizzi assoluti: un href relativo nelle sottopagine cercherebbe /tematiche/xxx/favicon.ico. Icone generate da assets/logo.svg. */ ?>
   <link rel="icon" href="<?= url('favicon.ico') ?>" sizes="32x32">
   <link rel="icon" href="<?= url('favicon.svg') ?>" type="image/svg+xml">
   <link rel="apple-touch-icon" href="<?= url('apple-touch-icon.png') ?>">
@@ -34,16 +33,20 @@
   <?php
   // ————————————————————————————————————————————————————— DATI NAV
 
-  // Voci di primo livello (menu principale). La home è "listed" solo per
-  // stare in cima all'elenco del Panel (vedi site.yml): nel menu non
-  // compare, il logo già porta lì.
-  $navItems = $site->children()->listed()->not('home');
+  // Voci di primo livello (menu principale): l'elenco "Pagine di navigazione"
+  // del Panel (Sito → Pagine sito), nell'ordine scelto lì. La home può
+  // starci per comodità del Panel ma nel menu non compare: il logo già porta
+  // lì. Se l'elenco è vuoto (installazione nuova o contenuto non ancora
+  // impostato) si usano le pagine "listed" con "La nostra storia" in fondo.
+  $navItems = $site->navigazione()->toPages()->not('home');
 
-  // 1. Peschiamo la timeline (che fisicamente è una sottopagina)
-  // e l'aggiungiamo alla collection del menu principale
-  $timeline = $site->find('chi-siamo/timeline');
-  if ($timeline) {
-      $navItems = $navItems->add($timeline);
+  if ($navItems->isEmpty()) {
+      $navItems = $site->children()->listed()->not('home');
+
+      $timeline = $site->find('chi-siamo/timeline');
+      if ($timeline) {
+          $navItems = $navItems->add($timeline);
+      }
   }
 
   //secondo livello

@@ -5,5 +5,4 @@ description: >
   entrare finché un amministratore non gli assegna un altro ruolo da
   Utenti → modifica ruolo.
 
-# Nessun permesso, nemmeno l'accesso al Panel (come il ruolo "nobody").
 permissions: false

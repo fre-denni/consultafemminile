@@ -4,6 +4,8 @@
  * - k-files-field: estende il campo file di Kirby. Se nel blueprint il campo ha
  *   la chiave `imgtool: LARGHEZZAxALTEZZA` (misura da impostare nello strumento)
  *   accanto a "Carica" e "Seleziona" compare "Genera".
+ * - k-imgfiles-section: lo stesso per le sezioni file (tipo `imgfiles`, vedi
+ *   index.php): "Genera" accanto a "Aggiungi".
  * - k-imgtool-dialog: finestra con lo strumento ospitato dal sito
  *   (assets/imgtool, in un <iframe> della stessa origine) e il nome del file.
  *   Mentre è aperta espone window.__consultaImgTool = { size, upload(blob) }:
@@ -11,9 +13,9 @@
  *   "Aggiungi alla pagina". Niente postMessage, e un altro sito non potrebbe
  *   raggiungerla (il browser lo impedisce tra origini diverse).
  *
- * L'immagine si carica con l'endpoint di upload del campo (stessa sessione e
- * stesso token anti-falsificazione di qualunque upload), finisce direttamente
- * nello slot e si segna come "decorativa": alt="" voluto, niente avviso
+ * L'immagine si carica con lo stesso endpoint di upload del campo o della
+ * sezione (stessa sessione e stesso token anti-falsificazione di qualunque
+ * upload), finisce direttamente nello slot e si segna come "decorativa": alt="" voluto, niente avviso
  * "Alt mancante".
  * Niente build, e una funzione render al posto del template (il Panel gira
  * senza compilatore Vue, vedi config.php).
@@ -91,9 +93,56 @@
               component: "k-imgtool-dialog",
               props: {
                 // "pages/x/fields/immagine" (anche dentro una struttura) → la pagina è "pages/x"
-                endpoint: this.endpoints.field,
+                endpoint: this.endpoints.field + "/upload",
+                parent: this.endpoints.field.split("/fields/")[0],
                 size: parseSize(this.imgtool),
                 label: this.label || "",
+              },
+            });
+          },
+        },
+      },
+
+      "k-imgfiles-section": {
+        extends: "k-files-section",
+        computed: {
+          buttons() {
+            const buttons = this.$options.extends.options.computed.buttons.call(this);
+
+            // Come "Aggiungi": solo se si può ancora caricare
+            if (this.options.imgtool && this.canAdd && !this.isSelecting) {
+              const add = buttons.findIndex((button) => button.icon === this.addIcon);
+              buttons.splice(add + 1, 0, {
+                text: "Genera",
+                responsive: true,
+                icon: "image",
+                title: "Genera un'immagine in linea col brand e aggiungila qui",
+                click: () => this.openImgtool(),
+              });
+            }
+
+            return buttons;
+          },
+        },
+        methods: {
+          openImgtool() {
+            const upload = this.options.upload || {};
+
+            target = {
+              // Caricata e segnata come decorativa: la sezione si ricarica da sola
+              done: async () => {
+                this.$events.emit("model.update");
+              },
+            };
+            this.$panel.dialog.open({
+              component: "k-imgtool-dialog",
+              props: {
+                // "pages/x/files" → la pagina è "pages/x"
+                endpoint: upload.api,
+                parent: String(upload.api || "").replace(/\/files$/, ""),
+                attributes: upload.attributes || {},
+                size: parseSize(this.options.imgtool),
+                label: this.options.headline || "",
               },
             });
           },
@@ -103,7 +152,11 @@
       "k-imgtool-dialog": {
         mixins: ["dialog"],
         props: {
+          // Dove caricare (percorso dell'API) e la pagina/sito a cui appartiene il file
           endpoint: { type: String, required: true },
+          parent: { type: String, required: true },
+          // Campi in più dell'upload di una sezione (es. il template del file)
+          attributes: { type: Object, default: () => ({}) },
           size: { type: Object, default: null },
           label: { type: String, default: "" },
         },
@@ -111,10 +164,6 @@
           return { filename: "", taken: [], ready: false };
         },
         computed: {
-          // La pagina (o il sito) a cui appartiene il campo
-          parent() {
-            return this.endpoint.split("/fields/")[0];
-          },
           src() {
             return new URL(TOOL_PATH, this.$panel.urls.site.replace(/\/?$/, "/")).href;
           },
@@ -149,9 +198,12 @@
             }
 
             const body = new FormData();
+            for (const [key, value] of Object.entries(this.attributes)) {
+              if (value !== null && value !== undefined) body.append(key, value);
+            }
             body.append("file", new File([blob], name, { type: blob.type }));
 
-            const response = await fetch(`${this.$panel.urls.api}/${this.endpoint}/upload`, {
+            const response = await fetch(`${this.$panel.urls.api}/${this.endpoint}`, {
               method: "POST",
               body,
               credentials: "same-origin",
@@ -163,13 +215,14 @@
               throw new Error(json.message || json.error || "Caricamento non riuscito.");
             }
 
-            // L'endpoint del campo risponde col file già pronto per la lista (id, anteprima, info…)
+            // Un campo risponde col file già pronto per la lista (id, anteprima, info…),
+            // una sezione col file e basta: si aggiorna da sola dopo.
             const model = Array.isArray(json.data) ? json.data[0] : json.data;
             const filename = model?.filename || name;
 
             // Generata dallo strumento = decorativa: alt vuoto, saltata dai lettori di schermo.
             await this.$api.patch(`${this.parent}/files/${encodeURIComponent(filename)}`, { decorative: true });
-            model.info = DECORATIVE_INFO;
+            if (model.info !== undefined) model.info = DECORATIVE_INFO;
 
             await target?.done(model);
 
@@ -185,12 +238,12 @@
         render(h) {
           const children = [];
           // Solo le proprietà della finestra di Kirby, non le nostre
-          const { endpoint, size, label, ...dialogProps } = this.$props;
+          const { endpoint, parent, attributes, size, label, ...dialogProps } = this.$props;
 
           if (this.ready) {
             children.push(
               h("p", { class: "consulta-imgtool__intro" }, [
-                `Genera l'immagine e premi «Aggiungi alla pagina»: viene inserita nel campo «${this.label || "Immagine"}», segnata come decorativa (senza testo alternativo).` +
+                `Genera l'immagine e premi «Aggiungi alla pagina»: viene inserita in «${this.label || "Immagine"}», segnata come decorativa (senza testo alternativo).` +
                   (this.size ? ` Dimensioni già impostate: ${this.size.width} × ${this.size.height}.` : ""),
               ]),
               h("k-text-field", {

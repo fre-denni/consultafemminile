@@ -31,7 +31,8 @@ tabs:
         help: |
           Carica qui la foto, poi selezionala nel campo "Foto del form contatti".
           **Dimensioni consigliate: 800 × 800 px** (quadrata).
-        type: files
+        type: imgfiles
+        imgtool: 200x200
         info: "{{ file.altInfo }}"
   seo:
     extends: tabs/seo

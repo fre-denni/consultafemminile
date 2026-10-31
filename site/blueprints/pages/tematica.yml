@@ -9,7 +9,8 @@ tabs:
     sections:
       immagini:
         label: Immagini
-        type: files
+        type: imgfiles
+        imgtool: 500x310
         info: "{{ file.altInfo }}"
       testo:
         label: Testo

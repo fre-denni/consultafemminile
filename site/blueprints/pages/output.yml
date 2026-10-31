@@ -76,6 +76,7 @@ tabs:
             label: Immagine
             help: |
               Inserisci un immagine significativa oppure usa «Genera» per crearne una.
+            type: files
             info: "{{ file.altInfo }}"
             imgtool: 400x400
             max: 1
@@ -90,6 +91,7 @@ tabs:
             type: blocks
             fieldsets:
               - text
+              - paragraph
               - image
               - video
 

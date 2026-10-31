@@ -16,14 +16,42 @@ use Kirby\Exception\InvalidArgumentException;
  * messaggio che elenca quali sono.
  *
  * Eccezione: le pagine con template in 'consulta.alt.exempt' (default:
- * "persone") non bloccano nulla, perché il loro Alt si genera da codice
- * (vedi bits/person-card.php: "Foto di profilo di Nome Cognome ...").
+ * "persone" e "associazioni") non bloccano nulla, perché il loro Alt si
+ * genera da codice: per le persone "Foto di profilo di Nome Cognome ..."
+ * (bits/person-card.php), per le associazioni "logo-Nome" e
+ * "foto-significativa-Nome" (associationAlt() qui sotto).
+ *
+ * Anche le immagini segnate "decorative" (campo `decorative` del file, vedi
+ * blueprints/files/default.yml) non hanno bisogno di Alt: escono con alt=""
+ * e il lettore di schermo le salta. Il metodo `altText` dà il valore da
+ * usare nel codice (vuoto se decorativa), `altInfo` il testo per il Panel.
  *
  * "Nuove" = caricate (o sostituite) dopo la data 'consulta.alt.since'
  * (config.php, default sotto): le immagini già presenti prima non bloccano
  * nulla, si completano quando serve — nelle liste del Panel sono segnate
  * "⚠ Alt mancante".
  */
+
+if (!function_exists('associationAlt')) {
+  /**
+   * Alt programmatico delle immagini di un'associazione (riga della
+   * struttura "associazioni"): "logo-{nome}" per il logo,
+   * "foto-significativa-{nome}" per la foto. Il nome è quello completo, o
+   * quello breve se manca.
+   *
+   * @param string $kind 'logo' | 'foto'
+   */
+  function associationAlt($association, string $kind): string
+  {
+    $name = trim((string) $association->nome_completo()) ?: trim((string) $association->nome_breve());
+
+    if ($name === '') {
+      return '';
+    }
+
+    return ($kind === 'foto' ? 'foto-significativa-' : 'logo-') . $name;
+  }
+}
 
 if (!function_exists('imageAltMissing')) {
   /** @return string[] nomi dei file immagine nuovi senza Alt */
@@ -33,7 +61,7 @@ if (!function_exists('imageAltMissing')) {
     $missing = [];
 
     foreach ($model->images() as $file) {
-      if ($file->alt()->isEmpty() && $file->modified() >= $since) {
+      if ($file->alt()->isEmpty() && $file->decorative()->isFalse() && $file->modified() >= $since) {
         $missing[] = $file->filename();
       }
     }
@@ -45,7 +73,7 @@ if (!function_exists('imageAltMissing')) {
 $assertAlt = function (ModelWithContent $model): void {
   if (
     $model instanceof Page &&
-    in_array($model->intendedTemplate()->name(), (array) option('consulta.alt.exempt', ['persone']), true)
+    in_array($model->intendedTemplate()->name(), (array) option('consulta.alt.exempt', ['persone', 'associazioni']), true)
   ) {
     return;
   }
@@ -66,6 +94,14 @@ $assertAlt = function (ModelWithContent $model): void {
 };
 
 Kirby::plugin('consulta/image-alt', [
+  'fileMethods' => [
+    /** Alt da mettere nell'HTML: vuoto se l'immagine è decorativa. */
+    'altText' => fn (): string => $this->decorative()->isTrue() ? '' : trim((string) $this->alt()->value()),
+    /** Riga informativa nelle liste del Panel. */
+    'altInfo' => fn (): string => $this->decorative()->isTrue()
+      ? 'Decorativa (senza Alt)'
+      : (trim((string) $this->alt()->value()) ?: '⚠ Alt mancante'),
+  ],
   'hooks' => [
     'page.update:before' => function (Page $page) use ($assertAlt) {
       $assertAlt($page);

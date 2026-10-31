@@ -16,7 +16,7 @@ $modalId = 'association-' . $association->id();
     <?php if ($logo): ?>
       <?php snippet('atoms/picture', [
         'image'     => $logo,
-        'alt'       => '',
+        'alt'       => associationAlt($association, 'logo'),
         'sizes'     => [240, 320],
         'sizesAttr' => '120px',
         'class'     => 'association-card__logo-img',

@@ -38,7 +38,7 @@ $background ??= 'default';
           <?php foreach ($items as $assoc): ?>
             <?php
             $logo   = $assoc->logo()->toFile();
-            $alt    = trim((string) $assoc->nome_completo()) ?: trim((string) $assoc->nome_breve());
+            $alt    = associationAlt($assoc, 'logo');
             $website = trim((string) $assoc->sito_web());
             // Derivati ridimensionati, non l'originale (fino a 4 MB per logo):
             // 240/320px coprono i 165px di larghezza massima sullo schermo

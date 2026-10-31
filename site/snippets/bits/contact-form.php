@@ -12,12 +12,13 @@
  * @var string                    $credit     Credito della foto (default dalla pagina Contatti), HTML inline
  * @var string                    $background Sfondo della sezione: 'default' (bianco), 'tinted'
  *   (panna) o 'blue' (azzurro) — stesso vocabolario di blueprints/fields/background.yml.
- *   Come blocco (blocks/contact-form) lo sfondo lo applica già atoms/block-container.php:
- *   qui resta 'default'.
+ *   Qui resta 'default' se la sezione è dentro un blocco con sfondo
+ *   (lo applica atoms/block-container.php).
  * @var string                    $id         Ancora della sezione, univoca per pagina: è dove
  *   si torna dopo un invio senza JavaScript.
  *
- * Componente autonomo, usabile in qualunque template o come blocco. L'invio
+ * Componente autonomo, usabile in qualunque template (non è più un blocco
+ * del Panel: i template che lo mostrano lo includono direttamente). L'invio
  * (validazione, email) lo gestisce la route "invia-messaggio" in
  * site/plugins/contact-form; il contatore delle parole e l'invio senza
  * ricaricare la pagina, assets/js/contact-form.js.
@@ -25,7 +26,7 @@
 $contacts   = $site->find('chi-siamo/contatti');
 $label      ??= $contacts?->etichetta()->or('Contattaci')->value() ?? 'Contattaci';
 $image      ??= $contacts?->foto()->toFile();
-$alt        ??= $contacts?->fotoAlt()->or($image?->alt())->value() ?? '';
+$alt        ??= $contacts?->fotoAlt()->or($image?->altText())->value() ?? '';
 $credit     ??= $contacts?->credit()->value() ?? '';
 $background ??= 'default';
 $id         ??= 'contatti';

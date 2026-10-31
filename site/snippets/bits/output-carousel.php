@@ -21,7 +21,7 @@
  * specifico degli output — il filtro su chi ha una copertina e la card
  * da usare per ogni elemento.
  */
-$items = $items->filter(fn ($item) => $item->images()->first() !== null);
+$items = $items->filter(fn ($item) => $item->coverImage() !== null);
 
 $heading    ??= '';
 $background ??= 'default';

@@ -6,14 +6,14 @@
  * Intestazione dell'articolo: tipologia, titolo, introduzione,
  * autore/i, data e condividi sui social — a fianco, se presente, la
  * STESSA immagine di copertina già usata dalla card (vedi
- * bits/output-card, $page->images()->first()), non una nuova. Senza
+ * bits/output-card, $page->coverImage()), non una nuova. Senza
  * immagine il testo resta centrato su una colonna sola: entrambe le
  * varianti sono nel riferimento Figma, stesso componente.
  */
 $categoria = trim((string) $page->categoria());
 $intro     = trim((string) $page->intro());
 $data      = $page->data()->toItalianDate();
-$image     = $page->images()->first();
+$image     = $page->coverImage();
 
 // Membro della Consulta: link fisso alla pagina "Le Persone" (vedi
 // site/blueprints/pages/persone.yml) — non è un profilo individuale,

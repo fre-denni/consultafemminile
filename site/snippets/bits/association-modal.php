@@ -51,6 +51,7 @@ $modalId = 'association-' . $association->id();
     <div class="association-modal__hero">
       <?php snippet('atoms/picture', [
         'image'     => $foto,
+        'alt'       => associationAlt($association, 'foto'),
         'sizes'     => [640, 1024, 1280],
         'sizesAttr' => '(min-width: 768px) 60vw, 100vw',
         'class'     => 'association-modal__hero-img',
@@ -60,7 +61,7 @@ $modalId = 'association-' . $association->id();
         <div class="association-modal__logo">
           <?php snippet('atoms/picture', [
             'image'     => $logo,
-            'alt'       => '',
+            'alt'       => associationAlt($association, 'logo'),
             // 56px sullo schermo: i 240px della scala bastano anche per un
             // display 4x. Il derivato si genera al caricamento del logo (vedi
             // site/plugins/image-derivatives), non alla prima visita.
@@ -81,7 +82,7 @@ $modalId = 'association-' . $association->id();
         <div class="association-modal__logo">
           <?php snippet('atoms/picture', [
             'image'     => $logo,
-            'alt'       => '',
+            'alt'       => associationAlt($association, 'logo'),
             'sizes'     => [240],
             'sizesAttr' => '56px',
             'class'     => 'association-modal__logo-img',

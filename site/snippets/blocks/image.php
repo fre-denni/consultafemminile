@@ -20,7 +20,7 @@ $src     = null;
 if ($block->location() == 'web') {
   $src = $block->src()->esc();
 } elseif ($image = $block->image()->toFile()) {
-  $alt = $alt->or($image->alt());
+  $alt = $alt->or($image->altText());
 }
 
 // Colonna di lettura: 46rem su desktop (vedi atoms/block-container.css),

@@ -46,7 +46,7 @@ $deferred   ??= false;
 
 if (!$image) return;
 
-$alt ??= (string) $image->alt()->value();
+$alt ??= $image->altText();
 
 $classAttr = $class !== '' ? ' class="' . html($class) . '"' : '';
 

@@ -10,7 +10,7 @@
  * sovrapposto in basso, non affiancato — vedi il riferimento Figma.
  * Tutta la card è cliccabile.
  */
-$image = $item->images()->first();
+$image = $item->coverImage();
 
 if (!$image) return;
 ?>

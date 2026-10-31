@@ -10,7 +10,7 @@ Mission:
 
 ----
 
-Text: 
+Text: [{"content":{"heading":"Dal 1963 attive per la cittadinanza di Milano","text":"<p>La <strong>Consulta Interassociativa Femminile di Milano</strong> è nata agli inizi degli <strong>anni sessanta</strong> grazie all'accordo tra diverse associazioni femminili operanti nel territorio, unite dalla necessità di coordinare le forze per affrontare i problemi della comunità cittadina e essere più incisive. Oggi l'organizzazione è composta da <strong>18 associazioni</strong> che collaborano per migliorare la qualità della vita, interagendo con le istituzioni locali come la <strong>Consulta regionale</strong>, quella provinciale e il <strong>Consiglio regionale della Lombardia</strong>.</p>"},"id":"1aaf3ee3-7913-4fd5-b870-09eafe522d90","isHidden":false,"type":"paragraph"}]
 
 ----
 

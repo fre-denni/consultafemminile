@@ -10,7 +10,7 @@ Mission:
 
 ----
 
-Introduzione: <p>Esempio di paragrafo senza titolo su sfondo azzurro, come nel riferimento Figma — solo testo, nessuna etichetta o intestazione sopra, mostrato prima dei capitoli della timeline.</p>
+Introduzione: <p>Nata all'alba di un periodo cruciale per le rivendicazioni sui diritti civili, la Consulta si è strutturata non come un'associazione isolata, ma come una rete di coordinamento. Fin dalla sua nascita nel 1963, il suo scopo principale è stato quello di interloquire in maniera unitaria con le istituzioni locali (Comune di Milano, Città Metropolitana e Regione Lombardia), ponendosi come interlocutrice autorevole per l'adozione di politiche di genere sul territorio.</p>
 
 ----
 

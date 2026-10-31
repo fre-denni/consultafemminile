@@ -1,0 +1,53 @@
+Title: Prova articolo
+
+----
+
+Categoria: 
+
+----
+
+Autori: 
+
+----
+
+Intro: 
+
+----
+
+Data: 
+
+----
+
+Immagine: 
+
+----
+
+Text: 
+
+----
+
+Correlati-auto: true
+
+----
+
+Correlati-extra: 
+
+----
+
+Seotitle: 
+
+----
+
+Seoimage: 
+
+----
+
+Seodescription: 
+
+----
+
+Seonoindex: false
+
+----
+
+Uuid: 0ueectc72ysc0rrf

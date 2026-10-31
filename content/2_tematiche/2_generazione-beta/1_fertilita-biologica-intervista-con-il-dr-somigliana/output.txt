@@ -27,7 +27,7 @@ Data: 2026-03-16
 
 ----
 
-Immagine: - file://l30zm5nnbada2m3y
+Immagine: - file://fm1uomkfzwbnsgjw
 
 ----
 
@@ -40,6 +40,22 @@ Correlati-auto: false
 ----
 
 Correlati-extra: 
+
+----
+
+Seotitle: 
+
+----
+
+Seoimage: 
+
+----
+
+Seodescription: 
+
+----
+
+Seonoindex: false
 
 ----
 

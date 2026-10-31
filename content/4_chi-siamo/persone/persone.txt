@@ -6,14 +6,14 @@ Consiglio:
 
 - 
   foto:
-    - file://bzpsoj5drfxgb3n4
-  nome: Isabella
-  cognome: Goldmann
-  ruolo: Consigliera
-  presidenza: 'false'
-  associazione: AIDIA
-  email: studio@goldmann.it
-  id: "5"
+    - file://hlto6gdqupprnmo7
+  nome: Laura
+  cognome: Caradonna
+  ruolo: Presidente
+  presidenza: 'true'
+  associazione: TUTTI PIU’ EDUCATI
+  email: lauraladacaradonna@gmail.com
+  id: "28"
 - 
   foto:
     - file://zmbisrwya6zmh34q
@@ -24,6 +24,16 @@ Consiglio:
   associazione: 'AIDM - Milano'
   email: presidenza@aidm-milano.org
   id: "7"
+- 
+  foto:
+    - file://bzpsoj5drfxgb3n4
+  nome: Isabella
+  cognome: Goldmann
+  ruolo: Consigliera
+  presidenza: 'false'
+  associazione: AIDIA
+  email: studio@goldmann.it
+  id: "5"
 - 
   foto:
     - file://omdocj6gscctjlj6
@@ -45,16 +55,6 @@ Consiglio:
   associazione: Soroptimist
   email: margherita.pillan@polimi.it
   id: "26"
-- 
-  foto:
-    - file://hlto6gdqupprnmo7
-  nome: Laura
-  cognome: Caradonna
-  ruolo: Presidente
-  presidenza: 'true'
-  associazione: TUTTI PIU’ EDUCATI
-  email: lauraladacaradonna@gmail.com
-  id: "28"
 - 
   foto:
     - file://fdgwu5mswwduhpkj
@@ -197,6 +197,7 @@ Persone:
   email: irmamanfredi@gmail.com
   id: "15"
 - 
+  foto: [ ]
   nome: Nora
   cognome: Contendini
   ruolo: Delegata
@@ -329,6 +330,22 @@ Persone:
   associazione: Zonta Club
   email: luciatoniolo14@gmail.com
   id: "33"
+
+----
+
+Seotitle: 
+
+----
+
+Seoimage: 
+
+----
+
+Seodescription: 
+
+----
+
+Seonoindex: false
 
 ----
 

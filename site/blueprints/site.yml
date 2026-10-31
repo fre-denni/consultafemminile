@@ -23,12 +23,14 @@ tabs:
             help: >
               Le voci della barra di navigazione in alto, nell'ordine in cui
               compaiono: trascinale per cambiarlo, aggiungi o togli voci con
-              il pulsante.
             type: pages
+            # L'elenco di riserva sta in snippets/header.php ($defaultNav);
+            # un "default:" qui non si vedrebbe nel Panel (vale solo per le
+            # pagine appena create), quindi il testo sopra lo spiega.
             query: site.children.listed.add('chi-siamo/timeline')
             subpages: false
             layout: list
-            empty: Nessuna voce scelta
+            empty: "Nessuna voce scelta: il menu mostra il default"
       pagineSecondarie:
         label: Pagine non in lista
         help: >

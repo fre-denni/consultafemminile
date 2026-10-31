@@ -256,13 +256,15 @@ geometrici con i colori del brand. Come usarlo:
 
 **Scorciatoia nei campi immagine.** Dove un campo ha la chiave `imgtool: LARGHEZZAxALTEZZA` nel
 blueprint (Output → Immagine 400×400, immagine di condivisione SEO 400×210, foto significativa
-associazioni 640×200, immagini timeline 280×210, foto del form contatti 200×200) accanto a
-"Carica" e "Seleziona" c'è **"Genera"**: apre lo strumento già impostato sulla misura dello slot
+associazioni 640×200, immagini timeline 280×210, foto del form contatti 200×200; e nelle sezioni
+file: immagini delle tematiche 500×310, della timeline 280×210, foto dei Contatti 200×200) accanto
+a "Carica" e "Seleziona" (nelle sezioni: "Aggiungi") c'è **"Genera"**: apre lo strumento già impostato sulla misura dello slot
 (non serve calcolare nulla), con il solo pulsante **"Aggiungi alla pagina"**; l'immagine finisce
 direttamente nel campo, segnata come **decorativa** (Alt vuoto voluto), poi si salva la pagina come
-sempre. Il nome del file si sceglie nella finestra. Non è disponibile nelle *sezioni* file (es. le
-copertine delle tematiche): lì resta il link del menu laterale. Per aggiungerlo a un altro campo
-basta `imgtool: 280x210` nel suo blueprint (solo `type: files`).
+sempre. Il nome del file si sceglie nella finestra. Per aggiungerlo a un altro campo basta
+`imgtool: 280x210` nel suo blueprint (`type: files`); per una sezione file si usa `type: imgfiles`
+al posto di `files`, con la stessa chiave. Dove non c'è (es. le sezioni file di associazioni,
+patrocinio e statuto, che non hanno una misura sola) resta il link del menu laterale.
 Valori da impostare nello strumento: copertina tematica 500 × 310; copertina articolo 400 × 400;
 locandina 270 × 400; tematica/timeline (altre immagini) 280 × 210; contatti 200 × 200; foto
 associazione 640 × 200 (il sito la riduce da solo); condivisione SEO 400 × 210.
@@ -445,7 +447,7 @@ Templates: la pagina **Output** = articolo (`output.php`: `bits/article-header`,
   opzioni `consulta.seo.index`, `descriptionLength`, `titleLength`. Non usa il plugin
   `tobimori/kirby-seo` (v1 incompatibile con Kirby 5.6, v2 a pagamento).
 - **social-icons** — metodo `site.socialIconOptions` (file `.svg` di `assets/icons/social/`).
-- **imgtool** — pulsante "Genera" nei campi `type: files` che hanno la chiave `imgtool: LARGHEZZAxALTEZZA` nel blueprint (il plugin estende `k-files-field`; non vale per le sezioni file). Apre in una finestra del Panel lo strumento ospitato dal sito (`assets/imgtool`, copia di quello su GitHub `fre-denni/consultafemminile_imgtool`, che resta quello "normale"): nella copia ospitata larghezza/altezza partono dalla misura dello slot, mancano "Scarica Immagine" e il tasto S, c'è solo "Aggiungi alla pagina". L'immagine (2400 px sul lato lungo, WebP) si carica con l'endpoint di upload del campo, finisce nello slot e si segna **decorativa** (`decorative: true`, Alt vuoto voluto: il lettore di schermo la salta). Il nome del file si sceglie nella finestra (di default `cover.webp` se non c'è già, poi `immagine-1.webp`…). Il collegamento passa da un accesso diretto tra finestra del Panel e strumento (stessa origine, niente messaggi tra siti diversi), richiede un utente connesso.
+- **imgtool** — pulsante "Genera" nei campi `type: files` che hanno la chiave `imgtool: LARGHEZZAxALTEZZA` nel blueprint (il plugin estende `k-files-field`) e nelle sezioni file di tipo `imgfiles` (tipo definito dal plugin, come `files` + `imgtool`; estende `k-files-section`). Apre in una finestra del Panel lo strumento ospitato dal sito (`assets/imgtool`, copia di quello su GitHub `fre-denni/consultafemminile_imgtool`, che resta quello "normale"): nella copia ospitata larghezza/altezza partono dalla misura dello slot, mancano "Scarica Immagine" e il tasto S, c'è solo "Aggiungi alla pagina". L'immagine (2400 px sul lato lungo, WebP) si carica con l'endpoint di upload del campo, finisce nello slot e si segna **decorativa** (`decorative: true`, Alt vuoto voluto: il lettore di schermo la salta). Il nome del file si sceglie nella finestra (di default `cover.webp` se non c'è già, poi `immagine-1.webp`…). Il collegamento passa da un accesso diretto tra finestra del Panel e strumento (stessa origine, niente messaggi tra siti diversi), richiede un utente connesso.
 - **panel-login** — nel login del Panel il primo campo è "Utente o email". Con una @ vale l'email (rotta di Kirby); senza @ si cerca l'unico account il cui **Nome** coincide (senza badare a maiuscole e spazi doppi) e si entra con la sua password, tramite la rotta `login-by-name`. Se due account hanno lo stesso nome quel nome non funziona (si usa l'email); la registrazione "Richiedi l'accesso" ignora i nomi già in uso. Un account senza Nome si può usare solo con l'email.
 - **video-embed** — blocco "Video" degli articoli (output): accetta solo link YouTube o Vimeo (validatore `videoUrl`), li riduce a provider + ID e costruisce l'indirizzo di embed "senza cookie" (`youtube-nocookie.com`; Vimeo con `dnt=1`). L'iframe non è nella pagina finché chi legge non preme "Riproduci" (`assets/js/video-embed.js`). Non può impedire la pubblicità dei video monetizzati.
 - **panel-registration** — "Richiedi l'accesso": API pubblica `registration` (GET/POST),

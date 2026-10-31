@@ -37,16 +37,14 @@
   // del Panel (Sito → Pagine sito), nell'ordine scelto lì. La home può
   // starci per comodità del Panel ma nel menu non compare: il logo già porta
   // lì. Se l'elenco è vuoto (installazione nuova o contenuto non ancora
-  // impostato) si usano le pagine "listed" con "La nostra storia" in fondo.
-  $navItems = $site->navigazione()->toPages()->not('home');
+  // impostato, o non ancora salvato) si usa l'elenco di partenza proposto
+  // anche dal Panel — vedi il campo "navigazione" in blueprints/site.yml:
+  // se cambi uno cambia anche l'altro.
+  $defaultNav = ['tematiche', 'patrocinio', 'chi-siamo', 'chi-siamo/timeline'];
+  $navItems   = $site->navigazione()->toPages()->not('home');
 
   if ($navItems->isEmpty()) {
-      $navItems = $site->children()->listed()->not('home');
-
-      $timeline = $site->find('chi-siamo/timeline');
-      if ($timeline) {
-          $navItems = $navItems->add($timeline);
-      }
+      $navItems = $site->find(...$defaultNav) ?? new \Kirby\Cms\Pages();
   }
 
   //secondo livello

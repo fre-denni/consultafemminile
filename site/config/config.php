@@ -13,7 +13,10 @@ $options = [
         'vue' => ['compiler' => false],
         // Menu laterale: le voci di sempre + il link allo strumento per
         // generare le immagini in linea col brand (si apre in una nuova
-        // scheda; le immagini si scaricano e si caricano come al solito).
+        // scheda, nella versione originale su GitHub: le immagini si
+        // scaricano). Nei campi immagine c'è anche il pulsante "Genera", che
+        // apre la copia ospitata dal sito (assets/imgtool) e inserisce
+        // l'immagine direttamente nello slot.
         // Visibile a tutti i ruoli che entrano nel Panel (admin ed editor):
         // una voce personalizzata non ha un permesso suo. Con 'panel.menu'
         // definito, le aree vanno elencate tutte a mano.

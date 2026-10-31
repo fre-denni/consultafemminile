@@ -105,6 +105,14 @@ final class Registration
       return;
     }
 
+    // Stesso nome di un account esistente: il nome serve anche per entrare
+    // (vedi plugin panel-login), quindi non può esistere due volte. Stessa
+    // risposta di un successo; l'amministratore può sempre creare l'account
+    // a mano con un nome diverso.
+    if (\PanelLogin::nameTaken($kirby, $name)) {
+      return;
+    }
+
     $user = $kirby->impersonate('kirby', fn () => $kirby->users()->create([
       'email'    => $email,
       'name'     => $name,

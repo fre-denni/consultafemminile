@@ -2,6 +2,11 @@ name: Deploy to Production
 
 on:
   workflow_dispatch:
+    inputs:
+      solo_verifica:
+        description: "Salta il caricamento completo e ricarica solo i file con dimensione diversa sul server (veloce)"
+        type: boolean
+        default: false
 
 jobs:
   deploy:
@@ -25,36 +30,51 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          VERIFY_ONLY: ${{ inputs.solo_verifica }}
         run: |
           sudo apt-get update || true
           sudo apt-get install -y lftp
 
-          # Il server Aruba ogni tanto tronca i file piu' grandi (a multipli di
-          # 16 KiB) senza dare errore: un autoload.php tagliato a meta' manda
-          # in 500 tutto il sito. Quindi dopo il primo passaggio (che carica
-          # tutto) se ne fanno altri, confrontando le dimensioni, che
-          # ricaricano i file che non coincidono. Si finisce solo quando un
-          # passaggio non ha piu' niente da trasferire.
-          FLAGS=""
-          for pass in 1 2 3 4 5 6; do
-            echo "::group::Passaggio $pass"
+          # Il server Aruba tronca i file piu' grandi (a multipli di 16 KiB)
+          # senza dare errore: un autoload.php tagliato a meta' manda in 500
+          # tutto il sito. Ricaricare con le stesse impostazioni non basta,
+          # quindi: il primo passaggio carica tutto, i successivi confrontano
+          # le dimensioni e ricaricano solo i file diversi, provando ogni volta
+          # una variante della connessione. Si finisce quando un passaggio di
+          # confronto non ha piu' niente da trasferire; il log dice quale
+          # variante ha funzionato.
+          VARIANTS=(
+            "predefinita"
+            "set ssl:max-protocol TLS1.2;"
+            "set ftp:ssl-protect-data false;"
+            "set ssl:max-protocol TLS1.2; set ftp:ssl-protect-data false;"
+          )
+          if [ "$VERIFY_ONLY" = "true" ]; then FLAGS="--ignore-time"; START=1; else FLAGS=""; START=0; fi
+          for pass in 0 1 2 3 4 5 6 7; do
+            n=$(( (START + pass) % 4 ))
+            SETTINGS="${VARIANTS[$n]}"
+            [ "$n" = "0" ] && SETTINGS=""
+            echo "::group::Passaggio $((pass + 1)) - variante ${n} (${VARIANTS[$n]}) ${FLAGS:+solo file con dimensione diversa}"
             lftp -c "
             set ftp:ssl-force true;
             set ftp:ssl-protect-data true;
             set ssl:verify-certificate no;
             set net:max-retries 5;
             set net:timeout 30;
+            $SETTINGS
             open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
             mirror --reverse --verbose $FLAGS \
               --exclude-glob-from=.deployignore \
               . www.consultafemminile.org/
-            " | tee "$RUNNER_TEMP/mirror.log" || true
+            " 2>&1 | tee "$RUNNER_TEMP/mirror.log" || true
+            rc=${PIPESTATUS[0]}
             echo "::endgroup::"
-            if [ "$pass" -gt 1 ] && ! grep -q "Transferring file" "$RUNNER_TEMP/mirror.log"; then
-              echo "Deploy completo: tutti i file sul server hanno la stessa dimensione."
+            [ "$rc" != "0" ] && echo "lftp ha terminato con errore ($rc): passaggio non valido."
+            if [ "$rc" = "0" ] && [ -n "$FLAGS" ] && ! grep -q "Transferring file" "$RUNNER_TEMP/mirror.log"; then
+              echo "Deploy completo: tutti i file sul server hanno la stessa dimensione (variante ${n}: ${VARIANTS[$n]})."
               exit 0
             fi
             FLAGS="--ignore-time"
           done
-          echo "::error::Dopo 6 passaggi alcuni file sul server hanno ancora dimensione diversa: rilancia il deploy."
+          echo "::error::Dopo 8 passaggi alcuni file sul server hanno ancora dimensione diversa."
           exit 1

@@ -26,13 +26,35 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
-          lftp -c "
-          set ftp:ssl-force true;
-          set ftp:ssl-protect-data true;
-          set ssl:verify-certificate no;
-          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
-          mirror --reverse --verbose \
-            --exclude-glob-from=.deployignore \
-            . www.consultafemminile.org/
-          "   
+          sudo apt-get update || true
+          sudo apt-get install -y lftp
+
+          # Il server Aruba ogni tanto tronca i file piu' grandi (a multipli di
+          # 16 KiB) senza dare errore: un autoload.php tagliato a meta' manda
+          # in 500 tutto il sito. Quindi dopo il primo passaggio (che carica
+          # tutto) se ne fanno altri, confrontando le dimensioni, che
+          # ricaricano i file che non coincidono. Si finisce solo quando un
+          # passaggio non ha piu' niente da trasferire.
+          FLAGS=""
+          for pass in 1 2 3 4 5 6; do
+            echo "::group::Passaggio $pass"
+            lftp -c "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate no;
+            set net:max-retries 5;
+            set net:timeout 30;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" ftp://$FTP_SERVER;
+            mirror --reverse --verbose $FLAGS \
+              --exclude-glob-from=.deployignore \
+              . www.consultafemminile.org/
+            " | tee "$RUNNER_TEMP/mirror.log" || true
+            echo "::endgroup::"
+            if [ "$pass" -gt 1 ] && ! grep -q "Transferring file" "$RUNNER_TEMP/mirror.log"; then
+              echo "Deploy completo: tutti i file sul server hanno la stessa dimensione."
+              exit 0
+            fi
+            FLAGS="--ignore-time"
+          done
+          echo "::error::Dopo 6 passaggi alcuni file sul server hanno ancora dimensione diversa: rilancia il deploy."
+          exit 1
